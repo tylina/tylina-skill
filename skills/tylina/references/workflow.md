@@ -66,4 +66,9 @@ confirms its UI state, not completion of its asynchronous contents. Do not rearr
 View commands reuse the human UI controllers. They can reject a change during IME or a temporary
 editor. Preserve the draft and explain the blocked action; do not force a blur or simulate clicks.
 Browser user-gesture restrictions still apply to windows, clipboard and fullscreen capabilities.
-Do not promise Git, Presenter or other operations absent from this host's current help.
+Use `presenter` only when the user wants to present. `start` can return `preparing` or
+`user-action-required`; the latter requires clicking Start presentation in the editor, not polling.
+Read `state` for the actual phase. `jump` uses a one-based physical page; both `jump` and `stop`
+require the returned `operationId`. Do not reuse an identity after the main file or presentation changes.
+Cancelling a tool request does not undo an accepted start. Read state before deciding whether to stop.
+Do not promise Git, full-screen control or other operations absent from this host's current help.
