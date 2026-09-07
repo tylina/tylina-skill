@@ -36,7 +36,8 @@ For a script, import `openTylinaWorkspace` from `tylina-sdk/local` and await
 `openTylinaWorkspace({ workspace: '/path/to/project', mainFile: 'main.typ' })`. Its `query`, `execute`
 and `close` methods match the connection below. Pass a per-call `signal` to cancel and always close
 the owner in `finally`. The default per-command deadline is 120 seconds; SDK callers can set `timeoutMs`.
-Discover `help`: standalone views, selection and template commands are currently unavailable.
+Discover `help`: standalone views and selection are unavailable. Template commands are provided unless
+the SDK host disables them; bundled themes require the optional Web assets package.
 
 ## MCP
 
