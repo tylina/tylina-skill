@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tylina"
+  short_description: "Coauthor Typst documents with a live editor"
+  default_prompt: "Use $tylina to edit my document, verify its layout and export the result."
