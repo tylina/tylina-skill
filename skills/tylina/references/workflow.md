@@ -39,6 +39,20 @@ Paths are workspace-relative. Providers own native paths, symlinks and access ch
 Validation and rendering must correspond to the current source. If the user edits concurrently,
 refresh the source/context and repeat only the checks made obsolete by those changes.
 
+## Use packaged scripts
+
+Read the relevant domain Skill before choosing a script. When the host advertises `runtime.prepare`,
+use it to obtain the actual `uvExecutable`, environment, workspace root and Skills root. Check for
+`ready`; interactive hosts can return `installing`, while standalone CLI/SDK calls wait for completion.
+Retry a failed installation only with an explicit `retry: true` request after addressing the cause.
+
+Run the documented script through your host's ordinary process tool, using the returned environment
+and workspace root as `cwd`. Use `uv run --no-project` unless the Skill explicitly requires that
+workspace's Python project. Keep script arguments separate; do not assemble unescaped shell strings.
+Respect the calling Agent's execution permissions, timeouts and cancellation. This command prepares
+runtime paths, not a hidden shell inside Tylina. Browser-only hosts need their supported document
+commands or an external host for native scripts; do not invent a browser terminal capability.
+
 ## Operate the editor
 
 `view.state` reads observed application state. `view.set` explicitly sets a supported target instead
