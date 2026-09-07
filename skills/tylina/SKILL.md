@@ -5,9 +5,10 @@ description: Create, edit, inspect and export Typst documents with Tylina alongs
 
 # Tylina
 
-Work in the user's connected Tylina editor. Source and resources are canonical; the preview and
-editor selection describe that source. Use the shared command interface so human edits, Agent edits,
-history and compilation stay in the same workspace.
+Use the user's connected Tylina editor for coediting and selection-based work, or an explicitly
+chosen standalone disk workspace for headless authoring. Source and resources are canonical.
+Use the shared command interface; a standalone workspace cannot read another window's unsaved edits,
+selection or History. Do not silently switch between these two owners.
 
 ## Connect and discover
 
@@ -19,10 +20,11 @@ do not claim that selection is unavailable before trying the connected `editor.s
 
 - Call `help` for the current host's compact command index. Read `help` with
   `{ "command": "file.edit" }` as its args to obtain one command's exact schema.
-- Query `workspace.info` and `editor.state` to identify the main file, active file and actual selection.
+- Query `workspace.info` and, when available, `editor.state` to identify the main file, active file and actual selection.
   The working directory of a terminal may differ from the editor's workspace.
 - Read `typst-authoring/SKILL.md` through `skill.read` unless that core is already present in the
-  session's Tylina instructions. Use `skill.list` to discover domain Skills, then load only the one
+  session's Tylina instructions. A standalone host exposes these when its packaged resources are installed.
+  Use `skill.list` to discover domain Skills, then load only the one
   relevant to the task and the references it needs. Do not preload the entire library.
 
 The host's `help` is authoritative for available operations and arguments. Do not turn dotted command
@@ -37,7 +39,7 @@ If selection is stale, unavailable or truncated, obtain a current source snapsho
 scope before writing. Do not locate source by guessing from rendered text or DOM order.
 
 Use `file.read` to get current text and its full-file SHA-256. Prefer `file.edit` for focused changes;
-its replacements all refer to the same original snapshot and become one editor transaction.
+its replacements all refer to the same original snapshot and become one host transaction.
 Use `file.write` to create a file or when a full replacement is actually intended. A hash conflict
 requires reading and reconsidering the new content, not blindly retrying the old change.
 

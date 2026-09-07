@@ -1,14 +1,42 @@
 # Connecting to Tylina
 
-This Skill uses the command-capable Tylina SDK and a live editor endpoint. A normal static Web tab
-does not automatically expose a local HTTP endpoint. DSH's Tylina integration can grant one from its
-MCP connection control. Standalone local workspace launch is still being developed.
+This Skill uses the command-capable Tylina SDK. For coediting, use a granted live editor endpoint.
+A normal static Web tab does not automatically expose a local HTTP endpoint; DSH's Tylina integration
+can grant one from its MCP connection control. For an explicitly selected disk project, use the
+standalone workspace connection below.
 
 The CLI/stdio gateway is currently a development capability, not part of published SDK 0.4.2.
 Check the installed SDK and `tylina --help`; do not repeatedly reinstall an incompatible published
 version. The repository README tracks release availability.
 The editor/DSH build must also support the single command gateway; older multi-tool bundles are not
 compatible with this adapter. Read their advertised tool catalog instead of assuming matching versions.
+
+## Standalone workspace
+
+The candidate SDK can run document commands without opening an editor window or starting a model.
+Install its matching native runtime, `tylina-native-<platform>-<arch>` (for example,
+`tylina-native-darwin-arm64`), alongside the SDK. `tylina-web-assets` optionally supplies the maintained
+domain Skills. These must be compatible artifacts; development support does not mean every platform
+has a published matching release.
+
+```sh
+tylina help --workspace /path/to/project
+tylina document.validate --workspace /path/to/project --main main.typ
+tylina mcp --workspace /path/to/project --main main.typ
+```
+
+For stdio clients use args `["mcp", "--workspace", "/path/to/project", "--main", "main.typ"]`.
+Do not also set `TYLINA_MCP_URL`: that would mix two workspace owners. The workspace must exist;
+`--main` is relative to it. No main is guessed. An empty workspace supports file creation followed
+by `document.setMain`. Main selection lasts for that MCP process; one-shot CLI commands each need
+their own `--main` argument. Reads are lazy, writes go to disk with hash checks, and the installed
+native engine resolves dependencies. Use a live connection to work with a user's unsaved content.
+
+For a script, import `openTylinaWorkspace` from `tylina-sdk/local` and await
+`openTylinaWorkspace({ workspace: '/path/to/project', mainFile: 'main.typ' })`. Its `query`, `execute`
+and `close` methods match the connection below. Pass a per-call `signal` to cancel and always close
+the owner in `finally`. The default per-command deadline is 120 seconds; SDK callers can set `timeoutMs`.
+Discover `help`: standalone views, selection and template commands are currently unavailable.
 
 ## MCP
 

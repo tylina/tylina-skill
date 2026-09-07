@@ -4,7 +4,7 @@ Discover exact parameters with `help`; these workflows name shared commands, not
 
 ## Start from a template
 
-For a requested template, use `template.list` before inventing styling or searching arbitrary
+When the host provides template commands, for a requested template use `template.list` before inventing styling or searching arbitrary
 repository revisions. Inspect the chosen exact spec with `template.inspect`, then materialize it
 with `template.create`. The materializer preserves conflicting files by choosing an isolated
 destination; use the actual paths returned in its receipt.
@@ -12,6 +12,8 @@ destination; use the actual paths returned in its receipt.
 Preserve the current document unless the user requested replacing it. Choose the new main file
 through `document.setMain`; that command uses real compilation before switching. Follow the selected
 domain Skill for slides, papers, resumes, posters, charts or other document types.
+Standalone hosts currently lack these template commands. Use an existing scaffold or an explicitly
+chosen template source; do not invent tool names or claim to have browsed the Tylina gallery.
 
 ## Work in a large project
 

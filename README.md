@@ -14,8 +14,8 @@ the user's live editor context. One `tylina` command interface; domain Skills lo
 
 > **Development preview.** This repository targets the next command-capable Tylina SDK release.
 > The CLI and MCP stdio bridge are locally tested; published SDK 0.4.2 does not include them yet.
-> A matching command-capable editor/DSH build and its granted connection are required; the new gateway
-> has not been released in the DSH bundle yet. Independent workspace launch is still in development.
+> Coediting requires a matching editor/DSH build and its granted connection; the new gateway is not
+> released in DSH yet. Standalone disk workspaces are also locally tested with the matching native runtime.
 
 | Write together | Verify the result |
 | --- | --- |
@@ -63,6 +63,11 @@ The Agent uses your connected editor; it does not start another model or create 
 the document. A static Web tab alone does not expose a local MCP endpoint.
 
 ## Try it
+
+For standalone projects, the candidate SDK also supports
+`tylina mcp --workspace /path/to/project --main main.typ`. It compiles and exports without opening a
+window; connect to the live editor when you need its unsaved edits or selection. See the
+[connection guide](skills/tylina/references/connection.md) for runtime installation and scope.
 
 > Use Tylina to improve the selected paragraph while preserving its meaning, then validate the document.
 

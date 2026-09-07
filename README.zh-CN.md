@@ -14,8 +14,8 @@ Tylina 为 Agent 提供真实 Typst 编译、页面图像、PDF/PNG/SVG 导出�
 
 > **开发预览。** 本仓库面向下一版支持统一命令的 Tylina SDK。
 > CLI 和 MCP stdio 桥接已在本地测试，npm 已发布的 SDK 0.4.2 尚不包含这些能力。
-> 还需要匹配的、支持统一命令的编辑器/DSH 构建及其授权连接；新版入口尚未发布到 DSH bundle。
-> 独立启动本地工作区仍在开发中。
+> 共同编辑需要匹配的编辑器/DSH 构建及其授权连接；新版入口尚未发布到 DSH bundle。
+> 独立磁盘工作区也已通过匹配 native 运行时的本地验证。
 
 | 共同编写 | 检查结果 |
 | --- | --- |
@@ -63,6 +63,11 @@ Agent 操作的是已连接的编辑器，不会另起一个模型或维护另�
 普通静态 Web 页面本身不会暴露本地 MCP 端点。
 
 ## 可以这样使用
+
+独立项目也能通过候选 SDK 执行
+`tylina mcp --workspace /path/to/project --main main.typ`，无需打开窗口即可编译和导出。
+需要用户的未保存内容或选区时，应连接实际编辑器。
+运行时安装和作用域见[连接说明](skills/tylina/references/connection.md)。
 
 > 用 Tylina 润色我选中的段落，保持原意，然后验证文档。
 
