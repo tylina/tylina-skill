@@ -7,6 +7,8 @@ MCP connection control. Standalone local workspace launch is still being develop
 The CLI/stdio gateway is currently a development capability, not part of published SDK 0.4.2.
 Check the installed SDK and `tylina --help`; do not repeatedly reinstall an incompatible published
 version. The repository README tracks release availability.
+The editor/DSH build must also support the single command gateway; older multi-tool bundles are not
+compatible with this adapter. Read their advertised tool catalog instead of assuming matching versions.
 
 ## MCP
 

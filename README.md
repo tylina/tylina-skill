@@ -14,7 +14,8 @@ the user's live editor context. One `tylina` command interface; domain Skills lo
 
 > **Development preview.** This repository targets the next command-capable Tylina SDK release.
 > The CLI and MCP stdio bridge are locally tested; published SDK 0.4.2 does not include them yet.
-> A granted live-editor connection is required. Independent workspace launch is still in development.
+> A matching command-capable editor/DSH build and its granted connection are required; the new gateway
+> has not been released in the DSH bundle yet. Independent workspace launch is still in development.
 
 | Write together | Verify the result |
 | --- | --- |
