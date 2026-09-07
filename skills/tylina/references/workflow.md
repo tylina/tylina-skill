@@ -58,9 +58,12 @@ commands or an external host for native scripts; do not invent a browser termina
 `view.state` reads observed application state. `view.set` explicitly sets a supported target instead
 of blindly toggling it. Discover targets from `help`; a `null` surface is unavailable in that host.
 Use these commands when an operation benefits the user, such as opening a requested template gallery
-or switching to Split to review source. Do not rearrange the UI on every read or edit.
+or switching to Split to review source. Open `workspace` before selecting `sidebarTool`, such as
+`outline` or `labels`; `zoom: 1` resets preview zoom. `history` selects `edits`, `git` or `closed`.
+A host may reject an unsupported subview even when it provides the parent surface. Opening a panel
+confirms its UI state, not completion of its asynchronous contents. Do not rearrange the UI on every read or edit.
 
 View commands reuse the human UI controllers. They can reject a change during IME or a temporary
 editor. Preserve the draft and explain the blocked action; do not force a blur or simulate clicks.
 Browser user-gesture restrictions still apply to windows, clipboard and fullscreen capabilities.
-Do not promise History, Presenter or other operations absent from this host's current help.
+Do not promise Git, Presenter or other operations absent from this host's current help.
