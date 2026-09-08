@@ -17,6 +17,10 @@ the user's live editor context. One `tylina` command interface; domain Skills lo
 > Coediting requires a matching editor/DSH build and its granted connection; the new gateway is not
 > released in DSH yet. Standalone disk workspaces are also locally tested with the matching native runtime.
 
+Real Codex acceptance covers report editing and table refinement through the single MCP gateway,
+including on-demand table guidance, rendered page images and PDF/PNG/SVG exports on macOS arm64.
+Live coediting with external Agents, other clients and other platforms still need separate acceptance.
+
 | Write together | Verify the result |
 | --- | --- |
 | Read the user's actual selection | Compile through Typst/Tinymist |

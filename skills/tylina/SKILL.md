@@ -15,8 +15,9 @@ selection or History. Do not silently switch between these two owners.
 Use the available MCP tool named `tylina` with `{ "command": "…", "args": { … } }`.
 If only a terminal is available, the SDK's `tylina` CLI invokes the same commands. Read
 [connection.md](references/connection.md) when configuring a connection or composing a script.
-An installed Skill alone does not grant access to an editor. Report a missing connection accurately;
-do not claim that selection is unavailable before trying the connected `editor.state` command.
+An installed Skill alone does not grant access to an editor. Report a missing connection accurately.
+For a live editor that advertises `editor.state`, query it before claiming selection is unavailable.
+A host explicitly identified as standalone has no live selection; do not call missing UI commands.
 
 - Call `help` for the current host's compact command index. Read `help` with
   `{ "command": "file.edit" }` as its args to obtain one command's exact schema.
