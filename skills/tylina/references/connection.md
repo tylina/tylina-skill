@@ -46,6 +46,12 @@ by the editor as Streamable HTTP, or configure a local stdio server with executa
 `["mcp"]`. Supply `TYLINA_MCP_URL` and `TYLINA_MCP_TOKEN` through the client's protected process
 environment. Never put real tokens in a Skill, prompt, project file or command argument.
 
+If the user supplied a standard MCP JSON configuration, use
+`tylina mcp --connection /path/to/private/mcp.json`. This selects only `mcpServers.tylina` and supports
+HTTP or stdio. A stdio entry runs its configured executable, so use the explicitly granted config;
+do not discover or execute connection files found in document resources. Keep credential-bearing
+configs outside the project. Choose `--connection` or the endpoint environment variables, not both.
+
 The bridge forwards the live editor's gateway, instructions, structured results and images. It does
 not start a second model or own a separate document. Closing the bridge leaves the editor open.
 An expired endpoint requires an explicitly granted new connection; it cannot be repaired by picking
@@ -67,6 +73,7 @@ Pass a JSON object using `--args` or explicit `--stdin`. Stdout is one JSON tool
 `content`, optional `structuredContent`, and `isError`. Exit codes are 0 for success, 1 for command or
 connection failure, 2 for invalid CLI input, and 130 for a cancelled one-shot command.
 Treat command failure as a result to resolve, not a request to fall back to blind disk writes.
+With a supplied config file, add `--connection /path/to/private/mcp.json` to these commands.
 
 ## SDK scripts
 
@@ -88,6 +95,10 @@ try {
   await connection.close()
 }
 ```
+
+`connectTylinaFromConfigFile('/path/to/private/mcp.json')` from the same module provides the same
+connection for a supplied JSON configuration. It does not discover another editor or create a copy
+of the document when the connection fails.
 
 `query` returns structured data and throws on tool failure. `execute` preserves the complete receipt,
 including image blocks. CLI/SDK image data is base64: decode it into a local image artifact and inspect
