@@ -12,10 +12,10 @@
 Tylina 为 Agent 提供真实 Typst 编译、页面图像、PDF/PNG/SVG 导出和当前编辑器上下文。
 统一使用一个 `tylina` 命令入口，按任务加载领域 Skills。
 
-> **开发预览。** 本仓库面向下一版支持统一命令的 Tylina SDK。
-> CLI 和 MCP stdio 桥接已在本地测试，npm 已发布的 SDK 0.4.2 尚不包含这些能力。
-> 共同编辑需要匹配的编辑器/DSH 构建及其授权连接；新版入口尚未发布到 DSH bundle。
-> 独立磁盘工作区也已通过匹配 native 运行时的本地验证。
+> **SDK 预览版。** 安装已发布的 `tylina-sdk@0.4.3`，即可使用 CLI 和单工具 MCP 桥接。
+> 该版本位于 `next` 标签；npm 的 `latest` 仍为不含这些命令的 0.4.2。
+> 共同编辑需要应用授权的连接；DSH WASM 0.4.7 已提供该入口。
+> 独立磁盘工作区需要匹配的 native 运行时，跨平台正式发布仍待完成。
 
 真实 Codex 已在 macOS arm64 通过单一 MCP 入口完成报告编辑和表格优化，
 包括按需读取表格指导、检查页面图像及导出 PDF/PNG/SVG。
@@ -43,8 +43,13 @@ npx skills add tylina/tylina-skill
 也不需要克隆 Tylina 核心仓库。
 
 安装 Skill 只提供指导，不会自动连接编辑器。
-请使用已有的 Tylina MCP 连接，或安装预览版提供的、支持统一命令的匹配 `tylina-sdk` 产物。
-已发布的 SDK 0.4.2 不能执行下面的命令。
+请使用已有的 Tylina MCP 连接，或安装支持统一命令的 SDK：
+
+```sh
+npm install -g tylina-sdk@0.4.3
+```
+
+SDK 0.4.2 不能执行下面的命令。
 
 ## 连接编辑器
 

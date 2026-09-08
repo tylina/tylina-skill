@@ -12,10 +12,10 @@ Create a paper, polish a resume, build academic slides, or turn notes into a fin
 Tylina gives your Agent real Typst compilation, page images and PDF/PNG/SVG export, together with
 the user's live editor context. One `tylina` command interface; domain Skills load as needed.
 
-> **Development preview.** This repository targets the next command-capable Tylina SDK release.
-> The CLI and MCP stdio bridge are locally tested; published SDK 0.4.2 does not include them yet.
-> Coediting requires a matching editor/DSH build and its granted connection; the new gateway is not
-> released in DSH yet. Standalone disk workspaces are also locally tested with the matching native runtime.
+> **SDK preview.** Install published `tylina-sdk@0.4.3` for the CLI and single-tool MCP bridge.
+> This version is tagged `next`; npm's `latest` still points to 0.4.2, which lacks these commands.
+> Live coediting requires an app-granted connection; DSH WASM 0.4.7 supplies the gateway.
+> Standalone disk workspaces require a matching native runtime; cross-platform release remains pending.
 
 Real Codex acceptance covers report editing and table refinement through the single MCP gateway,
 including on-demand table guidance, rendered page images and PDF/PNG/SVG exports on macOS arm64.
@@ -43,8 +43,13 @@ format is shared by coding Agents such as Codex and Claude Code; it is not tied 
 No Tylina core repository checkout is required.
 
 Installing a Skill provides guidance, not a running editor connection. Use an existing Tylina MCP
-connection, or install the matching command-capable `tylina-sdk` artifact supplied with the preview.
-Do not use published SDK 0.4.2 for the commands below.
+connection, or install the command-capable SDK:
+
+```sh
+npm install -g tylina-sdk@0.4.3
+```
+
+Do not use SDK 0.4.2 for the commands below.
 
 ## Connect your editor
 
