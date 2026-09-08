@@ -5,6 +5,12 @@ A normal static Web tab does not automatically expose a local HTTP endpoint; DSH
 can grant one from its MCP connection control. For an explicitly selected disk project, use the
 standalone workspace connection below.
 
+In a compatible desktop build, the user opens the Agent sidebar, clicks **Connect external Agent**
+(the plug icon), and exports a new MCP configuration file. No internal AI conversation is required.
+Use that explicitly supplied file with `--connection`; keep it outside the document project.
+The same UI can revoke access, and closing the editor window revokes the grant. Successful re-export
+replaces the previous grant. Revocation preserves accepted edits and the user's normal Undo history.
+
 The CLI/stdio gateway is currently a development capability, not part of published SDK 0.4.2.
 Check the installed SDK and `tylina --help`; do not repeatedly reinstall an incompatible published
 version. The repository README tracks release availability.
