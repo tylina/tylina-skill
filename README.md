@@ -19,7 +19,9 @@ the user's live editor context. One `tylina` command interface; domain Skills lo
 
 Real Codex acceptance covers report editing and table refinement through the single MCP gateway,
 including on-demand table guidance, rendered page images and PDF/PNG/SVG exports on macOS arm64.
-Live coediting with external Agents, other clients and other platforms still need separate acceptance.
+On an app-granted Electron connection, Codex also reads a live Document selection after chat focus,
+edits only that range, checks the rendered page and saves; user Undo/Redo preserves the prior text.
+The standalone visual connection/setup flow, other hosts, clients and platforms still need acceptance.
 
 | Write together | Verify the result |
 | --- | --- |
