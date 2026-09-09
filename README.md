@@ -14,14 +14,15 @@ the user's live editor context. One `tylina` command interface; domain Skills lo
 
 > **SDK preview.** Install published `tylina-sdk@0.4.3` for the CLI and single-tool MCP bridge.
 > This version is tagged `next`; npm's `latest` still points to 0.4.2, which lacks these commands.
-> Live coediting requires an app-granted connection; DSH WASM 0.4.7 supplies the gateway.
+> Live coediting requires an app-granted connection; DSH WASM 0.4.10 supplies the gateway.
 > Standalone disk workspaces require a matching native runtime; cross-platform release remains pending.
 
 Real Codex acceptance covers report editing and table refinement through the single MCP gateway,
 including on-demand table guidance, rendered page images and PDF/PNG/SVG exports on macOS arm64.
 On an app-granted Electron connection, Codex also reads a live Document selection after chat focus,
 edits only that range, checks the rendered page and saves; user Undo/Redo preserves the prior text.
-The standalone visual connection/setup flow, other hosts, clients and platforms still need acceptance.
+The packaged macOS editor also verifies configuration export, real compilation/rendering, editing,
+revocation and Undo through that connection. Other clients and platforms still need acceptance.
 
 | Write together | Verify the result |
 | --- | --- |
@@ -52,6 +53,16 @@ npm install -g tylina-sdk@0.4.3
 Do not use SDK 0.4.2 for the commands below.
 
 ## Connect your editor
+
+In the desktop Agent sidebar, click **Connect external Agent** (the plug icon) and export an MCP
+configuration. No internal AI conversation is required. Keep that file outside the document project:
+
+```sh
+tylina mcp --connection /path/to/private/mcp.json
+```
+
+The same control revokes the connection; accepted edits and Undo remain available. Closing the
+editor window also revokes access.
 
 The DSH Tylina integration can supply a live-editor MCP connection. Configure that HTTP connection
 in your Agent, or supply `TYLINA_MCP_URL` and `TYLINA_MCP_TOKEN` through its protected environment and
