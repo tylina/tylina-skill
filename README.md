@@ -4,112 +4,106 @@
 
 **Your Agent and your document, in the same workspace.**
 
-[Tylina](https://tylina.github.io/) · [Web editor](https://tylina.github.io/app/) · [中文](README.zh-CN.md)
+[Tylina](https://tylina.github.io/) · [Web editor](https://tylina.github.io/app/) · [Demo](https://tylina.github.io/demo/) · [中文](README.zh-CN.md)
 
 </div>
 
-Create a paper, polish a resume, build academic slides, or turn notes into a finished report.
-Tylina gives your Agent real Typst compilation, page images and PDF/PNG/SVG export, together with
-the user's live editor context. One `tylina` command interface; domain Skills load as needed.
+Turn notes into academic slides. Polish a résumé, lay out a poster, or finish a paper, chart or report.
+Your Agent can read your selection, edit Typst source, inspect real rendered pages and export the result.
+One **`tylina`** tool connects the workflow; writing and design Skills load as needed.
 
-> **SDK preview.** Install published `tylina-sdk@0.4.3` for the CLI and single-tool MCP bridge.
-> This version is tagged `next`; npm's `latest` still points to 0.4.2, which lacks these commands.
-> Live coediting requires an app-granted connection; DSH WASM 0.4.10 supplies the gateway.
-> Standalone disk workspaces require a matching native runtime; cross-platform release remains pending.
+[![Editing a Typst document in Tylina](https://tylina.github.io/demo.gif)](https://tylina.github.io/demo/)
 
-Real Codex acceptance covers report editing and table refinement through the single MCP gateway,
-including on-demand table guidance, rendered page images and PDF/PNG/SVG exports on macOS arm64.
-On an app-granted Electron connection, Codex also reads a live Document selection after chat focus,
-edits only that range, checks the rendered page and saves; user Undo/Redo preserves the prior text.
-The packaged macOS editor also verifies configuration export, real compilation/rendering, editing,
-revocation and Undo through that connection. Other clients and platforms still need acceptance.
-
-| Write together | Verify the result |
+| Write together | Check and deliver |
 | --- | --- |
-| Read the user's actual selection | Compile through Typst/Tinymist |
-| Apply precise edits with version checks | Inspect rendered pages |
-| Discover templates and domain Skills | Export PDF, PNG and SVG |
-| Use supported editor views | Keep changes in normal editor history |
+| Read the current editor selection | Compile with Typst/Tinymist |
+| Make precise, version-checked edits | Inspect actual page images |
+| Browse templates and domain Skills | Export PDF, PNG and SVG |
+| Keep edits in normal editor history | Continue in the same workspace |
 
-## Install the Skill
+## Get started
 
-With the [Skills CLI](https://www.skills.sh/docs/cli):
+Install the Skill for your coding Agent:
 
 ```sh
 npx skills add tylina/tylina-skill
 ```
 
-Or copy [`skills/tylina`](skills/tylina/) into your Agent's supported skills directory. The Skill
-format is shared by coding Agents such as Codex and Claude Code; it is not tied to a model provider.
-No Tylina core repository checkout is required.
+Or copy [`skills/tylina`](skills/tylina/) into its supported Skills directory. No core repository
+checkout is required. The Skill provides guidance; an editor connection or local runtime supplies the tools.
 
-Installing a Skill provides guidance, not a running editor connection. Use an existing Tylina MCP
-connection, or install the command-capable SDK:
+**Already have a Tylina MCP connection?** Enable it in your Agent and start writing.
+Otherwise install the SDK's command interface, currently on the preview channel:
 
 ```sh
-npm install -g tylina-sdk@0.4.3
+npm install -g tylina-sdk@next
 ```
 
-Do not use SDK 0.4.2 for the commands below.
+Use the same command to update. [SDK on npm](https://www.npmjs.com/package/tylina-sdk?activeTab=versions)
+lists published channels; the connection guide explains [runtime requirements](skills/tylina/references/connection.md).
 
-## Connect your editor
+## Write with your editor
 
-In the desktop Agent sidebar, click **Connect external Agent** (the plug icon) and export an MCP
-configuration. No internal AI conversation is required. Keep that file outside the document project:
+1. Open the desktop Agent sidebar and click **Connect external Agent** (the plug icon).
+2. Export the MCP configuration to a private location outside your document project.
+3. Add that configuration to your Agent. For clients that use the CLI bridge:
 
 ```sh
 tylina mcp --connection /path/to/private/mcp.json
 ```
 
-The same control revokes the connection; accepted edits and Undo remain available. Closing the
-editor window also revokes access.
+No built-in AI conversation is required. The Agent uses this editor's live selection and unsaved content.
+Revoke access from the same button, or close the editor window; accepted edits remain in normal history.
 
-The DSH Tylina integration can supply a live-editor MCP connection. Configure that HTTP connection
-in your Agent, or supply `TYLINA_MCP_URL` and `TYLINA_MCP_TOKEN` through its protected environment and
-run the SDK's stdio adapter:
+Try asking:
 
-```sh
-tylina mcp
-```
+> Improve the selected paragraph without changing its meaning, then validate the document.
 
-For CLI-capable Agents and scripts, the same environment also enables:
-
-```sh
-tylina editor.state
-tylina help --args '{"command":"file.edit"}'
-tylina document.validate
-```
-
-Keep real connection tokens out of prompts, repository files and command arguments.
-The Agent uses your connected editor; it does not start another model or create a competing copy of
-the document. A static Web tab alone does not expose a local MCP endpoint.
-
-## Try it
-
-For standalone projects, the candidate SDK also supports
-`tylina mcp --workspace /path/to/project --main main.typ`. It compiles and exports without opening a
-window; connect to the live editor when you need its unsaved edits or selection. See the
-[connection guide](skills/tylina/references/connection.md) for runtime installation and scope.
-
-> Use Tylina to improve the selected paragraph while preserving its meaning, then validate the document.
-
-> Create an academic slide deck from these notes. Browse suitable templates, check the rendered pages,
-> and export a PDF.
+> Turn these notes into academic slides. Find a suitable template, inspect the pages, and export a PDF.
 
 > Review the report's layout. Show me the pages that need attention before changing them.
 
-The entry Skill discovers the host's actual capabilities, then loads Tylina's maintained authoring,
-slides, charts and other domain guidance through `skill.list` and `skill.read`. This repository
-doesn't duplicate that library or the compiler.
+<details>
+<summary><strong>DSH, standalone projects and scripting</strong></summary>
 
-See the [connection guide](skills/tylina/references/connection.md) for SDK composition and
-[document workflows](skills/tylina/references/workflow.md) for editing and export behavior.
+[DSH Plugin](https://github.com/tylina/dsh-tylina) provides a live-editor connection in the Harness workspace.
+For HTTP/stdio configuration, see the [connection guide](skills/tylina/references/connection.md).
+A static Web tab alone does not expose a local MCP endpoint.
 
-## Development
+Standalone projects use the SDK and a matching native runtime:
 
-This repository is independently installable Skill content. There is no core source checkout or
-compilation step. Run `node --test tests/skill-package.mjs` to validate its links, metadata and package
-boundaries. Live-editor workflows additionally require a compatible SDK/editor and real runtime tests;
-the content checks alone do not prove compilation, UI behavior or Agent quality.
+```sh
+tylina mcp --workspace /path/to/project --main main.typ
+```
 
-Skill content is [MIT licensed](LICENSE). The SDK, editor, fonts and templates retain their own licenses.
+This mode compiles and exports without a window. Use an editor connection when you need live selection
+or unsaved edits. The coordinated Native release is still in progress; check runtime availability before installing.
+
+CLI and SDK callers use the same commands, including `editor.state`, `file.edit`, `document.validate`
+and progressive `help`. Connection tokens belong in private configuration or protected process
+variables, outside prompts, command arguments and document files.
+
+</details>
+
+<details>
+<summary><strong>Compatibility and verification</strong></summary>
+
+The Skill format works with coding Agents such as Codex and Claude Code; each client still needs a
+compatible MCP connection. The command-capable SDK is currently installed through `@next`.
+Check `tylina --help` when upgrading an older installation.
+
+Real Codex checks on macOS arm64 cover selected-range coediting, report and table tasks, on-demand
+Skills, rendered images and PDF/PNG/SVG export. Packaged Electron also verifies grant export and
+revocation, editing, saving and Undo. These checks do not establish every client's or platform's behavior.
+
+</details>
+
+## How it works
+
+The entry Skill discovers the host's actual capabilities, then reads maintained authoring, slides,
+charts and other guidance through `skill.list` and `skill.read`. It shares Tylina's compiler and domain
+library. [Document workflows](skills/tylina/references/workflow.md) describe editing, templates and export.
+
+This repository is independently installable content. Run `node --test tests/skill-package.mjs` to check
+metadata, links and package boundaries. Skill content is [MIT licensed](LICENSE); the SDK, editor,
+fonts and templates retain their own licenses.

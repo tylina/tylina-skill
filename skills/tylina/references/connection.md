@@ -11,9 +11,9 @@ Use that explicitly supplied file with `--connection`; keep it outside the docum
 The same UI can revoke access, and closing the editor window revokes the grant. Successful re-export
 replaces the previous grant. Revocation preserves accepted edits and the user's normal Undo history.
 
-The CLI/stdio gateway is currently a development capability, not part of published SDK 0.4.2.
-Check the installed SDK and `tylina --help`; do not repeatedly reinstall an incompatible published
-version. The repository README tracks release availability.
+Check `tylina --help` for the command interface and MCP bridge. If they are missing, use the SDK
+installation channel documented in the repository README; do not repeatedly reinstall a release
+that lacks the required commands. Discover the connected host's capabilities before using them.
 The editor/DSH build must also support the single command gateway; older multi-tool bundles are not
 compatible with this adapter. Read their advertised tool catalog instead of assuming matching versions.
 
