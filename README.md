@@ -33,10 +33,10 @@ Or copy [`skills/tylina`](skills/tylina/) into its supported Skills directory. N
 checkout is required. The Skill provides guidance; an editor connection or local runtime supplies the tools.
 
 **Already have a Tylina MCP connection?** Enable it in your Agent and start writing.
-Otherwise install the SDK's command interface, currently on the preview channel:
+Otherwise install the SDK's stable command interface:
 
 ```sh
-npm install -g tylina-sdk@next
+npm install -g tylina-sdk
 ```
 
 Use the same command to update. [SDK on npm](https://www.npmjs.com/package/tylina-sdk?activeTab=versions)
@@ -77,7 +77,7 @@ tylina mcp --workspace /path/to/project --main main.typ
 ```
 
 This mode compiles and exports without a window. Use an editor connection when you need live selection
-or unsaved edits. The coordinated Native release is still in progress; check runtime availability before installing.
+or unsaved edits. Native runtimes are available for macOS, Windows and Linux on x64 and arm64.
 
 CLI and SDK callers use the same commands, including `editor.state`, `file.edit`, `document.validate`
 and progressive `help`. Connection tokens belong in private configuration or protected process
@@ -89,7 +89,7 @@ variables, outside prompts, command arguments and document files.
 <summary><strong>Compatibility and verification</strong></summary>
 
 The Skill format works with coding Agents such as Codex and Claude Code; each client still needs a
-compatible MCP connection. The command-capable SDK is currently installed through `@next`.
+compatible MCP connection. The stable SDK includes the unified command interface.
 Check `tylina --help` when upgrading an older installation.
 
 Real Codex checks on macOS arm64 cover selected-range coediting, report and table tasks, on-demand

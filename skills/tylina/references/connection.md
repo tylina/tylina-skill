@@ -19,11 +19,11 @@ compatible with this adapter. Read their advertised tool catalog instead of assu
 
 ## Standalone workspace
 
-The candidate SDK can run document commands without opening an editor window or starting a model.
+The stable SDK can run document commands without opening an editor window or starting a model.
 Install its matching native runtime, `tylina-native-<platform>-<arch>` (for example,
 `tylina-native-darwin-arm64`), alongside the SDK. `tylina-web-assets` optionally supplies the maintained
-domain Skills. These must be compatible artifacts; development support does not mean every platform
-has a published matching release.
+domain Skills. Use the matching stable runtime; Linux requires glibc. Windows x64 uses the npm alias
+`tylina-native-win32-x64@npm:@orangex4/tylina-native-win32-x64` when installing the runtime.
 
 ```sh
 tylina help --workspace /path/to/project

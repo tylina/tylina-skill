@@ -33,10 +33,10 @@ npx skills add tylina/tylina-skill
 Skill 提供使用指导；实际工具由编辑器连接或本地运行时提供。
 
 **已经有 Tylina MCP 连接？** 在 Agent 中启用它，就可以开始写作。
-否则安装 SDK 的命令入口，目前使用预览通道：
+否则安装 SDK 的稳定版命令入口：
 
 ```sh
-npm install -g tylina-sdk@next
+npm install -g tylina-sdk
 ```
 
 更新时执行同一条命令。发布通道见 [npm 上的 SDK](https://www.npmjs.com/package/tylina-sdk?activeTab=versions)，
@@ -77,7 +77,7 @@ tylina mcp --workspace /path/to/project --main main.typ
 ```
 
 这个模式不打开窗口，也能编译和导出。需要用户实时选区或未保存内容时，应连接实际编辑器。
-配套 Native 正式发布仍在进行，安装前请核对运行时是否已发布。
+Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 
 CLI 和 SDK 使用同一套命令，包括 `editor.state`、`file.edit`、`document.validate`
 和按需查询的 `help`。连接 token 放在私密配置或受保护的进程环境中，不进入 prompt、命令参数或文档文件。
@@ -88,7 +88,7 @@ CLI 和 SDK 使用同一套命令，包括 `editor.state`、`file.edit`、`docum
 <summary><strong>兼容性与验证范围</strong></summary>
 
 通用 Skill 格式可供 Codex、Claude Code 等编程 Agent 使用；每个客户端仍需要兼容的 MCP 连接。
-支持统一命令的 SDK 当前通过 `@next` 安装。升级旧安装后，可以用 `tylina --help` 核对命令是否可用。
+稳定版 SDK 已包含统一命令入口。升级旧安装后，可以用 `tylina --help` 核对命令是否可用。
 
 真实 Codex 已在 macOS arm64 验证选区协作、报告与表格任务、按需 Skills、页面检查和 PDF/PNG/SVG 导出。
 Electron 打包版也已验证授权导出与撤销、编辑、保存和 Undo。
