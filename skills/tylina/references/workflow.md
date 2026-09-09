@@ -1,6 +1,6 @@
 # Document workflows
 
-Discover exact parameters with `help`; these workflows name shared commands, not separate MCP tools.
+These are Tylina-specific operations. Use `help` only for an unfamiliar command.
 
 ## Start from a template
 
@@ -18,8 +18,7 @@ check unavailable catalog sources; do not claim an offline shortlist contains ev
 
 ## Work in a large project
 
-Start from `workspace.info` and the main or active file. Use `file.list` for direct children of a
-relevant directory; follow pagination when returned. Read only files needed for the task. Tylina's
+Start from `workspace.info` and the main or active file. Use the harness filesystem tools for the relevant directory. Read only files needed for the task. Tylina's
 compiler resolves imports and requests dependencies through the workspace provider.
 
 An initial file list is not proof that the rest of the repository is absent. Do not recursively
@@ -28,9 +27,8 @@ Paths are workspace-relative. Providers own native paths, symlinks and access ch
 
 ## Review and export
 
-1. Validate the current main document with `document.validate` after changes.
-2. Use `render.summary` to learn the actual page count. For a long artifact, inspect bounded
-   `render.overview` batches and obtain `render.page` images for pages needing closer review.
+1. Validate changed source with `document.validate`.
+2. Inspect affected pages with `render.page`; use a summary or overview only to locate unknown pages.
 3. Use `document.export` to produce PDF, PNG or SVG. PDF uses a file destination; PNG/SVG use a
    directory. Discover the current schema before exporting and respect overwrite intent.
 4. Return the actual export receipt and destination. In a browser workspace, an exported resource
@@ -41,17 +39,9 @@ refresh the source/context and repeat only the checks made obsolete by those cha
 
 ## Use packaged scripts
 
-Read the relevant domain Skill before choosing a script. When the host advertises `runtime.prepare`,
-use it to obtain the actual `uvExecutable`, environment, workspace root and Skills root. Check for
-`ready`; interactive hosts can return `installing`, while standalone CLI/SDK calls wait for completion.
-Retry a failed installation only with an explicit `retry: true` request after addressing the cause.
-
-Run the documented script through your host's ordinary process tool, using the returned environment
-and workspace root as `cwd`. Use `uv run --no-project` unless the Skill explicitly requires that
-workspace's Python project. Keep script arguments separate; do not assemble unescaped shell strings.
-Respect the calling Agent's execution permissions, timeouts and cancellation. This command prepares
-runtime paths, not a hidden shell inside Tylina. Browser-only hosts need their supported document
-commands or an external host for native scripts; do not invent a browser terminal capability.
+Optional scripts live under `skillsRoot` from `workspace.info`. Read the selected script's usage
+and use the harness terminal and environment. Do not install a runtime merely to edit a document.
+Browser-only hosts have no native terminal; use their document capabilities instead.
 
 ## Operate the editor
 

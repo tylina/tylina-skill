@@ -79,7 +79,7 @@ tylina mcp --workspace /path/to/project --main main.typ
 This mode compiles and exports without a window. Use an editor connection when you need live selection
 or unsaved edits. Native runtimes are available for macOS, Windows and Linux on x64 and arm64.
 
-CLI and SDK callers use the same commands, including `editor.state`, `file.edit`, `document.validate`
+CLI and SDK callers use the same commands, including `editor.state`, `document.validate`
 and progressive `help`. Connection tokens belong in private configuration or protected process
 variables, outside prompts, command arguments and document files.
 
@@ -101,7 +101,7 @@ revocation, editing, saving and Undo. These checks do not establish every client
 ## How it works
 
 The entry Skill discovers the host's actual capabilities, then reads maintained authoring, slides,
-charts and other guidance through `skill.list` and `skill.read`. It shares Tylina's compiler and domain
+charts and other guidance using the paths from `workspace.info` and the harness file reader. It shares Tylina's compiler and domain
 library. [Document workflows](skills/tylina/references/workflow.md) describe editing, templates and export.
 
 This repository is independently installable content. Run `node --test tests/skill-package.mjs` to check

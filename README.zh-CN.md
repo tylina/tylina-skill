@@ -79,7 +79,7 @@ tylina mcp --workspace /path/to/project --main main.typ
 这个模式不打开窗口，也能编译和导出。需要用户实时选区或未保存内容时，应连接实际编辑器。
 Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 
-CLI 和 SDK 使用同一套命令，包括 `editor.state`、`file.edit`、`document.validate`
+CLI 和 SDK 使用同一套命令，包括 `editor.state`、`document.validate`
 和按需查询的 `help`。连接 token 放在私密配置或受保护的进程环境中，不进入 prompt、命令参数或文档文件。
 
 </details>
@@ -98,7 +98,7 @@ Electron 打包版也已验证授权导出与撤销、编辑、保存和 Undo。
 
 ## 工作方式
 
-入口 Skill 先发现宿主实际能力，再通过 `skill.list` 和 `skill.read`
+入口 Skill 先发现宿主实际能力，再根据 `workspace.info` 的资源路径，用宿主文件工具
 读取统一维护的写作、Slides、图表等指导，复用 Tylina 的编译器与领域库。
 编辑、模板和导出流程见[文档工作流](skills/tylina/references/workflow.md)。
 

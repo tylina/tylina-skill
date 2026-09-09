@@ -35,8 +35,7 @@ For stdio clients use args `["mcp", "--workspace", "/path/to/project", "--main",
 Do not also set `TYLINA_MCP_URL`: that would mix two workspace owners. The workspace must exist;
 `--main` is relative to it. No main is guessed. An empty workspace supports file creation followed
 by `document.setMain`. Main selection lasts for that MCP process; one-shot CLI commands each need
-their own `--main` argument. Reads are lazy, writes go to disk with hash checks, and the installed
-native engine resolves dependencies. Use a live connection to work with a user's unsaved content.
+their own `--main` argument. The installed native engine resolves dependencies lazily; use your harness to edit disk files. Use a live connection to work with a user's unsaved content.
 
 For a script, import `openTylinaWorkspace` from `tylina-sdk/local` and await
 `openTylinaWorkspace({ workspace: '/path/to/project', mainFile: 'main.typ' })`. Its `query`, `execute`
@@ -70,8 +69,7 @@ With the connection environment already supplied:
 ```sh
 tylina help
 tylina editor.state
-tylina help --args '{"command":"file.edit"}'
-tylina file.read --args '{"file":"main.typ"}'
+tylina render.page --args '{"page":1}'
 tylina document.validate
 ```
 
