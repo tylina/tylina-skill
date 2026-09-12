@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Social Cover"
+  short_description: "Create exact-size social covers, cards, and carousels"
+  default_prompt: "Use $typst-social-cover to create or improve this fixed-canvas social graphic and verify every output size."

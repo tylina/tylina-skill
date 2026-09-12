@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst CV"
+  short_description: "Create truthful, verified resumes and academic CVs"
+  default_prompt: "Use $typst-cv to create or improve this resume or academic CV from verified source material."

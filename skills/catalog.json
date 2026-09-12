@@ -1,0 +1,265 @@
+{
+  "version": 5,
+  "skills": [
+    {
+      "id": "typst-authoring",
+      "dependencies": [],
+      "source": [
+        {
+          "url": "https://github.com/Myriad-Dreamin/tinymist/tree/66eaee47519037a09db5c18f69815bfe3e84b04a/.codex/skills/typst-writing-document",
+          "revision": "66eaee47519037a09db5c18f69815bfe3e84b04a"
+        },
+        {
+          "url": "https://github.com/lucifer1004/claude-skill-typst",
+          "revision": "05624d770a595311b8f2263c7339bd85e93fbb53"
+        },
+        {
+          "url": "https://github.com/apcamargo/typst-skills/tree/93978422d58d4e5c21efe4bfa9f3e6dd9940cf96/typst-author",
+          "revision": "93978422d58d4e5c21efe4bfa9f3e6dd9940cf96"
+        },
+        {
+          "url": "https://github.com/typst/typst/tree/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content",
+          "revision": "2924ba908b7e535ef6166a8b1731d400b694e9d9"
+        }
+      ]
+    },
+    {
+      "id": "typst-academic",
+      "dependencies": ["typst-authoring"],
+      "source": []
+    },
+    {
+      "id": "typst-slides",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides",
+          "revision": "1709e9055f023fda06050c25134b1bb17d04e248"
+        },
+        {
+          "url": "https://github.com/touying-typ/touying/tree/a92b7b84973998dfa62a572e54fddd26802851d7/docs",
+          "revision": "a92b7b84973998dfa62a572e54fddd26802851d7"
+        }
+      ]
+    },
+    {
+      "id": "typst-cv",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides/blob/1709e9055f023fda06050c25134b1bb17d04e248/skills/seaslides-typst-slides-skill/references/scenarios/cv.md",
+          "revision": "1709e9055f023fda06050c25134b1bb17d04e248"
+        }
+      ]
+    },
+    {
+      "id": "typst-poster",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides/blob/1709e9055f023fda06050c25134b1bb17d04e248/skills/seaslides-typst-slides-skill/references/scenarios/poster.md",
+          "revision": "1709e9055f023fda06050c25134b1bb17d04e248"
+        }
+      ]
+    },
+    {
+      "id": "typst-social-cover",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides/blob/1709e9055f023fda06050c25134b1bb17d04e248/skills/seaslides-typst-slides-skill/references/scenarios/social-cover.md",
+          "revision": "1709e9055f023fda06050c25134b1bb17d04e248"
+        }
+      ]
+    },
+    {
+      "id": "typst-theorems",
+      "dependencies": ["typst-authoring"],
+      "source": []
+    },
+    {
+      "id": "typst-tables",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/typst/typst/blob/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content/guides/tables.typ",
+          "revision": "2924ba908b7e535ef6166a8b1731d400b694e9d9"
+        },
+        {
+          "url": "https://github.com/lucifer1004/claude-skill-typst/blob/05624d770a595311b8f2263c7339bd85e93fbb53/skills/typst/tables.md",
+          "revision": "05624d770a595311b8f2263c7339bd85e93fbb53"
+        }
+      ]
+    },
+    {
+      "id": "typst-charts",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides",
+          "revision": "30a0d206758f1741faa82d8036913a094882ef61"
+        }
+      ]
+    },
+    {
+      "id": "typst-diagrams",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides",
+          "revision": "30a0d206758f1741faa82d8036913a094882ef61"
+        }
+      ]
+    },
+    {
+      "id": "typst-pseudocode",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/touying-typ/seaslides",
+          "revision": "30a0d206758f1741faa82d8036913a094882ef61"
+        }
+      ]
+    }
+  ],
+  "entrypoints": [
+    {
+      "id": "continue-writing",
+      "skill": "typst-authoring",
+      "mode": "continue",
+      "intent": "transform-existing"
+    },
+    {
+      "id": "improve-writing",
+      "skill": "typst-authoring",
+      "mode": "improve",
+      "intent": "transform-existing"
+    },
+    {
+      "id": "summarize-content",
+      "skill": "typst-authoring",
+      "mode": "summarize",
+      "intent": "review"
+    },
+    {
+      "id": "organize-notes",
+      "skill": "typst-authoring",
+      "mode": "organize-notes",
+      "intent": "transform-existing"
+    },
+    {
+      "id": "typst-authoring",
+      "skill": "typst-authoring",
+      "mode": "author",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-report",
+      "skill": "typst-authoring",
+      "mode": "report",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-academic-paper",
+      "skill": "typst-academic",
+      "mode": "write",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-assignment",
+      "skill": "typst-authoring",
+      "mode": "assignment",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "quick-slides",
+      "skill": "typst-slides",
+      "mode": "quick",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "complex-slides",
+      "skill": "typst-slides",
+      "mode": "complex",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-cv",
+      "skill": "typst-cv",
+      "mode": "write",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "create-poster",
+      "skill": "typst-poster",
+      "mode": "create",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "create-social-cover",
+      "skill": "typst-social-cover",
+      "mode": "create",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "typst-diagnostics",
+      "skill": "typst-authoring",
+      "mode": "diagnose",
+      "intent": "diagnose"
+    },
+    {
+      "id": "review-academic",
+      "skill": "typst-academic",
+      "mode": "review",
+      "intent": "review"
+    },
+    {
+      "id": "write-math-proof",
+      "skill": "typst-theorems",
+      "mode": "write-proof",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "review-math-proof",
+      "skill": "typst-theorems",
+      "mode": "review-proof",
+      "intent": "review"
+    },
+    {
+      "id": "write-theorem",
+      "skill": "typst-theorems",
+      "mode": "write-theorem",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "build-table",
+      "skill": "typst-tables",
+      "mode": "build",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "clarify-table",
+      "skill": "typst-tables",
+      "mode": "clarify",
+      "intent": "transform-existing"
+    },
+    {
+      "id": "build-chart",
+      "skill": "typst-charts",
+      "mode": "build",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "build-diagram",
+      "skill": "typst-diagrams",
+      "mode": "build",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-pseudocode",
+      "skill": "typst-pseudocode",
+      "mode": "write",
+      "intent": "create-or-edit"
+    }
+  ]
+}

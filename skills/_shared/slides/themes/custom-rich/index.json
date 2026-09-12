@@ -1,0 +1,1583 @@
+{
+  "version": "4.0",
+  "tier": "rich",
+  "description": "Theme index for custom-rich themes. Each entry provides enough info for theme selection. For detailed API, read the theme's theme.md file.",
+  "themes": [
+    {
+      "name": "amber-glass",
+      "display_name": "Amber Glass",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/amber-glass",
+      "style": "Luxury / Premium Lifestyle",
+      "best_for": "Luxury brand presentations, lifestyle products, premium services, wine/spirits industry, hospitality, jewelry, artisanal food/beverage, high-end real estate, wellness retreats.",
+      "visual_character": "Looking through amber-tinted glass -- warm, refractive, luminous. The theme evokes the feeling of light passing through honey: every surface glows with warmth, every card feels like a frosted glass pa",
+      "tags": [
+        "elegant",
+        "luxury",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "amber-glass-theme"
+    },
+    {
+      "name": "amber-ink",
+      "display_name": "Amber Ink",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/amber-ink",
+      "style": "Vintage Letterpress / Sepia Heritage",
+      "best_for": "Publishing, editorial, heritage brands, vintage businesses, book launches, journalism, media companies",
+      "visual_character": "Vintage letterpress printing aesthetic — sepia ink on aged paper, woodblock type impressions, ornamental borders, and press-mark decorations. Amber and charcoal tones.",
+      "tags": [
+        "business",
+        "vintage",
+        "editorial",
+        "letterpress"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "amber-ink-theme"
+    },
+    {
+      "name": "anthropic",
+      "display_name": "Anthropic",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/anthropic",
+      "style": "Tech-forward, professional — dark/light mixed design with orange accents",
+      "best_for": "AI tech talks, developer conferences, technical training, product launches",
+      "visual_character": "A tech-forward, professional theme inspired by Anthropic's brand design. Features a mixed dark/light approach: dark gradient covers and chapter dividers with warm white content slides. Orange accent b",
+      "tags": [
+        "dark",
+        "professional",
+        "tech",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "anthropic-theme"
+    },
+    {
+      "name": "aqua-desktop",
+      "display_name": "Aqua Desktop",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/aqua-desktop",
+      "style": "Clean Tech / macOS Desktop",
+      "best_for": "Tech presentations, developer tools, software product launches, SaaS demos, programming talks, app showcases",
+      "visual_character": "macOS desktop environment — window chrome with traffic light buttons, frosted glass panels, toolbar aesthetics, dock reflections. Clean Apple-style design language.",
+      "tags": [
+        "tech",
+        "macos",
+        "desktop",
+        "software"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "aqua-desktop-theme"
+    },
+    {
+      "name": "art-deco",
+      "display_name": "Art Deco",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/art-deco",
+      "style": "Luxury / Premium Corporate",
+      "best_for": "Luxury brands, fashion, awards ceremonies, galas, finance/banking, high-end real estate, premium product launches.",
+      "visual_character": "The roaring twenties reborn -- geometric precision meets opulence. Gold accents on dark surfaces. Fan-shaped and sunburst decorative elements. Strong vertical and diagonal lines. The elegance of the C",
+      "tags": [
+        "business",
+        "dark",
+        "elegant",
+        "geometric",
+        "luxury",
+        "finance"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "art-deco-theme"
+    },
+    {
+      "name": "aurora-borealis",
+      "display_name": "Aurora Borealis",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/aurora-borealis",
+      "style": "Ethereal northern lights — violet, teal, and emerald gradients on clean white backgrounds",
+      "best_for": "Scientific research, physics, astronomy, environmental science, data visualization, academic conferences",
+      "visual_character": "An ethereal theme inspired by the aurora borealis — soft violet-to-teal-to-emerald gradients flow across slide backgrounds like northern lights dancing in the sky. Clean white base ensures readability while spectral color bands provide visual depth and wonder.",
+      "tags": [
+        "academic",
+        "nature",
+        "science",
+        "elegant"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "aurora-borealis-theme"
+    },
+    {
+      "name": "bauhaus",
+      "display_name": "Bauhaus",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/bauhaus",
+      "style": "Bold geometric design inspired by the 1920s Bauhaus school -- primary colors, asymmetric compositions, large shapes",
+      "best_for": "Design talks, art education, architecture presentations, creative pitches",
+      "visual_character": "A bold geometric theme inspired by the Bauhaus school of design. Features primary colors (red, yellow, blue) on white/off-white backgrounds with persistent Mondrian-style grid structures, Kandinsky-in",
+      "tags": [
+        "creative",
+        "geometric",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "bauhaus-theme"
+    },
+    {
+      "name": "blueprint",
+      "display_name": "Blueprint",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/blueprint",
+      "style": "Architectural blueprint — crisp blue lines, technical grid, engineering precision on white",
+      "best_for": "Architecture, engineering, construction, urban planning, strategic planning, project management",
+      "visual_character": "An architectural blueprint theme featuring precise blue grid lines, dimension annotations, and technical drawing aesthetics on a clean white/light wash background. Evokes engineering precision with annotation-style labels and structured layouts.",
+      "tags": [
+        "business",
+        "geometric",
+        "professional",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "blueprint-theme"
+    },
+    {
+      "name": "canvas-weave",
+      "display_name": "Canvas Weave",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/canvas-weave",
+      "style": "Woven Fabric / Textile Craft",
+      "best_for": "Fashion industry, interior design, textile arts, craft business, sustainability presentations, artisan brands",
+      "visual_character": "Woven fabric texture with interlocking threads. Warm earth tones — clay, indigo, natural cream — with visible weave patterns and frayed-edge card borders.",
+      "tags": [
+        "business",
+        "textile",
+        "craft",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "canvas-weave-theme"
+    },
+    {
+      "name": "carbon-fiber",
+      "display_name": "Carbon Fiber",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/carbon-fiber",
+      "style": "Precision engineering — metallic blue accents, carbon-weave texture on light gray",
+      "best_for": "Technology, engineering, automotive, aerospace, product launches, hardware presentations",
+      "visual_character": "A precision engineering theme with subtle carbon-weave texture patterns, clean metallic blue accents, and structured layouts on light gray backgrounds. Evokes advanced materials science and high-performance technology.",
+      "tags": [
+        "tech",
+        "modern",
+        "geometric",
+        "professional"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "carbon-fiber-theme"
+    },
+    {
+      "name": "catarc",
+      "display_name": "CATARC",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/catarc",
+      "style": "Modern automotive industry, tech-forward — deep blue gradients with neon cyan accents",
+      "best_for": "Automotive industry presentations, product certification, technology promotion, EV reports",
+      "visual_character": "A modern, authoritative automotive industry theme inspired by CATARC (China Automotive Technology & Research Center). Features deep blue gradient backgrounds on covers and section dividers with clean ",
+      "tags": [
+        "academic",
+        "consulting",
+        "formal",
+        "minimal",
+        "modern",
+        "tech",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "catarc-theme"
+    },
+    {
+      "name": "chalkboard",
+      "display_name": "Chalkboard",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/chalkboard",
+      "style": "Academic, nostalgic, hand-drawn, organic / dark theme",
+      "best_for": "Academic lectures, university talks, math/science presentations, STEM education",
+      "visual_character": "A classic green chalkboard presentation theme that evokes the familiar academic classroom atmosphere. Features chalk-white text on a dark green board, hand-drawn SVG elements including wavy underlines",
+      "tags": [
+        "academic",
+        "dark",
+        "nature",
+        "retro",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "chalkboard-theme"
+    },
+    {
+      "name": "citrus-grove",
+      "display_name": "Citrus Grove",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/citrus-grove",
+      "style": "Fresh citrus energy — orange, lemon yellow, and lime green on clean white",
+      "best_for": "Marketing, food & beverage, wellness, startups, creative pitches, product launches",
+      "visual_character": "A fresh, energetic theme inspired by citrus fruits — bold orange, lemon yellow, and lime green create a vibrant palette on clean white backgrounds. Decorative citrus slice SVGs and gradient color bands add playful energy without overwhelming content.",
+      "tags": [
+        "business",
+        "creative",
+        "warm",
+        "playful"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "citrus-grove-theme"
+    },
+    {
+      "name": "clay-morandi",
+      "display_name": "Clay Morandi",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/clay-morandi",
+      "style": "Muted earth tones, ceramic warmth, rounded softness inspired by Morandi paintings",
+      "best_for": "Interior design, lifestyle brands, wellness, sustainability, craft, ceramics, creative agencies",
+      "visual_character": "A warm, muted theme inspired by Giorgio Morandi's still life palette and modern clay/ceramic aesthetics. Features 6 rotating earth-tone shades (dusty rose, sage, terracotta, slate blue, sand, mauve) a",
+      "tags": [
+        "creative",
+        "modern",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "clay-morandi-theme"
+    },
+    {
+      "name": "cmb-bank",
+      "display_name": "CMB Bank",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/cmb-bank",
+      "style": "Brand-consistent financial, red brand identity with clean white content slides",
+      "best_for": "Banking product introductions, financial solution reports, customer case studies",
+      "visual_character": "A brand-consistent financial presentation theme inspired by China Merchants Bank (招商银行). Uses a hybrid approach with brand-red gradient backgrounds for high-impact slides (cover, chapter dividers, end",
+      "tags": [
+        "consulting",
+        "minimal",
+        "finance"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "cmb-bank-theme"
+    },
+    {
+      "name": "copper-circuit",
+      "display_name": "Copper Circuit",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/copper-circuit",
+      "style": "Engineering Elegance / PCB Art",
+      "best_for": "Engineering presentations, hardware product launches, IoT demos, electronics courses, maker presentations",
+      "visual_character": "PCB printed circuit board aesthetic — copper traces on cream substrate, solder pads, via holes, and component outlines. The beauty of electronics engineering as presentation art.",
+      "tags": [
+        "tech",
+        "engineering",
+        "hardware",
+        "copper"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "copper-circuit-theme"
+    },
+    {
+      "name": "copper-patina",
+      "display_name": "Copper Patina",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/copper-patina",
+      "style": "Industrial copper, verdigris patina, mechanical precision",
+      "best_for": "Engineering, industrial design, steampunk, manufacturing, material science",
+      "visual_character": "A warm industrial theme inspired by aged copper metalwork, verdigris green patina, and Victorian engineering. Every slide inhabits a workshop of brass instruments, riveted plates, and steam-age precis",
+      "tags": [
+        "nature",
+        "warm",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "copper-patina-theme"
+    },
+    {
+      "name": "corporate",
+      "display_name": "Corporate",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/corporate",
+      "style": "Polished, professional corporate — steel blue and gray tones",
+      "best_for": "Business reports, strategy decks, investor presentations",
+      "visual_character": "A polished, professional corporate theme inspired by McKinsey/BCG consulting slide decks. Steel blue and gray tones with structured layouts, KPI cards, data tables, pillar cards, and insight boxes. Pe",
+      "tags": [
+        "business",
+        "consulting",
+        "professional",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "corporate-theme"
+    },
+    {
+      "name": "data-ink",
+      "display_name": "Data-Ink",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/data-ink",
+      "style": "Minimalist, data-focused, Tufte-inspired / light theme",
+      "best_for": "Financial reports, economic dashboards, quantitative research, data-heavy presentations",
+      "visual_character": "A Tufte-inspired presentation theme that maximizes the data-ink ratio while minimizing chart junk. Features inline SVG sparklines for trend visualization, margin annotations mimicking sidenotes, hairl",
+      "tags": [
+        "academic",
+        "creative",
+        "minimal",
+        "tech",
+        "japanese",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "data-ink-theme"
+    },
+    {
+      "name": "editorial-grid",
+      "display_name": "Editorial Grid",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/editorial-grid",
+      "style": "Strict editorial grid -- Bloomberg/Monocle/Economist precision typography",
+      "best_for": "Data journalism, research presentations, media briefings, quarterly reports, thought leadership",
+      "visual_character": "A high-end editorial magazine theme that channels Bloomberg Businessweek, Monocle, and The Economist. Built on strict constraint: one accent color (red), inverse weight hierarchy (bigger text = lighte",
+      "tags": [
+        "academic",
+        "business",
+        "editorial",
+        "geometric",
+        "tech",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "editorial-grid-theme"
+    },
+    {
+      "name": "exhibit",
+      "display_name": "Exhibit",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/exhibit",
+      "style": "Premium dark, conclusion-first consulting with gold accents",
+      "best_for": "Strategic planning, executive reports, investment analysis, board presentations",
+      "visual_character": "A premium, dark-themed presentation theme designed for authoritative, data-driven executive communications. Features a conclusion-first design philosophy with gold accents, blue-purple gradient top ba",
+      "tags": [
+        "consulting",
+        "dark",
+        "elegant",
+        "formal",
+        "luxury",
+        "tech",
+        "finance"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "exhibit-theme"
+    },
+    {
+      "name": "film-strip",
+      "display_name": "Film Strip",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/film-strip",
+      "style": "Analog photography nostalgia - Kodak film boxes, Fujifilm packaging, light leaks, sprocket holes, warm film color scienc",
+      "best_for": "Photography talks, creative presentations, analog/vintage topics, art school lectures, visual arts",
+      "visual_character": "Analog photography nostalgia - Kodak film boxes, Fujifilm packaging, light leaks, sprocket holes, warm film color science",
+      "tags": [
+        "creative",
+        "retro",
+        "warm",
+        "photography",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "film-strip-theme"
+    },
+    {
+      "name": "google",
+      "display_name": "Google",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/google",
+      "style": "Vibrant, data-driven — Google brand design system",
+      "best_for": "Tech reports, annual reviews, product launches, data-heavy presentations",
+      "visual_character": "A vibrant, data-driven theme inspired by Google's brand design system. Features the signature four-color palette (Blue, Red, Yellow, Green), gradient top bar, color-coded number badges, and KPI data c",
+      "tags": [
+        "nature",
+        "tech",
+        "google"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "google-theme"
+    },
+    {
+      "name": "gov-red",
+      "display_name": "Gov-Red",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/gov-red",
+      "style": "Authoritative, dignified government with red-blue dual-color gradient and gold accents",
+      "best_for": "Government briefings, policy interpretation, work summaries, Party/state events",
+      "visual_character": "An authoritative, dignified government-style presentation theme combining Government Red and Government Blue as primary colors with Gold accent elements. Features a red-blue dual-color gradient bar, r",
+      "tags": [
+        "formal",
+        "luxury",
+        "government"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "gov-red-theme"
+    },
+    {
+      "name": "greenhouse",
+      "display_name": "Greenhouse",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/greenhouse",
+      "style": "Victorian botanical greenhouse — iron-frame architecture, verdant greens, light and airy with botanical illustration ele",
+      "best_for": "Sustainability, science, education, nature topics, environmental reports, botanical research, ecology presentations",
+      "visual_character": "A light, airy presentation theme inspired by Victorian-era botanical greenhouses. Features iron-frame architectural SVG decorations, rich verdant green palette, and botanical illustration styling. Des",
+      "tags": [
+        "academic",
+        "nature",
+        "architecture",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "greenhouse-theme"
+    },
+    {
+      "name": "hologram",
+      "display_name": "Hologram",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/hologram",
+      "style": "Glass-morphism — iridescent violet-teal-gold gradient strips on frosted white",
+      "best_for": "AI/ML presentations, futuristic tech, innovation summits, startup pitches, XR/AR/VR topics",
+      "visual_character": "A futuristic glass-morphism theme with iridescent color strips (violet-indigo-teal-gold) flowing across frosted white backgrounds. Evokes holographic displays and advanced interface design with translucent layering effects.",
+      "tags": [
+        "tech",
+        "modern",
+        "creative",
+        "elegant"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "hologram-theme"
+    },
+    {
+      "name": "ink-landscape",
+      "display_name": "Ink Landscape (水墨山水)",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/ink-landscape",
+      "style": "Chinese ink wash painting — Song dynasty landscape scroll with mountains, mist, seal stamps, bamboo",
+      "best_for": "Chinese culture, literature, history, philosophy, calligraphy, traditional arts, academic presentations on Asian studies",
+      "visual_character": "A stunning presentation theme that transports the viewer into a Song dynasty landscape scroll painting. Features persistent mountain atmosphere on EVERY content slide, brush-stroke SVG calligraphic un",
+      "tags": [
+        "academic",
+        "creative",
+        "cultural",
+        "japanese",
+        "chinese",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "ink-landscape-theme"
+    },
+    {
+      "name": "ivory-tower",
+      "display_name": "Ivory Tower",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/ivory-tower",
+      "style": "Elegant cream and gold premium aesthetic — executive luxury",
+      "best_for": "Executive presentations, investor decks, premium brand pitches, annual reports",
+      "visual_character": "An elegant cream and gold premium theme designed for executive presentations, investor decks, and premium brand pitches. Features ivory background with gold accents, refined SVG corner ornaments, fili",
+      "tags": [
+        "consulting",
+        "elegant",
+        "luxury"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "ivory-tower-theme"
+    },
+    {
+      "name": "lattice",
+      "display_name": "Lattice",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/lattice",
+      "style": "Technical, structured, modern, precision engineering / light theme",
+      "best_for": "Tech presentations, engineering talks, system architecture discussions, infrastructure reviews",
+      "visual_character": "A crystalline lattice / molecular structure presentation theme with cool white backgrounds, hexagonal grid patterns, and molecular node-connection SVG decorations. Evokes precision engineering with st",
+      "tags": [
+        "geometric",
+        "modern",
+        "tech",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "lattice-theme"
+    },
+    {
+      "name": "mahogany",
+      "display_name": "Mahogany",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/mahogany",
+      "style": "Executive warmth — burgundy and brass accents on cream with wood-grain textures",
+      "best_for": "Executive briefings, board presentations, annual reports, investor decks, luxury brand strategy",
+      "visual_character": "A warm, authoritative executive theme with rich burgundy accents, brass gold highlights, and subtle wood-grain SVG textures on warm cream backgrounds. Evokes the boardroom — mahogany paneling, leather-bound reports, and old-world gravitas.",
+      "tags": [
+        "business",
+        "elegant",
+        "luxury",
+        "warm",
+        "formal"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "mahogany-theme"
+    },
+    {
+      "name": "mckinsey",
+      "display_name": "McKinsey",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/mckinsey",
+      "style": "Premium, minimalist consulting with structured analytical design",
+      "best_for": "Strategic consulting, executive briefings, investment analysis, business proposals",
+      "visual_character": "A premium, data-driven consulting theme inspired by McKinsey & Company's structured, analytical presentation style. Features clean whitespace, action titles, MECE framework support, and amber takeaway",
+      "tags": [
+        "business",
+        "consulting",
+        "elegant",
+        "luxury",
+        "minimal",
+        "tech",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "mckinsey-theme"
+    },
+    {
+      "name": "medical",
+      "display_name": "Medical",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/medical",
+      "style": "Professional, trustworthy medical with blue headers, green accents, and clinical data components",
+      "best_for": "Medical academic reports, case discussions, research presentations, hospital reports",
+      "visual_character": "A professional, trustworthy presentation theme designed for the medical field. Features medical blue headers, green health-affirming accents, orange warning elements, and distinctive medical decoratio",
+      "tags": [
+        "academic",
+        "medical",
+        "nature",
+        "professional",
+        "tech",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "medical-theme"
+    },
+    {
+      "name": "memoir",
+      "display_name": "Memoir",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/memoir",
+      "style": "Elegant, bookish, ornamental, typographic / light theme",
+      "best_for": "Humanities lectures, literary presentations, book launches, typography conferences, cultural talks",
+      "visual_character": "A luxury book/memoir design aesthetic inspired by Penguin Classics and Taschen fine press publishing. Features ornamental SVG flourishes, corner decorations, elegant serif typography with generous lea",
+      "tags": [
+        "cultural",
+        "editorial",
+        "elegant",
+        "luxury"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "memoir-theme"
+    },
+    {
+      "name": "meridian",
+      "display_name": "Meridian",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/meridian",
+      "style": "Cartographic, geometric, minimalist / light theme",
+      "best_for": "Research presentations, data analysis, academic seminars, scientific briefings",
+      "visual_character": "A clean geometric presentation theme inspired by cartographic meridian lines and compass-rose motifs. Features a warm ivory background with deep teal/navy accent lines evoking longitude/latitude grid ",
+      "tags": [
+        "academic",
+        "geometric",
+        "minimal",
+        "modern",
+        "tech",
+        "warm",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "meridian-theme"
+    },
+    {
+      "name": "morning-dew",
+      "display_name": "Morning Dew",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/morning-dew",
+      "style": "Fresh Academic / Gentle Dawn",
+      "best_for": "Academic research, scientific presentations, biology/ecology conferences, dissertation defense, seminar talks",
+      "visual_character": "Morning dew drops on leaves at dawn — soft watercolor wash backgrounds, translucent dewdrop shapes, and a gentle dawn color palette. Light, fresh, and contemplative.",
+      "tags": [
+        "academic",
+        "nature",
+        "gentle",
+        "watercolor"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "morning-dew-theme"
+    },
+    {
+      "name": "navy-formal",
+      "display_name": "Navy Formal",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/navy-formal",
+      "style": "Professional, rigorous, research-oriented — light theme with clear hierarchy",
+      "best_for": "Thesis defense, academic presentations, research reports, grant applications",
+      "visual_character": "A professional, research-oriented theme designed for thesis defense presentations, academic talks, and research progress reports. Features a dark blue header bar on content slides, red vertical accent",
+      "tags": [
+        "academic",
+        "dark",
+        "professional",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "navy-formal-theme"
+    },
+    {
+      "name": "neon-mint",
+      "display_name": "Neon Mint",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/neon-mint",
+      "style": "Circuit-board patterns — bright mint green and electric blue on white",
+      "best_for": "Software engineering, DevOps, cybersecurity, hackathons, tech startups, cloud computing",
+      "visual_character": "A tech-forward theme with circuit-board-inspired line patterns, bright mint green primary accent, and electric blue secondary on clean white backgrounds. Dot grids and trace lines create a digital engineering atmosphere.",
+      "tags": [
+        "tech",
+        "modern",
+        "geometric",
+        "playful"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "neon-mint-theme"
+    },
+    {
+      "name": "paper-crane",
+      "display_name": "Paper Crane",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/paper-crane",
+      "style": "Origami folds — coral and indigo accents on warm cream with geometric fold patterns",
+      "best_for": "Mathematics, geometry, design thinking, creative workshops, education, philosophy",
+      "visual_character": "A theme inspired by origami paper folding — warm coral primary accent with indigo secondary on cream backgrounds. Geometric fold-line patterns and origami crane SVGs create a sense of creative precision and mathematical beauty.",
+      "tags": [
+        "academic",
+        "creative",
+        "geometric",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "paper-crane-theme"
+    },
+    {
+      "name": "parchment",
+      "display_name": "Parchment",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/parchment",
+      "style": "Scholarly, warm, refined, illuminated manuscript / light theme",
+      "best_for": "Humanities presentations, literary discussions, historical research, classical studies",
+      "visual_character": "An aged parchment/vellum presentation theme evoking the atmosphere of illuminated manuscripts and old libraries. Features warm cream backgrounds, rich burgundy titles, antique gold ornaments, and call",
+      "tags": [
+        "academic",
+        "elegant",
+        "luxury",
+        "warm",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "parchment-theme"
+    },
+    {
+      "name": "pearl-shell",
+      "display_name": "Pearl Shell",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/pearl-shell",
+      "style": "Mother-of-Pearl / Iridescent Luxury",
+      "best_for": "Luxury goods, beauty industry, jewelry, high-end hospitality, executive summaries, premium brand presentations",
+      "visual_character": "Mother-of-pearl iridescence — soft opal and lavender tones with nacreous shimmer effects. Shell curve patterns and pearl dot accents. Refined, luminous, precious.",
+      "tags": [
+        "business",
+        "luxury",
+        "iridescent",
+        "premium"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "pearl-shell-theme"
+    },
+    {
+      "name": "pixel-retro",
+      "display_name": "Pixel Retro",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/pixel-retro",
+      "style": "Retro gaming / neon cyberpunk / 8-bit dark theme",
+      "best_for": "Tech talks, programming tutorials, game introductions, geek-style content",
+      "visual_character": "A retro gaming, neon cyberpunk presentation theme with 8-bit pixel aesthetics, dark backgrounds, and neon glow effects. Features scanline overlays, pixel corner decorations, and monospace typography. ",
+      "tags": [
+        "dark",
+        "retro",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "pixel-retro-theme"
+    },
+    {
+      "name": "pressed-linen",
+      "display_name": "Pressed Linen",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/pressed-linen",
+      "style": "Washi paper botanical — sage green and dusty rose on warm cream",
+      "best_for": "Humanities, literature, botanical science, art history, cultural studies, academic seminars",
+      "visual_character": "A refined theme evoking pressed botanical specimens on linen paper — sage green and dusty rose accents on warm cream backgrounds. Delicate botanical stem SVGs and organic fiber textures create a scholarly yet beautiful atmosphere.",
+      "tags": [
+        "academic",
+        "nature",
+        "elegant",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "pressed-linen-theme"
+    },
+    {
+      "name": "prism",
+      "display_name": "Prism",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/prism",
+      "style": "Scientific optics -- spectral colors, prismatic geometry, clean white backgrounds",
+      "best_for": "Tech/data presentations, scientific talks, innovation pitches, data visualization",
+      "visual_character": "A modern, scientific presentation theme inspired by light refraction through a prism. Features spectral color bands (violet through red), clean geometric angles, prismatic triangle SVG decorations, an",
+      "tags": [
+        "geometric",
+        "minimal",
+        "modern",
+        "tech",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "prism-theme"
+    },
+    {
+      "name": "prism-light",
+      "display_name": "Prism Light",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/prism-light",
+      "style": "Spectral / Light Refraction",
+      "best_for": "Optics, physics presentations, creative technology, color theory, photography, design education",
+      "visual_character": "Light refraction through prisms — rainbow spectrum bands, crystalline geometry, and spectral color decomposition. Violet-tinted with rainbow accent elements.",
+      "tags": [
+        "tech",
+        "optics",
+        "spectrum",
+        "creative"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "prism-light-theme"
+    },
+    {
+      "name": "psychology",
+      "display_name": "Psychology",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/psychology",
+      "style": "Professional, warm, healing, trustworthy / light theme",
+      "best_for": "Psychotherapy training, academic lectures, attachment theory, counseling, developmental psychology",
+      "visual_character": "A professional, warm, and trustworthy presentation theme designed for psychology, psychotherapy, and counseling contexts. Features a light background with blue-green gradient accents, warm orange deco",
+      "tags": [
+        "academic",
+        "nature",
+        "professional",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "psychology-theme"
+    },
+    {
+      "name": "quill-ink",
+      "display_name": "Quill & Ink",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/quill-ink",
+      "style": "Calligraphic / Scholarly Elegance",
+      "best_for": "Philosophy, literature, humanities, law, classical studies, academic lectures",
+      "visual_character": "Ink-on-parchment aesthetic with calligraphic flourishes. Deep indigo ink strokes, quill ornaments, and manuscript-style layouts on warm ivory backgrounds.",
+      "tags": [
+        "academic",
+        "literary",
+        "calligraphic",
+        "elegant"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "quill-ink-theme"
+    },
+    {
+      "name": "river-stone",
+      "display_name": "River Stone",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/river-stone",
+      "style": "Grounded Calm / Natural Authority",
+      "best_for": "Executive presentations, strategy consulting, sustainable business, architecture firms, real estate",
+      "visual_character": "Smooth river stones and zen rock gardens — organic pebble shapes, water ripple patterns, raked sand lines. Earthy slate and moss tones conveying stability and quiet confidence.",
+      "tags": [
+        "business",
+        "zen",
+        "natural",
+        "executive"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "river-stone-theme"
+    },
+    {
+      "name": "scandinavian",
+      "display_name": "Scandinavian",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/scandinavian",
+      "style": "Nordic minimalism - clean whites, soft grays, muted sage green and warm wood accents",
+      "best_for": "Design studios, wellness/mindfulness, sustainable products, Scandinavian companies, architecture, interior design presentations",
+      "visual_character": "A Scandinavian-inspired theme built on the principle of \"less is more.\" Generous whitespace, subtle sage and wood-tone accents, and clean geometric forms create an atmosphere of calm functional beauty",
+      "tags": [
+        "creative",
+        "geometric",
+        "minimal",
+        "nature",
+        "warm",
+        "architecture",
+        "playful"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "scandinavian-theme"
+    },
+    {
+      "name": "signal-wave",
+      "display_name": "Signal Wave",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/signal-wave",
+      "style": "Radio/Audio Signal Processing",
+      "best_for": "Audio engineering, signal processing, telecommunications, radio broadcasting, music technology, data science",
+      "visual_character": "Radio and audio waveform patterns — sine waves, frequency spectra, oscilloscope displays. Signal blue and orange on clean white, with waveform decorations throughout.",
+      "tags": [
+        "tech",
+        "signal",
+        "audio",
+        "waveform"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "signal-wave-theme"
+    },
+    {
+      "name": "silk-ribbon",
+      "display_name": "Silk Ribbon",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/silk-ribbon",
+      "style": "Flowing ribbon elegance — champagne, rose gold, and ivory with sinuous curves",
+      "best_for": "Fashion, luxury events, wedding industry, cosmetics, hospitality, women's leadership",
+      "visual_character": "An elegant theme inspired by flowing silk ribbons — champagne and rose gold accents on ivory backgrounds. Sinuous ribbon SVG curves flow across slides with varying opacity, creating a sense of graceful movement and luxury.",
+      "tags": [
+        "business",
+        "elegant",
+        "luxury",
+        "creative"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "silk-ribbon-theme"
+    },
+    {
+      "name": "smart-red",
+      "display_name": "Smart-Red",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/smart-red",
+      "style": "Modern, energetic, geometric hybrid (dark cover + light content)",
+      "best_for": "Company introductions, product launches, solution presentations, education courseware",
+      "visual_character": "A modern, energetic presentation theme featuring geometric triangle motifs, multi-layer semi-transparent overlays, and bold red-black contrast. Uses a dark cover/section design paired with clean light",
+      "tags": [
+        "business",
+        "dark",
+        "geometric",
+        "minimal",
+        "modern"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "smart-red-theme"
+    },
+    {
+      "name": "solar-flare",
+      "display_name": "Solar Flare",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/solar-flare",
+      "style": "Warm solar energy — gold and amber radiating rays on cream/white",
+      "best_for": "Energy sector, sustainability, solar technology, innovation, optimistic corporate messaging",
+      "visual_character": "A warm, optimistic theme inspired by solar energy — gold and amber radiating ray patterns emanate across cream backgrounds. Concentric arc SVGs and solar flare decorations create a sense of power and optimism.",
+      "tags": [
+        "tech",
+        "warm",
+        "nature",
+        "modern"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "solar-flare-theme"
+    },
+    {
+      "name": "swiss-grid",
+      "display_name": "Swiss Grid",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/swiss-grid",
+      "style": "Modernist, geometric, grid-based, typographic / light theme",
+      "best_for": "Design systems presentations, architecture talks, modernist portfolios, corporate identity, typography lectures",
+      "visual_character": "An International Typographic Style (Swiss Design) theme influenced by Josef Mueller-Brockmann and the Zurich school of graphic design. Features strict mathematical grid systems with the grid visible a",
+      "tags": [
+        "business",
+        "geometric",
+        "modern",
+        "swiss",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "swiss-grid-theme"
+    },
+    {
+      "name": "terrace-garden",
+      "display_name": "Terrace Garden",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/terrace-garden",
+      "style": "Mediterranean / Architectural Garden",
+      "best_for": "Architecture, landscape design, Mediterranean studies, cultural heritage, food/wine industry, academic travel",
+      "visual_character": "Standing on a sun-warmed limestone terrace overlooking a Tuscan hillside. Olive branches, terracotta tones, archway motifs, and warm limestone textures.",
+      "tags": [
+        "academic",
+        "architecture",
+        "mediterranean",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "terrace-garden-theme"
+    },
+    {
+      "name": "terracotta-mosaic",
+      "display_name": "Terracotta Mosaic",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/terracotta-mosaic",
+      "style": "Warm terracotta, geometric mosaic patterns, Mediterranean sun",
+      "best_for": "Architecture, travel, cultural studies, history presentations",
+      "visual_character": "A warm, inviting theme inspired by Mediterranean terracotta tiles, Moorish geometric mosaics, and the Alhambra palace. Features persistent zellige star-pattern atmosphere on every content slide, a sig",
+      "tags": [
+        "cultural",
+        "geometric",
+        "warm",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "terracotta-mosaic-theme"
+    },
+    {
+      "name": "tidal-pool",
+      "display_name": "Tidal Pool",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/tidal-pool",
+      "style": "Ocean science — aquamarine and sand tones with gentle wave patterns on white",
+      "best_for": "Marine biology, oceanography, environmental research, climate science, academic conferences",
+      "visual_character": "A serene ocean-science theme with aquamarine primary accent, sandy secondary tones, and deep navy headings on white backgrounds. Gentle wave-pattern SVGs flow along slide edges, creating a coastal research atmosphere.",
+      "tags": [
+        "academic",
+        "nature",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "tidal-pool-theme"
+    },
+    {
+      "name": "vermillion",
+      "display_name": "Vermillion",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/vermillion",
+      "style": "Warm terracotta/vermillion professional theme inspired by Mediterranean architecture, sunbaked clay ",
+      "best_for": "",
+      "visual_character": "Warm terracotta/vermillion professional theme inspired by Mediterranean architecture, sunbaked clay ",
+      "tags": [
+        "professional",
+        "warm",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "vermillion-theme"
+    },
+    {
+      "name": "watercolor",
+      "display_name": "Watercolor",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/watercolor",
+      "style": "Creative, organic, painterly, warm / light theme",
+      "best_for": "Creative presentations, art direction, design portfolios, storytelling, branding talks",
+      "visual_character": "A soft, organic painting aesthetic featuring SVG blob shapes created with cubic bezier curves, paint splatter accents, wavy bleed-line dividers, warm cream paper background, and translucent watercolor",
+      "tags": [
+        "creative",
+        "nature",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "watercolor-theme"
+    },
+    {
+      "name": "zen-garden",
+      "display_name": "Zen Garden",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/zen-garden",
+      "style": "Minimalist zen, raked sand, natural stone, serene emptiness",
+      "best_for": "Mindfulness, philosophy, design thinking, minimalist presentations, Japanese culture",
+      "visual_character": "A minimalist theme inspired by Japanese karesansui (dry landscape) zen rock gardens. Embraces negative space as its primary design element -- raked sand patterns flow across slide backgrounds, smooth ",
+      "tags": [
+        "cultural",
+        "geometric",
+        "minimal",
+        "nature",
+        "japanese"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "zen-garden-theme"
+    },
+    {
+      "name": "fossil-amber",
+      "display_name": "Fossil Amber",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/fossil-amber",
+      "style": "Paleontology / Geological Strata",
+      "best_for": "Academic presentations, research talks, geology, paleontology, natural history, museum presentations, science conferences",
+      "visual_character": "Warm honey-gold tones layered like geological strata. Fossilized leaf impressions as decorative SVGs, amber resin drip decorations, sedimentary cross-section dividers, and inclusion motifs. Creates an atmosphere of deep time and preserved wonder.",
+      "tags": [
+        "academic",
+        "nature",
+        "warm",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "fossil-amber-theme"
+    },
+    {
+      "name": "astrolabe",
+      "display_name": "Astrolabe",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/astrolabe",
+      "style": "Medieval Astronomical Instrument / Celestial Precision",
+      "best_for": "Academic conferences, astronomy, physics, mathematics, navigation history, precision engineering, research seminars",
+      "visual_character": "Precise engraved arcs and celestial coordinate lines on warm ivory backgrounds. Graduated degree scales, ecliptic rings, brass/gold accents, and rotating dial aesthetics. Every element evokes the precision of medieval astronomical instruments.",
+      "tags": [
+        "academic",
+        "geometric",
+        "elegant",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "astrolabe-theme"
+    },
+    {
+      "name": "lab-notebook",
+      "display_name": "Lab Notebook",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/lab-notebook",
+      "style": "Research Lab Notebook / Graph Paper",
+      "best_for": "Research presentations, lab meetings, thesis defense, scientific talks, experimental results, STEM education",
+      "visual_character": "Graph paper grid backgrounds, margin rule lines, ring-binder holes, specimen sketch frames, and sticky note callouts. Off-white paper with teal ink and orange annotation highlights. The familiar comfort of a well-used research notebook.",
+      "tags": [
+        "academic",
+        "modern",
+        "science",
+        "professional"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "lab-notebook-theme"
+    },
+    {
+      "name": "golden-script",
+      "display_name": "Golden Script",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/golden-script",
+      "style": "Mathematical Elegance / Golden Spiral Aesthetics",
+      "best_for": "Academic presentations, research talks, design thinking, architecture, any topic benefiting from elegant mathematical proportions",
+      "visual_character": "Golden ratio spirals as subtle background, Q.E.D. tombstone decorations, theorem boxes with gold borders, and mathematical coordinate frames. Deep indigo text with royal blue and gold accents on clean white. The beauty of rigorous mathematical thought.",
+      "tags": [
+        "academic",
+        "geometric",
+        "minimal",
+        "elegant"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "golden-script-theme"
+    },
+    {
+      "name": "pulse-grid",
+      "display_name": "Pulse Grid",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/pulse-grid",
+      "style": "Oscilloscope / Vital Signs Monitor",
+      "best_for": "Data science, biomedical engineering, signal processing, real-time systems, health tech, monitoring dashboards",
+      "visual_character": "Oscilloscope grid backgrounds with phosphor-green ECG waveform traces. Digital readout panels, signal peak indicators, and vital-signs display aesthetics. Clean light backgrounds with emerald green primary and electric blue secondary.",
+      "tags": [
+        "tech",
+        "modern",
+        "science",
+        "geometric"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "pulse-grid-theme"
+    },
+    {
+      "name": "frost-glass",
+      "display_name": "Frost Glass",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/frost-glass",
+      "style": "Glassmorphism / Frosted Depth Layers",
+      "best_for": "UI/UX design talks, product launches, SaaS demos, modern tech presentations, startup pitches, app showcases",
+      "visual_character": "Frosted glass morphism with translucent panels floating over subtle gradient mesh backgrounds. Soft depth shadows, glass edge highlights, rainbow refraction arcs, and floating orb shapes. Inspired by Apple iOS design language and modern dashboard interfaces.",
+      "tags": [
+        "tech",
+        "modern",
+        "creative",
+        "elegant"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "frost-glass-theme"
+    },
+    {
+      "name": "quantum-dot",
+      "display_name": "Quantum Dot",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/quantum-dot",
+      "style": "Quantum Computing / Orbital Patterns",
+      "best_for": "Quantum computing talks, physics research, AI/ML presentations, innovation summits, deep tech pitches, research conferences",
+      "visual_character": "Quantum circuit diagrams as background texture, Bloch sphere coordinate lines, orbital probability clouds, and entanglement connection curves. Cool white with electric violet primary and cyan secondary. Abstract, precise, and futuristic.",
+      "tags": [
+        "tech",
+        "science",
+        "geometric",
+        "modern"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "quantum-dot-theme"
+    },
+    {
+      "name": "binary-rain",
+      "display_name": "Binary Rain",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/binary-rain",
+      "style": "Digital Data Streams / Cascading Code",
+      "best_for": "Cybersecurity talks, programming tutorials, data engineering, DevOps, cloud computing, developer conferences",
+      "visual_character": "Matrix-like vertical data streams reimagined for light backgrounds. Fading binary digits, cascading waterfall patterns, terminal cursors, and hexadecimal address decorations. Bright matrix green primary on white with dark teal secondary.",
+      "tags": [
+        "tech",
+        "modern",
+        "geometric",
+        "playful"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "binary-rain-theme"
+    },
+    {
+      "name": "ivory-column",
+      "display_name": "Ivory Column",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/ivory-column",
+      "style": "Classical Greek Architecture / Neoclassical",
+      "best_for": "Executive presentations, law firms, institutional talks, governance, banking, insurance, classical education",
+      "visual_character": "Ionic and Corinthian column capitals, fluted pillar patterns, entablature borders, and temple pediment frames. Warm ivory backgrounds with slate blue primary and antique gold accents. Classical proportional systems conveying authority and timeless elegance.",
+      "tags": [
+        "business",
+        "elegant",
+        "formal",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "ivory-column-theme"
+    },
+    {
+      "name": "mosaic-tile",
+      "display_name": "Mosaic Tile",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/mosaic-tile",
+      "style": "Islamic Zellige / Geometric Tessellation",
+      "best_for": "Strategy presentations, corporate keynotes, international business, luxury brands, cultural institutions, architecture firms",
+      "visual_character": "Intricate interlocking 8-point star zellige patterns, octagonal tessellations, arabesque vine interlace, and glazed tile aesthetics. Warm white with cobalt blue primary, terracotta orange secondary, and teal highlights. Structured precision meets artisanal beauty.",
+      "tags": [
+        "business",
+        "geometric",
+        "cultural",
+        "elegant"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "mosaic-tile-theme"
+    },
+    {
+      "name": "golden-ratio",
+      "display_name": "Golden Ratio",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/golden-ratio",
+      "style": "Fibonacci Spiral / Mathematical Proportion",
+      "best_for": "Executive strategy, design thinking, consulting pitches, brand strategy, growth planning, investor presentations",
+      "visual_character": "Golden spiral arcs and Fibonacci rectangle grids as subtle backgrounds. Phi proportion markers, Vitruvian geometric frames, and golden-angle radial patterns. Warm cream with gold/amber primary and bronze secondary. Mathematical beauty serving communication clarity.",
+      "tags": [
+        "business",
+        "elegant",
+        "geometric",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "golden-ratio-theme"
+    },
+    {
+      "name": "atlas-trade",
+      "display_name": "Atlas Trade",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/atlas-trade",
+      "style": "Cartographic / World Trade Routes",
+      "best_for": "Global business strategy, supply chain, logistics, international trade, market expansion, geopolitical analysis",
+      "visual_character": "Mercator projection grids, compass rose ornaments, trade route arc curves, port markers, and rhumb line patterns. Warm parchment backgrounds with ocean blue primary and amber/gold secondary. Antique nautical charts meet modern data visualization.",
+      "tags": [
+        "business",
+        "warm",
+        "professional",
+        "geometric"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "atlas-trade-theme"
+    },
+    {
+      "name": "linen-thread",
+      "display_name": "Linen Thread",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/linen-thread",
+      "style": "Woven Textile / Natural Fiber Craft",
+      "best_for": "Humanities, social science, education, cultural studies, qualitative research, workshop presentations",
+      "visual_character": "Handwoven textile warmth — crosshatch woven patterns, thread-line borders, stitch marks, embroidery-style corner ornaments, fabric texture grids. Natural off-white with indigo, terracotta, and sage green.",
+      "tags": [
+        "warm",
+        "organic",
+        "craft",
+        "natural"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "linen-thread-theme"
+    },
+    {
+      "name": "herbarium-press",
+      "display_name": "Herbarium Press",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/herbarium-press",
+      "style": "Botanical Specimen / Natural History",
+      "best_for": "Biology, environmental science, natural history, botanical research, life sciences, ecology presentations",
+      "visual_character": "Victorian botanical preservation aesthetic — pressed leaf silhouettes, specimen label frames, mounting corner brackets, delicate vein-like background patterns, herbarium sheet borders. Warm cream with deep forest green and dried sage.",
+      "tags": [
+        "warm",
+        "organic",
+        "elegant",
+        "scientific"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "herbarium-press-theme"
+    },
+    {
+      "name": "plasma-arc",
+      "display_name": "Plasma Arc",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/plasma-arc",
+      "style": "Electric Discharge / Plasma Physics",
+      "best_for": "Technology presentations, engineering talks, physics, electrical/energy topics, innovation showcases, startup pitches",
+      "visual_character": "Raw electrical energy channeled into precision — jagged arc discharge paths, plasma field gradients, electrode markers, ionization rings, voltage level indicators. Clean white with electric violet, plasma blue, and energy orange accents.",
+      "tags": [
+        "tech",
+        "energetic",
+        "modern",
+        "bold"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "plasma-arc-theme"
+    },
+    {
+      "name": "hexagon-mesh",
+      "display_name": "Hexagon Mesh",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/hexagon-mesh",
+      "style": "Molecular Structure / Crystalline Geometry",
+      "best_for": "Chemistry, materials science, tech architecture, network presentations, biotech, structural engineering",
+      "visual_character": "The beauty of hexagonal geometry in nature and engineering — tessellating hexagon grids, molecular bond lines, node dots at vertices, crystalline borders, lattice mesh backgrounds. Light grey-white with teal and amber accents.",
+      "tags": [
+        "geometric",
+        "tech",
+        "scientific",
+        "clean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "hexagon-mesh-theme"
+    },
+    {
+      "name": "tensor-field",
+      "display_name": "Tensor Field",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/tensor-field",
+      "style": "Mathematical Topology / Flow Dynamics",
+      "best_for": "Mathematics, physics, machine learning, computational science, theoretical research, academic seminars",
+      "visual_character": "Mathematical structure made visible — flowing vector field lines, gradient magnitude indicators, contour lines, stream function patterns. Warm cream/ivory with deep indigo, warm rust, and steel blue.",
+      "tags": [
+        "mathematical",
+        "elegant",
+        "warm",
+        "scientific"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "tensor-field-theme"
+    },
+    {
+      "name": "washi-tape",
+      "display_name": "Washi Tape",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/washi-tape",
+      "style": "Japanese Paper Craft / Scrapbook",
+      "best_for": "Creative industries, marketing, retail, event planning, educational workshops, startup pitches, product launches",
+      "visual_character": "Joyful precision of paper craft — torn-edge tape strips, polka dot and stripe patterns, kraft paper textures, dot-grid bullet journal backgrounds, paper clip accents, layered collage aesthetics. Warm white with dusty rose, sage green, and mustard yellow.",
+      "tags": [
+        "creative",
+        "fun",
+        "colorful",
+        "craft"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "washi-tape-theme"
+    },
+    {
+      "name": "sundial-brass",
+      "display_name": "Sundial Brass",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/sundial-brass",
+      "style": "Astronomical Instruments / Horology",
+      "best_for": "Academic research, time-series analysis, historical studies, philosophy, physics, methodology presentations",
+      "visual_character": "Astronomical precision meets antique craft — sundial hour lines radiating from gnomon points, clock gear teeth borders, Roman numeral markers, celestial arc curves, brass engraving cross-hatching, armillary sphere rings. Warm ivory with aged brass and deep navy.",
+      "tags": [
+        "warm",
+        "elegant",
+        "scientific",
+        "precision"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "sundial-brass-theme"
+    },
+    {
+      "name": "letterpress-guild",
+      "display_name": "Letterpress Guild",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/letterpress-guild",
+      "style": "Movable Type / Typographic Craft Heritage",
+      "best_for": "Publishing, media, journalism, content strategy, brand agencies, editorial presentations",
+      "visual_character": "Printing press craft heritage — printer's ornaments (fleurons), type case grid patterns, registration marks, ink impression textures, thick/thin rule combinations, guild mark emblems. Warm cream with printer's black and press red.",
+      "tags": [
+        "typographic",
+        "heritage",
+        "bold",
+        "craft"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "letterpress-guild-theme"
+    },
+    {
+      "name": "lecture-hall",
+      "display_name": "Lecture Hall",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/lecture-hall",
+      "style": "Frosted Glass Academic / Structured Teaching",
+      "best_for": "Course lectures, math-heavy presentations, university teaching, definition-theorem-proof content, long academic decks (30-70 slides)",
+      "visual_character": "Modern lecture hall with frosted glass whiteboards — structured definition/theorem/proof blocks with distinct visual treatments. Dot-grid background atmosphere. Deep navy primary, academic blue accent, muted gold for theorem highlights.",
+      "tags": [
+        "academic",
+        "structured",
+        "mathematical",
+        "teaching"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "lecture-hall-theme"
+    },
+    {
+      "name": "aurora-prism",
+      "display_name": "Aurora Prism",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/aurora-prism",
+      "style": "Northern Light Refraction / Conference Polish",
+      "best_for": "Academic conference talks (ICML, NeurIPS, AAAI), oral presentations, spotlight talks, polished research showcases",
+      "visual_character": "Northern lights refracted through crystal — pure white background with single sharp indigo accent. Aurora gradient bar (blue→violet→amber) at top of content slides. Clean, restrained, publication-quality. The rainbow gradient is the only decoration but highly distinctive.",
+      "tags": [
+        "conference",
+        "elegant",
+        "scientific",
+        "clean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "aurora-prism-theme"
+    },
+    {
+      "name": "laurel-crown",
+      "display_name": "Laurel Crown",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/laurel-crown",
+      "style": "Classical Academic Ceremony / Laurel Wreath",
+      "best_for": "Thesis defense, research proposals, doctoral presentations, formal academic ceremonies, comprehensive research showcases",
+      "visual_character": "Academic laurel wreath ceremony — warm ivory background with deep burgundy text. Laurel leaf SVG motifs on title/ending (bookending). Scholarly green accent with gold highlights. Formal dignity without stuffiness.",
+      "tags": [
+        "formal",
+        "academic",
+        "classical",
+        "thesis"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "laurel-crown-theme"
+    },
+    {
+      "name": "carbon-console",
+      "display_name": "Carbon Console",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/carbon-console",
+      "style": "Dark Terminal / Server Rack Engineering",
+      "best_for": "Tech talks, engineering presentations, system architecture reviews, developer conferences, internal technical sharing",
+      "visual_character": "Inside a high-end server rack — deep charcoal background with phosphor green primary accent. Circuit trace SVG background atmosphere. Amber secondary. Server-panel frame on title/ending. Code-first design with codly integration.",
+      "tags": [
+        "dark",
+        "terminal",
+        "engineering",
+        "developer"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "carbon-console-theme"
+    },
+    {
+      "name": "syntax-garden",
+      "display_name": "Syntax Garden",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/syntax-garden",
+      "style": "Growing Tree / Organic Code Learning",
+      "best_for": "Programming tutorials, coding workshops, framework introductions, language teaching, hands-on technical training",
+      "visual_character": "A garden where code grows like plants — soft cream background with forest green primary. Branch/vine SVG atmosphere in corners. Tree-frame on title/ending. Organic shapes with rounded corners and leaf markers. Progressive learning metaphor.",
+      "tags": [
+        "tutorial",
+        "organic",
+        "code",
+        "learning"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "syntax-garden-theme"
+    },
+    {
+      "name": "gauge-panel",
+      "display_name": "Gauge Panel",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/gauge-panel",
+      "style": "Analog Instrument Dashboard / Scientific Measurement",
+      "best_for": "Project reviews, experiment reports, performance summaries, data-driven presentations, metric-focused briefings",
+      "visual_character": "Analog instrument control panel — light warm gray background with measurement-grid SVG atmosphere. Gauge-dial SVG decorations. Steel blue accent with warm copper highlights. Metric cards with arc indicators. Scientific instrument dashboard feel.",
+      "tags": [
+        "dashboard",
+        "data",
+        "scientific",
+        "metrics"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "gauge-panel-theme"
+    },
+    {
+      "name": "field-guide",
+      "display_name": "Field Guide",
+      "category": "custom",
+      "tier": "rich",
+      "path": "custom-rich/field-guide",
+      "style": "Naturalist Pocket Reference / Bookmark Tabs",
+      "best_for": "Training materials, onboarding decks, technical guides, step-by-step tutorials, process documentation, workshop handouts",
+      "visual_character": "Naturalist pocket field guide — soft sage background with topographic-line SVG atmosphere. Numbered entries like species cards, bookmark tabs that stick out, compass markers. Deep forest green primary, warm tan for tabs. Book-cover border on title/ending.",
+      "tags": [
+        "instructional",
+        "nature",
+        "organized",
+        "training"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "field-guide-theme"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Authoring"
+  short_description: "Author and verify semantic Typst documents"
+  default_prompt: "Use $typst-authoring to create or improve this Typst document and verify the result."

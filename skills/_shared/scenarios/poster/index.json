@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "scenario": "poster",
+  "entries": [
+    {
+      "id": "peace-of-posters-field-transect",
+      "entry": "peace-of-posters/demo.typ",
+      "package": "@preview/peace-of-posters:0.6.0",
+      "paper": "a1",
+      "orientation": "portrait",
+      "license": "MIT"
+    },
+    {
+      "id": "peace-of-posters-three-column",
+      "entry": "peace-of-posters/demo-three-column.typ",
+      "package": "@preview/peace-of-posters:0.6.0",
+      "paper": "a0",
+      "orientation": "landscape",
+      "license": "MIT"
+    },
+    {
+      "id": "peace-of-posters-visual-first",
+      "entry": "peace-of-posters/demo-visual-first.typ",
+      "package": "@preview/peace-of-posters:0.6.0",
+      "paper": "a1",
+      "orientation": "landscape",
+      "license": "MIT"
+    },
+    {
+      "id": "placard-shared-kitchen",
+      "entry": "placard/demo.typ",
+      "package": "@preview/placard:0.1.0",
+      "paper": "a1",
+      "orientation": "portrait",
+      "license": "MIT"
+    },
+    {
+      "id": "placard-night-bus",
+      "entry": "placard/demo-dark.typ",
+      "package": "@preview/placard:0.1.0",
+      "paper": "a1",
+      "orientation": "landscape",
+      "license": "MIT"
+    },
+    {
+      "id": "pollux-chart-accessibility",
+      "entry": "pollux/demo.typ",
+      "package": "@preview/pollux:0.1.0",
+      "paper": "a0",
+      "orientation": "portrait",
+      "license": "MIT"
+    },
+    {
+      "id": "pasquino-curb-air",
+      "entry": "pasquino/demo.typ",
+      "package": "@preview/pasquino:0.1.0",
+      "paper": "75x100cm",
+      "orientation": "portrait",
+      "license": "MIT-0"
+    },
+    {
+      "id": "postercise-better-poster",
+      "entry": "postercise/demo.typ",
+      "package": "@preview/postercise:0.2.0",
+      "paper": "24x18in",
+      "orientation": "landscape",
+      "license": "MIT"
+    }
+  ]
+}

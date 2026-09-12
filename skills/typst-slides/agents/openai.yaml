@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Slides"
+  short_description: "Create and verify Typst presentations in quick or complex mode"
+  default_prompt: "Use $typst-slides to create or improve this presentation; ask whether to use quick or complex mode when the request does not decide."

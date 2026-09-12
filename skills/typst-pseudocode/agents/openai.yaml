@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Pseudocode"
+  short_description: "Typeset faithful readable algorithm pseudocode"
+  default_prompt: "Use $typst-pseudocode to typeset this algorithm faithfully and verify its rendered readability."

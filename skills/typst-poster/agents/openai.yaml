@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Poster"
+  short_description: "Create a verified one-page academic or research poster"
+  default_prompt: "Use $typst-poster to create or improve this one-page poster and verify its physical output."

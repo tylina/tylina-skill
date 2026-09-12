@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Theorems"
+  short_description: "Write semantic theorems, equations, and proofs"
+  default_prompt: "Use $typst-theorems to create or review this mathematical Typst content without changing its meaning."

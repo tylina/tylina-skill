@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "collections": [
+    {
+      "id": "typst",
+      "name": "Official Typst documentation",
+      "index": "_shared/docs/typst/index.json",
+      "documentationRoot": "_shared/docs/typst/docs/content",
+      "useWhen": "Checking exact Typst language, standard-library, guide, or syntax behavior."
+    },
+    {
+      "id": "touying",
+      "name": "Official Touying documentation",
+      "index": "_shared/docs/touying/index.json",
+      "documentationRoot": "_shared/docs/touying/docs",
+      "useWhen": "Checking exact Touying deck, slide, section, animation, or speaker-note behavior."
+    }
+  ]
+}

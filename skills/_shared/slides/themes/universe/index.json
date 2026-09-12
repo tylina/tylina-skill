@@ -1,0 +1,656 @@
+{
+  "version": "4.0",
+  "tier": "universe",
+  "description": "Community themes from typst.app/universe. Installed automatically when imported. All require Touying >= 0.5.0.",
+  "themes": [
+    {
+      "name": "touying-endfield",
+      "display_name": "Touying Endfield",
+      "category": "universe",
+      "style": "Modern, game-inspired (Arknights: Endfield)",
+      "best_for": "Modern presentations, creative talks",
+      "visual_character": "Game-inspired modern aesthetic, creative styling",
+      "tags": [
+        "gaming",
+        "modern",
+        "creative",
+        "arknights",
+        "stylized"
+      ],
+      "import": "#import \"@preview/touying-endfield:0.1.1\": *",
+      "entry_function": "endfield-theme"
+    },
+    {
+      "name": "calmly-touying",
+      "display_name": "Calmly Touying",
+      "category": "universe",
+      "style": "Modern, minimalist, Moloch-inspired",
+      "best_for": "Academic talks, feature-rich slides",
+      "visual_character": "Minimalist Moloch-style, multiple color themes",
+      "tags": [
+        "academic",
+        "minimalist",
+        "modern",
+        "feature-rich",
+        "clean"
+      ],
+      "import": "#import \"@preview/calmly-touying:0.2.0\": *",
+      "entry_function": "calmly"
+    },
+    {
+      "name": "clean-math-presentation",
+      "display_name": "Clean Math Presentation",
+      "category": "universe",
+      "style": "Clean, academic, math-focused",
+      "best_for": "Mathematical talks, theorem-heavy presentations",
+      "visual_character": "Clean academic layout with theorem/proof blocks",
+      "tags": [
+        "math",
+        "academic",
+        "theorem",
+        "clean",
+        "research"
+      ],
+      "import": "#import \"@preview/clean-math-presentation:0.1.1\": *",
+      "entry_function": "clean-math-presentation-theme"
+    },
+    {
+      "name": "metropolyst",
+      "display_name": "Metropolyst",
+      "category": "universe",
+      "style": "Modern, Metropolis variant",
+      "best_for": "Academic talks, configurable Metropolis style",
+      "visual_character": "Metropolis-derived, configurable modern look",
+      "tags": [
+        "academic",
+        "modern",
+        "beamer",
+        "configurable"
+      ],
+      "import": "#import \"@preview/metropolyst:0.1.0\": *",
+      "entry_function": "metropolyst-theme"
+    },
+    {
+      "name": "touying-simpres",
+      "display_name": "Touying Simpres",
+      "category": "universe",
+      "style": "Education, business",
+      "best_for": "Education and business presentations",
+      "visual_character": "Clean education/business dual-purpose layout",
+      "tags": [
+        "education",
+        "business",
+        "simple",
+        "versatile"
+      ],
+      "import": "#import \"@preview/touying-simpres:0.1.0\": *",
+      "entry_function": "touying-simpres"
+    },
+    {
+      "name": "touying-quick",
+      "display_name": "Touying Quick",
+      "category": "universe",
+      "style": "Quick-start, academic",
+      "best_for": "Quick academic reports",
+      "visual_character": "Fast-setup academic report style",
+      "tags": [
+        "quick",
+        "academic",
+        "report",
+        "minimal"
+      ],
+      "import": "#import \"@preview/touying-quick:0.4.2\": *",
+      "entry_function": "touying-quick"
+    },
+    {
+      "name": "sano-presentation-template",
+      "display_name": "Sano",
+      "category": "universe",
+      "style": "Small, minimal",
+      "best_for": "Minimal presentations",
+      "visual_character": "Ultra-minimal, small footprint design",
+      "tags": [
+        "minimal",
+        "small",
+        "simple",
+        "lightweight"
+      ],
+      "import": "#import \"@preview/sano-presentation-template:1.0.0\": *",
+      "entry_function": "sano"
+    },
+    {
+      "name": "silky-slides-insa",
+      "display_name": "Silky Slides INSA",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "INSA engineering school",
+      "visual_character": "French engineering school branded layout",
+      "tags": [
+        "institutional",
+        "french",
+        "engineering",
+        "branded"
+      ],
+      "import": "#import \"@preview/silky-slides-insa:0.2.0\": *",
+      "entry_function": "insa-slides"
+    },
+    {
+      "name": "ens-rennes-presentation",
+      "display_name": "ENS Rennes",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "ENS Rennes presentations",
+      "visual_character": "French academic institution branding",
+      "tags": [
+        "institutional",
+        "french",
+        "academic",
+        "branded"
+      ],
+      "import": "#import \"@preview/ens-rennes-presentation:0.1.0\": *",
+      "entry_function": "ens-rennes-theme"
+    },
+    {
+      "name": "simple-inria-touying-theme",
+      "display_name": "Simple Inria",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "Inria research institute",
+      "visual_character": "French research institute branded layout",
+      "tags": [
+        "institutional",
+        "french",
+        "research",
+        "branded"
+      ],
+      "import": "#import \"@preview/simple-inria-touying-theme:0.1.2\": *",
+      "entry_function": "inria-theme"
+    },
+    {
+      "name": "touying-unistra-pristine",
+      "display_name": "Unistra Pristine",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "University of Strasbourg",
+      "visual_character": "French university branded, pristine layout",
+      "tags": [
+        "institutional",
+        "french",
+        "university",
+        "branded"
+      ],
+      "import": "#import \"@preview/touying-unistra-pristine:1.4.3\": *",
+      "entry_function": "unistra-theme"
+    },
+    {
+      "name": "touying-greyc-ambrosia",
+      "display_name": "GREYC Ambrosia",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "GREYC laboratory",
+      "visual_character": "French research lab branded design",
+      "tags": [
+        "institutional",
+        "french",
+        "laboratory",
+        "research"
+      ],
+      "import": "#import \"@preview/touying-greyc-ambrosia:0.1.0\": *",
+      "entry_function": "greyc-theme"
+    },
+    {
+      "name": "gqe-lemoulon-presentation",
+      "display_name": "GQE Le Moulon",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "GQE-Le Moulon quantitative genetics",
+      "visual_character": "French genetics lab branded layout",
+      "tags": [
+        "institutional",
+        "french",
+        "genetics",
+        "research",
+        "science"
+      ],
+      "import": "#import \"@preview/gqe-lemoulon-presentation:0.0.7\": *",
+      "entry_function": "gqe-lemoulon-presentation-theme"
+    },
+    {
+      "name": "ineris-slide",
+      "display_name": "INERIS Slide",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "INERIS institute",
+      "visual_character": "French safety institute branded layout",
+      "tags": [
+        "institutional",
+        "french",
+        "safety",
+        "branded"
+      ],
+      "import": "#import \"@preview/ineris-slide:0.1.0\": *",
+      "entry_function": "ineris-slideshow"
+    },
+    {
+      "name": "touying-pres-uge",
+      "display_name": "Touying UGE",
+      "category": "universe",
+      "style": "Institutional, French",
+      "best_for": "Universite Gustave Eiffel",
+      "visual_character": "French university branded presentation",
+      "tags": [
+        "institutional",
+        "french",
+        "university",
+        "branded"
+      ],
+      "import": "#import \"@preview/touying-pres-uge:0.1.1\": *",
+      "entry_function": "uge-theme"
+    },
+    {
+      "name": "definitely-not-isec-slides",
+      "display_name": "ISEC TUGraz",
+      "category": "universe",
+      "style": "Institutional, German/Austrian",
+      "best_for": "ISEC TUGraz presentations",
+      "visual_character": "Austrian university security institute branding",
+      "tags": [
+        "institutional",
+        "german",
+        "austrian",
+        "university",
+        "security"
+      ],
+      "import": "#import \"@preview/definitely-not-isec-slides:1.1.0\": *",
+      "entry_function": "definitely-not-isec-theme"
+    },
+    {
+      "name": "touying-htwk-stripes",
+      "display_name": "HTWK Stripes",
+      "category": "universe",
+      "style": "Institutional, German",
+      "best_for": "HTWK Leipzig",
+      "visual_character": "German university striped branded design",
+      "tags": [
+        "institutional",
+        "german",
+        "university",
+        "striped"
+      ],
+      "import": "#import \"@preview/touying-htwk-stripes:1.0.1\": *",
+      "entry_function": "htwk-stripes-theme"
+    },
+    {
+      "name": "not-tudabeamer-2023",
+      "display_name": "TU Darmstadt",
+      "category": "universe",
+      "style": "Institutional, German",
+      "best_for": "TU Darmstadt presentations",
+      "visual_character": "German technical university branded layout",
+      "tags": [
+        "institutional",
+        "german",
+        "university",
+        "technical"
+      ],
+      "import": "#import \"@preview/not-tudabeamer-2023:0.2.1\": *",
+      "entry_function": "not-tudabeamer-2023-theme"
+    },
+    {
+      "name": "clear-tub",
+      "display_name": "Clear TUB",
+      "category": "universe",
+      "style": "Institutional, German",
+      "best_for": "TU Berlin presentations",
+      "visual_character": "German technical university clean branding",
+      "tags": [
+        "institutional",
+        "german",
+        "university",
+        "clean"
+      ],
+      "import": "#import \"@preview/clear-tub:0.2.0\": *",
+      "entry_function": "tub-theme"
+    },
+    {
+      "name": "upb-corporate-design-slides",
+      "display_name": "UPB Slides",
+      "category": "universe",
+      "style": "Institutional, German",
+      "best_for": "Paderborn University",
+      "visual_character": "German university corporate design layout",
+      "tags": [
+        "institutional",
+        "german",
+        "university",
+        "corporate"
+      ],
+      "import": "#import \"@preview/upb-corporate-design-slides:0.1.3\": *",
+      "entry_function": "upb-theme"
+    },
+    {
+      "name": "touying-brandred-uobristol",
+      "display_name": "UoBristol Brandred",
+      "category": "universe",
+      "style": "Institutional, UK",
+      "best_for": "University of Bristol",
+      "visual_character": "UK university red branded design",
+      "tags": [
+        "institutional",
+        "uk",
+        "university",
+        "red",
+        "branded"
+      ],
+      "import": "#import \"@preview/touying-brandred-uobristol:0.2.0\": *",
+      "entry_function": "uobristol-theme"
+    },
+    {
+      "name": "muw-touying-community",
+      "display_name": "MUW Community",
+      "category": "universe",
+      "style": "Institutional, Austrian",
+      "best_for": "Medical University of Vienna",
+      "visual_character": "Austrian medical university branded layout",
+      "tags": [
+        "institutional",
+        "austrian",
+        "medical",
+        "university"
+      ],
+      "import": "#import \"@preview/muw-touying-community:0.1.0\": *",
+      "entry_function": "muw-slides"
+    },
+    {
+      "name": "ucph-nielsine-touying",
+      "display_name": "UCPH Nielsine",
+      "category": "universe",
+      "style": "Institutional, Danish",
+      "best_for": "University of Copenhagen",
+      "visual_character": "Danish university Metropolis-based branding",
+      "tags": [
+        "institutional",
+        "danish",
+        "university",
+        "metropolis"
+      ],
+      "import": "#import \"@preview/ucph-nielsine-touying:0.1.3\" as uc\n#import \"@preview/touying:0.6.3\" as ty\n#import uc.themes.ucph-metropolis as th",
+      "entry_function": "ucph-metropolis-theme"
+    },
+    {
+      "name": "touying-buaa",
+      "display_name": "Touying BUAA",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Beihang University",
+      "visual_character": "Chinese aerospace university branded design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "aerospace"
+      ],
+      "import": "#import \"@preview/touying-buaa:0.2.0\": *",
+      "entry_function": "buaa-theme"
+    },
+    {
+      "name": "buaa-unofficial-gradient",
+      "display_name": "BUAA Gradient",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Beihang University gradient style",
+      "visual_character": "Chinese university gradient-accented design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "gradient"
+      ],
+      "import": "#import \"@preview/buaa-unofficial-gradient:0.1.0\": *",
+      "entry_function": "buaa-theme"
+    },
+    {
+      "name": "sdu-touying-simpl",
+      "display_name": "SDU Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Shandong University",
+      "visual_character": "Chinese university simple branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "simple"
+      ],
+      "import": "#import \"@preview/sdu-touying-simpl:1.1.0\": *",
+      "entry_function": "sdu-theme"
+    },
+    {
+      "name": "touying-simpl-sjtu",
+      "display_name": "SJTU Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Shanghai Jiao Tong University",
+      "visual_character": "Chinese top university branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "shanghai"
+      ],
+      "import": "#import \"@preview/touying-simpl-sjtu:0.1.0\": *",
+      "entry_function": "sjtu-theme"
+    },
+    {
+      "name": "touying-simpl-hkustgz",
+      "display_name": "HKUST(GZ) Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "HKUST(GZ)",
+      "visual_character": "Hong Kong university branded design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "hong-kong"
+      ],
+      "import": "#import \"@preview/touying-simpl-hkustgz:0.1.2\": *",
+      "entry_function": "hkustgz-theme"
+    },
+    {
+      "name": "touying-simpl-cau",
+      "display_name": "CAU Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "China Agricultural University",
+      "visual_character": "Chinese agricultural university branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "agricultural"
+      ],
+      "import": "#import \"@preview/touying-simpl-cau:0.2.1\": *",
+      "entry_function": "cau-theme"
+    },
+    {
+      "name": "modern-sysu-touying",
+      "display_name": "Modern SYSU",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Sun Yat-sen University",
+      "visual_character": "Chinese university modern branded design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "modern"
+      ],
+      "import": "#import \"@preview/modern-sysu-touying:0.1.0\": *",
+      "entry_function": "sysu-theme"
+    },
+    {
+      "name": "simply-ysu-touying",
+      "display_name": "Simply YSU",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Yanshan University",
+      "visual_character": "Chinese university simple branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "simple"
+      ],
+      "import": "#import \"@preview/simply-ysu-touying:0.1.0\": *",
+      "entry_function": "ysu-theme"
+    },
+    {
+      "name": "touying-simpl-ecnu",
+      "display_name": "ECNU Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "East China Normal University",
+      "visual_character": "Chinese education university branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "education"
+      ],
+      "import": "#import \"@preview/touying-simpl-ecnu:0.0.1\": *",
+      "entry_function": "ecnu-theme"
+    },
+    {
+      "name": "shuimu-touying",
+      "display_name": "Shuimu",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Tsinghua University",
+      "visual_character": "Chinese top university purple branded design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "tsinghua",
+        "purple"
+      ],
+      "import": "#import \"@preview/shuimu-touying:0.4.1\": *",
+      "entry_function": "shuimu-touying-theme"
+    },
+    {
+      "name": "touying-simpl-neu",
+      "display_name": "NEU Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Northeastern University",
+      "visual_character": "Chinese engineering university branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "engineering"
+      ],
+      "import": "#import \"@preview/touying-simpl-neu:0.1.0\": *",
+      "entry_function": "neu-theme"
+    },
+    {
+      "name": "touying-simpl-nudt",
+      "display_name": "NUDT Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "National University of Defense Technology",
+      "visual_character": "Chinese military university branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "defense",
+        "military"
+      ],
+      "import": "#import \"@preview/touying-simpl-nudt:0.1.0\": *",
+      "entry_function": "nudt-theme"
+    },
+    {
+      "name": "touying-simpl-swufe",
+      "display_name": "SWUFE Simpl",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Southwestern University of Finance and Economics",
+      "visual_character": "Chinese finance university branded layout",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "finance"
+      ],
+      "import": "#import \"@preview/touying-simpl-swufe:0.2.1\": *",
+      "entry_function": "swufe-theme"
+    },
+    {
+      "name": "touying-wave-hhu",
+      "display_name": "Wave HHU",
+      "category": "universe",
+      "style": "Institutional, Chinese",
+      "best_for": "Hohai University",
+      "visual_character": "Chinese water university wave-themed design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "university",
+        "water",
+        "wave"
+      ],
+      "import": "#import \"@preview/touying-wave-hhu:0.2.0\": *",
+      "entry_function": "hhu-theme"
+    },
+    {
+      "name": "touying-ppt-hustvn",
+      "display_name": "HUST Vietnam",
+      "category": "universe",
+      "style": "Institutional, Vietnamese",
+      "best_for": "Hanoi University of Science and Technology",
+      "visual_character": "Vietnamese university branded presentation",
+      "tags": [
+        "institutional",
+        "vietnamese",
+        "university",
+        "technical"
+      ],
+      "import": "#import \"@preview/touying-ppt-hustvn:0.1.0\": *",
+      "entry_function": "hust-theme"
+    },
+    {
+      "name": "touying-dids",
+      "display_name": "DIDS Lab",
+      "category": "universe",
+      "style": "Institutional, lab",
+      "best_for": "DIDS Lab at NUDT",
+      "visual_character": "Research lab branded minimal design",
+      "tags": [
+        "institutional",
+        "chinese",
+        "laboratory",
+        "research"
+      ],
+      "import": "#import \"@preview/touying-dids:0.1.0\": *",
+      "entry_function": "dids-theme"
+    },
+    {
+      "name": "tuhi-presentation-vuw",
+      "display_name": "Tuhi VUW",
+      "category": "universe",
+      "style": "Institutional, NZ",
+      "best_for": "Victoria University of Wellington",
+      "visual_character": "New Zealand university branded layout",
+      "tags": [
+        "institutional",
+        "new-zealand",
+        "university",
+        "branded"
+      ],
+      "import": "#import \"@preview/tuhi-presentation-vuw:0.1.0\": *",
+      "entry_function": "tuhi-vuw-theme"
+    }
+  ]
+}

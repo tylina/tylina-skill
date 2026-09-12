@@ -1,0 +1,61 @@
+{
+  "version": "4.0",
+  "tier": "builtin",
+  "description": "Touying built-in themes. Imported directly from the touying package, no local files needed.",
+  "themes": [
+    {
+      "name": "aqua",
+      "display_name": "Aqua",
+      "category": "builtin",
+      "style": "Beautiful, decorative backgrounds",
+      "best_for": "General presentations, visually appealing talks",
+      "import": "#import themes.aqua: *",
+      "entry_function": "aqua-theme"
+    },
+    {
+      "name": "dewdrop",
+      "display_name": "Dewdrop",
+      "category": "builtin",
+      "style": "Elegant, structured with navigation",
+      "best_for": "Academic lectures, multi-section talks, course materials",
+      "import": "#import themes.dewdrop: *",
+      "entry_function": "dewdrop-theme"
+    },
+    {
+      "name": "metropolis",
+      "display_name": "Metropolis",
+      "category": "builtin",
+      "style": "Modern, elegant (Beamer Metropolis-inspired)",
+      "best_for": "Academic talks, conferences, technical presentations",
+      "import": "#import themes.metropolis: *",
+      "entry_function": "metropolis-theme"
+    },
+    {
+      "name": "simple",
+      "display_name": "Simple",
+      "category": "builtin",
+      "style": "Minimal, clean",
+      "best_for": "Quick presentations, prototyping, simple talks",
+      "import": "#import themes.simple: *",
+      "entry_function": "simple-theme"
+    },
+    {
+      "name": "stargazer",
+      "display_name": "Stargazer",
+      "category": "builtin",
+      "style": "Versatile, polished, everyday use",
+      "best_for": "Everyday use, versatile presentations, research talks",
+      "import": "#import themes.stargazer: *",
+      "entry_function": "stargazer-theme"
+    },
+    {
+      "name": "university",
+      "display_name": "University",
+      "category": "builtin",
+      "style": "Professional, branded, institutional",
+      "best_for": "University lectures, institutional presentations, branded talks",
+      "import": "#import themes.university: *",
+      "entry_function": "university-theme"
+    }
+  ]
+}

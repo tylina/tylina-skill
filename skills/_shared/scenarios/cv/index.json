@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "scenario": "cv",
+  "entries": [
+    {
+      "id": "chicv",
+      "entry": "chicv/demo.typ",
+      "template": "chicv 0.1.0 published starter",
+      "best_for": ["minimal-resume", "direct-typst", "single-page"],
+      "required_fonts": ["Linux Biolinum"],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT",
+      "source_fidelity": "byte-identical-upstream-file"
+    },
+    {
+      "id": "basic-resume",
+      "entry": "basic-resume/demo.typ",
+      "package": "@preview/basic-resume:0.2.9",
+      "best_for": ["professional-resume", "single-column", "ats-oriented"],
+      "required_fonts": ["New Computer Modern"],
+      "known_transitive_packages": ["@preview/scienceicons:0.1.0"],
+      "paper_size": "us-letter",
+      "expected_pages": 1,
+      "license": "Unlicense",
+      "source_fidelity": "published-starter-with-provenance-comments"
+    },
+    {
+      "id": "heading-resume",
+      "entry": "heading-resume/demo.typ",
+      "package": "@preview/heading-resume:0.1.0",
+      "best_for": ["editorial-resume", "two-column", "portfolio-oriented"],
+      "required_fonts": ["New Computer Modern", "Libertinus Serif"],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT-0",
+      "source_fidelity": "published-starter"
+    },
+    {
+      "id": "simple-technical-resume",
+      "entry": "simple-technical-resume/demo.typ",
+      "package": "@preview/simple-technical-resume:0.1.1",
+      "best_for": ["technical-resume", "single-column", "ats-oriented"],
+      "required_fonts": ["New Computer Modern"],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT",
+      "source_fidelity": "package-api-content-adaptation"
+    },
+    {
+      "id": "resume-ng",
+      "entry": "resume-ng/demo.typ",
+      "package": "@preview/resume-ng:1.0.0",
+      "best_for": ["chinese-resume", "technical-resume"],
+      "required_fonts": ["Noto Serif CJK SC"],
+      "known_extraction_behavior": "Right-aligned dates may precede entry titles in extracted PDF text",
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT",
+      "source_fidelity": "package-api-content-adaptation"
+    },
+    {
+      "id": "modern-cv",
+      "entry": "modern-cv/demo.typ",
+      "package": "@preview/modern-cv:0.10.0",
+      "best_for": ["visual-resume", "professional-cv"],
+      "required_fonts": ["IBM Plex Sans"],
+      "known_transitive_packages": ["@preview/fontawesome:0.6.0"],
+      "optional_fonts_for_builtin_icon_contacts": [
+        "Font Awesome 7 Free",
+        "Font Awesome 7 Brands"
+      ],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT",
+      "source_fidelity": "package-api-content-adaptation"
+    },
+    {
+      "id": "pro-academic-cv",
+      "entry": "pro-academic-cv/demo.typ",
+      "package": "@preview/pro-academic-cv:0.1.0",
+      "best_for": ["academic-cv", "multi-page", "publications-and-teaching"],
+      "required_fonts": ["Palatino"],
+      "paper_size": "a4",
+      "expected_pages": 2,
+      "license": "MIT",
+      "source_fidelity": "package-api-content-adaptation",
+      "known_warnings": ["Typst 0.15 raw-text compatibility warning in package-owned inline SVG"]
+    }
+  ]
+}

@@ -102,5 +102,10 @@ Electron 打包版也已验证授权导出与撤销、编辑、保存和 Undo。
 读取统一维护的写作、Slides、图表等指导，复用 Tylina 的编译器与领域库。
 编辑、模板和导出流程见[文档工作流](skills/tylina/references/workflow.md)。
 
+`skills/` 是运行时资源根目录，包含可安装的 `tylina` 入口、领域 Skills、内容 catalog，
+以及 `_shared` 参考资料和模板。对应的模板预览图位于 `resources/template-previews`，
+构建时仍使用编辑器现有的预览 URL。
+
 本仓库是可独立安装的内容。运行 `node --test tests/skill-package.mjs` 检查元数据、链接和打包边界。
-Skill 内容使用 [MIT 许可](LICENSE)；SDK、编辑器、字体和模板分别遵循各自许可。
+Tylina 维护的 Skill 指导内容使用 [MIT 许可](LICENSE)；镜像的第三方文档与模板示例保留上游许可和声明。
+SDK、编辑器、字体和打包模板分别遵循各自许可。

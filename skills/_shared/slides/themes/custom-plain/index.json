@@ -1,0 +1,265 @@
+{
+  "version": "4.0",
+  "tier": "plain",
+  "description": "Theme index for custom-plain themes. Each entry provides enough info for theme selection. For detailed API, read the theme's theme.md file.",
+  "themes": [
+    {
+      "name": "aurora",
+      "display_name": "Aurora",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/aurora",
+      "style": "Northern Lights inspired, dark background with vibrant gradient accents",
+      "best_for": "Tech talks, creative showcases, conference presentations",
+      "visual_character": "A stunning dark theme inspired by the Aurora Borealis (Northern Lights). Features vibrant green-to-purple gradient accents on a deep dark background. The gradient effects create a dramatic, modern vis",
+      "tags": [
+        "creative",
+        "dark",
+        "modern",
+        "nature",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "aurora-theme"
+    },
+    {
+      "name": "cherry",
+      "display_name": "Cherry",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/cherry",
+      "style": "Japanese cherry blossom (sakura) inspired — soft pinks, warm reds, elegant and poetic",
+      "best_for": "Cultural presentations, art, literature, aesthetic topics",
+      "visual_character": "A beautiful custom theme inspired by Japanese cherry blossoms (sakura). Features soft pinks, warm reds, and white tones that create an elegant and poetic atmosphere. Perfect for cultural presentations",
+      "tags": [
+        "cultural",
+        "elegant",
+        "warm",
+        "japanese"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "cherry-theme"
+    },
+    {
+      "name": "coral",
+      "display_name": "Coral",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/coral",
+      "style": "Warm, vibrant, modern — coral/salmon tones with teal accent",
+      "best_for": "Marketing, creative pitches, startup presentations",
+      "visual_character": "A warm, vibrant custom theme designed for marketing, creative, and startup presentations. Features coral and salmon tones with a complementary teal accent for visual contrast. Includes gradient header",
+      "tags": [
+        "creative",
+        "modern",
+        "warm",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "coral-theme"
+    },
+    {
+      "name": "emerald",
+      "display_name": "Emerald",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/emerald",
+      "style": "Luxurious, premium — emerald green with gold accents",
+      "best_for": "Finance, luxury brands, premium corporate events",
+      "visual_character": "A rich, luxurious presentation theme featuring emerald green and gold accents. Designed for premium finance reports, luxury brand presentations, high-end corporate events, and executive-level communic",
+      "tags": [
+        "business",
+        "consulting",
+        "elegant",
+        "luxury",
+        "nature",
+        "finance"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "emerald-theme"
+    },
+    {
+      "name": "lavender",
+      "display_name": "Lavender",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/lavender",
+      "style": "Soft, elegant, calming purple/lilac tones",
+      "best_for": "Wellness, education, psychology, design topics",
+      "visual_character": "A refined, elegant theme built around a purple and lilac color palette. Designed for wellness, education, psychology, and design presentations, Lavender creates a calming visual atmosphere with soft d",
+      "tags": [
+        "elegant",
+        "lavender"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "lavender-theme"
+    },
+    {
+      "name": "midnight",
+      "display_name": "Midnight",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/midnight",
+      "style": "Dark, elegant, midnight sky-inspired",
+      "best_for": "Tech conferences, developer talks, dark mode lovers",
+      "visual_character": "A dark, elegant presentation theme inspired by the midnight sky. Designed for tech conferences and professional presentations, the Midnight theme features deep navy blue tones, light blue glow accents",
+      "tags": [
+        "dark",
+        "elegant",
+        "professional",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "midnight-theme"
+    },
+    {
+      "name": "monochrome",
+      "display_name": "Monochrome",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/monochrome",
+      "style": "Swiss/International design, black-and-white minimalism",
+      "best_for": "Formal business, design portfolios, architecture",
+      "visual_character": "A sophisticated black-and-white minimalist theme inspired by Swiss/International design style. Features strong typographic hierarchy, clean geometric forms, and maximum contrast. Perfect for formal bu",
+      "tags": [
+        "business",
+        "elegant",
+        "formal",
+        "geometric",
+        "minimal",
+        "swiss",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "monochrome-theme"
+    },
+    {
+      "name": "nordic",
+      "display_name": "Nordic",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/nordic",
+      "style": "Scandinavian-inspired — muted cool tones, clean lines, airy spacing",
+      "best_for": "Academic talks, clean design, functional presentations",
+      "visual_character": "A custom Touying theme inspired by Scandinavian design principles. Think IKEA catalog meets academic presentation: functional, beautiful, understated. Features muted blue-gray tones with a teal-green ",
+      "tags": [
+        "academic",
+        "minimal",
+        "nature",
+        "japanese",
+        "playful"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "nordic-theme"
+    },
+    {
+      "name": "rosewood",
+      "display_name": "Rosewood",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/rosewood",
+      "style": "Warm, earthy, sophisticated — inspired by rosewood furniture",
+      "best_for": "Architecture, interior design, history, premium brands",
+      "visual_character": "A warm, elegant presentation theme inspired by the rich tones of rosewood furniture. Features deep browns, warm reds, and cream tones for a classic, sophisticated look. Ideal for architecture, interio",
+      "tags": [
+        "elegant",
+        "luxury",
+        "warm",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "rosewood-theme"
+    },
+    {
+      "name": "slate",
+      "display_name": "Slate",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/slate",
+      "style": "Dark professional with amber accents",
+      "best_for": "Tech product launches, keynotes, sophisticated presentations",
+      "visual_character": "A sleek, dark professional theme with charcoal/slate gray tones and warm amber accents. Inspired by premium tech product launches and sophisticated keynote presentations. Features styled code blocks f",
+      "tags": [
+        "dark",
+        "elegant",
+        "luxury",
+        "professional",
+        "tech",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "slate-theme"
+    },
+    {
+      "name": "sunset",
+      "display_name": "Sunset",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/sunset",
+      "style": "Warm, gradient-rich, sunset-inspired",
+      "best_for": "Motivational talks, creative showcases, storytelling",
+      "visual_character": "A warm, gradient-rich custom theme inspired by sunset colors: deep amber, orange, golden yellow, and deep purple. Perfect for motivational talks, creative showcases, and storytelling presentations. Fe",
+      "tags": [
+        "creative",
+        "luxury",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "sunset-theme"
+    },
+    {
+      "name": "terracotta",
+      "display_name": "Terracotta",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/terracotta",
+      "style": "Mediterranean warm earth tones",
+      "best_for": "Travel, culture, food, architecture, interior design",
+      "visual_character": "A warm, inviting theme inspired by Mediterranean terracotta pottery and architecture. Features burnt orange, clay, olive green, and sandy tones. Perfect for travel, culture, food, architecture, and in",
+      "tags": [
+        "cultural",
+        "nature",
+        "warm",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "terracotta-theme"
+    },
+    {
+      "name": "ruled-page",
+      "display_name": "Ruled Page",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/ruled-page",
+      "style": "Minimalist notebook page with ruled lines and pencil-sketch warmth",
+      "best_for": "Lab meetings, paper reading presentations, research group seminars, informal academic talks",
+      "visual_character": "Fresh ruled notebook aesthetic — warm off-white background with faint horizontal rules. Pencil gray text with single terracotta accent. Beauty through typography and whitespace, not decoration. Content-first clarity.",
+      "tags": [
+        "minimalist",
+        "academic",
+        "warm",
+        "notebook"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "ruled-page-theme"
+    },
+    {
+      "name": "reading-lamp",
+      "display_name": "Reading Lamp",
+      "category": "custom",
+      "tier": "plain",
+      "path": "custom-plain/reading-lamp",
+      "style": "Warm reading light aesthetic — cream background with amber accent",
+      "best_for": "Seminar talks, reading groups, survey presentations, invited lectures, cross-paper comparisons",
+      "visual_character": "Reading under a warm desk lamp — cream background, dark brown-black text, single warm amber accent. Beautifully typeset book page feel. Generous whitespace and warm typography. No decoration, just warmth.",
+      "tags": [
+        "warm",
+        "scholarly",
+        "minimalist",
+        "reading"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "reading-lamp-theme"
+    }
+  ]
+}

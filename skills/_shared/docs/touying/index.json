@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "resourceBase": "_shared/docs/touying",
+  "repository": "https://github.com/touying-typ/touying",
+  "revision": "a92b7b84973998dfa62a572e54fddd26802851d7",
+  "documentationRoot": "docs",
+  "license": "LICENSE",
+  "routes": [
+    {
+      "path": "docs/en/start.md",
+      "useWhen": "Starting a Touying deck or checking current slide, animation, and speaker-note syntax."
+    },
+    {
+      "path": "docs/en/tutorials/dynamic/simple.md",
+      "useWhen": "Using pause, meanwhile, only, uncover, or basic subslide behavior."
+    },
+    {
+      "path": "docs/en/tutorials/dynamic/complex.md",
+      "useWhen": "Using callback slides, repeat, or explicit subslide-dependent content."
+    },
+    {
+      "path": "docs/en/tutorials/dynamic/waypoints.md",
+      "useWhen": "Using named animation positions without hard-coded subslide indices."
+    },
+    {
+      "path": "docs/en/tutorials/sections.md",
+      "useWhen": "Checking section, subsection, heading-triggered slide, or page break behavior."
+    },
+    {
+      "path": "docs/en/faq.md",
+      "useWhen": "Resolving a focused Touying API or behavior question not covered by a tutorial."
+    }
+  ],
+  "languages": ["en", "zh"]
+}

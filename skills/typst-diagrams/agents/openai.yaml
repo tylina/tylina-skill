@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Diagrams"
+  short_description: "Build editable Mermaid, Fletcher, and CeTZ diagrams"
+  default_prompt: "Use $typst-diagrams to create an editable diagram from these exact relationships and verify it visually."

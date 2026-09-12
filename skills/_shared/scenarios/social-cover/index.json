@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "scenario": "social-cover",
+  "entries": [
+    {
+      "id": "guizang-magazine",
+      "entry": "guizang-magazine/demo.typ",
+      "template": "guizang-magazine/template.typ",
+      "pages": 1,
+      "canvases": [
+        {"width_pt": 1242, "height_pt": 1660, "role": "portrait-cover"}
+      ],
+      "style": "editorial-magazine-eink",
+      "based_on": "themes/custom-canvas/guizang-magazine",
+      "uses_inline_svg": true
+    },
+    {
+      "id": "guizang-swiss",
+      "entry": "guizang-swiss/demo.typ",
+      "template": "guizang-swiss/template.typ",
+      "pages": 4,
+      "canvases": [
+        {"width_pt": 1080, "height_pt": 1080, "role": "square-carousel"}
+      ],
+      "style": "swiss-international-ikb",
+      "based_on": "themes/custom-canvas/guizang-swiss",
+      "uses_inline_svg": true
+    },
+    {
+      "id": "indie-bookstore",
+      "entry": "indie-bookstore/demo.typ",
+      "template": "indie-bookstore/template.typ",
+      "pages": 2,
+      "canvases": [
+        {"width_pt": 900, "height_pt": 383, "role": "wechat-header"},
+        {"width_pt": 1080, "height_pt": 1080, "role": "wechat-share-square"}
+      ],
+      "style": "risograph-zine",
+      "based_on": "themes/custom-canvas/indie-bookstore",
+      "uses_inline_svg": true
+    },
+    {
+      "id": "editorial-grid",
+      "entry": "editorial-grid/demo.typ",
+      "template": "editorial-grid/template.typ",
+      "pages": 1,
+      "canvases": [
+        {"width_pt": 1080, "height_pt": 1350, "role": "portrait-cover-4x5"}
+      ],
+      "style": "editorial-grid-publication",
+      "based_on": "themes/custom-rich/editorial-grid",
+      "uses_inline_svg": true
+    },
+    {
+      "id": "pritzker",
+      "entry": "pritzker/demo.typ",
+      "template": "pritzker/template.typ",
+      "pages": 1,
+      "canvases": [
+        {"width_pt": 1242, "height_pt": 1660, "role": "portrait-cover"}
+      ],
+      "style": "architectural-editorial",
+      "based_on": "themes/custom-canvas/pritzker",
+      "uses_inline_svg": true
+    },
+    {
+      "id": "newspaper",
+      "entry": "newspaper/demo.typ",
+      "template": "newspaper/template.typ",
+      "pages": 1,
+      "canvases": [
+        {"width_pt": 900, "height_pt": 383, "role": "wechat-header"}
+      ],
+      "style": "brutalist-newspaper",
+      "based_on": "themes/custom-canvas/newspaper",
+      "uses_inline_svg": true
+    },
+    {
+      "id": "guizang-field-journal",
+      "entry": "guizang-field-journal/demo.typ",
+      "template": "guizang-field-journal/template.typ",
+      "pages": 1,
+      "canvases": [
+        {"width_pt": 1242, "height_pt": 1660, "role": "portrait-cover"}
+      ],
+      "style": "light-photo-editorial-field-journal",
+      "based_on": "local/guizang-social-card-skill M01/M02 image-led editorial rules",
+      "uses_inline_svg": true,
+      "assets": ["guizang-field-journal/assets/alpine-ridge.jpg"]
+    },
+    {
+      "id": "guizang-marginalia",
+      "entry": "guizang-marginalia/demo.typ",
+      "template": "guizang-marginalia/template.typ",
+      "pages": 1,
+      "canvases": [
+        {"width_pt": 1242, "height_pt": 1660, "role": "portrait-card"}
+      ],
+      "style": "light-editorial-marginalia",
+      "based_on": "local/guizang-social-card-skill M11 marginalia",
+      "uses_inline_svg": true
+    }
+  ]
+}

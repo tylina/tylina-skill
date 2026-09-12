@@ -1,0 +1,672 @@
+{
+  "version": "4.0",
+  "tier": "canvas",
+  "description": "Theme index for custom-canvas themes. Each entry provides enough info for theme selection. For detailed API, read the theme's theme.md file.",
+  "themes": [
+    {
+      "name": "atelier",
+      "display_name": "Atelier",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/atelier",
+      "style": "Artist's studio / workshop aesthetic -- warm canvas with paint-stroke accents",
+      "best_for": "Creative agencies, design portfolios, art direction pitches, brand strategy",
+      "visual_character": "An artist's studio presentation theme featuring warm cream canvas-texture backgrounds with cadmium red and ultramarine blue paint-stroke accents. Includes gestural brush strokes, paint splatter, canva",
+      "tags": [
+        "consulting",
+        "creative",
+        "warm",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "atelier-theme"
+    },
+    {
+      "name": "aurora-borealis",
+      "display_name": "Aurora Borealis Theme -- API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/aurora-borealis",
+      "style": "Controlled randomness -- hand-placed positions that look natural",
+      "best_for": "",
+      "visual_character": "Controlled randomness -- hand-placed positions that look natural",
+      "tags": [
+        "aurora",
+        "borealis"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "aurora-theme"
+    },
+    {
+      "name": "blueprint",
+      "display_name": "Blueprint Theme -- API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/blueprint",
+      "style": "Architectural blueprint / technical drawing theme inspired by the cyanotype printing process. Featur",
+      "best_for": "",
+      "visual_character": "Architectural blueprint / technical drawing theme inspired by the cyanotype printing process. Featur",
+      "tags": [
+        "tech",
+        "architecture",
+        "blueprint"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "blueprint-theme"
+    },
+    {
+      "name": "botanical",
+      "display_name": "Botanical",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/botanical",
+      "style": "Victorian botanical illustration meets modern layout",
+      "best_for": "",
+      "visual_character": "Victorian botanical illustration meets modern layout",
+      "tags": [
+        "modern",
+        "nature",
+        "botanical"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "botanical-theme"
+    },
+    {
+      "name": "brutalist",
+      "display_name": "Brutalist",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/brutalist",
+      "style": "Brutalist architecture / Raw concrete, heavy sans-serif, exposed structure",
+      "best_for": "Design manifestos, architecture presentations, bold statements, data reports, tech critiques",
+      "visual_character": "A brutalist architecture-inspired presentation theme with heavy sans-serif typography, exposed grid structures, and monochrome palette with a single accent color. No rounded corners, no shadows, no gr",
+      "tags": [
+        "geometric",
+        "tech",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "brutalist-theme"
+    },
+    {
+      "name": "brutalist-web",
+      "display_name": "Brutalist-Web Theme Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/brutalist-web",
+      "style": "Neo-Brutalist Web Design -- thick black borders, pure black/white, clashing yellow + blue accents",
+      "best_for": "",
+      "visual_character": "Neo-Brutalist Web Design -- thick black borders, pure black/white, clashing yellow + blue accents",
+      "tags": [
+        "architecture",
+        "brutalist",
+        "web"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "brutalist-web-theme"
+    },
+    {
+      "name": "carnival-rio",
+      "display_name": "Carnival Rio",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/carnival-rio",
+      "style": "Explosive tropical color, samba rhythm, feathered exuberance",
+      "best_for": "Entertainment, events, festivals, marketing campaigns, Latin culture, party planning",
+      "visual_character": "A maximalist Canvas-tier theme inspired by Brazilian Carnival, Rio de Janeiro, samba energy, feathers, sequins, and explosive color. Every slide lives in a world of confetti scatter, feather plumes, a",
+      "tags": [
+        "cultural",
+        "government",
+        "carnival",
+        "rio"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "carnival-rio-theme"
+    },
+    {
+      "name": "celestial",
+      "display_name": "Celestial",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/celestial",
+      "style": "Astronomical / celestial map aesthetic -- deep space with gold star-chart accents",
+      "best_for": "Astronomy, astrophysics, space science, observatory publications, celestial navigation",
+      "visual_character": "A dark-space presentation theme inspired by antique star charts, celestial coordinate systems, and observatory publications. Features deep navy-black backgrounds with gold constellation lines, starbur",
+      "tags": [
+        "creative",
+        "dark",
+        "luxury",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "celestial-theme"
+    },
+    {
+      "name": "circuit-board",
+      "display_name": "Circuit Board",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/circuit-board",
+      "style": "PCB / Printed Circuit Board aesthetic -- copper traces on solder mask green",
+      "best_for": "Electronics, FPGA design, embedded systems, hardware engineering, PCB manufacturing",
+      "visual_character": "A printed circuit board (PCB) aesthetic presentation theme with dark green solder-mask backgrounds, copper-gold trace patterns, IC chip decorations, via elements, and solder-point bullets. SVG circuit",
+      "tags": [
+        "dark",
+        "geometric",
+        "luxury",
+        "nature",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "circuit-board-theme"
+    },
+    {
+      "name": "coral-reef",
+      "display_name": "Coral Reef Theme -- API Summary",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/coral-reef",
+      "style": "Underwater marine biology, organic shapes, deep blue-to-teal gradients, bioluminescence",
+      "best_for": "Marine science, oceanography, environmental talks, marine conservation, aquarium presentations, biology",
+      "visual_character": "The Coral Reef theme draws inspiration from the deep ocean environment -- specifically the mesophotic and twilight zones where bioluminescent creatures illuminate the darkness and vibrant coral format",
+      "tags": [
+        "dark",
+        "nature",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "coral-reef-theme"
+    },
+    {
+      "name": "darkroom",
+      "display_name": "Darkroom Theme — API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/darkroom",
+      "style": "Analog photography darkroom — the red safelight glow, chemical developer trays, contact sheets pinne",
+      "best_for": "",
+      "visual_character": "Analog photography darkroom — the red safelight glow, chemical developer trays, contact sheets pinne",
+      "tags": [
+        "dark",
+        "retro",
+        "photography"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "darkroom-theme"
+    },
+    {
+      "name": "film-noir",
+      "display_name": "Film Noir",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/film-noir",
+      "style": "Classic 1940s film noir cinema with dramatic venetian blind shadows",
+      "best_for": "Mystery presentations, crime data analysis, dramatic storytelling, narrative decks",
+      "visual_character": "A cinematic film noir theme where venetian blind shadows cut diagonally across every slide like dramatic chiaroscuro. Deep blacks, stark whites, and a single crimson accent create a world of a 1940s d",
+      "tags": [
+        "retro",
+        "tech",
+        "photography"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "film-noir-theme"
+    },
+    {
+      "name": "global-ai-capital",
+      "display_name": "Global AI Capital",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/global-ai-capital",
+      "style": "Dark editorial / Bloomberg infographic -- financial data visualization on dark backgrounds",
+      "best_for": "Investment research, AI industry briefings, venture capital, financial data visualization",
+      "visual_character": "A dark editorial presentation theme inspired by Bloomberg/Economist infographic style. Features near-black backgrounds with warm ivory text, scarlet red accent bars, dark card surfaces, and data-dense",
+      "tags": [
+        "academic",
+        "dark",
+        "editorial",
+        "tech",
+        "warm",
+        "finance",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "ai-capital-theme"
+    },
+    {
+      "name": "guizang-magazine",
+      "display_name": "Guizang Magazine",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/guizang-magazine",
+      "style": "Editorial magazine / E-ink, restraint-first design",
+      "best_for": "Editorial presentations, research briefings, cultural reports, design critiques, thought leadership",
+      "visual_character": "An editorial magazine-style presentation theme with a two-color ink/paper system and five presets. Triple-font typography hierarchy (serif/sans/mono). No shadows, no gradients (except scrim), no accen",
+      "tags": [
+        "academic",
+        "cultural",
+        "editorial",
+        "japanese",
+        "science",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "magazine-theme"
+    },
+    {
+      "name": "guizang-swiss",
+      "display_name": "Swiss Theme (guizang-swiss)",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/guizang-swiss",
+      "style": "Swiss International Typographic Style -- single accent, inverse weight hierarchy, sharp rectangles",
+      "best_for": "Tech, AI, design, corporate, sustainability, retail, sports",
+      "visual_character": "A Canvas-tier presentation theme inspired by the International Typographic Style. One accent color, inverse weight hierarchy (bigger = lighter), sharp rectangles, hairline dividers, and grid-first asy",
+      "tags": [
+        "business",
+        "geometric",
+        "swiss",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "swiss-theme"
+    },
+    {
+      "name": "herbarium",
+      "display_name": "Herbarium Theme — API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/herbarium",
+      "style": "Scientific botanical herbarium — pressed plant specimens mounted on archival paper, handwritten Lati",
+      "best_for": "",
+      "visual_character": "Scientific botanical herbarium — pressed plant specimens mounted on archival paper, handwritten Lati",
+      "tags": [
+        "editorial",
+        "nature",
+        "science"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "herbarium-theme"
+    },
+    {
+      "name": "hologram",
+      "display_name": "Hologram",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/hologram",
+      "style": "Futuristic holographic projection -- sci-fi command center with translucent panels and glowing edges",
+      "best_for": "Tech demos, AI presentations, futuristic product launches, data visualization",
+      "visual_character": "A futuristic holographic projection presentation theme inspired by sci-fi command center interfaces. Features translucent UI panels floating in space, HUD-style corner brackets, holographic grid floor",
+      "tags": [
+        "geometric",
+        "modern",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "hologram-theme"
+    },
+    {
+      "name": "indie-bookstore",
+      "display_name": "Indie Bookstore",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/indie-bookstore",
+      "style": "Risograph zine aesthetic -- Federal Blue + Fluorescent Pink duotone on kraft cream paper",
+      "best_for": "Indie bookstores, zine culture, risograph art, creative communities, publishing, cultural guides",
+      "visual_character": "A risograph zine aesthetic presentation theme with warm cream paper backgrounds, Federal Blue and Fluorescent Pink duotone colors, hard-edge cards (zero border-radius), misregistered shadow effects, a",
+      "tags": [
+        "creative",
+        "cultural",
+        "warm",
+        "japanese"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "zine-theme"
+    },
+    {
+      "name": "kinetic",
+      "display_name": "Kinetic",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/kinetic",
+      "style": "Motion Graphics / Kinetic Typography, diagonal composition, speed-inspired",
+      "best_for": "Creative presentations, motion graphics, product launches, tech demos, data dashboards",
+      "visual_character": "A motion graphics-inspired presentation theme with dynamic, energetic aesthetics. Diagonal lines, bold angles, overlapping elements, and speed-inspired layouts. Features a four-color system (bg/ink/ac",
+      "tags": [
+        "creative",
+        "tech",
+        "japanese"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "kinetic-theme"
+    },
+    {
+      "name": "marble-foyer",
+      "display_name": "Marble Foyer",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/marble-foyer",
+      "style": "Luxury marble and architectural foyer -- polished stone, gold metallic accents, classical columns/arches/cornices",
+      "best_for": "Luxury brand presentations, architecture firms, high-end consulting, hotel groups, museum proposals",
+      "visual_character": "A canvas-level theme inspired by grand marble foyers -- hotel lobbies, museum entrances, and classical architectural spaces. Features pale marble-white backgrounds with organic veining pattern SVGs, a",
+      "tags": [
+        "consulting",
+        "geometric",
+        "luxury",
+        "nature",
+        "professional",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "marble-foyer-theme"
+    },
+    {
+      "name": "neon-grid",
+      "display_name": "Neon-Grid",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/neon-grid",
+      "style": "Retro-futuristic wireframe grid / 80s tech magazine aesthetic",
+      "best_for": "Tech presentations, spatial computing, 3D/graphics talks, product launches, innovation showcases",
+      "visual_character": "A retro-futuristic wireframe grid presentation theme inspired by 80s/90s tech magazine illustrations. Features perspective grids with vanishing points, wireframe 3D objects, neon accent lines (hot mag",
+      "tags": [
+        "editorial",
+        "geometric",
+        "modern",
+        "retro",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "neon-grid-theme"
+    },
+    {
+      "name": "newspaper",
+      "display_name": "Newspaper",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/newspaper",
+      "style": "Classic broadsheet newspaper -- serif headlines, column rules, masthead ornaments",
+      "best_for": "Journalism, news reporting, media analysis, editorial commentary, data journalism",
+      "visual_character": "A classic broadsheet newspaper layout theme with multi-column typesetting, serif headlines (Noto Serif), justified body text, rule lines, and \"above the fold\" prominence hierarchy. Features inline SVG",
+      "tags": [
+        "editorial",
+        "tech",
+        "newspaper"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "newspaper-theme"
+    },
+    {
+      "name": "observatory",
+      "display_name": "Observatory",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/observatory",
+      "style": "Telescope dome / astronomical observatory aesthetic. Dome silhouettes against twilight sky, telescop",
+      "best_for": "",
+      "visual_character": "Telescope dome / astronomical observatory aesthetic. Dome silhouettes against twilight sky, telescop",
+      "tags": [
+        "science",
+        "observatory"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "observatory-theme"
+    },
+    {
+      "name": "origami",
+      "display_name": "Origami",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/origami",
+      "style": "Japanese paper-folding aesthetic -- geometric facets, crane motifs, crease lines",
+      "best_for": "Japanese culture, paper craft, geometric design, architecture, meditation, creative workshops",
+      "visual_character": "A Japanese paper-folding aesthetic presentation theme with geometric faceted shapes, fold lines, paper texture feeling, and crane motifs. Colors drawn from traditional Japanese washi paper. Features t",
+      "tags": [
+        "creative",
+        "cultural",
+        "geometric",
+        "japanese",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "origami-theme"
+    },
+    {
+      "name": "paper-craft",
+      "display_name": "Paper Craft",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/paper-craft",
+      "style": "Tactile paper collage -- layered paper with drop shadows, torn edges, origami cranes",
+      "best_for": "Education, creative workshops, design portfolios, arts & crafts, maker spaces",
+      "visual_character": "A joyful, dimensional presentation theme inspired by paper craft art (kirigami, paper cutting, layered paper collage). Features colored paper layers with visible drop shadows creating physical depth, ",
+      "tags": [
+        "creative",
+        "paper",
+        "craft"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "paper-craft-theme"
+    },
+    {
+      "name": "polar-expedition",
+      "display_name": "Polar Expedition Theme — API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/polar-expedition",
+      "style": "General (exploration/geography/science)",
+      "best_for": "",
+      "visual_character": "General (exploration/geography/science)",
+      "tags": [
+        "science",
+        "polar",
+        "expedition"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "polar-expedition-theme"
+    },
+    {
+      "name": "porcelain",
+      "display_name": "Porcelain",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/porcelain",
+      "style": "Chinese Blue-and-White Porcelain (Ming dynasty Jingdezhen) -- cobalt blue on white glaze, gold rim accents",
+      "best_for": "Chinese culture presentations, history talks, art lectures, museum exhibitions, East Asian studies",
+      "visual_character": "A canvas-level theme inspired by Ming dynasty Jingdezhen blue-and-white porcelain. Features cobalt blue ink on white glaze backgrounds with lattice (hui-wen) border frames, cloud scroll decorations, p",
+      "tags": [
+        "creative",
+        "cultural",
+        "luxury",
+        "japanese",
+        "chinese"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "porcelain-theme"
+    },
+    {
+      "name": "pritzker",
+      "display_name": "Pritzker",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/pritzker",
+      "style": "Architectural editorial luxury -- warm cream with gold accents, serif editorial numbers",
+      "best_for": "Architecture, luxury brands, award ceremonies, cultural institutions, real estate, museums",
+      "visual_character": "An architectural editorial luxury presentation theme inspired by the Pritzker Architecture Prize. Features warm cream backgrounds with gold accents, large italic serif editorial numbers (Linux Liberti",
+      "tags": [
+        "cultural",
+        "editorial",
+        "luxury",
+        "warm",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "pritzker-theme"
+    },
+    {
+      "name": "retro-terminal",
+      "display_name": "Retro Terminal",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/retro-terminal",
+      "style": "CRT / phosphor display -- vintage 1970s-80s computer terminal aesthetic",
+      "best_for": "Cybersecurity, hacker culture, retro computing, developer talks, CLI tools, system administration",
+      "visual_character": "A vintage 1970s-80s computer terminal aesthetic presentation theme inspired by VT100, IBM 3270, and amber phosphor monitors. Features CRT scanline overlays, phosphor glow effects, cursor block decorat",
+      "tags": [
+        "cultural",
+        "retro",
+        "tech",
+        "warm"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "retro-terminal-theme"
+    },
+    {
+      "name": "risograph",
+      "display_name": "Risograph",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/risograph",
+      "style": "Indie risograph printing aesthetic - spot colors, misregistration, halftone patterns, paper texture",
+      "best_for": "Creative presentations, art talks, design lectures, indie publishing, gallery events, zine culture",
+      "visual_character": "A canvas-level theme that channels the visual language of risograph printing. Features limited spot colors with characteristic misregistration effects (text placed twice with slight offset in differen",
+      "tags": [
+        "creative",
+        "cultural",
+        "geometric"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "risograph-theme"
+    },
+    {
+      "name": "silk-road",
+      "display_name": "Silk Road Theme -- API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/silk-road",
+      "style": "The incredible mathematical precision of Islamic geometric art (tessellations, star patterns, arabes",
+      "best_for": "",
+      "visual_character": "The incredible mathematical precision of Islamic geometric art (tessellations, star patterns, arabes",
+      "tags": [
+        "creative",
+        "geometric",
+        "silk",
+        "road"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "silk-road-theme"
+    },
+    {
+      "name": "solarpunk",
+      "display_name": "Solarpunk",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/solarpunk",
+      "style": "Optimistic green future, organic technology fusion. Art Nouveau curves meet sustainable engineering",
+      "best_for": "Sustainability presentations, green tech pitches, urban planning, regenerative design, climate-positive initiatives",
+      "visual_character": "A solarpunk city in 2060 brought to life on every slide. Buildings covered in living plants, solar panels integrated with garden rooftops, organic curves meeting clean technology. The theme creates a ",
+      "tags": [
+        "creative",
+        "minimal",
+        "nature",
+        "tech",
+        "architecture"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "solarpunk-theme"
+    },
+    {
+      "name": "sugar-rush",
+      "display_name": "Sugar Rush",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/sugar-rush",
+      "style": "Memphis Design / 80s retro revival -- candy-colored, bold playful geometry",
+      "best_for": "Music festivals, pop culture events, youth marketing, entertainment, creative agencies",
+      "visual_character": "A candy-colored 80s retro revival presentation theme with bold playful geometry, Memphis design patterns, heavy black strokes (3pt), and a multi-color accent system (pink, blue, yellow, mint, coral). ",
+      "tags": [
+        "creative",
+        "cultural",
+        "geometric",
+        "retro",
+        "japanese",
+        "music",
+        "ocean"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "sugar-rush-theme"
+    },
+    {
+      "name": "topographic",
+      "display_name": "Topographic Theme -- API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/topographic",
+      "style": "Topographic maps meet modern data visualization. The organic flowing curves of topographic contour l",
+      "best_for": "",
+      "visual_character": "Topographic maps meet modern data visualization. The organic flowing curves of topographic contour l",
+      "tags": [
+        "modern",
+        "nature",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "topographic-theme"
+    },
+    {
+      "name": "ukiyo-wave",
+      "display_name": "Ukiyo-Wave Theme — API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/ukiyo-wave",
+      "style": "Japanese ukiyo-e woodblock print — specifically the Great Wave style by Hokusai. Bold flowing curves",
+      "best_for": "",
+      "visual_character": "Japanese ukiyo-e woodblock print — specifically the Great Wave style by Hokusai. Bold flowing curves",
+      "tags": [
+        "japanese",
+        "ukiyo",
+        "wave"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "ukiyo-wave-theme"
+    },
+    {
+      "name": "vaporwave",
+      "display_name": "Vaporwave",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/vaporwave",
+      "style": "Retro-futuristic vaporwave aesthetic - gradient pinks and purples, cyan highlights, sunset orange. Grid-line patterns. 8",
+      "best_for": "Music/entertainment, retro gaming, social media, creative tech, pop culture, internet culture presentations.",
+      "visual_character": "A E S T H E T I C S. Gradient washes from pink to purple. Grid lines that recede to a vanishing point. Glitch-inspired text effects via offset shadows. The visual language of Miami Vice meets Windows ",
+      "tags": [
+        "creative",
+        "cultural",
+        "dark",
+        "geometric",
+        "modern",
+        "retro",
+        "tech"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "vaporwave-theme"
+    },
+    {
+      "name": "vinyl-groove",
+      "display_name": "Vinyl Groove Theme -- API Reference",
+      "category": "custom",
+      "tier": "canvas",
+      "path": "custom-canvas/vinyl-groove",
+      "style": "Vinyl records, analog audio, 70s album art",
+      "best_for": "",
+      "visual_character": "Vinyl records, analog audio, 70s album art",
+      "tags": [
+        "creative",
+        "retro",
+        "music"
+      ],
+      "import": "#import \"template.typ\": *",
+      "entry_function": "vinyl-groove-theme"
+    }
+  ]
+}

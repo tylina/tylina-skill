@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "target": "Typst 0.15",
+  "resourceBase": "_shared/docs/typst",
+  "sources": [
+    {
+      "url": "https://github.com/typst/typst/tree/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content",
+      "revision": "2924ba908b7e535ef6166a8b1731d400b694e9d9"
+    },
+    {
+      "url": "https://github.com/lucifer1004/claude-skill-typst/tree/05624d770a595311b8f2263c7339bd85e93fbb53/skills/typst",
+      "revision": "05624d770a595311b8f2263c7339bd85e93fbb53"
+    },
+    {
+      "url": "https://github.com/apcamargo/typst-skills/tree/93978422d58d4e5c21efe4bfa9f3e6dd9940cf96/typst-author",
+      "revision": "93978422d58d4e5c21efe4bfa9f3e6dd9940cf96"
+    }
+  ],
+  "resources": [
+    {
+      "path": "docs/content/reference/language/syntax.typ",
+      "useWhen": "Checking official markup, math, code, comments, identifiers, or escape syntax."
+    },
+    {
+      "path": "docs/content/reference/language/scripting.typ",
+      "useWhen": "Checking official expressions, blocks, bindings, arguments, types, or control flow."
+    },
+    {
+      "path": "docs/content/reference/library/index.typ",
+      "useWhen": "Routing to one official standard-library category before reading its focused source."
+    },
+    {
+      "path": "docs/content/guides/tables.typ",
+      "useWhen": "Checking the official semantic table guide and span examples."
+    },
+    {
+      "path": "language-modes.md",
+      "useWhen": "An edit crosses markup, math, or code boundaries, or content and str are easy to confuse."
+    },
+    {
+      "path": "tables.md",
+      "useWhen": "Creating or changing native, figure-wrapped, source-styled, or provider-confirmed custom tables."
+    }
+  ],
+  "officialDocumentationRoot": "docs/content",
+  "license": "LICENSE"
+}

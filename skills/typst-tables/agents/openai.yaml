@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Tables"
+  short_description: "Build accurate semantic tables without data loss"
+  default_prompt: "Use $typst-tables to create or clarify this table while preserving every supplied value."

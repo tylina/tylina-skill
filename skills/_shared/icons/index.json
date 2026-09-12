@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "description": "Icon packages for Touying slides. Emoji (built-in) is recommended as the default. Each package directory contains a demo.typ showing usage with Touying simple theme.",
+  "recommendation": "Use emoji (built-in) by default. Only use icon packages when you need specific icon sets (e.g., brand logos via Sicons, GitHub Octicons, CC license icons, social media links via Iconic Salmon).",
+  "icons": [
+    {
+      "name": "emoji",
+      "display_name": "Emoji (Built-in)",
+      "icon_count": "1000+",
+      "description": "Typst built-in emoji support — no package needed. Use emoji.xxx syntax or Unicode directly.",
+      "best_for": "Default choice, universal, no dependencies",
+      "demo_path": "emoji/demo.typ",
+      "import": "Built-in, no import needed. Use #emoji.xxx syntax."
+    },
+{
+      "name": "sicons",
+      "display_name": "Sicons",
+      "icon_count": "3000+",
+      "description": "Simple Icons — high quality SVG icons for popular brands (Typst, GitHub, Python, etc.).",
+      "best_for": "Brand logos and icons for popular services",
+      "demo_path": "sicons/demo.typ",
+      "version": "16.0.0",
+      "import": "#import \"@preview/sicons:16.0.0\": *",
+      "universe_url": "https://typst.app/universe/package/sicons"
+    },
+    {
+      "name": "ccicons",
+      "display_name": "CC Icons",
+      "icon_count": "20+",
+      "description": "Creative Commons license icons for Typst — CC BY, CC NC, CC SA, CC ND, etc.",
+      "best_for": "License attribution, open-source slides",
+      "demo_path": "ccicons/demo.typ",
+      "version": "1.0.1",
+      "import": "#import \"@preview/ccicons:1.0.1\": *",
+      "universe_url": "https://typst.app/universe/package/ccicons"
+    },
+    {
+      "name": "octique",
+      "display_name": "Octicons",
+      "icon_count": "378",
+      "description": "GitHub Octicons for Typst — official GitHub icon set including AI/Copilot, Git, and developer icons.",
+      "best_for": "GitHub-related slides, developer presentations",
+      "demo_path": "octique/demo.typ",
+      "version": "0.1.0",
+      "import": "#import \"@preview/octique:0.1.1\": *",
+      "universe_url": "https://typst.app/universe/package/octique"
+    },
+    {
+      "name": "iconic-salmon-svg",
+      "display_name": "Iconic Salmon SVG",
+      "icon_count": "30+",
+      "description": "Social media reference icons with links — GitHub, LinkedIn, Twitter, etc. Great for CV/resume slides.",
+      "best_for": "Social media links, CV slides, contact info",
+      "demo_path": "iconic-salmon-svg/demo.typ",
+      "version": "3.0.0",
+      "import": "#import \"@preview/iconic-salmon-svg:3.0.0\": *",
+      "universe_url": "https://typst.app/universe/package/iconic-salmon-svg"
+    },
+    {
+      "name": "booticons",
+      "display_name": "Bootstrap Icons",
+      "icon_count": "2000+",
+      "description": "Bootstrap Icons (v1.13.1) — 2000+ icons from the Bootstrap project.",
+      "best_for": "Web/UI presentations, general purpose icons",
+      "demo_path": "booticons/demo.typ",
+      "version": "0.0.1",
+      "import": "#import \"@preview/booticons:0.0.1\": *",
+      "universe_url": "https://typst.app/universe/package/booticons"
+    }
+  ]
+}

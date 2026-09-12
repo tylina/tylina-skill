@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Charts"
+  short_description: "Create accurate compile-verified Typst charts"
+  default_prompt: "Use $typst-charts to visualize this data accurately and verify the rendered chart."

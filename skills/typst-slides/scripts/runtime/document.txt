@@ -1,0 +1,6 @@
+mammoth>=1.6.0
+markdownify>=0.13.0
+ebooklib>=0.18
+nbconvert>=7.0.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0

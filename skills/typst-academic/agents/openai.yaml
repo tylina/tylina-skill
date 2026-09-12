@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Academic Writing"
+  short_description: "Write and review evidence-aligned academic Typst"
+  default_prompt: "Use $typst-academic to create or review this academic Typst content without inventing evidence."

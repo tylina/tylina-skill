@@ -1,0 +1,61 @@
+# SeaSlides Typst Slides Skill Python Dependencies
+# Install: pip install -r requirements.txt
+
+# ─────────────────────────────────────────────────────────────
+# Core / Typst compilation and export
+# ─────────────────────────────────────────────────────────────
+typst>=0.13.0          # Typst compiler Python binding (typst_compiler.py)
+typ2pptx>=0.1.4        # Convert Typst slides to editable PPTX (typst_compiler.py)
+
+# ─────────────────────────────────────────────────────────────
+# PDF to Markdown (scripts/source_to_md/pdf_to_md.py)
+# ─────────────────────────────────────────────────────────────
+# MinerU backend (default) — preserves math formulas as LaTeX
+# PyMuPDF backend — font heuristics fallback, no math support
+PyMuPDF>=1.24.0
+aiohttp>=3.9.0         # Async HTTP client for MinerU online/offline API
+
+# ─────────────────────────────────────────────────────────────
+# PowerPoint to Markdown (scripts/source_to_md/ppt_to_md.py)
+# ─────────────────────────────────────────────────────────────
+python-pptx>=0.6.23
+
+# ─────────────────────────────────────────────────────────────
+# Document to Markdown (scripts/source_to_md/doc_to_md.py)
+# ─────────────────────────────────────────────────────────────
+#   .docx → mammoth
+#   .html → markdownify (+ beautifulsoup4)
+#   .epub → ebooklib (+ markdownify)
+#   .ipynb → nbconvert
+mammoth>=1.6.0
+markdownify>=0.13.0
+ebooklib>=0.18
+nbconvert>=7.0.0
+
+# ─────────────────────────────────────────────────────────────
+# Excel to Markdown (scripts/source_to_md/excel_to_md.py)
+# ─────────────────────────────────────────────────────────────
+openpyxl>=3.1.0
+
+# ─────────────────────────────────────────────────────────────
+# Web to Markdown (scripts/source_to_md/web_to_md.py)
+# ─────────────────────────────────────────────────────────────
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+# Optional — TLS fingerprint impersonation for sites that block Python's
+# default TLS fingerprint (e.g., WeChat mp.weixin.qq.com).
+# 可选 — 用于绕过 TLS 指纹屏蔽（如微信公众号）
+curl_cffi>=0.7.0
+
+# ─────────────────────────────────────────────────────────────
+# Image tools
+# ─────────────────────────────────────────────────────────────
+# analyze_images.py, svg_to_png.py, typst_compiler.py, web_to_md.py
+Pillow>=10.0.0
+# gemini_watermark_remover.py — watermark removal
+numpy>=1.24.0
+
+# ─────────────────────────────────────────────────────────────
+# TTS / narration (scripts/tts_backends/backend_edge.py)
+# ─────────────────────────────────────────────────────────────
+edge-tts>=6.1.0

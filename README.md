@@ -104,6 +104,11 @@ The entry Skill discovers the host's actual capabilities, then reads maintained 
 charts and other guidance using the paths from `workspace.info` and the harness file reader. It shares Tylina's compiler and domain
 library. [Document workflows](skills/tylina/references/workflow.md) describe editing, templates and export.
 
+The `skills/` directory is the runtime resource root. It contains the installable `tylina` entry,
+domain Skills, their catalog and the `_shared` reference and template resources. Matching gallery
+images live in `resources/template-previews` and are packaged at the editor's stable preview URLs.
+
 This repository is independently installable content. Run `node --test tests/skill-package.mjs` to check
-metadata, links and package boundaries. Skill content is [MIT licensed](LICENSE); the SDK, editor,
-fonts and templates retain their own licenses.
+metadata, links and package boundaries. Tylina-maintained Skill guidance is [MIT licensed](LICENSE);
+mirrored third-party documentation and template examples retain their upstream licenses and notices.
+The SDK, editor, fonts and packaged templates retain their own licenses.
