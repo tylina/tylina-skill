@@ -5,7 +5,11 @@ import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const within = (path) => { const local = relative(root, path); return !isAbsolute(local) && local !== '..' && !local.startsWith('../') }
+const withinDirectory = (directory, path) => {
+  const local = relative(directory, path)
+  return !isAbsolute(local) && local !== '..' && !local.startsWith('../')
+}
+const within = (path) => withinDirectory(root, path)
 async function files(directory) {
   const found = []
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -68,6 +72,27 @@ test('Skill discovery stays compact and installable without the core repository'
     resolve(skillsRoot, '_shared/packages/skill-map.json'),
     'utf8'
   ))
+  assert.equal(packageSkillMap.reviewed_against.url, 'https://packages.typst.org/preview/index.json')
+  assert.match(packageSkillMap.reviewed_against.date, /^\d{4}-\d{2}-\d{2}$/u)
+  for (const [kind, routes] of [
+    ['category', packageSkillMap.category_routes],
+    ['discipline', packageSkillMap.discipline_routes]
+  ]) {
+    for (const [name, paths] of Object.entries(routes)) {
+      assert.match(name, /^[a-z][a-z-]*$/u, `Invalid ${kind} route: ${name}`)
+      assert.ok(paths.length > 0, `Empty ${kind} route: ${name}`)
+      assert.equal(new Set(paths).size, paths.length, `Duplicate ${kind} route path: ${name}`)
+    }
+  }
+  for (const [name, route] of Object.entries(packageSkillMap.package_routes)) {
+    assert.match(name, /^[a-z0-9][a-z0-9-]*$/u, `Invalid package route: ${name}`)
+    assert.ok(route.skill_paths.length > 0, `Empty package route: ${name}`)
+    assert.equal(
+      new Set(route.skill_paths).size,
+      route.skill_paths.length,
+      `Duplicate package route path: ${name}`
+    )
+  }
   const routedPaths = [
     ...packageSkillMap.default_paths,
     ...Object.values(packageSkillMap.category_routes).flat(),
@@ -79,7 +104,9 @@ test('Skill discovery stays compact and installable without the core repository'
       ])
   ]
   for (const path of new Set(routedPaths)) {
-    assert.ok((await stat(resolve(skillsRoot, path))).isFile(), `Missing package Skill route: ${path}`)
+    const resolvedPath = resolve(skillsRoot, path)
+    assert.ok(withinDirectory(skillsRoot, resolvedPath), `Package Skill route escapes root: ${path}`)
+    assert.ok((await stat(resolvedPath)).isFile(), `Missing package Skill route: ${path}`)
   }
 
   const packageIndex = JSON.parse(await readFile(

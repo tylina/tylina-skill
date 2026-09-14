@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "reviewed_against": {
     "url": "https://packages.typst.org/preview/index.json",
     "date": "2026-09-15"
@@ -283,6 +283,9 @@
     "sang-math": {
       "skill_paths": ["typst-education/SKILL.md", "typst-science/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
     },
+    "enunciado-facil-fcfm": {
+      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+    },
     "examit": {
       "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
     },
@@ -310,6 +313,18 @@
     "exm": {
       "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
     },
+    "exercise-bank": {
+      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+    },
+    "tutor": {
+      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+    },
+    "formal-homework": {
+      "skill_paths": ["typst-education/SKILL.md", "typst-authoring/references/assignment.md"]
+    },
+    "grape-suite": {
+      "skill_paths": ["typst-education/SKILL.md", "typst-academic/SKILL.md", "typst-slides/SKILL.md"]
+    },
     "scorify": {
       "skill_paths": ["typst-music/SKILL.md"]
     },
@@ -324,6 +339,54 @@
     },
     "swaralipi": {
       "skill_paths": ["typst-music/SKILL.md"]
+    },
+    "conchord": {
+      "skill_paths": ["typst-music/SKILL.md"]
+    },
+    "songb": {
+      "skill_paths": ["typst-music/SKILL.md"]
+    },
+    "staves": {
+      "skill_paths": ["typst-music/SKILL.md"]
+    },
+    "basic-resume": {
+      "skill_paths": ["typst-cv/SKILL.md"]
+    },
+    "chicv": {
+      "skill_paths": ["typst-cv/SKILL.md"]
+    },
+    "heading-resume": {
+      "skill_paths": ["typst-cv/SKILL.md"]
+    },
+    "simple-technical-resume": {
+      "skill_paths": ["typst-cv/SKILL.md"]
+    },
+    "resume-ng": {
+      "skill_paths": ["typst-cv/SKILL.md"]
+    },
+    "modern-cv": {
+      "skill_paths": ["typst-cv/SKILL.md"]
+    },
+    "pro-academic-cv": {
+      "skill_paths": ["typst-cv/SKILL.md", "typst-academic/SKILL.md"]
+    },
+    "pollux": {
+      "skill_paths": ["typst-poster/SKILL.md"]
+    },
+    "peace-of-posters": {
+      "skill_paths": ["typst-poster/SKILL.md"]
+    },
+    "placard": {
+      "skill_paths": ["typst-poster/SKILL.md"]
+    },
+    "pasquino": {
+      "skill_paths": ["typst-poster/SKILL.md"]
+    },
+    "postercise": {
+      "skill_paths": ["typst-poster/SKILL.md"]
+    },
+    "accelerated-jacow": {
+      "skill_paths": ["typst-academic/SKILL.md", "typst-research/SKILL.md"]
     },
     "bananote": {
       "skill_paths": ["typst-longform/SKILL.md", "typst-longform/references/finished-forms.md"]

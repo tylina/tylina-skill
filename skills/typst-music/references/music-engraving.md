@@ -5,8 +5,9 @@
 - Use Scoryst for supplied ABC, MusicXML, MEI, Humdrum/Kern, EsAC, PAE, Volpiano, or CMME when a
   Verovio-rendered staff score embedded in Typst fits the deliverable.
 - Use the pinned Typed Scores 0.5.0 recipe when compact note-and-duration text is the canonical
-  Western staff-notation source. Search `scorify` for another current model and inspect its exact
-  API and output before selecting it.
+  Western staff-notation source. Search `scorify` for another current Rust/WASM-backed notation
+  model and inspect its exact grammar, font behavior, supported score structure, and output before
+  selecting it. Similar rendered staff output does not make the source grammars interchangeable.
 - Search `chordish`, `chordx`, `conchord`, or `songb` for chord sheets, lyrics, or songbooks. Do
   not force a staff-score package onto chord-over-lyric source.
 - Search `fretwork` for guitar tablature and `staves` for isolated clefs or key signatures.
