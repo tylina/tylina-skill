@@ -1,6 +1,6 @@
 {
   "version": "1.1",
-  "description": "Useful Typst packages for documents and Touying slides. Each directory contains a focused README.md and a compile-verified demo.typ using the Touying simple theme.",
+  "description": "Curated Typst package recipes for documents and presentations. Each directory contains a focused README.md and a compile-verified demo.typ.",
   "packages": [
     {
       "name": "numbly",
@@ -199,6 +199,20 @@
       "demo_path": "shadowed/demo.typ",
       "readme_path": "shadowed/README.md",
       "universe_url": "https://typst.app/universe/package/shadowed"
+    },
+    {
+      "name": "scoryst",
+      "display_name": "Scoryst",
+      "version": "0.2.0",
+      "category": "music",
+      "description": "Music engraving through a Typst WebAssembly plugin backed by Verovio. Renders ABC, MusicXML, MEI, Humdrum, EsAC, PAE, Volpiano, and CMME to SVG.",
+      "best_for": "Embedding supplied symbolic staff notation in documents while keeping the notation source editable",
+      "rough_analogues": ["Verovio", "MusicXML/MEI embedding"],
+      "import": "#import \"@preview/scoryst:0.2.0\": score, pages, convert, music-blocks",
+      "demo_path": "scoryst/demo.typ",
+      "readme_path": "scoryst/README.md",
+      "universe_url": "https://typst.app/universe/package/scoryst",
+      "repository_url": "https://github.com/bernsteining/scoryst"
     }
   ]
 }

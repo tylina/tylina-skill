@@ -1,0 +1,5 @@
+interface:
+  display_name: "Typst Long-form"
+  short_description: "Structure and verify long notes, reports, and books"
+  default_prompt: "Use $typst-longform to structure this long document around its audience, sources, reusable template, and final pagination."
+

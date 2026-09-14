@@ -130,20 +130,13 @@ Use raw backticks, not quoted LaTeX strings. Before adding MiTeX, read
 `_shared/packages/mitex/README.md` and its `demo.typ`. Compilation proves syntax, not mathematical
 correctness; compare the formula with its source and inspect the rendered notation.
 
-## Common Package Discovery
+## Package Discovery
 
-- Math: **MiTeX** (`amsmath`-style input), **Theorion** (`amsthm` / `thmtools`).
-- Algorithms/code: **Lovelace** (`algorithm2e`), **Codly** or **Zebraw** (`minted` / `listings`).
-- Tables/tasks: **Tablem** (`booktabs` / `tabularx`), **Cheq** (`enumitem`-style tasks).
-- Charts/diagrams: **Lilaq** (`pgfplots`), **Gribouille** (grammar of graphics),
-  **Merman** (Mermaid/TikZ-adjacent diagrams).
-- Layout/utilities: **Pinit** (`tikzmark`), **Shadowed** (`tcolorbox` shadows), **Numbly**
-  (counters), **Tiaoma** (`qrcode`), and **Cuti** (`xeCJK` synthetic styles).
-
-These are discovery hints, not API compatibility claims. When a capability is relevant, read
-`_shared/packages/index.json`, select one entry, then load only its `readme_path` and `demo_path`
-under `_shared/packages/`. Existing workspace imports win; never recall versions from memory or
-add a package merely because it is listed.
+Use `package.list` for the current official Typst Universe catalog, including non-template
+packages. Filter by a focused query, category, or discipline, then read only the returned
+`skillPaths` and optional `recipePath`. `_shared/packages/index.json` retains pinned,
+compile-verified examples for selected packages. Existing workspace imports win; never recall a
+version from memory, infer an API from metadata, or add a package merely because it is listed.
 
 ## Modes
 
@@ -163,6 +156,10 @@ add a package merely because it is listed.
 - Syntax pattern uncertain: `typst-authoring/references/syntax-patterns.md`.
 - Markup/code/math boundary uncertain: `_shared/docs/typst/language-modes.md`.
 - Assignment, worksheet, or exam: `typst-authoring/references/assignment.md`.
+- Formal exam or educational artifact: `typst-education/SKILL.md` when available.
+- Music notation: `typst-music/SKILL.md` when available.
+- Long note, report, thesis, manual, or book: `typst-longform/SKILL.md` when available.
+- Literature research or citation audit: `typst-research/SKILL.md` when available.
 - New package or template selection/application:
   `typst-authoring/references/templates-and-packages.md`.
 - Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page.

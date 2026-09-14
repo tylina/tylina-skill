@@ -1,7 +1,7 @@
 # Useful Typst Packages
 
 Curated packages commonly useful in Typst documents and Touying presentations. Each directory contains:
-- `demo.typ` — Working example with Touying simple theme (16:9)
+- `demo.typ` — Working document or presentation example
 - `README.md` — Package documentation and usage guide
 
 > **For AI**: Use `_shared/packages/index.json` for programmatic lookup. Its `demo_path` and
@@ -73,6 +73,12 @@ read its current documentation before authoring.
 |---------|---------|-------------|
 | **[merman](./merman/)** | 0.1.0 | Mermaid source rendered to SVG during Typst compilation via a bundled WASM plugin |
 
+### Music Engraving
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| **[scoryst](./scoryst/)** | 0.2.0 | Supplied symbolic staff notation rendered through Verovio WASM |
+
 ### Utility
 
 | Package | Version | Description |
@@ -98,6 +104,7 @@ Need what?
 ├── Standard statistical charts → lilaq
 ├── Layered grammar-of-graphics plots → gribouille
 ├── Mermaid diagrams → merman
+├── Symbolic staff notation → scoryst
 ├── QR codes / barcodes → tiaoma
 └── CJK fake bold → cuti
 ```
@@ -120,6 +127,7 @@ These are rough capability analogies for discovery, not API compatibility claims
 | Lilaq | `pgfplots` |
 | Gribouille | Layered `pgfplots` or a `ggplot2`-style grammar |
 | Merman | Mermaid; often fills a role otherwise handled by TikZ/PGF diagrams |
+| Scoryst | Verovio-backed MusicXML/MEI/ABC score embedding |
 | Pinit | `tikzmark`, TikZ annotations |
 | Shadowed | `tcolorbox` or TikZ shadows |
 | Tiaoma | `qrcode`, `pst-barcode` |
@@ -132,7 +140,8 @@ Always read the selected package's pinned README and demo before authoring.
 
 ## Usage Pattern
 
-All demos follow the same structure as `_shared/charts/`:
+Presentation-oriented demos follow the same structure as `_shared/charts/`. Document-oriented
+recipes such as Scoryst use an ordinary page so physical output can be verified directly.
 
 ```typst
 #import "@preview/touying:0.7.4": *

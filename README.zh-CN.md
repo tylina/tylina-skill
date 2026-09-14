@@ -8,7 +8,8 @@
 
 </div>
 
-把笔记变成学术 Slides，润色简历、设计海报，或完成论文、图表与报告。
+把笔记变成论文、Slides、报告、书籍、试卷或可追溯的文献调研，
+也可以润色简历、设计海报、制作图表或排版给定乐谱。
 Agent 可以读取你的选区，精确修改 Typst 源码，检查实际排版，再导出成品。
 统一使用一个 **`tylina`** 工具，按任务加载写作与设计 Skills。
 
@@ -18,7 +19,7 @@ Agent 可以读取你的选区，精确修改 Typst 源码，检查实际排版�
 | --- | --- |
 | 读取编辑器当前的真实选区 | 通过 Typst/Tinymist 编译 |
 | 带版本校验的精确修改 | 查看实际渲染页面 |
-| 浏览模板和领域 Skills | 导出 PDF、PNG、SVG |
+| 搜索当前模板、包和领域 Skills | 导出 PDF、PNG、SVG |
 | 修改进入正常编辑历史 | 在同一个工作区继续写作 |
 
 ## 开始使用
@@ -63,6 +64,10 @@ tylina mcp --connection /path/to/private/mcp.json
 
 > 检查报告的排版，先给我看需要调整的页面，再修改。
 
+> 围绕这个问题进行文献调研，去重 DOI/arXiv 记录，并在修改前检查缺失引用。
+
+> 寻找适合的中文试卷模板，核对其准确 API，再生成学生版和答案版。
+
 <details>
 <summary><strong>DSH、独立项目与脚本调用</strong></summary>
 
@@ -79,8 +84,9 @@ tylina mcp --workspace /path/to/project --main main.typ
 这个模式不打开窗口，也能编译和导出。需要用户实时选区或未保存内容时，应连接实际编辑器。
 Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 
-CLI 和 SDK 使用同一套命令，包括 `editor.state`、`document.validate`
-和按需查询的 `help`。连接 token 放在私密配置或受保护的进程环境中，不进入 prompt、命令参数或文档文件。
+匹配版本的 CLI 和 SDK 使用同一套命令，包括 `editor.state`、`document.validate`、`document.eval`、
+`package.list` 和按需查询的 `help`。连接 token 放在私密配置或受保护的进程环境中，
+不进入 prompt、命令参数或文档文件。
 
 </details>
 
@@ -99,7 +105,8 @@ Electron 打包版也已验证授权导出与撤销、编辑、保存和 Undo。
 ## 工作方式
 
 入口 Skill 先发现宿主实际能力，再根据 `workspace.info` 的资源路径，用宿主文件工具
-读取统一维护的写作、Slides、图表等指导，复用 Tylina 的编译器与领域库。
+读取统一维护的写作、研究、教育、乐谱、长篇文档、Slides、图表等指导，
+复用 Tylina 的编译器与领域库。
 编辑、模板和导出流程见[文档工作流](skills/tylina/references/workflow.md)。
 
 `skills/` 是运行时资源根目录，包含可安装的 `tylina` 入口、领域 Skills、内容 catalog，

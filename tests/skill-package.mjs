@@ -47,6 +47,23 @@ test('Skill discovery stays compact and installable without the core repository'
     entrypointIds.add(entry.id)
     assert.ok(idSet.has(entry.skill), `Unknown Skill entrypoint target: ${entry.skill}`)
   }
+  const packageSkillMap = JSON.parse(await readFile(
+    resolve(skillsRoot, '_shared/packages/skill-map.json'),
+    'utf8'
+  ))
+  const routedPaths = [
+    ...packageSkillMap.default_paths,
+    ...Object.values(packageSkillMap.category_routes).flat(),
+    ...Object.values(packageSkillMap.discipline_routes).flat(),
+    ...Object.values(packageSkillMap.package_routes)
+      .flatMap((route) => [
+        ...route.skill_paths,
+        ...(route.recipe_path ? [route.recipe_path] : [])
+      ])
+  ]
+  for (const path of new Set(routedPaths)) {
+    assert.ok((await stat(resolve(skillsRoot, path))).isFile(), `Missing package Skill route: ${path}`)
+  }
   const catalogSkillDocs = catalogIds.map((id) => resolve(skillsRoot, id, 'SKILL.md'))
 
   for (const path of await files(root)) {

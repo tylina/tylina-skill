@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "skills": [
     {
       "id": "typst-authoring",
@@ -25,6 +25,49 @@
     },
     {
       "id": "typst-academic",
+      "dependencies": ["typst-authoring"],
+      "source": []
+    },
+    {
+      "id": "typst-research",
+      "dependencies": ["typst-academic"],
+      "source": [
+        {
+          "url": "https://github.com/typst/typst/blob/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content/reference/model/bibliography.typ",
+          "revision": "2924ba908b7e535ef6166a8b1731d400b694e9d9"
+        }
+      ]
+    },
+    {
+      "id": "typst-education",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/siefkenj/typst-examy",
+          "revision": "ac0ab14c9705ea65f109dea84f98c5c1ce08ac99"
+        },
+        {
+          "url": "https://github.com/data-8/exm",
+          "revision": "c3f0cef8de09f019ded00f3eea5ec6765f745b2b"
+        },
+        {
+          "url": "https://github.com/pdcxs/examora",
+          "revision": "82e01fdb5c257c6079b579f78cae20789f814eb3"
+        }
+      ]
+    },
+    {
+      "id": "typst-music",
+      "dependencies": ["typst-authoring"],
+      "source": [
+        {
+          "url": "https://github.com/bernsteining/scoryst",
+          "revision": "6b2fa734b708bc99c320e63e103ae72bca85cd5f"
+        }
+      ]
+    },
+    {
+      "id": "typst-longform",
       "dependencies": ["typst-authoring"],
       "source": []
     },
@@ -166,9 +209,45 @@
       "intent": "create-or-edit"
     },
     {
+      "id": "research-literature",
+      "skill": "typst-research",
+      "mode": "research",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "audit-citations",
+      "skill": "typst-research",
+      "mode": "audit",
+      "intent": "review"
+    },
+    {
       "id": "write-assignment",
       "skill": "typst-authoring",
       "mode": "assignment",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "create-exam",
+      "skill": "typst-education",
+      "mode": "create",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "review-exam",
+      "skill": "typst-education",
+      "mode": "review",
+      "intent": "review"
+    },
+    {
+      "id": "engrave-music",
+      "skill": "typst-music",
+      "mode": "engrave",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-book",
+      "skill": "typst-longform",
+      "mode": "write",
       "intent": "create-or-edit"
     },
     {

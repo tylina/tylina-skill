@@ -2,6 +2,9 @@
 
 Read this only for `assignment` mode or when choosing an educational template.
 
+For a formal exam, quiz, answer key, or locale-specific worksheet, also load
+`typst-education/SKILL.md`; it owns assessment, variant, and physical-print review.
+
 ## 1. Establish the Artifact
 
 - Confirm learner level, subject, objectives, language, format, length, and assessment needs.
@@ -12,7 +15,8 @@ Read this only for `assignment` mode or when choosing an educational template.
 ## 2. Select a Template When Useful
 
 When the target is not governed by an existing scaffold, search the Tylina Template Registry with
-focused terms such as `exam` and `worksheet` before hand-writing a page shell. This applies to a
+focused terms such as `exam` and `worksheet`, and use `package.list` for reusable components,
+before hand-writing a page shell. This applies to a
 blank draft and to an explicitly distinct new artifact in a populated workspace; materialize the
 latter at a conflict-free path. For a Chinese exam, include Chinese-oriented candidates such as
 `ezexam` and `examora` when the catalog returns them.

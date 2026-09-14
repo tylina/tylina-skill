@@ -1,0 +1,5 @@
+interface:
+  display_name: "Typst Literature Research"
+  short_description: "Research and audit traceable academic evidence"
+  default_prompt: "Use $typst-research to research this question and connect every claim to inspected, traceable evidence."
+

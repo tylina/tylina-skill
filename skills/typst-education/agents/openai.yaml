@@ -1,0 +1,5 @@
+interface:
+  display_name: "Typst Education"
+  short_description: "Create and review usable exams and worksheets"
+  default_prompt: "Use $typst-education to create or review this exam or worksheet for the stated learners and print workflow."
+

@@ -16,6 +16,19 @@ The candidate standalone SDK provides these commands too. Official packages reso
 bundled themes require installed Web assets. A host can disable template access. Inspect `help` and
 check unavailable catalog sources; do not claim an offline shortlist contains every available template.
 
+For reusable capabilities rather than a whole scaffold, call `package.list`. It reads the current
+official Universe index, including non-template packages, and returns pinned metadata plus the
+relevant Tylina Skill and optional verified recipe. Inspect the exact version before editing;
+package metadata and a repository screenshot do not establish an API.
+
+## Inspect document values
+
+Use `document.eval` for bounded read-only Typst expressions that need the current compiled world,
+imports, library, or document introspector. It can inspect values such as counters or query results
+without inserting diagnostic code into canonical source. The expression is code mode, not markup;
+use returned diagnostics and never treat evaluation as permission to mutate files. Large inputs and
+results are rejected by the host.
+
 ## Work in a large project
 
 Start from `workspace.info` and the main or active file. Use the harness filesystem tools for the relevant directory. Read only files needed for the task. Tylina's

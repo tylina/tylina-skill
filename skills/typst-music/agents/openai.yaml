@@ -1,0 +1,5 @@
+interface:
+  display_name: "Typst Music"
+  short_description: "Engrave supplied music notation without guessing"
+  default_prompt: "Use $typst-music to engrave this supplied notation faithfully and verify every affected system or page."
+

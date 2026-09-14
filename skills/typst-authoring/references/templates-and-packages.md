@@ -26,7 +26,16 @@ Read this only when selecting, applying, or introducing a template or package.
 ## Packages
 
 - Existing imports and versions win. Never silently upgrade them or edit the package cache.
-- Discover candidates through `_shared/packages/index.json`; load only the selected README/demo.
+- Call `package.list` before Web search or a package CLI. It searches the current official
+  Universe index, including packages that are not templates, and returns an exact `spec`,
+  compatibility/provenance metadata, relevant `skillPaths`, and an optional `recipePath`.
+- Search narrowly by capability, category, discipline, or known package name. Metadata supports
+  shortlisting only: it does not prove the API, visual quality, licensing fit, or compatibility
+  with an existing document.
+- Read only the selected returned Skill paths and recipe. When there is no recipe, inspect the
+  exact package version through its official Universe or repository documentation before editing.
+- `_shared/packages/index.json` is the compact catalog of pinned, compile-verified recipes. It is
+  not the complete or current Universe index.
 - Use `_shared/docs/index.json` to locate one focused official language or package reference.
 - Treat bundled recipes as pinned examples, not permission to add every dependency they mention.
 - Copy only required recipe assets into the workspace. Do not depend at runtime on `local/`, the

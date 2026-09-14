@@ -1,6 +1,6 @@
 ---
 name: tylina
-description: Coedit and verify Typst documents with Tylina's live selection, compiler, page previews, templates and PDF/PNG/SVG export.
+description: Coedit, inspect, evaluate, and verify Typst documents with Tylina's live selection, compiler, package and template discovery, page previews, and export.
 ---
 
 # Tylina
@@ -15,7 +15,11 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 - `{command:"workspace.info"}` — workspace and resource paths.
 - `{command:"editor.state"}` — real selection/caret, active file and draft status.
 - `{command:"document.validate"}` — compile the current main and report diagnostics.
+- `{command:"document.eval",args:{expression:"1 + 2"}}` — evaluate bounded Typst code in the
+  current compiled document world without changing source.
 - `{command:"render.page",args:{page:1}}` — return an actual page image.
+- `{command:"package.list",args:{query:"music"}}` — search the current official package catalog
+  and return relevant bundled Skill or recipe paths.
 
 Use `help` for unfamiliar operations only. Do not look up schemas already in context.
 A standalone disk connection has no live selection or unsaved editor state. Setup, CLI and SDK:
@@ -23,7 +27,8 @@ A standalone disk connection has no live selection or unsaved editor state. Setu
 
 Read the relevant bundled `typst-<domain>/SKILL.md` under `skillsRoot` using your file reader or
 Skill loader. Core `typst-authoring` is normally already in session instructions; do not reload it.
-Package recipes and official API paths are indexed in `_shared/packages/index.json` and
+Current package discovery uses `package.list`; pinned recipes and official API paths are indexed in
+`_shared/packages/index.json` and
 `_shared/docs/index.json`. Load only the needed reference. These paths are not runtime imports.
 
 Stay at the selected target. Adding a diagram or paragraph does not authorize a new document or
