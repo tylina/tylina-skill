@@ -4,11 +4,14 @@
 
 - Use Scoryst for supplied ABC, MusicXML, MEI, Humdrum/Kern, EsAC, PAE, Volpiano, or CMME when a
   Verovio-rendered staff score embedded in Typst fits the deliverable.
-- Search `typed-scores` or `scorify` when the author wants another current staff-notation model;
-  inspect its exact API and output before selecting it.
+- Use the pinned Typed Scores 0.5.0 recipe when compact note-and-duration text is the canonical
+  Western staff-notation source. Search `scorify` for another current model and inspect its exact
+  API and output before selecting it.
 - Search `chordish`, `chordx`, `conchord`, or `songb` for chord sheets, lyrics, or songbooks. Do
   not force a staff-score package onto chord-over-lyric source.
 - Search `fretwork` for guitar tablature and `staves` for isolated clefs or key signatures.
+- Search `swaralipi` only for its documented Indian classical-notation model. It is not evidence of
+  Jianpu support, and no notation system should be transliterated into another without permission.
 - For Jianpu or another numbered notation system, do not substitute ordinary digits or convert to
   Western staff notation without permission. The current curated Scoryst recipe does not render
   Jianpu. Use a verified dedicated package if current discovery finds one; otherwise preserve the
@@ -33,3 +36,13 @@ breaks, headers, measure numbers, ties and slurs at boundaries, tuplets, multi-v
 accidentals, endings, and whether excerpts start with enough context. For a multi-page score,
 render all pages returned by `pages`; never assume one SVG contains the whole piece.
 
+## Typed Scores Boundary
+
+Typed Scores 0.5.0 accepts compact event strings through `bar` and `score`, parsed by its bundled
+Rust/WASM plugin and laid out with CeTZ and Bravura glyphs. Use it when that text is already the
+chosen canonical notation or when the user explicitly authorizes transcription into it. It is not
+a MusicXML/MEI importer and not a Jianpu renderer.
+
+Preserve pitches, accidentals, octaves, durations, rests, voices, clefs, keys, meters, lyrics,
+harmony, barlines, endings, and navigation marks. Its shorthand or defaults must not become a reason
+to guess missing musical facts. Read `_shared/packages/typed-scores/README.md` before authoring.

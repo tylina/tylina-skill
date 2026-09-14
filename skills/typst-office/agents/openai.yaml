@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Office Documents"
+  short_description: "Create reliable locale-aware office documents"
+  default_prompt: "Use $typst-office to create or review this office document from the supplied records and locale requirements."

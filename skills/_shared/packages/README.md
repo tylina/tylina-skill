@@ -32,6 +32,14 @@ Curated packages commonly useful in Typst documents and Touying presentations. E
 | **[theorion](./theorion/)** | 0.6.0 | Theorem, definition, lemma, proof environments |
 | **[mitex](./mitex/)** | 0.2.7 | LaTeX math equations in Typst (WASM) |
 
+### Science and Engineering
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| **[unify](./unify/)** | 0.8.1 | Supplied numbers, uncertainty, quantities, units, and ranges |
+| **[typsium](./typsium/)** | 0.3.2 | Chemical formulas, reactions, isotopes, phases, and annotated arrows |
+| **[quill](./quill/)** | 0.8.0 | Quantum circuits through manual-grid and Tequila instruction models |
+
 ### Code Display
 
 | Package | Version | Description |
@@ -73,11 +81,18 @@ read its current documentation before authoring.
 |---------|---------|-------------|
 | **[merman](./merman/)** | 0.1.0 | Mermaid source rendered to SVG during Typst compilation via a bundled WASM plugin |
 
+### Linguistics
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| **[eggs](./eggs/)** | 0.9.0 | Numbered examples, interlinear glosses, judgments, references, and abbreviations |
+
 ### Music Engraving
 
 | Package | Version | Description |
 |---------|---------|-------------|
 | **[scoryst](./scoryst/)** | 0.2.0 | Supplied symbolic staff notation rendered through Verovio WASM |
+| **[typed-scores](./typed-scores/)** | 0.5.0 | Western staff notation from compact note-and-duration text |
 
 ### Utility
 
@@ -95,6 +110,9 @@ Need what?
 ├── Custom heading numbering → numbly
 ├── Theorem/proof environments → theorion
 ├── LaTeX equations → mitex
+├── Measurements, uncertainty, or units → unify
+├── Chemical formulas or reactions → typsium
+├── Quantum circuits → quill
 ├── Pseudocode → lovelace
 ├── Beautiful code blocks → codly or zebraw
 ├── Checklists → cheq
@@ -104,7 +122,9 @@ Need what?
 ├── Standard statistical charts → lilaq
 ├── Layered grammar-of-graphics plots → gribouille
 ├── Mermaid diagrams → merman
-├── Symbolic staff notation → scoryst
+├── Linguistic examples and glosses → eggs
+├── MusicXML, MEI, or ABC staff notation → scoryst
+├── Compact Western note text → typed-scores
 ├── QR codes / barcodes → tiaoma
 └── CJK fake bold → cuti
 ```
@@ -120,6 +140,9 @@ These are rough capability analogies for discovery, not API compatibility claims
 | Numbly | Section counters, `titlesec` |
 | Theorion | `amsthm`, `thmtools`, theorem-style `tcolorbox` |
 | MiTeX | Familiar `amsmath`-style LaTeX formula input |
+| Unify | `siunitx` |
+| Typsium | `mhchem` |
+| Quill | `quantikz`, `qcircuit` |
 | Lovelace | `algorithm2e`, `algorithmicx` |
 | Codly / Zebraw | `minted`, `listings` |
 | Tablem | `booktabs`, `tabularx` |
@@ -127,7 +150,9 @@ These are rough capability analogies for discovery, not API compatibility claims
 | Lilaq | `pgfplots` |
 | Gribouille | Layered `pgfplots` or a `ggplot2`-style grammar |
 | Merman | Mermaid; often fills a role otherwise handled by TikZ/PGF diagrams |
+| Eggs | `expex`, `gb4e`, `linguex` |
 | Scoryst | Verovio-backed MusicXML/MEI/ABC score embedding |
+| Typed Scores | Text-authored Western staff engraving, roughly analogous to a compact LilyPond-style source |
 | Pinit | `tikzmark`, TikZ annotations |
 | Shadowed | `tcolorbox` or TikZ shadows |
 | Tiaoma | `qrcode`, `pst-barcode` |

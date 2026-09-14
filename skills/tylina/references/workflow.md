@@ -42,10 +42,17 @@ Paths are workspace-relative. Providers own native paths, symlinks and access ch
 
 1. Validate changed source with `document.validate`.
 2. Inspect affected pages with `render.page`; use a summary or overview only to locate unknown pages.
-3. Use `document.export` to produce PDF, PNG or SVG. PDF uses a file destination; PNG/SVG use a
-   directory. Discover the current schema before exporting and respect overwrite intent.
+3. Use `document.export` to produce PDF, PNG, SVG, `pptx-visual`, or `pptx-editable`. PDF and both
+   PPTX formats use a file destination; PNG/SVG use a directory. Discover the current schema before
+   exporting and respect overwrite intent.
 4. Return the actual export receipt and destination. In a browser workspace, an exported resource
    may still require the user's download action; a workspace path is not necessarily a host disk path.
+
+`pptx-visual` places each compiled Typst page as a full-slide image. It is the fidelity-oriented
+choice and its slide contents are not editable. `pptx-editable` reconstructs supported text, image,
+and shape elements from the compiled frame model; it is experimental and should be inspected in a
+real PowerPoint-compatible application. Neither PPTX becomes canonical document state: preserve the
+Typst source and resources, and do not promise round-trip editing from PowerPoint back to Typst.
 
 Validation and rendering must correspond to the current source. If the user edits concurrently,
 refresh the source/context and repeat only the checks made obsolete by those changes.

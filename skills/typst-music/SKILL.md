@@ -46,5 +46,5 @@ Compose this Skill with Typst Authoring.
 
 - Representation and Jianpu boundary: `typst-music/references/music-engraving.md`.
 - Verified Scoryst 0.2.0 API: `_shared/packages/scoryst/README.md` and its `demo.typ`.
+- Verified Typed Scores 0.5.0 API: `_shared/packages/typed-scores/README.md` and its `demo.typ`.
 - Current alternatives: `package.list` with `discipline: "music"`, then inspect the exact package.
-

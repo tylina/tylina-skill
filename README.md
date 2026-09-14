@@ -8,8 +8,9 @@
 
 </div>
 
-Turn notes into papers, slides, reports, books, exams, or research trails. Polish a résumé, lay out a
-poster, build a chart, or engrave supplied music notation.
+Turn notes into papers, slides, reports, books, exams, research trails, scientific documents,
+linguistic examples, or office forms. Polish a résumé, lay out a poster, build a chart, or engrave
+supplied music notation.
 Your Agent can read your selection, edit Typst source, inspect real rendered pages and export the result.
 One **`tylina`** tool connects the workflow; writing and design Skills load as needed.
 
@@ -19,7 +20,7 @@ One **`tylina`** tool connects the workflow; writing and design Skills load as n
 | --- | --- |
 | Read the current editor selection | Compile with Typst/Tinymist |
 | Make precise, version-checked edits | Inspect actual page images |
-| Search current templates, packages and domain Skills | Export PDF, PNG and SVG |
+| Search current templates, packages and domain Skills | Export PDF, PNG, SVG and PowerPoint |
 | Keep edits in normal editor history | Continue in the same workspace |
 
 ## Get started
@@ -68,6 +69,10 @@ Try asking:
 
 > Find a suitable Chinese exam template, inspect its exact API, then create student and answer versions.
 
+> Typeset these measurements, reactions, and quantum circuits without changing any supplied value.
+
+> Turn these meeting records into minutes, keeping decisions and proposed actions distinct.
+
 <details>
 <summary><strong>DSH, standalone projects and scripting</strong></summary>
 
@@ -99,17 +104,19 @@ compatible MCP connection. The stable SDK includes the unified command interface
 Check `tylina --help` when upgrading an older installation.
 
 Real Codex checks on macOS arm64 cover selected-range coediting, report and table tasks, on-demand
-Skills, rendered images and PDF/PNG/SVG export. Packaged Electron also verifies grant export and
-revocation, editing, saving and Undo. These checks do not establish every client's or platform's behavior.
+Skills, rendered images and PDF/PNG/SVG export. Cross-host tests also cover visual-fidelity and
+experimental editable PowerPoint export. Packaged Electron verifies grant export and revocation,
+editing, saving and Undo. These checks do not establish every client's or platform's behavior.
 
 </details>
 
 ## How it works
 
 The entry Skill discovers the host's actual capabilities, then reads maintained authoring,
-research, education, music, long-form, slides, charts, and other guidance using the paths from
-`workspace.info` and the harness file reader. It shares Tylina's compiler and domain
-library. [Document workflows](skills/tylina/references/workflow.md) describe editing, templates and export.
+research, science, linguistics, education, office, music, long-form, slides, charts, and other
+guidance using the paths from `workspace.info` and the harness file reader. It shares Tylina's
+compiler and domain library. [Document workflows](skills/tylina/references/workflow.md) describe
+editing, templates and export.
 
 The `skills/` directory is the runtime resource root. It contains the installable `tylina` entry,
 domain Skills, their catalog and the `_shared` reference and template resources. Matching gallery

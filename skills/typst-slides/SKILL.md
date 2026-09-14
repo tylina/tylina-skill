@@ -199,9 +199,10 @@ For a new deck or global redesign:
 4. Use `render.page` at readable PPI for every page. Check overflow, clipping,
    collisions, contrast, missing assets, raw source leakage, and accidental blanks.
 5. Revalidate after every correction. Report any unavailable verification explicitly.
-6. When the user requests a PDF, PNG, or SVG deliverable, call
-   `document.export` only after final validation and visual review. Keep the destination
-   inside the workspace, and set `overwrite: true` only when replacement is explicit.
+6. When the user requests PDF, PNG, SVG, visual-fidelity PPTX, or experimental editable PPTX, call
+   `document.export` only after final validation and visual review. Read
+   `tylina/references/workflow.md` for format and destination semantics. Keep the destination inside
+   the workspace, and set `overwrite: true` only when replacement is explicit.
 
 ## Existing Decks
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Science"
+  short_description: "Typeset evidence-bound scientific notation"
+  default_prompt: "Use $typst-science to create or review this scientific document without changing its supplied facts or notation."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typst Linguistics"
+  short_description: "Typeset faithful multilingual language data"
+  default_prompt: "Use $typst-linguistics to typeset or review this language data while preserving every supplied form, gloss, and judgment."

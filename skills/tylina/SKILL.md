@@ -20,6 +20,8 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 - `{command:"render.page",args:{page:1}}` — return an actual page image.
 - `{command:"package.list",args:{query:"music"}}` — search the current official package catalog
   and return relevant bundled Skill or recipe paths.
+- `{command:"document.export",args:{format:"pptx-visual",destination:"exports/deck.pptx"}}` —
+  export a compiled document to a workspace-relative PowerPoint file.
 
 Use `help` for unfamiliar operations only. Do not look up schemas already in context.
 A standalone disk connection has no live selection or unsaved editor state. Setup, CLI and SDK:

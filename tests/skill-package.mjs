@@ -38,8 +38,25 @@ test('Skill discovery stays compact and installable without the core repository'
   assert.deepEqual([...catalogIds].sort(), packageIds, 'The catalog must name every domain Skill package')
   const idSet = new Set(catalogIds)
   for (const entry of catalog.skills) {
-    assert.ok((await stat(resolve(skillsRoot, entry.id, 'SKILL.md'))).isFile(), `Missing Skill entry: ${entry.id}`)
+    const skillPath = resolve(skillsRoot, entry.id, 'SKILL.md')
+    const agentPath = resolve(skillsRoot, entry.id, 'agents/openai.yaml')
+    assert.ok((await stat(skillPath)).isFile(), `Missing Skill entry: ${entry.id}`)
+    assert.ok((await stat(agentPath)).isFile(), `Missing Skill UI metadata: ${entry.id}`)
+    const domainSkill = await readFile(skillPath, 'utf8')
+    const domainFrontmatter = /^---\n([\s\S]+?)\n---\n/u.exec(domainSkill)?.[1]
+    assert.ok(domainFrontmatter, `Missing Skill frontmatter: ${entry.id}`)
+    assert.match(domainFrontmatter, new RegExp(`^name: ${entry.id}$`, 'mu'))
+    assert.match(domainFrontmatter, /^description: .+/mu)
+    const agentMetadata = await readFile(agentPath, 'utf8')
+    assert.match(agentMetadata, /^interface:\n/mu)
+    assert.match(agentMetadata, /^  display_name: "[^"]+"$/mu)
+    assert.match(agentMetadata, /^  short_description: "[^"]{25,64}"$/mu)
+    assert.match(agentMetadata, new RegExp(`^  default_prompt: ".*\\$${entry.id}.*"$`, 'mu'))
     for (const dependency of entry.dependencies) assert.ok(idSet.has(dependency), `Unknown Skill dependency: ${dependency}`)
+    for (const source of entry.source) {
+      assert.ok(URL.canParse(source.url), `Invalid source URL for ${entry.id}: ${source.url}`)
+      assert.ok(source.revision.trim(), `Missing source revision for ${entry.id}`)
+    }
   }
   const entrypointIds = new Set()
   for (const entry of catalog.entrypoints) {
@@ -64,6 +81,38 @@ test('Skill discovery stays compact and installable without the core repository'
   for (const path of new Set(routedPaths)) {
     assert.ok((await stat(resolve(skillsRoot, path))).isFile(), `Missing package Skill route: ${path}`)
   }
+
+  const packageIndex = JSON.parse(await readFile(
+    resolve(skillsRoot, '_shared/packages/index.json'),
+    'utf8'
+  ))
+  const recipeNames = new Set()
+  for (const recipe of packageIndex.packages) {
+    assert.ok(!recipeNames.has(recipe.name), `Duplicate package recipe: ${recipe.name}`)
+    recipeNames.add(recipe.name)
+    assert.match(recipe.name, /^[a-z0-9][a-z0-9-]*$/u)
+    assert.match(recipe.version, /^\d+\.\d+\.\d+(?:[-+].+)?$/u)
+    const spec = `@preview/${recipe.name}:${recipe.version}`
+    assert.ok(recipe.import.includes(spec), `Recipe import does not pin ${spec}`)
+    const demoPath = resolve(skillsRoot, '_shared/packages', recipe.demo_path)
+    const readmePath = resolve(skillsRoot, '_shared/packages', recipe.readme_path)
+    assert.ok((await stat(demoPath)).isFile(), `Missing package demo: ${recipe.demo_path}`)
+    assert.ok((await stat(readmePath)).isFile(), `Missing package README: ${recipe.readme_path}`)
+    assert.ok((await readFile(demoPath, 'utf8')).includes(spec), `Demo does not pin ${spec}`)
+    assert.ok((await readFile(readmePath, 'utf8')).includes(spec), `README does not pin ${spec}`)
+    assert.equal(
+      packageSkillMap.package_routes[recipe.name]?.recipe_path,
+      `_shared/packages/${recipe.readme_path}`,
+      `Package route does not expose recipe: ${recipe.name}`
+    )
+  }
+  const recipeDirectories = (await readdir(resolve(skillsRoot, '_shared/packages'), {
+    withFileTypes: true
+  }))
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort()
+  assert.deepEqual([...recipeNames].sort(), recipeDirectories, 'Every package recipe directory must be indexed')
   const catalogSkillDocs = catalogIds.map((id) => resolve(skillsRoot, id, 'SKILL.md'))
 
   for (const path of await files(root)) {

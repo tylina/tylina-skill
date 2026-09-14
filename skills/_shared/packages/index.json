@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "description": "Curated Typst package recipes for documents and presentations. Each directory contains a focused README.md and a compile-verified demo.typ.",
   "packages": [
     {
@@ -213,6 +213,76 @@
       "readme_path": "scoryst/README.md",
       "universe_url": "https://typst.app/universe/package/scoryst",
       "repository_url": "https://github.com/bernsteining/scoryst"
+    },
+    {
+      "name": "unify",
+      "display_name": "Unify",
+      "version": "0.8.1",
+      "category": "science",
+      "description": "Formats supplied numbers, uncertainties, quantities, units, and ranges with a string-based scientific-notation grammar.",
+      "best_for": "Source-faithful scientific measurements, uncertainty, unit expressions, and numeric or quantity ranges",
+      "rough_analogues": ["siunitx"],
+      "import": "#import \"@preview/unify:0.8.1\": num, qty, numrange, qtyrange",
+      "demo_path": "unify/demo.typ",
+      "readme_path": "unify/README.md",
+      "universe_url": "https://typst.app/universe/package/unify",
+      "repository_url": "https://github.com/ChHecker/unify"
+    },
+    {
+      "name": "typsium",
+      "display_name": "Typsium",
+      "version": "0.3.2",
+      "category": "chemistry",
+      "description": "Typesets supplied chemical formulas, reactions, isotopes, charges, phases, arrows, and reaction annotations.",
+      "best_for": "Semantic chemical notation and reaction display without hand-built subscripts or arrows",
+      "rough_analogues": ["mhchem"],
+      "import": "#import \"@preview/typsium:0.3.2\": ce",
+      "demo_path": "typsium/demo.typ",
+      "readme_path": "typsium/README.md",
+      "universe_url": "https://typst.app/universe/package/typsium",
+      "repository_url": "https://github.com/Typsium/typsium"
+    },
+    {
+      "name": "quill",
+      "display_name": "Quill",
+      "version": "0.8.0",
+      "category": "diagram",
+      "description": "Renders quantum circuits through a manual grid or the composable Tequila instruction model.",
+      "best_for": "Source-controlled quantum circuit figures with semantic gates and wires",
+      "rough_analogues": ["quantikz", "qcircuit", "QASM-style circuit builders"],
+      "import": "#import \"@preview/quill:0.8.0\": *",
+      "demo_path": "quill/demo.typ",
+      "readme_path": "quill/README.md",
+      "universe_url": "https://typst.app/universe/package/quill",
+      "repository_url": "https://github.com/Mc-Zen/quill"
+    },
+    {
+      "name": "eggs",
+      "display_name": "Eggs",
+      "version": "0.9.0",
+      "category": "linguistics",
+      "description": "Typesets numbered linguistic examples, interlinear glosses, judgments, references, and abbreviation lists.",
+      "best_for": "Semantic linguistic examples and Leipzig-style interlinear glossed text",
+      "rough_analogues": ["expex", "gb4e", "linguex"],
+      "import": "#import \"@preview/eggs:0.9.0\": *",
+      "demo_path": "eggs/demo.typ",
+      "readme_path": "eggs/README.md",
+      "universe_url": "https://typst.app/universe/package/eggs",
+      "repository_url": "https://github.com/retroflexivity/typst-eggs"
+    },
+    {
+      "name": "typed-scores",
+      "display_name": "Typed Scores",
+      "version": "0.5.0",
+      "category": "music",
+      "description": "Engraves Western staff notation from compact note text using a Rust/WASM parser, CeTZ, and bundled Bravura glyphs.",
+      "best_for": "Author-controlled Western scores whose canonical source is compact note-and-duration text",
+      "rough_analogues": ["LilyPond-style text notation", "Bravura music engraving"],
+      "import": "#import \"@preview/typed-scores:0.5.0\": bar, score",
+      "demo_path": "typed-scores/demo.typ",
+      "readme_path": "typed-scores/README.md",
+      "universe_url": "https://typst.app/universe/package/typed-scores",
+      "repository_url": "https://github.com/GeronimoCastano/typed-scores"
     }
   ]
 }
