@@ -1,13 +1,18 @@
 # SeaSlides Scripts in Tylina
 
-These scripts are an optional command-line supplement. Tylina's shared commands remain authoritative
-for the live main file, Typst compilation, diagnostics, rendering, and export.
+This directory is a retained SeaSlides upstream snapshot. Tylina's shared commands remain
+authoritative for source ingestion, the live main file, Typst compilation, diagnostics, rendering,
+and export. Do not make these Python scripts a Tylina product or Agent runtime dependency.
+
+For PDF, DOCX, PPTX, or XLSX sources, use `document.import` after reading
+`typst-authoring/references/source-ingestion.md`. It is the supported Web, DSH, Electron, and SDK
+route. For PowerPoint delivery, use `document.export`; do not invoke the upstream PPTX helper.
 
 ## Runtime
 
-Scripts require a host with a terminal and a real disk workspace. Check `help` for
-`runtime.prepare` before proceeding. In a browser-only host, use the available document,
-template and render commands instead; a virtual workspace root is not a local shell directory.
+The Python commands below document upstream behavior for provenance and maintenance only. Do not
+run them in a Tylina authoring workflow. Browser and DSH tasks must remain on portable shared
+commands; a virtual workspace root is not a local shell directory.
 
 1. Call `workspace.info` and keep its `root` as the only workspace.
 2. Call `runtime.prepare` once. A working global `uv` is returned immediately. If the result

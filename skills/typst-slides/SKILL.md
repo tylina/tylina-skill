@@ -62,10 +62,10 @@ the files required by the selected workflow into the current workspace. Compile,
 render, and export through the shared `tylina` commands so every result uses the current workspace
 and canonical source.
 
-SeaSlides command-line helpers are packaged under `<skillsRoot>/typst-slides/scripts`. Use one only
-when the host offers a terminal and disk workspace, and it helps source ingestion, asset preparation, PPTX delivery, or a
-supplemental audit. Read `typst-slides/scripts/TYLINA.md` for dependencies and usage, then use
-the host's process tools and environment. Browser-only hosts have no native terminal.
+Use `document.import` for workspace PDF, DOCX, PPTX, and XLSX sources after reading
+`typst-authoring/references/source-ingestion.md`. This is the portable Web, DSH, Electron, and SDK
+path. The packaged SeaSlides Python scripts are retained upstream references, not a Tylina source
+ingestion or delivery runtime; do not invoke them for this workflow.
 
 ## Modes
 
@@ -158,7 +158,9 @@ remain authoritative even when a helper script also produces diagnostics or arti
 ### 1. Understand Sources
 
 Read supplied files or attached content and create a compact source brief. Mark uncertainty
-and missing evidence. Do not proceed from an unread PDF, document, or web page.
+and missing evidence. For a workspace PDF or Office file, follow the portable import gate and
+review its receipt and warnings. Do not proceed from an unread PDF, document, or web page, and do
+not treat imported Markdown as proof that formulas, figures, or reading order survived.
 
 ### 2. Select a Theme
 

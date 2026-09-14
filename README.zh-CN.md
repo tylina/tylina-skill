@@ -19,6 +19,7 @@ Agent 可以读取你的选区，精确修改 Typst 源码，检查实际排版�
 | --- | --- |
 | 读取编辑器当前的真实选区 | 通过 Typst/Tinymist 编译 |
 | 带版本校验的精确修改 | 查看实际渲染页面 |
+| 无需 Python 导入 PDF 与 Office 证据 | 检查 OCR 与提取警告 |
 | 搜索当前模板、包和领域 Skills | 导出 PDF、PNG、SVG、PowerPoint |
 | 修改进入正常编辑历史 | 在同一个工作区继续写作 |
 
@@ -66,6 +67,8 @@ tylina mcp --connection /path/to/private/mcp.json
 
 > 围绕这个问题进行文献调研，去重 DOI/arXiv 记录，并在修改前检查缺失引用。
 
+> 把这篇扫描论文导入为证据，保留不确定 OCR，并逐条对照 PDF 核对引用的公式。
+
 > 寻找适合的中文试卷模板，核对其准确 API，再生成学生版和答案版。
 
 > 排版这些测量值、化学反应与量子线路，不改变任何给定数据。
@@ -89,7 +92,7 @@ tylina mcp --workspace /path/to/project --main main.typ
 Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 
 匹配版本的 CLI 和 SDK 使用同一套命令，包括 `editor.state`、`document.validate`、`document.eval`、
-`package.list` 和按需查询的 `help`。连接 token 放在私密配置或受保护的进程环境中，
+`document.import`、`package.list` 和按需查询的 `help`。连接 token 放在私密配置或受保护的进程环境中，
 不进入 prompt、命令参数或文档文件。
 
 </details>
@@ -100,7 +103,8 @@ Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 通用 Skill 格式可供 Codex、Claude Code 等编程 Agent 使用；每个客户端仍需要兼容的 MCP 连接。
 稳定版 SDK 已包含统一命令入口。升级旧安装后，可以用 `tylina --help` 核对命令是否可用。
 
-真实 Codex 已在 macOS arm64 验证选区协作、报告与表格任务、按需 Skills、页面检查和 PDF/PNG/SVG 导出。
+真实 Codex 已在 macOS arm64 验证选区协作、报告与表格任务、按需 Skills、页面检查、
+本地 PDF OCR 和 PDF/PNG/SVG 导出。
 跨宿主测试还覆盖视觉保真与实验性可编辑 PowerPoint 导出；Electron 打包版也已验证授权导出与撤销、
 编辑、保存和 Undo。
 这些结果不能替代每个客户端和平台的单独验收。

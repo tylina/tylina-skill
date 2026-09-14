@@ -29,6 +29,15 @@ without inserting diagnostic code into canonical source. The expression is code 
 use returned diagnostics and never treat evaluation as permission to mutate files. Large inputs and
 results are rejected by the host.
 
+## Import source material
+
+Use `document.import` for a PDF, DOCX, PPTX, or XLSX already in the workspace. Read
+`typst-authoring/references/source-ingestion.md` before calling it. The hashless first call is
+read-only and returns the exact source hash; the hash-bound second call may create or replace the
+chosen `.md` destination. Keep the original binary, treat warnings as unresolved evidence, and
+never opt into partial scan text silently. This shared path works in Web, DSH, Electron, and the
+standalone SDK without Python.
+
 ## Work in a large project
 
 Start from `workspace.info` and the main or active file. Use the harness filesystem tools for the relevant directory. Read only files needed for the task. Tylina's

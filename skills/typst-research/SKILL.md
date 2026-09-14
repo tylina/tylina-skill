@@ -36,20 +36,24 @@ Compose this Skill with Typst Academic and Typst Authoring.
    bibliography gate.
 2. Inspect the current source, every bibliography file used by the compiled document, and the
    claims or section being researched.
-3. Build a compact evidence table before prose: source identity, inspected location, relevant
+3. For workspace PDF or Office evidence, use the portable import gate in
+   `typst-authoring/references/source-ingestion.md`. Preserve the binary and review extraction
+   warnings before treating its Markdown as evidence.
+4. Build a compact evidence table before prose: source identity, inspected location, relevant
    claim, support strength, limitations, and intended citation key.
-4. Import or author only verified bibliographic records. Preserve user-edited fields and explain
+5. Import or author only verified bibliographic records. Preserve user-edited fields and explain
    conflicts instead of silently normalizing them.
-5. Draft synthesis around agreements, differences, methods, and gaps rather than a paper-by-paper
+6. Draft synthesis around agreements, differences, methods, and gaps rather than a paper-by-paper
    list. Keep claim scope no broader than the evidence.
-6. Validate, inspect the bibliography output, and report unavailable sources or unresolved keys.
+7. Validate, inspect the bibliography output, and report unavailable sources or unresolved keys.
 
 ## Progressive Resources
 
 - Evidence, DOI/arXiv, PDFs, OCR, and citation audit:
   `typst-research/references/literature-workflow.md`.
+- Portable PDF and Office extraction contract:
+  `typst-authoring/references/source-ingestion.md`.
 - Typst bibliography syntax: route through `_shared/docs/index.json` to the official bibliography
   reference.
 - Venue template or package: use `template.list`, `package.list`, then read only the selected
   returned Skill and recipe paths.
-

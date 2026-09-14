@@ -35,13 +35,16 @@ accounting, tax, records-management, or signature advice.
 1. Read `references/office-forms.md` for the requested artifact and locale boundary.
 2. Inventory source records, required fields, calculations, branding, signatures, attachments,
    page size, print or screen target, and existing template ownership.
-3. Preserve an existing verified template. For a new scaffold, call `template.list`; for a reusable
+3. Import a workspace PDF, DOCX, PPTX, or XLSX only through the portable gate in
+   `typst-authoring/references/source-ingestion.md`. Verify fields and tables against the original;
+   extracted Markdown is not an authorized record.
+4. Preserve an existing verified template. For a new scaffold, call `template.list`; for a reusable
    component, call `package.list` with the artifact or discipline, then inspect the exact version.
-4. Build one representative record or page and verify its fields and calculations against the
+5. Build one representative record or page and verify its fields and calculations against the
    supplied source before scaling to repeated items.
-5. Produce only requested variants, redact deliberately, validate, and inspect first, continuation,
+6. Produce only requested variants, redact deliberately, validate, and inspect first, continuation,
    final, and exception pages. Report fields that still require human authorization.
-6. In `review` mode, separate observable document defects from jurisdiction-specific questions.
+7. In `review` mode, separate observable document defects from jurisdiction-specific questions.
 
 ## Progressive Resources
 

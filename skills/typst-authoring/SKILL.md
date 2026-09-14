@@ -15,6 +15,8 @@ the browser host supplies them when there is no native filesystem. No model-comp
 edit offsets are required. `workspace.info` provides the actual workspace and resource paths.
 `editor.state` reads live selection/caret without compilation; standalone hosts have no selection.
 Lens offsets belong to a transient draft, not canonical source.
+For a PDF or Office source in the workspace, use `document.import` and read
+`typst-authoring/references/source-ingestion.md`; do not invoke a Python converter.
 
 ## Contract
 
@@ -160,6 +162,8 @@ version from memory, infer an API from metadata, or add a package merely because
 - Music notation: `typst-music/SKILL.md` when available.
 - Long note, report, thesis, manual, or book: `typst-longform/SKILL.md` when available.
 - Literature research or citation audit: `typst-research/SKILL.md` when available.
+- PDF, DOCX, PPTX, or XLSX source evidence:
+  `typst-authoring/references/source-ingestion.md`.
 - New package or template selection/application:
   `typst-authoring/references/templates-and-packages.md`.
 - Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page.

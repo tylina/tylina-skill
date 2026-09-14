@@ -20,6 +20,7 @@ One **`tylina`** tool connects the workflow; writing and design Skills load as n
 | --- | --- |
 | Read the current editor selection | Compile with Typst/Tinymist |
 | Make precise, version-checked edits | Inspect actual page images |
+| Import PDF and Office evidence without Python | Review OCR and extraction warnings |
 | Search current templates, packages and domain Skills | Export PDF, PNG, SVG and PowerPoint |
 | Keep edits in normal editor history | Continue in the same workspace |
 
@@ -67,6 +68,8 @@ Try asking:
 
 > Research this question, deduplicate DOI/arXiv records, and audit missing citations before editing.
 
+> Import this scanned paper as evidence, keep uncertain OCR visible, and verify every quoted formula against the PDF.
+
 > Find a suitable Chinese exam template, inspect its exact API, then create student and answer versions.
 
 > Typeset these measurements, reactions, and quantum circuits without changing any supplied value.
@@ -90,7 +93,7 @@ This mode compiles and exports without a window. Use an editor connection when y
 or unsaved edits. Native runtimes are available for macOS, Windows and Linux on x64 and arm64.
 
 Matching CLI and SDK callers use the same commands, including `editor.state`, `document.validate`,
-`document.eval`, `package.list`, and progressive `help`. Connection tokens belong in private
+`document.eval`, `document.import`, `package.list`, and progressive `help`. Connection tokens belong in private
 configuration or protected process
 variables, outside prompts, command arguments and document files.
 
@@ -104,7 +107,7 @@ compatible MCP connection. The stable SDK includes the unified command interface
 Check `tylina --help` when upgrading an older installation.
 
 Real Codex checks on macOS arm64 cover selected-range coediting, report and table tasks, on-demand
-Skills, rendered images and PDF/PNG/SVG export. Cross-host tests also cover visual-fidelity and
+Skills, rendered images, local PDF OCR and PDF/PNG/SVG export. Cross-host tests also cover visual-fidelity and
 experimental editable PowerPoint export. Packaged Electron verifies grant export and revocation,
 editing, saving and Undo. These checks do not establish every client's or platform's behavior.
 

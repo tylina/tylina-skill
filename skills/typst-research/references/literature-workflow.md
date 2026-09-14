@@ -38,6 +38,11 @@ After editing, verify all of the following:
 
 ## PDFs and OCR
 
+For a PDF, DOCX, PPTX, or XLSX already in the workspace, first read
+`typst-authoring/references/source-ingestion.md` and use `document.import`. This shared Web, DSH,
+Electron, and standalone SDK path needs no Python. Preserve its source hash, receipt, warnings,
+page count, and OCR policy with the working evidence record.
+
 Prefer embedded PDF text when its reading order and characters survive a sample comparison with
 the rendered pages. OCR is a fallback for scans, not an authority: retain the original PDF, page
 number, extraction method, and uncertain spans. Compare equations, tables, footnotes, ligatures,
@@ -58,4 +63,3 @@ Use a working table with columns such as `source`, `location`, `method`, `claim`
 `limitations`, and `key`. It is a research aid, not necessarily part of the final document.
 Conflicting results stay as separate rows until the difference in population, method, measure, or
 version is explained.
-

@@ -17,6 +17,9 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 - `{command:"document.validate"}` — compile the current main and report diagnostics.
 - `{command:"document.eval",args:{expression:"1 + 2"}}` — evaluate bounded Typst code in the
   current compiled document world without changing source.
+- `{command:"document.import",args:{source:"sources/paper.pdf",destination:"sources/paper.md",
+  expectedDestinationSha256:null}}` — inspect, hash-bind, then extract a PDF or Office source into
+  conservative Markdown. Follow the returned status; the first hashless call never writes.
 - `{command:"render.page",args:{page:1}}` — return an actual page image.
 - `{command:"package.list",args:{query:"music"}}` — search the current official package catalog
   and return relevant bundled Skill or recipe paths.
@@ -26,6 +29,8 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 Use `help` for unfamiliar operations only. Do not look up schemas already in context.
 A standalone disk connection has no live selection or unsaved editor state. Setup, CLI and SDK:
 [connection.md](references/connection.md). Templates, export and views: [workflow.md](references/workflow.md).
+Portable PDF and Office ingestion:
+`typst-authoring/references/source-ingestion.md`.
 
 Read the relevant bundled `typst-<domain>/SKILL.md` under `skillsRoot` using your file reader or
 Skill loader. Core `typst-authoring` is normally already in session instructions; do not reload it.
