@@ -23,6 +23,8 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 - `{command:"render.page",args:{page:1}}` — return an actual page image.
 - `{command:"package.list",args:{query:"music"}}` — search the current official package catalog
   and return relevant bundled Skill or recipe paths.
+- `{command:"image.search",args:{query:"research diagram"}}` — find reviewable Openverse
+  candidates; select and license-check one before `image.import` writes its bounded preview.
 - `{command:"document.export",args:{format:"pptx-visual",destination:"exports/deck.pptx"}}` —
   export a compiled document to a workspace-relative PowerPoint file.
 
@@ -31,6 +33,8 @@ A standalone disk connection has no live selection or unsaved editor state. Setu
 [connection.md](references/connection.md). Templates, export and views: [workflow.md](references/workflow.md).
 Portable PDF and Office ingestion:
 `typst-authoring/references/source-ingestion.md`.
+External raster image discovery, license review, import, and attribution:
+[image-sourcing.md](references/image-sourcing.md).
 
 Read the relevant bundled `typst-<domain>/SKILL.md` under `skillsRoot` using your file reader or
 Skill loader. Core `typst-authoring` is normally already in session instructions; do not reload it.

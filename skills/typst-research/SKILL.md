@@ -29,6 +29,9 @@ Compose this Skill with Typst Academic and Typst Authoring.
    retractions, corrections, and inaccessible full text explicitly.
 7. Cite only sources actually inspected. Do not cite a review as if it were the primary result.
 8. Validate the Typst document and run a missing-citation audit after source changes.
+9. Treat Openverse and other stock-image catalogs as illustration sources only, never scholarly
+   evidence. If an external illustration is requested, follow
+   `tylina/references/image-sourcing.md` and keep its attribution separate from citations.
 
 ## Workflow
 

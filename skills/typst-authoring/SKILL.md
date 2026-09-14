@@ -164,6 +164,7 @@ version from memory, infer an API from metadata, or add a package merely because
 - Literature research or citation audit: `typst-research/SKILL.md` when available.
 - PDF, DOCX, PPTX, or XLSX source evidence:
   `typst-authoring/references/source-ingestion.md`.
+- New external raster image: `tylina/references/image-sourcing.md`.
 - New package or template selection/application:
   `typst-authoring/references/templates-and-packages.md`.
 - Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page.

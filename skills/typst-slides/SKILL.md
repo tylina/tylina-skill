@@ -182,6 +182,10 @@ Create a concise slide-by-slide plan with purpose, source evidence, layout inten
 and speaker-note intent. Do not force arbitrary layout variety when repetition helps compare
 or sequence material.
 
+When a requested or evidence-supported external raster image is necessary, follow
+`tylina/references/image-sourcing.md`. Keep its source and attribution with the slide plan.
+Do not use an unreviewed search thumbnail as evidence or as a finished slide asset.
+
 ### 4. Author
 
 Use the selected theme's documented public components. Keep each slide focused and readable
