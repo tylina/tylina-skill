@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scenario": "longform",
+  "entries": [
+    {
+      "id": "report",
+      "entry": "report/main.typ",
+      "description": "Offline multi-file report with summary, findings, recommendations, and appendix",
+      "keywords": ["report", "technical-report", "executive-summary", "recommendations"],
+      "disciplines": ["business", "engineering"],
+      "paper_size": "a4",
+      "expected_pages": 4,
+      "license": "MIT"
+    },
+    {
+      "id": "course-notes",
+      "entry": "course-notes/main.typ",
+      "description": "Offline multi-file notes scaffold with outline, definitions, examples, and review prompts",
+      "keywords": ["notes", "course-notes", "handbook", "study-guide"],
+      "disciplines": ["education"],
+      "paper_size": "a4",
+      "expected_pages": 3,
+      "license": "MIT"
+    }
+  ]
+}

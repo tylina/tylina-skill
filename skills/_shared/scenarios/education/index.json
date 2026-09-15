@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "scenario": "education",
+  "entries": [
+    {
+      "id": "homework",
+      "entry": "homework/main.typ",
+      "description": "Offline homework scaffold with shared learner and instructor editions",
+      "keywords": ["homework", "assignment", "solutions", "rubric", "education"],
+      "disciplines": ["education"],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "compile_variants": [
+        {
+          "id": "solutions",
+          "inputs": { "solutions": "true" }
+        }
+      ],
+      "license": "MIT"
+    },
+    {
+      "id": "exam",
+      "entry": "exam/main.typ",
+      "description": "Printable exam scaffold with candidate fields, point values, and a shared answer edition",
+      "keywords": ["exam", "quiz", "assessment", "answer-key", "print"],
+      "disciplines": ["education"],
+      "paper_size": "a4",
+      "expected_pages": 2,
+      "compile_variants": [
+        {
+          "id": "solutions",
+          "inputs": { "solutions": "true" }
+        }
+      ],
+      "license": "MIT"
+    }
+  ]
+}

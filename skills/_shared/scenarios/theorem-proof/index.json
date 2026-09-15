@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scenario": "theorem-proof",
+  "entries": [
+    {
+      "id": "proof-note",
+      "entry": "proof-note/main.typ",
+      "description": "Package-free theorem and proof note with shared numbering and stable references",
+      "keywords": ["theorem", "proof", "lemma", "definition", "mathematics"],
+      "disciplines": ["mathematics"],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT"
+    }
+  ]
+}

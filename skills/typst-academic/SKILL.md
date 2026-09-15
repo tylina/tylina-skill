@@ -34,9 +34,19 @@ Compose this Skill with the bundled Typst Authoring Skill.
 
 1. Read the relevant source, bibliography, figures, tables, and neighboring claims.
 2. State what is supported, unsupported, ambiguous, or missing before broad revision.
-3. Make only requested changes and preserve terminology and mathematical notation.
-4. Validate the document and visually inspect every affected figure, table, equation, and
+3. For a new package-free paper, inspect `_shared/scenarios/academic/index.json`, then materialize
+   the exact selected scaffold with `template.create`. Do not copy only `main.typ`, and do not
+   replace an existing venue scaffold.
+4. Make only requested changes and preserve terminology and mathematical notation.
+5. Validate the document and visually inspect every affected figure, table, equation, and
    page transition.
 
 Typst bibliography accepts BibLaTeX and Hayagriva data and cites entries with `@key`. Verify
 uncertain behavior against the official Typst bibliography reference.
+
+## Progressive Resources
+
+- Offline paper workspace: `_shared/scenarios/academic/index.json` and
+  `_shared/scenarios/academic/research-paper/README.md`.
+- Literature discovery and citation integrity: `typst-research/SKILL.md`.
+- Template and package workflow: `typst-authoring/references/templates-and-packages.md`.

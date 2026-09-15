@@ -36,7 +36,8 @@ claims or follows a venue.
 2. Inspect the current main, include graph through real source/compiler evidence, bibliography,
    assets, and the nearest representative chapter. Never infer structure with regexes.
 3. If a new scaffold is requested, call `template.list`, inspect exact candidates, and materialize
-   the selected version before authoring. Continue an existing scaffold in place.
+   the selected version before authoring. Offline report and note workspaces are indexed at
+   `_shared/scenarios/longform/index.json`. Continue an existing scaffold in place.
 4. Define or preserve front matter, chapter order, navigation, reference policy, and reusable
    components; then author one representative section and validate it.
 5. Scale the pattern without copy-pasted page furniture. Keep per-chapter content readable in
@@ -46,6 +47,6 @@ claims or follows a venue.
 ## Progressive Resources
 
 - Website-aligned note, report, and book forms: `typst-longform/references/finished-forms.md`.
+- Offline report and note workspaces: `_shared/scenarios/longform/index.json`.
 - Template and package workflow: `typst-authoring/references/templates-and-packages.md`.
 - Literature and citations: `typst-research/SKILL.md` when that Skill is available.
-

@@ -35,18 +35,21 @@ Compose this Skill with Typst Authoring.
 1. Read `references/exams-and-worksheets.md` before selecting a package or template.
 2. Inspect existing source and template ownership. For a new scaffold, use `template.list`; for
    reusable components, use `package.list` with `discipline: "education"` or a focused query.
-3. Inspect every shortlisted exact version. Choose by audience and required behavior, not by
+3. The package-free homework and exam workspaces are indexed at
+   `_shared/scenarios/education/index.json`. Inspect and materialize an exact scaffold through
+   `template.create`; never copy only the learner-facing entrypoint.
+4. Inspect every shortlisted exact version. Choose by audience and required behavior, not by
    popularity, screenshots, or a familiar name.
-4. Author the smallest coherent question model. Keep prompts and answers traceable to supplied
+5. Author the smallest coherent question model. Keep prompts and answers traceable to supplied
    material and make scoring criteria observable.
-5. Validate both student and solution variants. Inspect representative and boundary pages at the
+6. Validate both student and solution variants. Inspect representative and boundary pages at the
    intended physical size; manually verify totals against the source model.
-6. In `review` mode, report correctness, fairness, ambiguity, scoring, accessibility, and layout
+7. In `review` mode, report correctness, fairness, ambiguity, scoring, accessibility, and layout
    separately.
 
 ## Progressive Resources
 
 - Audience and template selection: `typst-education/references/exams-and-worksheets.md`.
+- Offline homework and exam workspaces: `_shared/scenarios/education/index.json`.
 - Existing ordinary assignments: `typst-authoring/references/assignment.md`.
 - Package or template application: `typst-authoring/references/templates-and-packages.md`.
-

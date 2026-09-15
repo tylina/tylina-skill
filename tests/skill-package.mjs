@@ -142,6 +142,39 @@ test('Skill discovery stays compact and installable without the core repository'
   assert.deepEqual([...recipeNames].sort(), recipeDirectories, 'Every package recipe directory must be indexed')
   const catalogSkillDocs = catalogIds.map((id) => resolve(skillsRoot, id, 'SKILL.md'))
 
+  const scenarioRoot = resolve(skillsRoot, '_shared/scenarios')
+  const scenarioCatalog = JSON.parse(await readFile(resolve(scenarioRoot, 'index.json'), 'utf8'))
+  const scenarioIds = new Set()
+  for (const definition of scenarioCatalog.scenarios) {
+    assert.match(definition.id, /^[a-z][a-z-]*$/u)
+    assert.ok(!scenarioIds.has(definition.id), `Duplicate scenario: ${definition.id}`)
+    scenarioIds.add(definition.id)
+    const indexPath = resolve(scenarioRoot, definition.index)
+    const readmePath = resolve(scenarioRoot, definition.readme)
+    assert.ok(withinDirectory(scenarioRoot, indexPath), `Scenario index escapes root: ${definition.id}`)
+    assert.ok(withinDirectory(scenarioRoot, readmePath), `Scenario README escapes root: ${definition.id}`)
+    assert.ok((await stat(readmePath)).isFile(), `Missing scenario README: ${definition.id}`)
+    if (definition.version) {
+      assert.match(definition.version, /^\d+\.\d+\.\d+$/u)
+      assert.ok(definition.authors.length > 0, `Missing scenario authors: ${definition.id}`)
+      assert.ok(URL.canParse(definition.repository), `Invalid scenario repository: ${definition.id}`)
+    }
+    const scenario = JSON.parse(await readFile(indexPath, 'utf8'))
+    assert.equal(scenario.scenario, definition.id)
+    assert.ok(scenario.entries.length > 0, `Empty scenario: ${definition.id}`)
+    const entryIds = new Set()
+    for (const entry of scenario.entries) {
+      assert.ok(!entryIds.has(entry.id), `Duplicate ${definition.id} entry: ${entry.id}`)
+      entryIds.add(entry.id)
+      const entryPath = resolve(scenarioRoot, definition.id, entry.entry)
+      assert.ok(withinDirectory(resolve(scenarioRoot, definition.id), entryPath),
+        `Scenario entry escapes root: ${definition.id}/${entry.id}`)
+      assert.ok((await stat(entryPath)).isFile(), `Missing scenario entry: ${definition.id}/${entry.id}`)
+      assert.ok((await stat(resolve(dirname(entryPath), 'README.md'))).isFile(),
+        `Missing scenario leaf README: ${definition.id}/${entry.id}`)
+    }
+  }
+
   for (const path of await files(root)) {
     const contents = await readFile(path, 'utf8')
     assert.ok(!['.rs', '.wasm', '.map', '.tsx'].includes(extname(path)), `Unexpected runtime source: ${path}`)

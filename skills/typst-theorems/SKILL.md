@@ -24,9 +24,11 @@ Compose this Skill with Typst Authoring.
 1. Identify the precise statement, assumptions, notation, dependencies, and intended proof.
 2. Reuse the workspace's theorem definitions or imported package. Never replace a working
    theorem system merely because another recipe is bundled.
-3. If no theorem system exists, prefer native semantic structure for one-off content. Use a
-   package only when reusable numbering, styles, localization, or cross-references justify it.
-4. For Theorion, read the pinned recipe at
+3. If no theorem system exists, prefer native semantic structure for one-off content. The offline
+   scaffold is indexed at `_shared/scenarios/theorem-proof/index.json`; inspect and materialize it
+   through `template.create` instead of copying one file.
+4. Use a package only when reusable numbering, styles, localization, or cross-references justify it.
+   For Theorion, read the pinned recipe at
    `_shared/packages/theorion/README.md` and `_shared/packages/theorion/demo.typ` before use.
 5. Keep labels on the semantic statement they identify and preserve existing references.
 6. Validate the document and visually inspect statements, equations, proof endings,
@@ -42,3 +44,9 @@ Compose this Skill with Typst Authoring.
   by the workspace. Default new formulas to MiTeX. Use native `$...$` only when already fluent in
   its exact Typst spelling and expecting the first authored expression to validate; a short or
   simple formula is not sufficient. Never imitate math with raw, code, plain text, or Unicode.
+
+## Progressive Resources
+
+- Offline statement/proof workspace: `_shared/scenarios/theorem-proof/index.json` and
+  `_shared/scenarios/theorem-proof/proof-note/README.md`.
+- Pinned reusable theorem system: `_shared/packages/theorion/README.md`.

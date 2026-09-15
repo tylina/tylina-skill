@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scenario": "academic",
+  "entries": [
+    {
+      "id": "research-paper",
+      "entry": "research-paper/main.typ",
+      "description": "Offline research-paper scaffold with abstract, evidence table, equation, bibliography, and appendix",
+      "keywords": ["paper", "research", "bibliography", "equation", "appendix"],
+      "disciplines": ["academic"],
+      "paper_size": "a4",
+      "expected_pages": 2,
+      "license": "MIT"
+    }
+  ]
+}

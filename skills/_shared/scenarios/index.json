@@ -3,9 +3,33 @@
   "catalog": "scenario-templates",
   "scenarios": [
     {
+      "id": "academic",
+      "readme": "academic/README.md",
+      "index": "academic/index.json",
+      "version": "1.0.0",
+      "authors": ["Tylina contributors"],
+      "repository": "https://github.com/tylina/tylina-skill"
+    },
+    {
       "id": "cv",
       "readme": "cv/README.md",
       "index": "cv/index.json"
+    },
+    {
+      "id": "education",
+      "readme": "education/README.md",
+      "index": "education/index.json",
+      "version": "1.0.0",
+      "authors": ["Tylina contributors"],
+      "repository": "https://github.com/tylina/tylina-skill"
+    },
+    {
+      "id": "longform",
+      "readme": "longform/README.md",
+      "index": "longform/index.json",
+      "version": "1.0.0",
+      "authors": ["Tylina contributors"],
+      "repository": "https://github.com/tylina/tylina-skill"
     },
     {
       "id": "social-cover",
@@ -16,6 +40,14 @@
       "id": "poster",
       "readme": "poster/README.md",
       "index": "poster/index.json"
+    },
+    {
+      "id": "theorem-proof",
+      "readme": "theorem-proof/README.md",
+      "index": "theorem-proof/index.json",
+      "version": "1.0.0",
+      "authors": ["Tylina contributors"],
+      "repository": "https://github.com/tylina/tylina-skill"
     }
   ]
 }
