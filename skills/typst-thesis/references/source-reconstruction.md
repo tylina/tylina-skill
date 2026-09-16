@@ -44,22 +44,12 @@ Prefer semantic Typst constructs and measurable page rules. Do not reproduce a P
 text boxes or infer structure from visible text matching. Mark ambiguous or conflicting evidence
 as an open review item.
 
-## Choose the Smallest Maintainable Architecture
+## Optional Community Reference
 
-A small single-file template can stay small. When the verified design has independent front pages,
-cross-page state, several variants, or reusable configuration, a useful decomposition is:
-
-- one public façade such as `lib.typ` that validates configuration and exposes the supported API;
-- `pages/` for independent title, declaration, approval, abstract, and similar front-matter pages;
-- `layouts/` for document-wide page setup, front/main/appendix transitions, numbering, and running
-  matter;
-- `utils/` only for non-rendering helpers shared by those layers;
-- a clear authored entrypoint, bibliography, and asset directories outside the implementation API.
-
-This boundary is informed by mature community projects such as
-[modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis), but it is not a mandatory file
-tree. Do not copy institution-specific rules, undocumented internals, or complexity that the
-target does not need.
+When a concrete Typst thesis project would help, the Agent may inspect
+[modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis). Open it only for a relevant
+template-selection or reconstruction question. Its institution-specific rules, project structure,
+and implementation choices are examples rather than defaults for the user's project.
 
 ## Build and Verify Incrementally
 

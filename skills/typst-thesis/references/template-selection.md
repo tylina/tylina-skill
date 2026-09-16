@@ -41,8 +41,8 @@ pages are discovery examples, not endorsements or timeless recommendations:
   general multi-file MSc structure with front matter, lists, references, and appendices.
 - [modern-nenu-thesis](https://typst.app/universe/package/modern-nenu-thesis/) demonstrates
   Chinese bachelor/master/doctoral variants, blind review, and bound-print concerns.
-- [modern-nju-thesis](https://typst.app/universe/package/modern-nju-thesis/) demonstrates a
-  configurable façade with separate front pages, long-range layouts, and non-rendering helpers.
+- [modern-nju-thesis](https://typst.app/universe/package/modern-nju-thesis/) is another community
+  template to inspect when its institution or supported variants are relevant.
 - [uo-tsinghua-thesis](https://typst.app/universe/package/uo-tsinghua-thesis/) demonstrates a
   Chinese graduate scaffold whose own page warns users to confirm current institutional rules.
 

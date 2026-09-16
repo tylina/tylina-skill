@@ -57,10 +57,6 @@
           "revision": "0.4.1"
         },
         {
-          "url": "https://github.com/nju-lug/modern-nju-thesis/tree/a477ea7e0c469a5ab28c625710ed2566ceb9888b",
-          "revision": "a477ea7e0c469a5ab28c625710ed2566ceb9888b"
-        },
-        {
           "url": "https://packages.typst.org/preview/uo-tsinghua-thesis-0.4.0.tar.gz",
           "revision": "0.4.0"
         }
