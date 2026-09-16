@@ -1,8 +1,10 @@
 # Reconstructing a Thesis Template from Supplied Sources
 
 Read this only when the user supplies or identifies a PDF, DOCX, existing project, or page images
-as evidence for a thesis template. Do not fetch an institution's files or replace the current
-workspace unless the user has authorized that scope.
+as evidence for a thesis template, and no suitable existing template was found or the user
+explicitly requested reconstruction. Supplying a reference document alone does not require a
+rebuild. Do not fetch an institution's files or replace the current workspace unless the user has
+authorized that scope.
 
 ## Establish the Source's Role
 

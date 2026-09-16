@@ -43,13 +43,14 @@ degree thesis or dissertation, not an ordinary venue paper, report, or book.
    assets, and existing template guide.
 2. Read [references/template-selection.md](references/template-selection.md) for the paper/thesis
    boundary, requirement gate, and current template discovery route.
-3. If the user supplied a PDF, DOCX, or reference project, read
-   [references/source-reconstruction.md](references/source-reconstruction.md). Import supported
-   source documents through `document.import`, keep the original artifact, and verify extracted
-   evidence against its pages before authoring Typst.
-4. For a new thesis with no selected scaffold, call `template.list` with `thesis` plus the
-   institution, degree, and language. Inspect exact candidates, then materialize the selected
-   version with `template.create`. Do not copy only an entrypoint.
+3. For a new thesis with no selected scaffold, first check for a current institution-provided or
+   maintained Typst template. Call `template.list` with `thesis` plus the institution, degree, and
+   language, inspect exact candidates, then materialize a suitable version with `template.create`.
+   Do not copy only an entrypoint or rebuild a template that already satisfies the verified needs.
+4. Only when no suitable existing template is available, or the user explicitly requests a
+   reconstruction, read [references/source-reconstruction.md](references/source-reconstruction.md).
+   Import supported PDF or DOCX evidence through `document.import`, keep the original artifact,
+   and verify extracted evidence against its pages before authoring Typst.
 5. Map every required section and variant to the selected template. Record unresolved regulations
    as review items instead of guessing layout or legal text.
 6. Author one representative front-matter page, chapter, figure/table, citation, and appendix path;

@@ -31,9 +31,11 @@ Missing requirements are review findings. Never fill them from another instituti
 
 ## Discovery
 
-Use Tylina's current `template.list` and `template.inspect` results as the operational source.
-Search `thesis` together with the institution, country or language. The following Typst Universe
-pages are discovery examples, not endorsements or timeless recommendations:
+Prefer an existing current template over reconstructing one from rendered documents. Check the
+current workspace and institution-provided resources first, then use Tylina's current
+`template.list` and `template.inspect` results as the operational source. Search `thesis` together
+with the institution, country or language. The following Typst Universe pages are discovery
+examples, not endorsements or timeless recommendations:
 
 - [cardinal-su-thesis](https://typst.app/universe/package/cardinal-su-thesis) demonstrates a
   requirement-mapped US dissertation scaffold and explicitly tells authors to verify the rules.
