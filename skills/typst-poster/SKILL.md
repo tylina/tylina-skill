@@ -19,7 +19,8 @@ Compose this Skill with Typst Authoring. A poster is one physical document page,
 - Claims, measurements, citations, authors, affiliations, logos, and contact routes must remain
   source-backed. Reader-visible text and evidence stay editable rather than flattened into images.
 - Continue an existing poster scaffold when present. Reviewed candidates are indexed at
-  `_shared/scenarios/poster/index.json`; use the template tools for the chosen exact entry.
+  `_shared/scenarios/poster/index.json`; use `template.list`, `template.inspect`, and
+  `template.create` for the chosen exact entry.
 - The extended SeaSlides poster reference is useful for evidence-heavy research posters, imported
   assets, variants, or genuinely complex compositions, not for every one-page poster.
 - A clear result or question should survive thumbnail viewing; supporting detail must remain

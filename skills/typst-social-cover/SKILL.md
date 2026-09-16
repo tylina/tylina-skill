@@ -24,7 +24,8 @@ not a slide deck.
 - A useful default is one clear hook and one intended audience move per card. In a carousel, each
   page should have a distinct role while the sequence retains a coherent hierarchy.
 - Continue an existing scaffold when present. Reviewed candidates are indexed at
-  `_shared/scenarios/social-cover/index.json`; use the template tools for the chosen exact entry.
+  `_shared/scenarios/social-cover/index.json`; use `template.list`, `template.inspect`, and
+  `template.create` for the chosen exact entry.
 - The extended SeaSlides reference is useful for carousels, multiple ratios, imported assets,
   brand systems, or other genuinely complex campaigns.
 
