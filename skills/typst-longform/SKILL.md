@@ -1,6 +1,6 @@
 ---
 name: typst-longform
-description: Structure and verify long Typst notes, manuals, reports, theses, and books with reusable templates, stable chapters, navigation, references, and print-ready pagination.
+description: Structure and verify long Typst notes, manuals, reports, and books with reusable templates, stable chapters, navigation, references, and print-ready pagination.
 ---
 
 # Typst Long-form Writing
@@ -10,7 +10,7 @@ claims or follows a venue.
 
 ## Entry Modes
 
-- `write`: create or revise a book, manual, thesis, long report, or note collection around a
+- `write`: create or revise a book, manual, long report, or note collection around a
   supplied purpose, audience, source set, and delivery format.
 - `organize`: restructure existing long-form source while preserving claims, references, labels,
   wording outside scope, and recoverable history.
@@ -50,3 +50,4 @@ claims or follows a venue.
 - Offline report and note workspaces: `_shared/scenarios/longform/index.json`.
 - Template and package workflow: `typst-authoring/references/templates-and-packages.md`.
 - Literature and citations: `typst-research/SKILL.md` when that Skill is available.
+- Institution-governed thesis or dissertation: `typst-thesis/SKILL.md` when available.

@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 10,
   "skills": [
     {
       "id": "typst-authoring",
@@ -20,6 +20,14 @@
         {
           "url": "https://github.com/typst/typst/tree/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content",
           "revision": "2924ba908b7e535ef6166a8b1731d400b694e9d9"
+        },
+        {
+          "url": "https://github.com/YDX-2147483647/best-of-typst/tree/e981d032456d64897718cacc38633fe134fc3953",
+          "revision": "e981d032456d64897718cacc38633fe134fc3953"
+        },
+        {
+          "url": "https://github.com/sitandr/typst-examples-book/tree/1b2ef328517c5ccc87f63df81b940961b6e93b67",
+          "revision": "1b2ef328517c5ccc87f63df81b940961b6e93b67"
         }
       ]
     },
@@ -27,6 +35,36 @@
       "id": "typst-academic",
       "dependencies": ["typst-authoring"],
       "source": []
+    },
+    {
+      "id": "typst-thesis",
+      "dependencies": ["typst-longform", "typst-academic"],
+      "source": [
+        {
+          "url": "https://packages.typst.org/preview/cardinal-su-thesis-0.1.0.tar.gz",
+          "revision": "0.1.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/classic-msc-thesis-0.1.0.tar.gz",
+          "revision": "0.1.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/modern-nenu-thesis-0.1.1.tar.gz",
+          "revision": "0.1.1"
+        },
+        {
+          "url": "https://packages.typst.org/preview/modern-nju-thesis-0.4.1.tar.gz",
+          "revision": "0.4.1"
+        },
+        {
+          "url": "https://github.com/nju-lug/modern-nju-thesis/tree/a477ea7e0c469a5ab28c625710ed2566ceb9888b",
+          "revision": "a477ea7e0c469a5ab28c625710ed2566ceb9888b"
+        },
+        {
+          "url": "https://packages.typst.org/preview/uo-tsinghua-thesis-0.4.0.tar.gz",
+          "revision": "0.4.0"
+        }
+      ]
     },
     {
       "id": "typst-research",
@@ -289,6 +327,12 @@
     {
       "id": "write-academic-paper",
       "skill": "typst-academic",
+      "mode": "write",
+      "intent": "create-or-edit"
+    },
+    {
+      "id": "write-thesis",
+      "skill": "typst-thesis",
       "mode": "write",
       "intent": "create-or-edit"
     },

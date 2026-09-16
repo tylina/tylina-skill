@@ -43,5 +43,31 @@ Read this only when selecting, applying, or introducing a template or package.
 - Copy only required recipe assets into the workspace. Do not depend at runtime on `local/`, the
   package cache, or the bundled Skills directory.
 
+### Evidence for an unfamiliar package
+
+Use the narrowest source that can answer the current question:
+
+1. Preserve the exact version already imported by the workspace. Read compiled local usage before
+   introducing a second pattern.
+2. Call `package.list` with the package name or one focused capability. Select the exact returned
+   `spec`; a category match, description, popularity signal, or remembered API is only a lead.
+3. Read the returned domain Skill and pinned recipe when present.
+4. Call `package.inspect` for that exact `spec`. Start with `documentation` and `manifest`; request
+   `entrypoint` and `files` only when needed. If an API remains unclear, request one explicit
+   package-relative `source` path discovered from those results.
+5. Follow the returned repository or documentation URL only when the selected package contents do
+   not answer the question. Prefer the selected release/tag or revision. Repository HEAD, issues,
+   examples for another version, and third-party tutorials are context, not proof of the installed
+   API.
+6. Build a minimal use in the real workspace, run `document.validate`, and inspect affected output.
+   A README example without compilation is not a verified integration.
+
+Use the [official Typst documentation](https://typst.app/docs/) for language, standard-library,
+export, and compiler behavior. Use [Typst Universe](https://typst.app/universe/) and Tylina's
+package tools for current package discovery. [Best of Typst](https://ydx-2147483647.github.io/best-of-typst/)
+can supply search vocabulary and external project leads, including AI/LLM tooling, but its ranking
+does not establish version compatibility, maintenance, license suitability, security, or API
+correctness.
+
 All packaged text paths are resource identifiers readable with `skill.read`. Templates and binary
 assets enter the workspace only through the owning materializer or import command.

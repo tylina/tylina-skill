@@ -154,14 +154,18 @@ infer an API from list metadata, or add a package merely because it is listed.
 - Assignment, worksheet, or exam: `typst-authoring/references/assignment.md`.
 - Formal exam or educational artifact: `typst-education/SKILL.md` when available.
 - Music notation: `typst-music/SKILL.md` when available.
-- Long note, report, thesis, manual, or book: `typst-longform/SKILL.md` when available.
+- Thesis or dissertation: `typst-thesis/SKILL.md` when available.
+- Long note, report, manual, or book: `typst-longform/SKILL.md` when available.
 - Literature research or citation audit: `typst-research/SKILL.md` when available.
 - PDF, DOCX, PPTX, or XLSX source evidence:
   `typst-authoring/references/source-ingestion.md`.
 - New external raster image: `tylina/references/image-sourcing.md`.
 - New package or template selection/application:
   `typst-authoring/references/templates-and-packages.md`.
-- Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page.
+- Syntax, layout, or package behavior still unclear after focused local evidence and diagnostics:
+  `typst-authoring/references/evidence-escalation.md`.
+- Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page;
+  use https://typst.app/docs/ when the packaged snapshot does not cover the current behavior.
 - Package capability/API: route through `_shared/packages/index.json` to one README and demo.
 
 Read the paths above through `skill.read`; use `skill.list` when the relevant domain is not yet

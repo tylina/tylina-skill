@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "reviewed_against": {
     "url": "https://packages.typst.org/preview/index.json",
     "date": "2026-09-15"
@@ -22,7 +22,7 @@
     "paper": ["typst-academic/SKILL.md", "typst-research/SKILL.md"],
     "book": ["typst-longform/SKILL.md"],
     "report": ["typst-longform/SKILL.md"],
-    "thesis": ["typst-longform/SKILL.md", "typst-academic/SKILL.md"],
+    "thesis": ["typst-thesis/SKILL.md"],
     "presentation": ["typst-slides/SKILL.md"],
     "cv": ["typst-cv/SKILL.md"],
     "poster": ["typst-poster/SKILL.md"],
@@ -387,6 +387,21 @@
     },
     "accelerated-jacow": {
       "skill_paths": ["typst-academic/SKILL.md", "typst-research/SKILL.md"]
+    },
+    "cardinal-su-thesis": {
+      "skill_paths": ["typst-thesis/SKILL.md"]
+    },
+    "classic-msc-thesis": {
+      "skill_paths": ["typst-thesis/SKILL.md"]
+    },
+    "modern-nenu-thesis": {
+      "skill_paths": ["typst-thesis/SKILL.md"]
+    },
+    "modern-nju-thesis": {
+      "skill_paths": ["typst-thesis/SKILL.md"]
+    },
+    "uo-tsinghua-thesis": {
+      "skill_paths": ["typst-thesis/SKILL.md"]
     },
     "bananote": {
       "skill_paths": ["typst-longform/SKILL.md", "typst-longform/references/finished-forms.md"]
