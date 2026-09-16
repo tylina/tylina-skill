@@ -127,8 +127,12 @@ inspect the rendered notation.
 Use `package.list` for the current official Typst Universe catalog, including non-template
 packages. Filter by a focused query, category, or discipline, then read only the returned
 `skillPaths` and optional `recipePath`. `_shared/packages/index.json` retains pinned,
-compile-verified examples for selected packages. Existing workspace imports win; never recall a
-version from memory, infer an API from metadata, or add a package merely because it is listed.
+compile-verified examples for selected packages. When the selected recipe or current workspace
+does not establish the needed API, call `package.inspect` with the returned exact `spec` and only
+the needed README, manifest, entrypoint, file list, or explicit source path. Package source is
+read-only: never edit the package cache, treat it as a Document target, or replace the selected
+version with repository HEAD. Existing workspace imports win; never recall a version from memory,
+infer an API from list metadata, or add a package merely because it is listed.
 
 ## Modes
 

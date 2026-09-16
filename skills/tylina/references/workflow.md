@@ -19,8 +19,10 @@ check unavailable catalog sources; do not claim an offline shortlist contains ev
 For reusable capabilities rather than a whole scaffold, call `package.list`. It reads the current
 official Universe index, including non-template packages, and returns pinned metadata plus the
 relevant Tylina Skill and optional verified recipe. Read the returned recipe when present;
-otherwise verify the returned exact spec against official versioned documentation before editing.
-`package.list` metadata and a repository screenshot do not establish an API.
+when it does not establish the needed API, use `package.inspect` on the returned exact spec and
+request only the relevant documentation, manifest, entrypoint, file list, or source path.
+Inspection is read-only package evidence, not a workspace edit target.
+`package.list` metadata, repository HEAD, and a screenshot do not establish the selected API.
 
 ## Inspect document values
 

@@ -30,8 +30,12 @@ Read this only when selecting, applying, or introducing a template or package.
 - Search narrowly by capability, category, discipline, or known package name. Metadata supports
   shortlisting only: it does not prove the API, visual quality, licensing fit, or compatibility
   with an existing document.
-- Read only the selected returned Skill paths and recipe. When there is no recipe, inspect the
-  exact package version through its official Universe or repository documentation before editing.
+- Read only the selected returned Skill paths and recipe. When those do not establish the needed
+  API, call `package.inspect` with the returned exact `spec`. Request only the README, manifest,
+  entrypoint, bounded file list, or one explicit source path needed for the task.
+- `package.inspect` is read-only. Its paths are package-relative evidence, not workspace files;
+  never edit the package cache, open the source as a Document/Lens target, or substitute
+  repository HEAD for the selected version.
 - `_shared/packages/index.json` is the compact catalog of pinned, compile-verified recipes. It is
   not the complete or current Universe index.
 - Use `_shared/docs/index.json` to locate one focused official language or package reference.

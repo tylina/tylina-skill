@@ -23,6 +23,8 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 - `{command:"render.page",args:{page:1}}` — return an actual page image.
 - `{command:"package.list",args:{query:"music"}}` — search the current official package catalog
   and return relevant bundled Skill or recipe paths.
+- `{command:"package.inspect",args:{spec:"@preview/example:1.0.0",include:["documentation"]}}`
+  — read bounded evidence from one exact version returned by `package.list`.
 - `{command:"image.search",args:{query:"research diagram"}}` — find reviewable Openverse
   candidates; select and license-check one before `image.import` writes its bounded preview.
 - `{command:"document.export",args:{format:"pptx-visual",destination:"exports/deck.pptx"}}` —
@@ -38,7 +40,8 @@ External raster image discovery, license review, import, and attribution:
 
 Use `skill.list`, then `skill.read`, for the relevant bundled or enabled installed Skill.
 Core `typst-authoring` is normally already in session instructions; do not reload it.
-Current package discovery uses `package.list`; pinned recipes and official API paths are indexed in
+Current package discovery uses `package.list`; use `package.inspect` only for a selected exact spec.
+Pinned recipes and official API paths are indexed in
 `_shared/packages/index.json` and
 `_shared/docs/index.json`. Load only the needed reference. These paths are not runtime imports.
 
