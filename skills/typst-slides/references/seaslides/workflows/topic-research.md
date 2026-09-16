@@ -2,7 +2,8 @@
 description: Research a topic from scratch when the user provides only a brief description or requirements without detailed source materials. Produces a structured Markdown document and a folder of related images inside the project's sources/ directory.
 ---
 
-> **Prerequisite**: This workflow assumes the project directory has already been created by `project_manager.py init` (SKILL.md Step 2). Run `project_manager.py init` first if it doesn't exist.
+> **Prerequisite**: Work inside the current Tylina workspace. Confirm it with `workspace.info`;
+> never create a second project root.
 
 # Topic Research Workflow
 
@@ -37,7 +38,8 @@ All outputs MUST be placed under the project's `sources/` directory:
 | Structured Markdown document | `<project>/sources/topic-research.md` | Research content organized for slide generation |
 | Image folder | `<project>/sources/topic-research-assets/` | Downloaded images referenced in the document |
 
-> **Output directory rule**: Both the document and image folder MUST be created inside `<project>/sources/`. The project directory is created by `project_manager.py init` before this workflow runs.
+> **Output directory rule**: Create both the document and image folder under the current
+> workspace's `sources/` directory.
 
 ## Process Overview
 
@@ -139,14 +141,16 @@ Search for **publicly available, freely usable** images in this priority order:
 
 | Source | How to Find | License Notes |
 |--------|------------|---------------|
-| **Wikipedia / Wikimedia Commons** | WebFetch the Wikipedia page → extract `upload.wikimedia.org` image URLs → get full-resolution versions (remove `/thumb/` and size suffix from URL) | CC-BY-SA or Public Domain |
-| **Official websites** | WebFetch official/institutional pages → look for gallery or press sections | Typically free for editorial/educational use |
-| **Government / institutional releases** | WebSearch for official press kits, public galleries | Usually public domain |
-| **Creative Commons search** | WebSearch with `site:commons.wikimedia.org` or `site:flickr.com/photos` + creative commons | Check specific CC license |
+| **Openverse discovery** | `image.search` with a precise query | Review each work page and license |
+| **Official or institutional sources** | Host research tools | Publication does not imply reuse permission |
+| **Government releases** | Host research tools | Confirm the jurisdiction and specific rights statement |
+| **Wikimedia Commons** | Open the candidate work page | Confirm the exact file's license and attribution |
 
 **Avoid**: Stock photo sites with watermarks, copyrighted commercial images, social media uploads without clear licensing.
 
-> **Do not skip image search by assuming AI generation is available later.** AI image backends may not have API keys configured. Check with `python3 ${SKILL_DIR}/scripts/image_gen.py --check-available` if unsure. Always make a genuine effort to find images via web search first.
+> **Do not skip image research by assuming generation is available later.** Use the host's research
+> tools for evidence and `image.search` for reviewable Openverse candidates. If an image-generation
+> capability is unavailable, continue with sourced images or a design that does not depend on it.
 
 ### 3.2 Image Selection Criteria
 
@@ -158,15 +162,11 @@ Search for **publicly available, freely usable** images in this priority order:
 | **Relevance** | Each image should serve a clear purpose (cover, illustration, background) |
 | **Aspect ratio mix** | Include both landscape (for backgrounds) and portrait (for profiles) when applicable |
 
-### 3.3 Download Process
+### 3.3 Reviewed Import
 
-```bash
-# Create image folder inside project sources
-mkdir -p "<project>/sources/topic-research-assets"
-
-# Download images with descriptive filenames
-curl -L -o "<project>/sources/topic-research-assets/descriptive_name.jpg" "<image_url>"
-```
+Use `image.search`, open the selected candidate's work page, then call `image.import` with the exact
+candidate ID, license policy, and a new path under `sources/topic-research-assets/`. Never copy a
+preview URL or arbitrary remote response directly into the workspace.
 
 **Filename rules**:
 - Use descriptive English names: `joe_hisaishi_concert.jpg`, not `image1.jpg`

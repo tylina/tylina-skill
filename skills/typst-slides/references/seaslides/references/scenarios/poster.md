@@ -43,10 +43,10 @@ A usable poster satisfies all of the following:
 
 | User source | Preferred action |
 |---|---|
-| Paper PDF | `python3 ${SKILL_DIR}/scripts/source_to_md/pdf_to_md.py FILE.pdf -o source.md` |
-| DOCX draft | `python3 ${SKILL_DIR}/scripts/source_to_md/doc_to_md.py FILE.docx -o source.md` |
-| Existing PPTX | `python3 ${SKILL_DIR}/scripts/source_to_md/ppt_to_md.py FILE.pptx -o source.md` |
-| URL | `python3 ${SKILL_DIR}/scripts/source_to_md/web_to_md.py URL -o source.md` |
+| Paper PDF | Import a workspace copy with `document.import`; review receipt and warnings |
+| DOCX draft | Import a workspace copy with `document.import`; review receipt and warnings |
+| Existing PPTX | Import a workspace copy with `document.import`; review receipt and warnings |
+| URL | Read through an available browser or research tool; preserve URL and attribution |
 | Markdown, Typst, or LaTeX | Read directly and inventory adjacent assets |
 | Topic or verbal brief only | Gather the structured fields below; research only when authorized |
 
@@ -80,19 +80,9 @@ space. The local examples visibly identify themselves as fictional demonstration
 
 ## Step B: Workspace setup
 
-For an editor-owned or otherwise existing workspace, do not initialize a nested project. Prepare
-the existing root and name its active entry:
-
-```bash
-python3 ${SKILL_DIR}/scripts/project_manager.py workspace WORKSPACE --entry main.typ --prepare
-```
-
-For a genuinely new SeaSlides project:
-
-```bash
-python3 ${SKILL_DIR}/scripts/project_manager.py init PROJECT_NAME
-python3 ${SKILL_DIR}/scripts/project_manager.py import-sources PROJECT_PATH SOURCE_FILES
-```
+Keep the current Tylina workspace as the only project. Materialize the selected poster template,
+author its returned entrypoint, and select it with `document.setMain`. Do not initialize a nested
+project.
 
 Copy required figures and logos into the project's asset directory. Keep original source files
 unchanged. A poster example may be copied as the starting `main.typ`, but its package import,
@@ -420,22 +410,10 @@ If the layout still requires filler, the template or narrative route is wrong.
 
 ### F.1 Compile the active entry
 
-For a project or prepared workspace:
-
-```bash
-python3 ${SKILL_DIR}/scripts/typst_compiler.py WORKSPACE --entry main.typ --format pdf
-python3 ${SKILL_DIR}/scripts/typst_compiler.py WORKSPACE --entry main.typ --format png --ppi 144
-python3 ${SKILL_DIR}/scripts/typst_quality_checker.py WORKSPACE --entry main.typ --expected-pages 1
-python3 ${SKILL_DIR}/scripts/validate_project.py WORKSPACE --entry main.typ --mode quick
-```
-
-For a standalone scenario example:
-
-```bash
-typst compile demo.typ output.pdf
-typst compile demo.typ output-full.png --ppi 72
-typst compile demo.typ output-thumbnail.png --ppi 16
-```
+Select the intended entry with `document.setMain`, run `document.validate`, and require exactly one
+page in `render.summary`. Inspect it at readable PPI with `render.page`; use `document.export` only
+after the corrected source validates. For a bundled scenario example, materialize the template
+first and apply the same commands to its returned entrypoint.
 
 The package downloader may need network access on the first build. Pin the complete preview version
 and ensure it is cached for reproducible or offline delivery.

@@ -12,7 +12,7 @@ Typst source and workspace resources are canonical; rendered pages are views.
 Invoke `tylina` with `{command, args}` for editor context, compilation, preview and export.
 Use `help` only for unfamiliar commands. Use the host's normal file tools to read and edit;
 the browser host supplies them when there is no native filesystem. No model-computed hashes or
-edit offsets are required. `workspace.info` provides the actual workspace and resource paths.
+edit offsets are required. `workspace.info` provides the actual workspace and main file.
 `editor.state` reads live selection/caret without compilation; standalone hosts have no selection.
 Lens offsets belong to a transient draft, not canonical source.
 For a PDF or Office source in the workspace, use `document.import` and read
@@ -24,8 +24,8 @@ For a PDF or Office source in the workspace, use `document.import` and read
 2. Preserve unrelated source, labels, references, package versions, whitespace, and established
    style. Make the smallest reviewable change.
 3. Never guess a Typst or package API. Reuse a compiled workspace pattern or read one narrow,
-   version-matched reference. Restrict local discovery to the current workspace, packaged Skills
-   root, and the exact imported package version; never recursively search a home or temp tree.
+   version-matched reference. Restrict discovery to the current workspace, resources returned by
+   `skill.read`, and the exact imported package version; never recursively search a home or temp tree.
 4. Respect markup, math, and code modes. If an API accepts `content`, prefer `[content]`; use
    strings only where the real signature requires `str`. Prefer semantic structure.
 5. A selection or insertion point bounds the edit. Document context does not authorize a rewrite.
@@ -93,44 +93,34 @@ when a boundary is needed, and `[...]` to return content from code. Read
 
 ## Math Integrity Gate
 
-Every formula must use real math content. MiTeX is the default for newly authored formulas. Use
-native `$...$` only when already fluent in Typst math, certain of every native spelling before
-editing, and expecting the first authored expression to validate; then inspect its notation and
-rendered result. A short or simple formula alone is not a reason to choose native math. Preserve
-verified native math already established by the document. If confidence is lower, use MiTeX from
-the start instead of probing native syntax. Never put LaTeX commands inside native `$...$` math.
+Every formula must use real math content. Use native `$...$` Typst math by default, preserve
+verified notation already established by the document, and validate and inspect every changed
+formula. Never put LaTeX commands inside native Typst math or imitate an equation with ordinary
+text, code styling, or Unicode lookalikes outside math content.
 
-Never represent an equation with ordinary text, a quoted string, `#raw(...)`, code styling, or
-Unicode math lookalikes outside real math content. For example:
+For example:
 
 ```typst
 // Wrong: visually imitates math but has no math semantics.
 #raw("Attention(Q,K,V) = softmax((QKᵀ)/√dₖ)V")
 
-// Right: real inline math from LaTeX source.
-#mi(`\operatorname{Attention}(Q,K,V) =
-  \operatorname{softmax}(QK^\top / \sqrt{d_k})V`)
+// Right: native Typst math.
+$ "Attention"(Q, K, V) = op("softmax")((Q K^T) / sqrt(d_k)) V $
 ```
 
-MiTeX backtick arguments are raw input to a real math renderer; a visible `#raw(...)` block is not.
-Before final validation, inspect every newly authored mathematical expression for this distinction.
-
-Use these minimal patterns:
+Use MiTeX only when the user supplies LaTeX that should remain LaTeX-authored, or when the existing
+document already depends on MiTeX. Do not add it merely because LaTeX spelling is more familiar.
+When it is genuinely required, read `_shared/packages/mitex/README.md` and its `demo.typ`, keep its
+version pinned, and pass raw backtick input:
 
 ```typst
 #import "@preview/mitex:0.2.7": *
 
-Euler's identity is #mi(`e^{i\pi} + 1 = 0`).
-
 #mitex(`\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}`)
-
-// In code mode, omit the markup escape:
-#let energy = mitex(`E = mc^2`)
 ```
 
-Use raw backticks, not quoted LaTeX strings. Before adding MiTeX, read
-`_shared/packages/mitex/README.md` and its `demo.typ`. Compilation proves syntax, not mathematical
-correctness; compare the formula with its source and inspect the rendered notation.
+Compilation proves syntax, not mathematical correctness; compare the formula with its source and
+inspect the rendered notation.
 
 ## Package Discovery
 
@@ -170,7 +160,6 @@ version from memory, infer an API from metadata, or add a package merely because
 - Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page.
 - Package capability/API: route through `_shared/packages/index.json` to one README and demo.
 
-All paths above are relative to `skillsRoot` returned by `workspace.info`. Read them through
-the host Skill loader or file reader; in a browser use its resource reader. Reuse references
-already in context. Scripts use the host process tools. Never import a packaged Skill path
-from final Typst source.
+Read the paths above through `skill.read`; use `skill.list` when the relevant domain is not yet
+known. Reuse references already in context. Never import a packaged Skill path from final Typst
+source.

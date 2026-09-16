@@ -236,16 +236,9 @@ pixel-retro/
 
 ## Compilation
 
-```bash
-cd pixel-retro
-mkdir -p output
-python3 -c "
-import typst
-pages = typst.compile('demo.typ', format='png', ppi=144)
-for i, p in enumerate(pages):
-    open(f'output/slide_{str(i+1).zfill(2)}.png', 'wb').write(p)
-"
-```
+After materializing the theme, select `demo.typ` with `document.setMain`, run
+`document.validate`, and inspect all pages through `render.summary`, `render.overview`, and
+`render.page`.
 
 ## Compatibility
 

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "scenario": "tables",
+  "entries": [
+    {
+      "id": "data-table",
+      "entry": "data-table/main.typ",
+      "description": "Package-free semantic data table with reusable styling, numeric alignment, source, and note fields",
+      "keywords": ["table", "comparison", "data", "measurement", "inventory"],
+      "disciplines": ["business", "science"],
+      "paper_size": "a4",
+      "expected_pages": 1,
+      "license": "MIT"
+    }
+  ]
+}

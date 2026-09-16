@@ -24,28 +24,25 @@ Do not search merely to decorate a document.
 Search results are discovery metadata, not workspace resources. Never copy `previewUrl`, a provider
 URL, or an image fetched by an unrelated network helper into the document.
 
-## Hash-Bound Import
+## Reviewed Import
 
-For the selected candidate, pass the exact `id`, `metadataSha256`, and `licensePolicy` returned by
-`image.search` to `image.import`:
+For the selected candidate, pass its exact Openverse `id` and the intended `licensePolicy`:
 
 ```json
 {
   "command": "image.import",
   "args": {
     "id": "93d7039b-2a78-41d0-b122-423e428e91ce",
-    "expectedMetadataSha256": "<exact search receipt>",
     "licensePolicy": "adaptable",
-    "destination": "assets/research-diagram.png",
-    "expectedDestinationSha256": null
+    "destination": "assets/research-diagram.png"
   }
 }
 ```
 
-Use `null` only for a destination proven missing. Read an existing destination first and pass its
-full-file SHA-256 only when replacement is authorized. The extension must match the returned PNG,
-JPEG, or WebP bytes. A changed metadata hash, license, response type, or unavailable preview means
-the selection is stale; search and review again rather than weakening the check.
+The destination must be new, and its extension must match the returned PNG, JPEG, or WebP bytes.
+Use the Agent host's ordinary file workflow for an authorized replacement. Tylina refetches the
+fixed Openverse detail endpoint and checks the current metadata and license policy. An invalid
+license, response type, or unavailable preview fails before writing; search and review again.
 
 `image.import` writes at most a 2 MiB Openverse preview through the same canonical resource and
 History transaction as other workspace changes. It intentionally does not download the provider's

@@ -170,15 +170,7 @@ If a violation can only be fixed by changing a Don't-Touch element, mark it as `
 Run `document.validate`, then `render.summary`. Do not infer logical slides or
 animation ownership from the physical page count.
 
-### Step 2: Run Quality Checker
-
-Use the packaged checker only when a supplemental audit materially helps. Follow
-`${SKILL_DIR}/scripts/TYLINA.md`, use the runtime returned by `runtime.prepare`, and pass the
-live workspace-relative `--entry`. Fix blocker diagnostics before proceeding. Disposition every
-review finding with source context and the relevant live render; do not equate every warning with
-a visual failure.
-
-### Step 3: Overview Scan
+### Step 2: Overview Scan
 
 Call `render.overview` and scan for obvious issues:
 - Any slide that looks broken, empty, or drastically different from expected
@@ -186,7 +178,7 @@ Call `render.overview` and scan for obvious issues:
 - Glaring color/contrast issues
 - Missing images (gray boxes)
 
-### Step 4: Scoped Inspection
+### Step 3: Scoped Inspection
 
 Inspect every rendered slide in Full scope. In Targeted scope, inspect only pages flagged by the
 overview or mechanical checker. For each selected page:

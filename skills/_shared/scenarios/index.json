@@ -37,6 +37,14 @@
       "index": "social-cover/index.json"
     },
     {
+      "id": "tables",
+      "readme": "tables/README.md",
+      "index": "tables/index.json",
+      "version": "1.0.0",
+      "authors": ["Tylina contributors"],
+      "repository": "https://github.com/tylina/tylina-skill"
+    },
+    {
       "id": "poster",
       "readme": "poster/README.md",
       "index": "poster/index.json"

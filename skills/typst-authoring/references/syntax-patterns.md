@@ -69,23 +69,18 @@ and resolve paths relative to the importing source or the API's documented root 
 ## Math
 
 Do not paste LaTeX commands such as `\frac`, `\sum`, or `\mathbb` into Typst-native `$...$`
-math. Preserve verified native math already in a working document. Default new formulas to the
-pinned MiTeX recipe. Use native math only when already fluent in every exact Typst spelling and
-expecting the first authored expression to validate; short or simple is not sufficient:
+math. Preserve the math style already established by a working document. Write new formulas in
+native Typst math and validate them with the real compiler:
 
 ```typst
-#import "@preview/mitex:0.2.7": *
+Inline: $x^2 + y^2 = z^2$.
 
-Inline: #mi(`x^2 + y^2 = z^2`).
-
-#mitex(`
-  \operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V
-`)
+$ "Attention"(Q, K, V) = op("softmax")((Q K^T) / sqrt(d_k)) V $
 ```
 
-Use raw content with backticks, not quoted strings. The examples above are in markup mode;
-inside code mode call `mi(...)` or `mitex(...)` without `#`. Read
-`_shared/packages/mitex/README.md` and `_shared/packages/mitex/demo.typ` before adding the import.
+Use MiTeX only to preserve supplied LaTeX or an existing MiTeX-authored document. Before adding it,
+read `_shared/packages/mitex/README.md` and `_shared/packages/mitex/demo.typ`; use raw content with
+backticks rather than quoted strings.
 
 Never imitate a formula with ordinary text, a quoted string, `#raw(...)`, code styling, or Unicode
 superscript/subscript/operator lookalikes outside actual math content. A native display equation

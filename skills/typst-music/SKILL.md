@@ -22,8 +22,9 @@ Compose this Skill with Typst Authoring.
    resources. Rendered SVG and page images are views.
 3. Choose a package by notation system and source format. Staff notation, chord sheets,
    tablature, and Jianpu are not interchangeable.
-4. Search the current Universe with `package.list` and inspect the exact selected API. Existing
-   imports win. Use the pinned Scoryst recipe only when its supported formats match.
+4. Search the current Universe with `package.list`. Existing imports win. Read the returned pinned
+   recipe, or verify the exact spec against official versioned documentation before using its API.
+   Use the Scoryst recipe only when its supported formats match.
 5. Add useful alternative text to rendered scores and preserve attribution and licensing for
    supplied music, fonts, and assets.
 6. Validate and visually inspect every affected system or page for clipping, collisions, lyric
@@ -47,4 +48,5 @@ Compose this Skill with Typst Authoring.
 - Representation and Jianpu boundary: `typst-music/references/music-engraving.md`.
 - Verified Scoryst 0.2.0 API: `_shared/packages/scoryst/README.md` and its `demo.typ`.
 - Verified Typed Scores 0.5.0 API: `_shared/packages/typed-scores/README.md` and its `demo.typ`.
-- Current alternatives: `package.list` with `discipline: "music"`, then inspect the exact package.
+- Current alternatives: `package.list` with `discipline: "music"`; verify the returned exact spec
+  through its routed recipe or official versioned documentation.

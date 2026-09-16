@@ -39,7 +39,8 @@ accounting, tax, records-management, or signature advice.
    `typst-authoring/references/source-ingestion.md`. Verify fields and tables against the original;
    extracted Markdown is not an authorized record.
 4. Preserve an existing verified template. For a new scaffold, call `template.list`; for a reusable
-   component, call `package.list` with the artifact or discipline, then inspect the exact version.
+   component, call `package.list` with the artifact or discipline. Read the routed recipe, or verify
+   the returned exact spec against official versioned documentation before using its API.
 5. Build one representative record or page and verify its fields and calculations against the
    supplied source before scaling to repeated items.
 6. Produce only requested variants, redact deliberately, validate, and inspect first, continuation,

@@ -120,7 +120,7 @@ Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 
 `skills/` 是运行时资源根目录，包含可安装的 `tylina` 入口、领域 Skills、内容 catalog，
 以及 `_shared` 参考资料和模板。离线场景 catalog 除了简历、海报与社交封面外，
-还包含论文、定理／证明、报告、笔记、作业和试卷工作区。对应的模板预览图位于
+还包含论文、定理／证明、报告、笔记、作业、试卷和语义表格工作区。对应的模板预览图位于
 `resources/template-previews`，构建时仍使用编辑器现有的预览 URL。
 
 本仓库是可独立安装的内容。运行 `node --test tests/skill-package.mjs` 检查元数据、链接和打包边界；

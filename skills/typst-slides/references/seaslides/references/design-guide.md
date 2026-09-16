@@ -147,7 +147,7 @@ Every slide title should be a complete sentence that states the slide's conclusi
 
 ### Complexity Levels: Plain / Rich / Canvas
 
-> **Working examples**: See `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-plain/` (e.g., `monochrome/`, `slate/`), `custom-rich/` (e.g., `psychology/`, `smart-red/`, `mckinsey/`), and `custom-canvas/` (e.g., `sugar-rush/`, `guizang-magazine/`, `guizang-swiss/`) for concrete implementations at each complexity level.
+> **Working examples**: See `_shared/slides/themes/custom-plain/` (e.g., `monochrome/`, `slate/`), `custom-rich/` (e.g., `psychology/`, `smart-red/`, `mckinsey/`), and `custom-canvas/` (e.g., `sugar-rush/`, `guizang-magazine/`, `guizang-swiss/`) for concrete implementations at each complexity level.
 
 > See `shared-standards.md` §1c for the canonical definition table and default recommendations.
 

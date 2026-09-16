@@ -36,7 +36,8 @@ and citations.
 2. Inventory languages, scripts, transcription standard, example schema, gloss abbreviations,
    judgments, source references, fonts, directionality, and the existing package model.
 3. Preserve a working package. For new work, use `package.list` with `discipline: "linguistics"`
-   or a focused query, inspect the exact version, and read a routed recipe when present.
+   or a focused query. Read a routed recipe when present; otherwise verify the returned exact spec
+   against official versioned documentation before using its API.
 4. Compile a representative example containing the hardest script, gloss, label, and line break
    before scaling. Keep linguistic source data editable and separately attributable.
 5. Verify every transformation against supplied evidence, then inspect boundary examples and all

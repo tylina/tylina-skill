@@ -49,10 +49,9 @@ Each sub-directory contains its own `index.json` for programmatic lookup:
 | Builtin | `#import themes.<name>: *` |
 | Universe | `#import "@preview/<package>:<version>": *` |
 
-## Theme Discovery (for `copy-theme` command)
+## Theme Discovery and Materialization
 
-```bash
-python3 ${SKILL_DIR}/scripts/project_manager.py copy-theme <project_path> <name>
-```
+Use the tier indexes to choose a theme, resolve the exact entry with `template.list`, inspect it,
+and materialize it with `template.create`. Use the returned destination and entrypoint.
 
 Search order: `user/` → `custom-canvas/` → `custom-rich/` → `custom-plain/` → `builtin/` → `universe/`

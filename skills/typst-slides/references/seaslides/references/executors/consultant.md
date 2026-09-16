@@ -70,7 +70,7 @@ Consulting style **defaults to Rich** — KPI dashboards, chart visualizations, 
 
 Use a **single-color depth gradient**: `(primary, primary.lighten(20%), primary.lighten(40%), primary.lighten(60%))`. Apply varying lightness for bars/pies, consistent stroke for lines, varying size for scatter. Professional appearance, prints well in grayscale.
 
-> **Chart code**: See `${TYLINA_SKILLS_ROOT}/_shared/charts/README.md` for lilaq, gribouille, cetz-plot, and other chart package APIs. NEVER write chart code from memory.
+> **Chart code**: See `_shared/charts/README.md` for lilaq, gribouille, cetz-plot, and other chart package APIs. NEVER write chart code from memory.
 
 ### 3. Data Annotation Principles
 
@@ -107,7 +107,7 @@ Define `insight-box(title, body)` and `finding-box(title, body, accent)` in temp
 
 ## Consulting-Specific Layout Patterns
 
-> **Chart/diagram code**: See `${TYLINA_SKILLS_ROOT}/_shared/charts/README.md` for fletcher, cetz, and other package APIs. Read the matching chart template before writing code. Below describes *when* to use each pattern.
+> **Chart/diagram code**: See `_shared/charts/README.md` for fletcher, cetz, and other package APIs. Read the matching chart template before writing code. Below describes *when* to use each pattern.
 
 | Pattern | Tool | Use Case | Key Principle |
 |---------|------|----------|---------------|
@@ -152,7 +152,10 @@ When presenting data: (1) State the number clearly, (2) Provide context (vs targ
 
 ## Package Version Reference
 
-> See `shared-standards.md` §5 and `base.md` §5 for the full content enhancement package table. Key additions for consulting: **lilaq** (existing/direct chart templates), **gribouille** (layered analytical plots), **mitex** (financial formulas), **cheq** (roadmap checklists), and **merman** (Mermaid process diagrams).
+> See `shared-standards.md` §5 and `base.md` §5 for the full content enhancement package table.
+> Key additions for consulting are **lilaq** (existing/direct chart templates), **gribouille**
+> (layered analytical plots), **cheq** (roadmap checklists), and **merman** (process diagrams).
+> Use MiTeX only when financial formulas arrive as LaTeX or the existing deck already uses it.
 
 ---
 
@@ -163,8 +166,8 @@ When presenting data: (1) State the number clearly, (2) Provide context (vs targ
 **Consultant-specific checks**:
 - [ ] CRITICAL: Every content slide has a #speaker-note[...] block
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
-- [ ] Inline math uses #mi(), block math uses #mitex()
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
 - [ ] Chart colors follow single-color depth gradient

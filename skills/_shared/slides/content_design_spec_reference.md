@@ -78,13 +78,20 @@
 | gentle-clues | 1.3.1 | `@preview/gentle-clues:1.3.1` | Admonition boxes |
 | numbly | 0.1.0 | `@preview/numbly:0.1.0` | Custom heading numbering |
 
-> Only include packages actually needed. touying is always required. Reference `${SKILL_DIR}/templates/packages/index.json` for more options.
+> Only include packages actually needed. touying is always required. Reference
+> `_shared/packages/index.json` for more options.
 >
-> **Content-driven package selection**: Scan source material — math formulas → mitex; standard plots and existing chart templates → lilaq; layered mapped-aesthetic/statistical plots → gribouille; code snippets → use code blocks directly (codly only for zebra stripes); algorithms → lovelace; task lists → cheq; Mermaid flowcharts/Gantt/sequence diagrams → merman. These are high-impact and should be actively considered for matching content.
+> **Content-driven package selection**: New formulas use native Typst math; MiTeX only preserves
+> supplied LaTeX or an existing MiTeX-authored document. Standard plots and existing chart
+> templates → lilaq; layered mapped-aesthetic/statistical plots → gribouille; code snippets → use
+> code blocks directly (codly only for zebra stripes); algorithms → lovelace; task lists → cheq;
+> Mermaid flowcharts/Gantt/sequence diagrams → merman. Include only what the content justifies.
 >
 > **Package dispatch**: Prefer lilaq for standard statistical charts and existing templates; use gribouille when a layered Grammar of Graphics fits; use primaviz for specialized chart types (pie, radar, funnel); use merman for Mermaid diagrams; fall back to cetz/fletcher for custom visuals. This is need-based routing, not a universal quality ranking.
 
-> **Icons**: Default to Unicode emoji (🚀, ✓, 📊 — LLMs can output these directly). For visually consistent non-emoji icons (e.g., user explicitly requests icon-style visuals), see `${SKILL_DIR}/templates/icons/index.json`.
+> **Icons**: Default to Unicode emoji (🚀, ✓, 📊 — LLMs can output these directly). For visually
+> consistent non-emoji icons (e.g., user explicitly requests icon-style visuals), see
+> `_shared/icons/index.json`.
 
 ## IV-A. Narrative Architecture
 
@@ -236,7 +243,9 @@
 
 > **Alt Text / Caption / Source**: Give each image useful alt text. Add a concise visible caption and truthful source when interpretation needs it; never fabricate attribution, product chrome, or device hardware.
 
-> **Acquire Via**: `ai` (generate with image_gen.py), `web` (search with image_search.py), `user` (provided by user), `placeholder` (to be replaced later). See `image-base.md` for dispatch logic.
+> **Acquire Via**: `ai` (use an available host image-generation capability), `web` (use Tylina
+> `image.search` and `image.import`), `user` (provided by the user), or `placeholder` (to be replaced
+> later). Follow `tylina/references/image-sourcing.md` for provenance and review.
 
 > **Status values**: `ready`, `pending-generation`, `pending-review`
 
@@ -246,7 +255,7 @@
 |---------|-----------|---------|-------------|-------|
 | [filled by strategist] | bar / line / pie / flowchart / tree | cetz / cetz-plot / fletcher | [data description] | |
 
-> Reference `${SKILL_DIR}/templates/charts/index.json` for available chart component templates.
+> Reference `_shared/charts/index.json` for available chart component templates.
 
 > **Map extension**: Add a map only when geography, movement, or location comparison is necessary to the narrative. It is not a required chart or diagram type.
 

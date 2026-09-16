@@ -6,8 +6,10 @@ identity, scoring, and disclosure requirements.
 
 ## Candidate Routing
 
-Always call `package.list` or `template.list` and inspect the exact returned version. The names
-below are search seeds backed by their published project descriptions, not stable API promises.
+Always call `package.list` or `template.list`. Inspect exact template candidates with
+`template.inspect`; for a package, read its routed recipe or verify the returned exact spec against
+official versioned documentation. The names below are search seeds backed by their published
+project descriptions, not stable API promises.
 
 | Audience or need | Useful search seeds | What to verify |
 |---|---|---|

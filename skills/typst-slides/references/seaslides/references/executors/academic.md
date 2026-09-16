@@ -229,12 +229,11 @@ Since all colors/fonts/components live in `template.typ`, visual consistency is 
 
 For courses in mathematics, physics, computer science, etc.:
 
-- **Default to MiTeX** (``#mi(`...`)`` inline, ``#mitex(`...`)`` block) — see `shared-standards.md` §7 "Math Equations". This avoids error-prone LaTeX→Typst math rewriting
-- **Import**: `#import "@preview/mitex:0.2.7": *`
-- **Typst native math** (`$ ... $`): Valid when you know the native syntax and verify notation plus rendering
-- **Theorem environments**: Use `theorion` package — see `${TYLINA_SKILLS_ROOT}/_shared/packages/theorion/README.md` for full API
+- **Default to native Typst math** (`$...$` inline, `$ ... $` display) and validate notation plus rendering
+- **MiTeX interoperability**: Use `#import "@preview/mitex:0.2.7": *` only for supplied LaTeX or an existing MiTeX-authored deck
+- **Theorem environments**: Use `theorion` package — see `_shared/packages/theorion/README.md` for full API
 - **Equation numbering**: Label important equations with `$ ... $ <eq:name>` and cross-reference with `@eq:name` (works with both native math and mitex block)
-- **Pseudocode**: Use `lovelace` for algorithm slides — see `${TYLINA_SKILLS_ROOT}/_shared/packages/lovelace/README.md`
+- **Pseudocode**: Use `lovelace` for algorithm slides — see `_shared/packages/lovelace/README.md`
 - **One key equation per slide** as a general rule; derivation steps can have 2-3 aligned equations using `&` alignment
 
 **Theorion style selection**:
@@ -264,14 +263,14 @@ For courses in mathematics, physics, computer science, etc.:
 **Equations**:
 
 ```typst
-// Labeled equation using MiTeX (default)
-#mitex(`\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}`) <eq:gaussian>
+// Labeled native Typst equation
+$ integral_0^oo e^(-x^2) dif x = sqrt(pi) / 2 $ <eq:gaussian>
 
 // Reference elsewhere
 As shown in @eq:gaussian, the Gaussian integral evaluates to...
 
 // Inline math example
-The loss function #mi(`\mathcal{L}(\theta)`) is minimized via gradient descent.
+The loss function $cal(L)(theta)$ is minimized via gradient descent.
 ```
 
 **Pseudocode** (via `lovelace`):
@@ -295,7 +294,7 @@ The loss function #mi(`\mathcal{L}(\theta)`) is minimized via gradient descent.
 ) <algo:bsearch>
 ```
 
-> **Package lookup**: See `${TYLINA_SKILLS_ROOT}/_shared/packages/index.json` for all available packages.
+> **Package lookup**: See `_shared/packages/index.json` for all available packages.
 
 ---
 
@@ -445,8 +444,8 @@ This was already noted by pirates long ago. @netwok
 **Academic-specific checks**:
 - [ ] CRITICAL: Every content slide has a #speaker-note[...] block
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
-- [ ] Inline math uses #mi(), block math uses #mitex()
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
 - [ ] Every content slide has an action title (complete sentence)

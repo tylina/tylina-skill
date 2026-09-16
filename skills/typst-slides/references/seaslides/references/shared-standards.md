@@ -40,10 +40,10 @@ Typst is NOT Markdown. While some syntax looks similar, many elements differ. Th
 | **Image** | `#image("path.png", width: 80%)` | `![alt](path.png)` | Function call |
 | **Label** | `<my-label>` | N/A | For cross-references |
 | **Reference** | `@my-label` | N/A | References a label |
-| **LaTeX math inline (default)** | `` #mi(`x^2 + y^2`) `` | `$x^2 + y^2$` | MiTeX + raw content |
-| **LaTeX math block (default)** | `` #mitex(`x^2 + y^2`) `` | `$$...$$` | MiTeX + raw content |
-| **Native math inline** | `$x^2 + y^2$` | N/A | Typst syntax, not LaTeX |
-| **Native math block** | `$ x^2 + y^2 $` | N/A | Spaces make a display equation |
+| **Native math inline (default)** | `$x^2 + y^2$` | N/A | Typst syntax, not LaTeX |
+| **Native math block (default)** | `$ x^2 + y^2 $` | N/A | Spaces make a display equation |
+| **Imported LaTeX math inline** | `` #mi(`x^2 + y^2`) `` | `$x^2 + y^2$` | MiTeX preserves supplied LaTeX |
+| **Imported LaTeX math block** | `` #mitex(`x^2 + y^2`) `` | `$$...$$` | MiTeX preserves supplied LaTeX |
 | **Line break** | `\` | Two trailing spaces or `<br>` | Backslash |
 | **Comment** | `// line` or `/* block */` | N/A (HTML `<!-- -->`) | C-style |
 | **Function call** | `#rect(width: 1cm)` | N/A | Typst scripting |
@@ -60,8 +60,9 @@ Typst is NOT Markdown. While some syntax looks similar, many elements differ. Th
 4. **Arrays use `(a, b, c)`** — not `[a, b, c]`. Square brackets are content blocks.
 5. **Named arguments**: `func(width: 80%, fill: red)` — keyword arguments with colon.
 6. **Content blocks as arguments**: `#func[content here]` passes the bracketed content as the last positional argument.
-7. **LaTeX math needs MiTeX**: use raw `` #mi(`...`) `` inline and `` #mitex(`...`) ``
-   for display math. Do not paste LaTeX commands into native `$...$` math.
+7. **Write new formulas in native Typst math**: use `$...$` inline and `$ ... $` for display math.
+   Use MiTeX only to preserve supplied LaTeX or an existing MiTeX-authored document. Do not paste
+   LaTeX commands into native `$...$` math.
 
 ### Raw Text (Code) in Typst
 
@@ -667,7 +668,7 @@ For imported PDF source images: use `#slide(composer: (2fr, 1fr))` with `height:
 | Package | Version | Purpose | Import |
 |---------|---------|---------|--------|
 | touying | 0.7.4 | Slide framework | `#import "@preview/touying:0.7.4": *` |
-| mitex | 0.2.7 | Math equations (LaTeX→Typst). `` #mi(`E=mc^2`) `` inline, `` #mitex(`...`) `` block. Backtick strings only. | `#import "@preview/mitex:0.2.7": *` |
+| mitex | 0.2.7 | LaTeX interoperability for supplied LaTeX or an existing MiTeX-authored document. Backtick strings only. | `#import "@preview/mitex:0.2.7": *` |
 | lilaq | 0.6.0 | Mature Typst-native statistical plotting and the default for existing SeaSlides chart templates. | `#import "@preview/lilaq:0.6.0" as lq` |
 | gribouille | 0.6.0 | Layered Grammar of Graphics with mapped aesthetics, statistics, scales, labels, and themes. Pin the version because the API is still evolving. | `#import "@preview/gribouille:0.6.0": *` |
 | codly | 1.3.0 | Code blocks with zebra stripes, line numbers (optional — template already styles code by default) | `#import "@preview/codly:1.3.0": *` |
@@ -682,7 +683,11 @@ For imported PDF source images: use `#slide(composer: (2fr, 1fr))` with `height:
 | pintorita | 0.1.4 | Diagrams from text | `#import "@preview/pintorita:0.1.4"` |
 | shadowed | 0.3.0 | CSS-like box shadows for cards and components | `#import "@preview/shadowed:0.3.0": shadow` |
 
-> **Content-driven selection**: math formulas → mitex; standard slide/scientific plots → lilaq; layered mapped-aesthetic/statistical plots → gribouille; code with zebra stripes → codly; algorithms → lovelace; task lists → cheq; flowcharts/Gantt/sequence diagrams → merman. Multiple can be combined. Gribouille is an alternative plotting model, not an automatic replacement for Lilaq.
+> **Content-driven selection**: new math formulas → native Typst math; supplied LaTeX → mitex;
+> standard slide/scientific plots → lilaq; layered mapped-aesthetic/statistical plots → gribouille;
+> code with zebra stripes → codly; algorithms → lovelace; task lists → cheq;
+> flowcharts/Gantt/sequence diagrams → merman. Multiple can be combined. Gribouille is an
+> alternative plotting model, not an automatic replacement for Lilaq.
 > **More packages**: See `_shared/packages/index.json` for additional curated packages
 > (theorion, tablem, pinit, numbly, tiaoma, cuti). Human-readable docs are at
 > `_shared/packages/README.md`.
@@ -734,33 +739,17 @@ Use `numbly` for automatic heading numbering (lectures, courseware). Format: `nu
 
 ## 6. Compilation & Verification Pipeline
 
-### Compile to PDF
+Use the current Tylina main and portable command surface:
 
-```bash
-python3 typst_compiler.py <project_path> --format pdf
+```text
+document.validate
+render.summary
+render.overview
+render.page
 ```
 
-### Compile to PNG (for visual review)
-
-```bash
-python3 typst_compiler.py <project_path> --format png --ppi 144
-```
-
-PNGs are saved to `output/pngs/slide_01.png`, `slide_02.png`, etc.
-
-### Compile to Overview (for LLM review)
-
-```bash
-python3 typst_compiler.py <project_path> --format overview
-```
-
-Produces a single `output/overview.png` grid image with all slides. Columns and PPI are auto-adjusted to fit within 2000x2000 pixels.
-
-### Export to PPTX (optional)
-
-```bash
-python3 typst_compiler.py <project_path> --format pptx
-```
+After validation and visual review, use `document.export` for PDF, PNG, SVG, visual-fidelity PPTX,
+or editable PPTX. The export receipt owns the actual output paths.
 
 > Full verification checklist: see SKILL.md §7.
 
@@ -1048,14 +1037,21 @@ When slides overflow, use this priority cascade:
 
 > **Critical**: Typst's built-in math syntax is NOT LaTeX. Do not use `\frac{}{}`, `\int`, `\sum`, etc. in Typst's native `$ ... $` mode.
 
-#### LaTeX Math via MiTeX Package (default)
+#### Native Typst Math (default)
 
-Default new formulas to MiTeX. Preserve an existing document's verified native math. Use new native
-`$...$` only when already fluent in every exact Typst spelling and expecting the first authored
-expression to validate; short or simple is not sufficient. Speed is not an excuse for fake math.
+Write new formulas with native Typst `$...$` math and validate them with the real compiler. Preserve
+an existing document's established native Typst or MiTeX style instead of mechanically rewriting it.
 
 Never imitate an equation with ordinary text, a quoted string, `#raw(...)`, code styling, or
 Unicode superscript, subscript, Greek, and operator lookalikes outside actual math content.
+
+```typst
+Write inline equations like $x^2 + y^2 = z^2$.
+
+$ integral_0^1 x^2 dif x = 1/3 $
+```
+
+Use MiTeX only when the input actually contains LaTeX or the existing document already uses MiTeX.
 MiTeX backticks are raw input to a real math renderer; visible raw text is not math.
 
 ```typst
@@ -1085,13 +1081,14 @@ Write inline equations like #mi(`x^2 + y^2 = z^2`).
 
 | Scenario | Recommendation |
 |----------|---------------|
-| New formula or uncertain native spelling | **MiTeX package** |
+| New formula | **Typst native math**, then compile and inspect |
 | Existing document consistently uses verified Typst-native math | Preserve native math |
-| Already fluent in exact Typst spelling; first draft expected to validate | Typst native math, then inspect |
+| Existing document consistently uses MiTeX | Preserve MiTeX |
 | Converting LaTeX source with formulas | MiTeX package (no rewriting needed) |
-| PDF source processed by MinerU (contains `$...$` LaTeX) | MiTeX package — MinerU outputs LaTeX math notation |
+| Reviewed imported source whose formulas are explicitly LaTeX | Preserve them with MiTeX |
 
-> **Typst native math syntax, LaTeX↔Typst comparison table, MinerU workflow details**: See `shared-standards-extended.md` §Math Equations.
+> **Typst native math syntax and the LaTeX↔Typst comparison table**: See
+> `shared-standards-extended.md` §Math Equations.
 
 Compilation only proves that Typst accepted the source. Compare operators, indices, dimensions,
 masks, constants, and notation with the paper or other authoritative source, then inspect the
@@ -1105,9 +1102,9 @@ rendered equation at readable size.
 
 | Rule | Wrong | Right |
 |------|-------|-------|
-| No fake text/Unicode math | `#raw("QKᵀ/√dₖ")` or plain `β̂ ∈ ℝⁿ` | `#mi(\`QK^\\top / \\sqrt{d_k}\`)` |
+| No fake text/Unicode math | `#raw("QKᵀ/√dₖ")` or plain `β̂ ∈ ℝⁿ` | `$Q K^T / sqrt(d_k)$` |
 | No `#slide(title: ...)` | `#slide(title: [X])[...]` | `== X` then content (§2) |
-| Inline math = `#mi()`, block math = `#mitex()` | `#mitex(\`x^2\`)` inline | `#mi(\`x^2\`)` inline; `#mitex(\`...\`)` on own line |
+| Native inline/block spacing | `$ x^2 $` inside prose | `$x^2$` inline; `$ x^2 $` on its own line for display |
 | Compile success is not formula verification | A compiling but altered index or mask | Compare with source and inspect the rendered equation |
 
 ---
@@ -1128,7 +1125,7 @@ rendered equation at readable size.
 | `#show: touying.with(...)` | Not valid syntax in any Touying version. | Use `#show: <theme-function>.with(...)` |
 | Direct `@preview/touying:0.5.3` in a project-owned/custom theme | Wrong direct-import version; API incompatible with this skill's custom-theme patterns. | Use direct `@preview/touying:0.7.4`. For a Universe package that owns an older transitive version, keep its documented package API instead of mixing versions. |
 | Bare function calls inside `[...]` markup blocks | `v(8pt)`, `text(...)`, `block(...)`, `align(...)` without `#` prefix inside `#slide[...]`, `#block[...]`, or any `[...]` content block | Renders as literal text instead of executing the function — causes entire slides to display raw code | Always use `#v()`, `#text()`, `#block()`, `#align()` inside `[...]` markup. Bare calls are ONLY correct inside `{...}` code blocks. See §7 "Markup Mode vs Code Mode". |
-| Raw template code rendered on slides | Visible `if self.store...`, `utils.display-current-heading`, `config-common(...)`, `stack(...)`, or Markdown scaffolding such as `|---|` in the output | A `[...]` markup block was used where `{...}` code mode was required, or Markdown was not converted | Fix the source mode boundary and recompile; inspect `overview.png` and run `validate_project.py`. |
+| Raw template code rendered on slides | Visible `if self.store...`, `utils.display-current-heading`, `config-common(...)`, `stack(...)`, or Markdown scaffolding such as `|---|` in the output | A `[...]` markup block was used where `{...}` code mode was required, or Markdown was not converted | Fix the source mode boundary, run `document.validate`, and inspect the affected pages with `render.overview` or `render.page`. |
 | Third-party `#show` rules AFTER theme show rule | Packages like codly, cheq use `#show` rules that must wrap the theme. Placing them after `#show: theme.with(...)` can cause blank first slides, broken code blocks, or ignored styling. | Place third-party `#show` rules BEFORE the theme show rule: `#show: codly-init` / `#show: checklist.with(...)` then `#show: theme.with(...)`. The theme show rule should always be last. Do NOT use zebraw — it causes compilation failures. |
 
 ### 9b. Design/Quality Anti-Patterns

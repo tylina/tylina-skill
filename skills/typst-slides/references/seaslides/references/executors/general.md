@@ -24,8 +24,8 @@ Creative and versatile Typst slide executor, specializing in product introductio
 - `base.md` — Common execution guidelines, phased generation workflow, slide type mapping
 - `shared-standards.md` — Typst/Touying technical constraints, layout APIs, package versions, font/color standards
 - `template-designer.md` — Theme design patterns, component implementations
-- `${TYLINA_SKILLS_ROOT}/_shared/packages/index.json` — Additional packages (codly, cheq, tablem, pinit, etc.)
-- `${TYLINA_SKILLS_ROOT}/_shared/icons/index.json` — Icon packages; use emoji by default
+- `_shared/packages/index.json` — Additional packages (codly, cheq, tablem, pinit, etc.)
+- `_shared/icons/index.json` — Icon packages; use emoji by default
 
 > **Rule**: All technical standards (APIs, versions, syntax) are defined in those documents. This file covers **General style-specific** guidance only.
 
@@ -127,7 +127,7 @@ Use shapes inside component functions in template.typ, not directly in main.typ:
 
 ## 8. Drawing and Diagrams
 
-> **GATE**: Before writing ANY chart or diagram code, read the matching template from `${TYLINA_SKILLS_ROOT}/_shared/charts/`. See `charts/README.md` for the full chart index, need-based package dispatch (including lilaq, gribouille, primaviz, and merman), API examples, and layout best practices.
+> **GATE**: Before writing ANY chart or diagram code, read the matching template from `_shared/charts/`. See `charts/README.md` for the full chart index, need-based package dispatch (including lilaq, gribouille, primaviz, and merman), API examples, and layout best practices.
 
 **Key rules**: cetz uses numeric coordinates only (NOT percentages). fletcher uses `node((col, row), [...])` + `edge(...)`. All chart code goes in template.typ or inline per charts/README.md patterns.
 
@@ -164,8 +164,8 @@ Product launches, training materials, proposals, and marketing campaigns. Struct
 **General-specific checks**:
 - [ ] CRITICAL: Every content slide has a #speaker-note[...] block
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
-- [ ] Inline math uses #mi(), block math uses #mitex()
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
 - [ ] `grid()` used only for multi-row layouts where `cols` is insufficient

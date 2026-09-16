@@ -38,8 +38,9 @@ Compose this Skill with Typst Authoring.
 3. The package-free homework and exam workspaces are indexed at
    `_shared/scenarios/education/index.json`. Inspect and materialize an exact scaffold through
    `template.create`; never copy only the learner-facing entrypoint.
-4. Inspect every shortlisted exact version. Choose by audience and required behavior, not by
-   popularity, screenshots, or a familiar name.
+4. Inspect exact template candidates with `template.inspect`. For a package, read its routed recipe
+   or verify the returned exact spec against official versioned documentation. Choose by audience
+   and required behavior, not by popularity, screenshots, or a familiar name.
 5. Author the smallest coherent question model. Keep prompts and answers traceable to supplied
    material and make scoring criteria observable.
 6. Validate both student and solution variants. Inspect representative and boundary pages at the

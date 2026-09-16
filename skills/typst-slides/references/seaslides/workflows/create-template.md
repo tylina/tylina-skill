@@ -54,9 +54,8 @@ Call `workspace.info` and create theme files inside that current workspace, neve
 in the packaged template library.
 
 Theme files (`template.typ`, `demo.typ`, `theme.md`, `theme_design_spec.md`) go in the current root.
-Tylina always provides the project boundary; never call `project_manager.py init` or create a
-`projects/...` child. When final deck content already exists, preserve it and keep `demo.typ` as a
-separate theme gallery.
+Tylina always provides the project boundary; do not create a second `projects/...` child. When
+final deck content already exists, preserve it and keep `demo.typ` as a separate theme gallery.
 
 ---
 
@@ -64,7 +63,7 @@ separate theme gallery.
 
 **Switch to the Template_Designer role** and generate in `<project_path>/`:
 
-1. **theme_design_spec.md** -- Visual design specification (from `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_design_spec_reference.md`)
+1. **theme_design_spec.md** -- Visual design specification (from `_shared/slides/theme_design_spec_reference.md`)
 2. **template.typ** -- Complete Touying 0.7.4 theme file with:
    - Theme entry point function (wraps `touying-slides.with(config-*(...))`)
    - `title-slide` function
@@ -74,7 +73,7 @@ separate theme gallery.
    - `ending-slide` function
    - Reusable component functions (info-card, two-column, etc.)
 3. **demo.typ** -- Compilable usage example showcasing all slide types and components
-4. **theme.md** -- API summary document (from `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_reference.md`)
+4. **theme.md** -- API summary document (from `_shared/slides/theme_reference.md`)
 
 **Demo vs final deck boundary**:
 
@@ -89,32 +88,23 @@ separate theme gallery.
 
 ## Step 4: Compile & Validate
 
-```bash
-# Produce PDF, per-slide PNGs, overview, and their compile manifest
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --all --entry demo.typ --ppi 144
-
-# Audit the compiled artifacts and source-level layout risks
-python3 ${SKILL_DIR}/scripts/typst_quality_checker.py <project_path> --entry demo.typ
-
-# When the intended demo length is known, also verify it explicitly
-python3 ${SKILL_DIR}/scripts/typst_quality_checker.py <project_path> --entry demo.typ --expected-pages <N>
-```
+Select `demo.typ` with `document.setMain`, run `document.validate`, inspect the physical page count
+and aspect ratios with `render.summary`, scan the whole demo with `render.overview`, then inspect
+every page at readable PPI with `render.page`. Compare the actual page count with the intended demo
+length when it is known.
 
 Inspect **every** generated slide PNG at native resolution; use the overview only
 for triage. Fix issues, recompile, and inspect the affected slides again. The
-quality checker must report no blockers, and every review signal must be examined
+compiler must report no blockers, and every review signal must be examined
 and either fixed or documented as an intentional exception. Positive stack
 spacing is contextual and must be checked directly in the render. KPI/stat/metric
 icon → value → label composition must also be checked in
-source and render; the checker deliberately does not infer KPI semantics from
-function names. Zero-gap stack findings are advisory, but still require a
-rendered disposition proving a deliberate seamless join.
+source and render; do not infer KPI semantics from function names. Zero-gap stack findings are
+advisory, but still require a rendered disposition proving a deliberate seamless join.
 
 When the project also contains a final deck, compile it after the demo:
 
-```bash
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --all --entry main.typ
-```
+select `main.typ`, repeat validation and visual inspection, and restore the intended final main file.
 
 **Checklist**:
 
@@ -124,7 +114,7 @@ python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --all --entry main
 - [ ] All slide types (title, section, content, focus, ending) render correctly
 - [ ] Template-content separation principles are followed
 - [ ] No content text hardcoded in template.typ
-- [ ] `theme.md` API summary follows `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_reference.md` format
+- [ ] `theme.md` API summary follows `_shared/slides/theme_reference.md` format
 - [ ] `demo.typ` showcases every component defined in `template.typ` at least once
 - [ ] `demo.typ` uses every slide type (title, section, content, focus, ending, plus custom types)
 - [ ] If this is a delivery/benchmark project, `main.typ` exists and contains the final deck content; `demo.typ` is not the only real deck file
@@ -167,16 +157,16 @@ For non-YOLO mode:
 
 > This is a **BLOCKING** step. Present the following to the user and wait for confirmation:
 >
-> "Theme `<template_name>` is ready. Would you like to save it to the user theme library (`${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>/`) for reuse in future projects?"
+> "Theme `<template_name>` is ready. Would you like to save it to the user theme library (`_shared/slides/themes/user/<template_name>/`) for reuse in future projects?"
 
 If the user confirms, copy the four required files:
 
 ```bash
-mkdir -p "${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>"
-cp <project_path>/theme_design_spec.md "${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>/"
-cp <project_path>/template.typ "${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>/"
-cp <project_path>/demo.typ "${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>/"
-cp <project_path>/theme.md "${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>/"
+mkdir -p "_shared/slides/themes/user/<template_name>"
+cp <project_path>/theme_design_spec.md "_shared/slides/themes/user/<template_name>/"
+cp <project_path>/template.typ "_shared/slides/themes/user/<template_name>/"
+cp <project_path>/demo.typ "_shared/slides/themes/user/<template_name>/"
+cp <project_path>/theme.md "_shared/slides/themes/user/<template_name>/"
 ```
 
 If the theme uses asset files (e.g., images referenced by `template.typ`), copy those too.
@@ -192,7 +182,7 @@ If the theme uses asset files (e.g., images referenced by `template.typ`), copy 
 
 **Theme Name**: <template_name> (<display_name>)
 **Location**: `<project_path>/`
-**Saved to library**: [Yes → `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/<template_name>/` | No]
+**Saved to library**: [Yes → `_shared/slides/themes/user/<template_name>/` | No]
 
 ### Files
 

@@ -25,12 +25,12 @@ Generate custom Touying themes based on Design Specification.
 
 > **Scope**: This file owns theme deliverables, public component APIs, demo obligations, and theme-specific quality gates. Use `shared-standards.md` for general Typst/Touying rules and `design-guide.md` for aesthetic direction.
 
-> **One-shot reference**: Before writing a new theme from scratch, study the complete working examples in `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-rich/` and `custom-canvas/`. Each theme's `template.typ` demonstrates all patterns described below — slide wrapper functions, component definitions, palette usage, header implementations, and `config-common` setup. Start with `custom-rich/psychology/template.typ` (warm healing style with rich components) or `custom-rich/smart-red/template.typ` (bold modern business). For Canvas-level themes, study `custom-canvas/guizang-magazine/template.typ` (editorial two-tone with dark/light pages) or `custom-canvas/sugar-rush/template.typ` (Memphis/pop art with full-bleed imagery).
+> **One-shot reference**: Before writing a new theme from scratch, study the complete working examples in `_shared/slides/themes/custom-rich/` and `custom-canvas/`. Each theme's `template.typ` demonstrates all patterns described below — slide wrapper functions, component definitions, palette usage, header implementations, and `config-common` setup. Start with `custom-rich/psychology/template.typ` (warm healing style with rich components) or `custom-rich/smart-red/template.typ` (bold modern business). For Canvas-level themes, study `custom-canvas/guizang-magazine/template.typ` (editorial two-tone with dark/light pages) or `custom-canvas/sugar-rush/template.typ` (Memphis/pop art with full-bleed imagery).
 >
 > **Quality reference (MUST STUDY for stunning themes)**: `custom-rich/chalkboard/template.typ` and `custom-canvas/celestial/template.typ` are the gold standard for visual impact. Study how they implement persistent background atmosphere on content slides, structurally diverse components, complex multi-element SVGs, and bookending between title/ending slides. Your theme must match or exceed their level of visual personality. See **§Visual Impact Guidance** below.
 
 ## Role Independence
-This is a standalone role, triggered only through the `${SKILL_DIR}/references/seaslides/workflows/create-template.md` workflow.
+This is a standalone role, triggered only through the `typst-slides/references/seaslides/workflows/create-template.md` workflow.
 
 ---
 
@@ -150,7 +150,7 @@ quiet, precise theme can be equally successful when restraint is part of its ide
 ---
 
 ## Output Location
-`${TYLINA_SKILLS_ROOT}/_shared/slides/themes/<template_name>/`
+`_shared/slides/themes/<template_name>/`
 
 ---
 
@@ -160,8 +160,8 @@ quiet, precise theme can be equally successful when restraint is part of its ide
 |---|------|---------|-------------|
 | 01 | `template.typ` | Complete Theme | Contains all slide functions, components, color palette, and theme entry point |
 | 02 | `demo.typ` | Usage Example | Compilable demo showcasing all slide types and components |
-| 03 | `theme_design_spec.md` | Visual Design Spec | Defines colors, typography, layout parameters, component designs (from `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_design_spec_reference.md`) |
-| 04 | `theme.md` | API Summary | Concise theme reference for downstream roles (from `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_reference.md`) |
+| 03 | `theme_design_spec.md` | Visual Design Spec | Defines colors, typography, layout parameters, component designs (from `_shared/slides/theme_design_spec_reference.md`) |
+| 04 | `theme.md` | API Summary | Concise theme reference for downstream roles (from `_shared/slides/theme_reference.md`) |
 
 ---
 
@@ -171,10 +171,10 @@ quiet, precise theme can be equally successful when restraint is part of its ide
 
 Every theme must include:
 
-**`theme_design_spec.md`** — Visual design document (use `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_design_spec_reference.md` as template):
+**`theme_design_spec.md`** — Visual design document (use `_shared/slides/theme_design_spec_reference.md` as template):
 - Color palette, typography settings, layout parameters, component definitions, slide type visual descriptions
 
-**`theme.md`** — API summary document (use `${TYLINA_SKILLS_ROOT}/_shared/slides/theme_reference.md` as template):
+**`theme.md`** — API summary document (use `_shared/slides/theme_reference.md` as template):
 - Quick start code, theme parameters table, available slide types, reusable components, color scheme mapping
 
 ### 2. Inherit Design Specification
@@ -320,7 +320,7 @@ Every theme must define a `slide` function registered via `config-common(slide-f
 - `utils.call-or-display(self, value)` — handle both content and `self => content` functions
 - `std.align` — use instead of `align` when the parameter name shadows the built-in
 
-> **Working examples**: See `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-rich/psychology/template.typ` for a warm component-rich slide function with header/footer, and `custom-rich/smart-red/template.typ` for a bold modern business implementation.
+> **Working examples**: See `_shared/slides/themes/custom-rich/psychology/template.typ` for a warm component-rich slide function with header/footer, and `custom-rich/smart-red/template.typ` for a bold modern business implementation.
 
 #### 4c. Special Slide Functions
 
@@ -363,7 +363,7 @@ All special slides use `touying-slide-wrapper(self => { ... })`. Key patterns:
 
 #### 4d. Canvas Slide Functions
 
-> **Working examples**: See `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-canvas/guizang-magazine/template.typ` and `custom-canvas/sugar-rush/template.typ` for complete dark-slide, hero-slide, and place()-heavy implementations in production themes.
+> **Working examples**: See `_shared/slides/themes/custom-canvas/guizang-magazine/template.typ` and `custom-canvas/sugar-rush/template.typ` for complete dark-slide, hero-slide, and place()-heavy implementations in production themes.
 
 Canvas-level themes benefit from specialized slide functions for dark pages and hero images. These are the two most common Canvas slide types:
 
@@ -684,7 +684,7 @@ These conventions keep themes consistent and maintainable across the template li
 
 ### Convention 1: Palette Dictionary for Colors
 
-> **Working examples**: See `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-canvas/guizang-magazine/template.typ` for the two-tone `build-palette` pattern, and `custom-rich/psychology/template.typ` for a standard multi-color palette dictionary.
+> **Working examples**: See `_shared/slides/themes/custom-canvas/guizang-magazine/template.typ` for the two-tone `build-palette` pattern, and `custom-rich/psychology/template.typ` for a standard multi-color palette dictionary.
 
 Define all colors in a single `palette` dictionary at the top of template.typ. Do NOT use prefixed variables like `my-primary`.
 
@@ -852,7 +852,7 @@ Use `@preview/codly:1.3.0` for zebra-striped alternating row appearance, line nu
 #show: my-theme.with(...)
 ```
 
-See `${TYLINA_SKILLS_ROOT}/_shared/packages/codly/README.md` for full API.
+See `_shared/packages/codly/README.md` for full API.
 
 **Do NOT use zebraw** — it causes compilation failures.
 

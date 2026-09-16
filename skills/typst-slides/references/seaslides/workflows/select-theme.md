@@ -95,8 +95,8 @@ Keep design choices outcome-oriented. Decorative SVG, asymmetry, and custom comp
 If the theme is already scaffolded or copied in the current workspace, keep those files and
 continue below. Otherwise resolve its exact catalog spec with `template.list`, inspect
 it with `template.inspect`, and call `template.create`. Use the returned
-destination and entrypoint. Never run `project_manager.py init` or `copy-theme`, never transcribe
-the template, and never overwrite an existing different workspace file.
+destination and entrypoint. Never transcribe the template, and never overwrite an existing
+different workspace file.
 
 Read:
 

@@ -36,7 +36,8 @@ scholarly or makes literature-backed claims.
 2. Inventory the supplied data, formulas, symbolic source, units, references, figures, locale,
    output size, and existing package imports before editing.
 3. Preserve existing verified notation packages. For a new capability, call `package.list` with a
-   focused discipline or query, then inspect the exact returned version and routed recipe.
+   focused discipline or query. Read the routed recipe when present; otherwise verify the returned
+   exact spec against official versioned documentation before using its API.
 4. Compile one representative quantity, formula, reaction, circuit, or figure before scaling the
    pattern. Keep raw data and domain source editable when a renderer is involved.
 5. Compare the rendered result against the supplied evidence, then validate the complete document

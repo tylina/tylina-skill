@@ -26,12 +26,12 @@ High-craft visual Typst slide executor for editorial magazine, Swiss internation
 - `template-designer.md` — Theme design patterns, component implementations
 - `design-guide.md` — Aesthetic philosophy, anti-patterns, visual excellence principles
 - `image-layout-patterns.md` — 72 image-text layout patterns (Primary + Modifier vocabulary)
-- `${TYLINA_SKILLS_ROOT}/_shared/packages/index.json` — Additional packages: mitex (math), lilaq (standard charts), gribouille (layered Grammar-of-Graphics plots), merman (Mermaid flowcharts/Gantt), codly (zebra-stripe code), lovelace (pseudocode), cheq (checklists), pinit (annotations), etc.
-- `${TYLINA_SKILLS_ROOT}/_shared/icons/index.json` — Icon packages; use emoji by default
+- `_shared/packages/index.json` — Additional packages: mitex (math), lilaq (standard charts), gribouille (layered Grammar-of-Graphics plots), merman (Mermaid flowcharts/Gantt), codly (zebra-stripe code), lovelace (pseudocode), cheq (checklists), pinit (annotations), etc.
+- `_shared/icons/index.json` — Icon packages; use emoji by default
 
 > **Rule**: All technical standards (APIs, versions, syntax) are defined in those documents. This file covers **Canvas style-specific** guidance only.
 
-> **One-shot references**: Study the bundled Canvas examples in `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-canvas/` — especially `sugar-rush/demo.typ` (Memphis/pop art with full-bleed imagery and `place()`-heavy compositions), `guizang-magazine/demo.typ` (editorial two-tone with dark/light rhythm), and `guizang-swiss/demo.typ` (Swiss design with precise grid layouts).
+> **One-shot references**: Study the bundled Canvas examples in `_shared/slides/themes/custom-canvas/` — especially `sugar-rush/demo.typ` (Memphis/pop art with full-bleed imagery and `place()`-heavy compositions), `guizang-magazine/demo.typ` (editorial two-tone with dark/light rhythm), and `guizang-swiss/demo.typ` (Swiss design with precise grid layouts).
 
 ---
 
@@ -774,8 +774,8 @@ For stronger legibility (3-layer):
 
 - [ ] CRITICAL: Every content slide has a #speaker-note[...] block
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
-- [ ] Inline math uses #mi(), block math uses #mitex()
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
 - [ ] Colors reference `palette.xxx`, never hardcoded hex values in `main.typ`

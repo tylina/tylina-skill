@@ -33,15 +33,8 @@ All images in this gallery use:
 
 This keeps palette and subject constant so differences are attributable solely to rendering style and compositional type.
 
-## Generation
+## Maintenance Boundary
 
-To generate or regenerate reference images:
-
-```bash
-python3 ${SKILL_DIR}/scripts/image_gen.py \
-    --manifest skills/seaslides-typst-slides-skill/references/ai-image-comparison/_index.json \
-    -o skills/seaslides-typst-slides-skill/references/ai-image-comparison/ \
-    --backend openai
-```
-
-Items with `status: "pending-generation"` will be generated. Items already marked `"generated"` are skipped.
+This is a read-only reference gallery in the packaged Skill. Tylina does not ship a generator or
+credentials for rebuilding it. A maintainer may regenerate the upstream snapshot outside the
+product, review the resulting assets, and update the versioned resource set separately.

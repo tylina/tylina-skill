@@ -6,20 +6,20 @@ description: Coedit, inspect, evaluate, and verify Typst documents with Tylina's
 # Tylina
 
 Tylina supplements your harness with editor context and document capabilities. Use your normal
-read/edit/write tools for files. `workspace.info` provides the actual project, main file and
-`skillsRoot`; your terminal working directory may differ. Native edits reach the editor through
+read/edit/write tools for files. `workspace.info` provides the actual project and main file;
+your terminal working directory may differ. Native edits reach the editor through
 its external-change handling. Resolve unsaved-edit conflicts instead of overwriting them.
 
 One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 
-- `{command:"workspace.info"}` — workspace and resource paths.
+- `{command:"workspace.info"}` — workspace, main file, and known file counts.
 - `{command:"editor.state"}` — real selection/caret, active file and draft status.
 - `{command:"document.validate"}` — compile the current main and report diagnostics.
 - `{command:"document.eval",args:{expression:"1 + 2"}}` — evaluate bounded Typst code in the
   current compiled document world without changing source.
-- `{command:"document.import",args:{source:"sources/paper.pdf",destination:"sources/paper.md",
-  expectedDestinationSha256:null}}` — inspect, hash-bind, then extract a PDF or Office source into
-  conservative Markdown. Follow the returned status; the first hashless call never writes.
+- `{command:"document.import",args:{source:"sources/paper.pdf",destination:"sources/paper.md"}}` —
+  capture and extract a PDF or Office source into a new conservative Markdown file.
+  Follow `ocr-required` without silently accepting incomplete text.
 - `{command:"render.page",args:{page:1}}` — return an actual page image.
 - `{command:"package.list",args:{query:"music"}}` — search the current official package catalog
   and return relevant bundled Skill or recipe paths.
@@ -36,8 +36,8 @@ Portable PDF and Office ingestion:
 External raster image discovery, license review, import, and attribution:
 [image-sourcing.md](references/image-sourcing.md).
 
-Read the relevant bundled `typst-<domain>/SKILL.md` under `skillsRoot` using your file reader or
-Skill loader. Core `typst-authoring` is normally already in session instructions; do not reload it.
+Use `skill.list`, then `skill.read`, for the relevant bundled or enabled installed Skill.
+Core `typst-authoring` is normally already in session instructions; do not reload it.
 Current package discovery uses `package.list`; pinned recipes and official API paths are indexed in
 `_shared/packages/index.json` and
 `_shared/docs/index.json`. Load only the needed reference. These paths are not runtime imports.

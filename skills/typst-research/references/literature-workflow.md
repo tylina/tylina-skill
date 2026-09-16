@@ -40,7 +40,7 @@ After editing, verify all of the following:
 
 For a PDF, DOCX, PPTX, or XLSX already in the workspace, first read
 `typst-authoring/references/source-ingestion.md` and use `document.import`. This shared Web, DSH,
-Electron, and standalone SDK path needs no Python. Preserve its source hash, receipt, warnings,
+Electron, and standalone SDK path needs no Python. Preserve its source artifact, receipt, warnings,
 page count, and OCR policy with the working evidence record.
 
 Prefer embedded PDF text when its reading order and characters survive a sample comparison with

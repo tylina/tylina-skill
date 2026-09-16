@@ -1,7 +1,8 @@
 # Linguistic Notation Selection
 
-Call `package.list` and inspect the exact current version. The names below are search seeds; only
-the curated Eggs recipe fixes an API version.
+Call `package.list`, then read its routed recipe or verify the returned exact spec against official
+versioned documentation. The names below are search seeds; only the curated Eggs recipe fixes an
+API version.
 
 ## Representation Routing
 

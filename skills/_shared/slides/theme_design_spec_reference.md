@@ -67,7 +67,7 @@
 | **Text Light** | [name] | `#......` | `palette.text-light` | Captions, secondary text |
 | **Border** | [name] | `#......` | `palette.border` | Card borders, dividers |
 
-> All colors MUST be defined in a single `palette` dictionary in `template.typ`. See `${SKILL_DIR}/references/template-designer.md` Convention 1.
+> All colors MUST be defined in a single `palette` dictionary in `template.typ`. See `typst-slides/references/template-designer.md` Convention 1.
 
 ### Color Scheme — Option B: Palette Factory (Canvas)
 
@@ -98,7 +98,7 @@ For Canvas themes, use a **two-tone derivation** system with presets:
 | `card-dark` | ink.transparentize(92%) | Subtle card fill |
 | `paper-warm` | paper.darken(3%) | Off-white card backgrounds |
 
-> See `${SKILL_DIR}/references/template-designer.md` "Pattern: Two-Tone Derivation Palette" for implementation.
+> See `typst-slides/references/template-designer.md` "Pattern: Two-Tone Derivation Palette" for implementation.
 
 ### Touying Color Mapping
 
@@ -123,7 +123,7 @@ gradient.linear(palette.primary, palette.accent, angle: 135deg)
 | **Primary** | [font names] | `set text(font: ("...", "..."))` |
 | **Code** | Consolas, Monaco | `show raw: set text(font: "...")` |
 
-> **Important**: Font is set ONLY in `main.typ` via `#set text(font: ...)`, NOT in `template.typ`. The template sets only `size`. See `${SKILL_DIR}/references/template-designer.md` Convention 2.
+> **Important**: Font is set ONLY in `main.typ` via `#set text(font: ...)`, NOT in `template.typ`. The template sets only `size`. See `typst-slides/references/template-designer.md` Convention 2.
 
 ### Base Font Size
 
@@ -238,7 +238,7 @@ Define reusable components for `template.typ`. The Executor calls these from `ma
 
 > **Examples**: `feature-card(number, title, description)`, `metric-card(label, value, trend: none)`, `insight-box(title, body)`, `data-table(headers, rows)`, `stat-row(..items)`, `phase-card(phase, title, items)`.
 >
-> All callout-style boxes (insight, warning, success) should be implemented as a single base function with color parameter + convenience aliases. See `${SKILL_DIR}/references/template-designer.md` Convention 4.
+> All callout-style boxes (insight, warning, success) should be implemented as a single base function with color parameter + convenience aliases. See `typst-slides/references/template-designer.md` Convention 4.
 
 ### Layout Contract
 

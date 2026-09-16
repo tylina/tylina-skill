@@ -1,7 +1,8 @@
 # Scientific Notation and Package Selection
 
-Select by the canonical scientific representation, not by visual resemblance. Call `package.list`
-and inspect the exact current version before using any unpinned search seed.
+Select by the canonical scientific representation, not by visual resemblance. Call `package.list`,
+then read its routed recipe or verify the returned exact spec against official versioned
+documentation before using any unpinned search seed.
 
 ## Representation Routing
 

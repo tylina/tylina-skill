@@ -5,7 +5,7 @@ description: Generate Full Mode presentation content (main.typ) from a design sp
 # Create Presentation Content Workflow
 
 Use this workflow in Full Mode. For direct authoring without a separate design specification,
-follow `${SKILL_DIR}/references/seaslides/workflows/quick-mode.md` instead.
+follow `typst-slides/references/seaslides/workflows/quick-mode.md` instead.
 
 > **Role invoked**: Executor (see `executors/base.md` + complexity-specific executor)
 
@@ -113,16 +113,9 @@ Add `#speaker-note[...]` on each slide following the rules in `base.md` §4 Phas
 
 ## Step 5: Compile & Review
 
-```bash
-# Compile to PDF
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --format pdf --entry <entry.typ>
-
-# Compile to PNG for visual review
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --format png --ppi 144 --entry <entry.typ>
-
-# Generate overview for LLM self-review
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --format overview --entry <entry.typ>
-```
+Use `document.validate`, inspect pagination with `render.summary`, scan the deck with
+`render.overview`, and inspect suspicious or changed slides with `render.page`. Export only after
+the corrected source validates.
 
 ### Visual Review Checklist
 
@@ -132,8 +125,8 @@ python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --format overview 
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
-- [ ] Inline math uses #mi(), block math uses #mitex()
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
+- [ ] New formulas use native `$...$`; MiTeX only preserves supplied LaTeX or an existing MiTeX style
 - [ ] Color contrast meets WCAG AA (4.5:1 normal text, 3:1 large text)
 - [ ] Dark/light page rhythm matches `content_design_spec.md` §IV Page Rhythm column
 - [ ] Images render at correct size and position
@@ -148,4 +141,5 @@ python3 ${SKILL_DIR}/scripts/typst_compiler.py <project_path> --format overview 
 - This workflow generates `main.typ` only — `template.typ` should already exist
 - For new themes, run `create-template.md` first
 - For existing themes from the library, the theme files are already available
-- Speaker notes are required for TTS audio generation via `notes_to_audio.py`
+- Keep speaker notes semantic and complete so downstream narration tools can consume them when the
+  user's host provides that separate capability.

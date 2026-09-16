@@ -24,8 +24,8 @@ validate conditions, or establish chemical correctness.
 ```
 
 String form is convenient for compact supplied notation. Content form can embed styled Typst
-content, including annotations above or below an arrow; inspect the exact API before combining it
-with another package.
+content, including annotations above or below an arrow; read the Typsium 0.3.2 documentation before
+combining it with another package.
 
 ## Selection and Safety
 

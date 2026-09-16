@@ -40,23 +40,11 @@ content-driven.
 - Use `chicv` when transparency matters more than a package API. It is an upstream source file,
   not a locally redesigned theme.
 
-## Compile
+## Verify
 
-Run from an example directory:
-
-```bash
-typst compile demo.typ output.pdf
-typst compile --format png --ppi 144 demo.typ 'page-{p}.png'
-```
-
-Or copy the entry into a SeaSlides project and run:
-
-```bash
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project> --all --ppi 144 --entry <entry.typ>
-```
-
-For an existing editor-owned workspace, attach it with `project_manager.py workspace`; do not run
-project initialization inside that workspace.
+Materialize the chosen entry in the current Tylina workspace, select its returned entrypoint with
+`document.setMain`, then use `document.validate`, `render.summary`, and `render.page`. Export only
+when the user requests a delivery format.
 
 ## Required editing pass
 

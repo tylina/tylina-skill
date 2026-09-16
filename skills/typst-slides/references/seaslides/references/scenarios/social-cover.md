@@ -4,11 +4,10 @@ Use this workflow for social covers, article headers, thumbnails, share squares,
 and same-ratio card sequences. Treat the artifact as a fixed-canvas publication graphic, not a
 shortened presentation deck.
 
-The authoritative Typst canvas definitions live in
-[`../../scripts/config.py`](../../scripts/config.py). Follow
+Use the exact canvas dimensions declared by the selected
+`_shared/scenarios/social-cover/index.json` entry and its materialized Typst source. Follow
 [`../shared-standards.md`](../shared-standards.md) for general source, asset, compilation, and
-delivery rules. The ready-to-copy implementations live in
-[`../../templates/scenarios/social-cover/`](../../templates/scenarios/social-cover/README.md).
+delivery rules.
 
 This workflow adapts useful planning and composition ideas from the
 [Guizang social-card skill](https://github.com/op7418/guizang-social-card-skill) and the social
@@ -271,8 +270,7 @@ footer position. Stable metadata makes varied layouts feel like one publication.
 
 ## Choose the exact canvas
 
-Use the named Typst formats in `scripts/config.py` unless the user or platform specifies another
-exact size.
+Use these named Typst formats unless the user or platform specifies another exact size.
 
 | Format key | Typst page | Ratio | Typical use |
 |---|---:|---:|---|
@@ -907,12 +905,9 @@ For a WeChat pair:
 
 ## Compile exact outputs
 
-For a 1242 × 1660 carousel:
-
-```bash
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project> --all --ppi 72 --entry xhs-carousel.typ
-python3 ${SKILL_DIR}/scripts/typst_quality_checker.py <project> --expected-pages <N> --entry xhs-carousel.typ --json output/xhs-audit.json
-```
+Select each entry with `document.setMain`, run `document.validate` and `render.summary`, then call
+`render.page` at a PPI derived from its point dimensions. For a 1242 × 1660 point carousel,
+72 PPI yields a 1242 × 1660 pixel review image.
 
 For sibling mixed-ratio entries, compile one at a time and preserve the outputs before compiling
 the next entry, or use sibling project directories with separate `output/` folders.

@@ -6,25 +6,22 @@ the requested Typst document.
 ## Portable Import
 
 Use `document.import` before a host-specific converter. It is the shared Web, DSH, Electron, and
-standalone SDK path and does not require Python. It captures one bounded binary snapshot, verifies
-its SHA-256, extracts conservative Markdown off the interactive editing path, and publishes through
-the same version-checked workspace transaction as other Agent writes.
+standalone SDK path and does not require Python. In one call it captures a bounded binary snapshot,
+extracts conservative Markdown off the interactive editing path, and publishes through the same
+canonical workspace transaction as other Agent writes.
 
-1. Choose a conflict-free `.md` destination. Use `expectedDestinationSha256: null` only when it is
-   absent. To replace an existing text destination, read it first and pass its exact current hash.
-2. Read the binary with a host tool that returns SHA-256 and pass that as
-   `expectedSourceSha256`. If no binary-safe reader is available, omit this field on the first call.
-   A `source-hash-required` result reports the captured format, byte count, and hash without parsing
-   or writing; repeat the command with that exact hash.
-3. Keep `allowIncomplete: false`. A text-bearing PDF or supported Office file writes conservative
+1. Choose a conflict-free new `.md` destination. `document.import` never replaces an existing file.
+   If replacement is really requested, import to a new path, review it, then use the Agent host's
+   ordinary read/edit/write workflow.
+2. Keep `allowIncomplete: false`. A text-bearing PDF or supported Office file writes conservative
    Markdown and returns a receipt plus bounded warnings.
-4. If a PDF returns `ocr-required`, decide from the source and task whether OCR is justified. Retry
+3. If a PDF returns `ocr-required`, decide from the source and task whether OCR is justified. Retry
    only with explicit `ocr.languages`; available pinned languages are `eng`, `chi_sim`, `chi_tra`,
    and `jpn`. Set `maxPages` or `rasterPpi` only for a real quality or cost reason.
-5. Never silently use `allowIncomplete: true`. Use it only when the user accepts partial evidence,
+4. Never silently use `allowIncomplete: true`. Use it only when the user accepts partial evidence,
    retain every warning, and keep unresolved pages visible in the handoff.
 
-Example discovery call:
+Example:
 
 ```json
 {
@@ -32,13 +29,14 @@ Example discovery call:
   "args": {
     "source": "sources/paper.pdf",
     "destination": "sources/paper.extracted.md",
-    "expectedDestinationSha256": null
+    "allowIncomplete": false
   }
 }
 ```
 
-Repeat with the returned `sourceSha256` as `expectedSourceSha256`. If OCR is required and warranted,
-add, for example, `"ocr":{"languages":["eng","chi_sim"]}` to that second call.
+If OCR is required and warranted, repeat with, for example,
+`"ocr":{"languages":["eng","chi_sim"]}`. The host captures the source again for that call;
+the Agent never computes or returns a content hash.
 
 ## Evidence Boundary
 

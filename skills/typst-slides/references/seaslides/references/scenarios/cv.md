@@ -161,13 +161,8 @@ second local styling framework.
 ### 1. Preserve and convert source material
 
 Accept an existing PDF, DOCX, Markdown file, portfolio, publication list, job description, or
-structured notes. Keep originals under sources/. Use the standard source converters when needed;
-do not overwrite the originals.
-
-```bash
-python3 ${SKILL_DIR}/scripts/source_to_md/pdf_to_md.py sources/cv.pdf -o sources/cv-extracted.md
-python3 ${SKILL_DIR}/scripts/source_to_md/doc_to_md.py sources/cv.docx -o sources/cv-extracted.md
-```
+structured notes. Keep originals under `sources/`. Use `document.import` for a workspace PDF or
+DOCX, review its receipt and warnings, and do not overwrite the original.
 
 Treat extracted text as an aid, not as verified truth. PDF extraction often loses column order,
 superscripts, ligatures, and link targets.
@@ -652,21 +647,16 @@ Verify:
 
 ## Build, inspect, and correct
 
-### Compile the requested entry
+### Verify the requested entry
 
-```bash
-python3 ${SKILL_DIR}/scripts/typst_compiler.py <project> --all --ppi 144 --entry <entry.typ>
-python3 ${SKILL_DIR}/scripts/typst_quality_checker.py <project> --expected-pages <N> --entry <entry.typ> --json output/cv-audit.json
-python3 ${SKILL_DIR}/scripts/validate_project.py <project> --mode delivery --entry <entry.typ>
-```
-
-The compiler's --all mode produces PDF, page PNGs, and an overview. PDF is the primary CV
-artifact. Do not produce PPTX unless the user explicitly asks for it and accepts fidelity loss.
+Select it with `document.setMain`, run `document.validate` and `render.summary`, then inspect every
+page with `render.page`. Export PDF only when the user requests it. Do not produce PPTX unless the
+user explicitly asks for it and accepts the conversion boundary.
 
 ### Inspect visually
 
-Inspect output/overview.png first, then every page PNG at full size, then the PDF at 100% and at a
-typical laptop width. Also inspect a low-resolution thumbnail of every page: the name, section
+Use `render.overview` to locate suspect pages, inspect every page at full size, and inspect a
+low-resolution view of every page: the name, section
 sequence, date rhythm, and major groups should remain legible as hierarchy even when body copy is
 not readable. Simulate grayscale or print a page when practical.
 

@@ -126,9 +126,9 @@ Before writing each slide, look up its `Page Rhythm` tag from `content_design_sp
 
 ### Phase 1: Theme Building (template.typ)
 
-Build the template following the structure in `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-plain/`, `custom-rich/`, or `custom-canvas/`. See `template-designer.md` for the complete theme construction pattern, component implementations, header best practices, and `std.align` vs `align` rules.
+Build the template following the structure in `_shared/slides/themes/custom-plain/`, `custom-rich/`, or `custom-canvas/`. See `template-designer.md` for the complete theme construction pattern, component implementations, header best practices, and `std.align` vs `align` rules.
 
-> **Working examples**: Use `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/custom-rich/psychology/template.typ` (Rich) or `custom-canvas/guizang-magazine/template.typ` (Canvas) as reference implementations for component structure, palette setup, and slide function patterns. For Canvas with full main.typ examples, see `custom-canvas/sugar-rush/demo.typ` and `custom-canvas/guizang-swiss/`.
+> **Working examples**: Use `_shared/slides/themes/custom-rich/psychology/template.typ` (Rich) or `custom-canvas/guizang-magazine/template.typ` (Canvas) as reference implementations for component structure, palette setup, and slide function patterns. For Canvas with full main.typ examples, see `custom-canvas/sugar-rush/demo.typ` and `custom-canvas/guizang-swiss/`.
 
 Key patterns:
 - Use `touying-slide-wrapper` + `touying-slide` for every slide type
@@ -185,7 +185,7 @@ Actively consider these before writing slides — they significantly improve qua
 
 | Package | When to Use | Import |
 |---------|-------------|--------|
-| **mitex** | Any math content: `` #mi(`E=mc^2`) `` inline, `` #mitex(`...`) `` block. Backtick strings only. | `@preview/mitex:0.2.7` |
+| **mitex** | Supplied LaTeX or an existing MiTeX-authored document. Backtick strings only. | `@preview/mitex:0.2.7` |
 | **lilaq** | Standard slide/scientific plots or an existing SeaSlides chart template | `@preview/lilaq:0.6.0` |
 | **gribouille** | Layered analytical plots with mapped aesthetics, statistics, scales, and themes; read current docs because the API is evolving | `@preview/gribouille:0.6.0` |
 | **codly** | Code blocks when zebra-stripe aesthetic is desired (template already styles code by default) | `@preview/codly:1.3.0` |
@@ -197,9 +197,9 @@ Actively consider these before writing slides — they significantly improve qua
 
 | Resource | Path | Contents |
 |----------|------|----------|
-| **Charts** | `${TYLINA_SKILLS_ROOT}/_shared/charts/index.json` | Chart and infographic component catalog |
-| **Packages** | `${TYLINA_SKILLS_ROOT}/_shared/packages/index.json` | Curated package catalog and runnable demos |
-| **Icons** | `${TYLINA_SKILLS_ROOT}/_shared/icons/index.json` | Icon packages; use Unicode emoji by default |
+| **Charts** | `_shared/charts/index.json` | Chart and infographic component catalog |
+| **Packages** | `_shared/packages/index.json` | Curated package catalog and runnable demos |
+| **Icons** | `_shared/icons/index.json` | Icon packages; use Unicode emoji by default |
 
 > **GATE**: Before implementing ANY chart or diagram: (1) Read `charts/index.json` for the matching type, (2) Read the chart template file for correct API, (3) Verify version matches `shared-standards.md` §5. NEVER write chart code from memory.
 
@@ -222,7 +222,7 @@ job. Avoid accidental clustering caused by batching asset work, but preserve a
 deliberate image-led sequence or a mostly text/data deck when the content calls
 for it. There is no image-per-slide distribution formula.
 
-> **Layout variety**: Consult `${SKILL_DIR}/references/seaslides/references/image-layout-patterns.md` for the 72-pattern vocabulary. Follow the `Layout Pattern` column from `content_design_spec.md` §V for each image. Avoid defaulting every image to bare left-right split (#2/#3).
+> **Layout variety**: Consult `typst-slides/references/seaslides/references/image-layout-patterns.md` for the 72-pattern vocabulary. Follow the `Layout Pattern` column from `content_design_spec.md` §V for each image. Avoid defaulting every image to bare left-right split (#2/#3).
 
 ---
 
@@ -256,13 +256,14 @@ Before finalizing each phase:
 - [ ] Text below 14pt uses weight >= 400 (no light fonts at small sizes)
 - [ ] CJK titles sized appropriately (typically 85-90% of equivalent Latin sizes)
 - [ ] Colors meet contrast standards (see `shared-standards.md` §4)
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
-- [ ] Inline math uses #mi(), block math uses #mitex()
-- [ ] Content enhancement packages considered: math→mitex, standard charts→lilaq, layered statistical plots→gribouille, Mermaid diagrams→merman, algorithms→lovelace, checklists→cheq
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
+- [ ] New math uses native Typst; MiTeX is considered only for supplied LaTeX or existing MiTeX
+- [ ] Content packages considered: charts→lilaq/gribouille, diagrams→merman, algorithms→lovelace, checklists→cheq
 
 **Images**:
 - [ ] Images have explicit dimensions (`width:` or `height:`)
-- [ ] Charts reference `${TYLINA_SKILLS_ROOT}/_shared/charts/` for correct API usage
+- [ ] Charts reference `_shared/charts/` for correct API usage
 - [ ] Multi-image groups use consistent slot dimensions and framing
 - [ ] No thick borders or drop shadows on images (subtle 0.5pt stroke max)
 - [ ] All relevant source images from sources/ are used in slides
@@ -290,7 +291,7 @@ Review repeated layouts in narrative context. Keep a stable structure for compar
 | Wrong showybox version | Use `2.0.4` — check `shared-standards.md` §5 |
 | Custom `#two-column()` helper | Use `#cols[...][...]` |
 | `rgb("#XXXXXX")` in main.typ | Define colors in template.typ |
-| Writing chart code from memory | Read `${TYLINA_SKILLS_ROOT}/_shared/charts/` |
+| Writing chart code from memory | Read `_shared/charts/` |
 | `align` inside function with `align` parameter | Use `std.align` |
 
 ---

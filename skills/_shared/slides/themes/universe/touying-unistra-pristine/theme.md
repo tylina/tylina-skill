@@ -523,7 +523,7 @@ Override with fonts known to be installed on the target system, for example `con
 | `src/unistra.typ` | Main theme definition (slide types, layout, nav bar) |
 | `src/colors.typ` | Color palette definitions (80+ swatches, 18 themes) |
 | `src/icons.typ` | Icon function definitions and character mappings (auto-generated) |
-| `scripts/get_icons.py` | Python script that generates `src/icons.typ` |
+| `scripts/get_icons.py` | Upstream build helper; not packaged or required by Tylina |
 | `assets/csl/apa.csl` | French APA citation style |
 | `assets/csl/apa_en.csl` | English APA citation style |
 

@@ -151,7 +151,10 @@ If titles don't convey a clear narrative, revise to be **action-oriented**.
 
 > See `base.md` §5 for the full content enhancement package table and `shared-standards.md` §5 for versions.
 
-MBB decks frequently contain: financial formulas (mitex), data charts (lilaq or gribouille when layered statistical mappings help), strategic roadmaps with checklists (cheq), and process flows (merman — Mermaid syntax). Actively consider these packages — they elevate consulting decks beyond bullet-point text.
+MBB decks frequently contain financial formulas, data charts, strategic roadmaps, and process
+flows. Use native Typst math for new formulas; use MiTeX only for supplied LaTeX or an existing
+MiTeX-authored deck. Consider lilaq or gribouille for justified charts, cheq for checklists, and
+merman for Mermaid process diagrams.
 
 ---
 
@@ -162,8 +165,8 @@ MBB decks frequently contain: financial formulas (mitex), data charts (lilaq or 
 **Consultant-top-specific checks**:
 - [ ] CRITICAL: Every content slide has a #speaker-note[...] block
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
-- [ ] Inline math uses #mi(), block math uses #mitex()
-- [ ] NO fake formula text or Unicode lookalikes — use real `#mi`/`#mitex` or verified native `$...$` math
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
+- [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
 - [ ] SCQA framework applied to narrative

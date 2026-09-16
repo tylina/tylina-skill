@@ -4,10 +4,10 @@
 
 - [Core mission and pipeline context](#core-mission)
 - [License tiers](#1-license-tier-system)
-- [Providers](#2-providers)
-- [Query simplification](#3-query-simplification)
-- [CLI usage](#4-cli-usage)
-- [Source manifest](#5-manifest-format-imagesourcesjson)
+- [Provider boundary](#2-provider-boundary)
+- [Exact queries](#3-exact-queries)
+- [Tylina commands](#4-tylina-commands)
+- [Review record](#5-review-record)
 - [On-slide attribution](#6-on-slide-attribution)
 - [Web search versus AI generation](#7-when-to-use-web-search-vs-ai-generation)
 - [Failure handling](#8-failure-handling)
@@ -15,13 +15,15 @@
 
 ## Core Mission
 
-Search openly-licensed web image providers and download the best match for each `Acquire Via: web` row in the image resource list. Complementary to AI generation — use web search for real photography, landmarks, historical images, and documentary visuals.
+Find reviewable Openverse candidates for each `Acquire Via: web` row, inspect the selected work
+page and license, then import the bounded preview through Tylina. Use web search for real
+photography, landmarks, historical images, and documentary visuals.
 
 ## Pipeline Context
 
 | Previous Step | Current Step | Next Step |
 |---|---|---|
-| Strategist (§V Image Resource List) | **Image Searcher**: Query + download | Executor (embeds images in slides) |
+| Strategist (§V Image Resource List) | **Image Searcher**: Search, review, import | Executor (embeds images in slides) |
 
 ---
 
@@ -31,34 +33,27 @@ Two-tier classification:
 
 | Tier | Licenses | Downstream Impact |
 |------|----------|-------------------|
-| `no-attribution` | CC0, Public Domain, Pexels License, Pixabay Content License | Embed freely, no credit needed |
-| `attribution-required` | CC BY, CC BY-SA | Must render inline credit on slide |
+| `public-domain` | CC0, Public Domain Mark | Prefer when attribution licenses are unacceptable |
+| `adaptable` | CC0, Public Domain Mark, CC BY, CC BY-SA | Render and preserve required attribution |
 
 **Auto-rejected** (never download): CC BY-NC, CC BY-NC-SA, CC BY-ND, CC BY-NC-ND, All Rights Reserved, Unknown.
 
 ---
 
-## 2. Providers
+## 2. Provider Boundary
 
-| Provider | Config | Best For |
-|----------|--------|----------|
-| **Openverse** | Zero-config | Aggregator (Wikimedia + Flickr + museums + rawpixel) |
-| **Wikimedia Commons** | Zero-config | Educational, scientific, geographic, historical |
-| **Pexels** | `PEXELS_API_KEY` | Modern stock photography, people, workplace |
-| **Pixabay** | `PIXABAY_API_KEY` | Broad coverage (photos + illustrations) |
-
-Default chain: openverse → wikimedia → pexels (if key set) → pixabay (if key set). Missing keys silently skipped.
+`image.search` uses Tylina's fixed Openverse API boundary. The Skill does not collect provider
+credentials, call arbitrary download URLs, or imply support for Pexels, Pixabay, or a hidden
+fallback chain. Search results are discovery metadata; Openverse does not prove the cataloged
+license is correct, so the selected work page must be reviewed before import.
 
 ---
 
-## 3. Query Simplification
+## 3. Exact Queries
 
-The Strategist's `Description` field is intent (free-form prose), NOT a search query. The script's `simplify_query` algorithm:
-
-1. Strip HEX codes and parentheticals
-2. Drop noise words (`professional`, `editorial`, `photo`, `background`, `ai`, `tech`, `platform`) when concrete nouns remain
-3. Cap at 4 words
-4. Fail-open: if filtering empties the query, use original
+The Strategist's `Description` field is visual intent, not automatically a search query. Form one
+concise query that preserves proper names and technical terms. Tylina sends it unchanged. If the
+results fail, formulate and record a materially different query instead of silently rewriting it.
 
 **Good reference descriptions** (Strategist writes these):
 - "Offshore wind turbines at sunset, wide angle, documentary feel"
@@ -69,66 +64,49 @@ The Strategist's `Description` field is intent (free-form prose), NOT a search q
 
 ---
 
-## 4. CLI Usage
+## 4. Tylina Commands
 
-```bash
-# Default: zero-config, quality-first across allowed licenses
-python3 ${SKILL_DIR}/scripts/image_search.py "offshore wind farm" \
-    --filename cover_bg.jpg --slide 01 \
-    --orientation landscape -o project/assets
-
-# Strict mode: only no-attribution images
-python3 ${SKILL_DIR}/scripts/image_search.py "abstract gradient" \
-    --filename hero.jpg --strict-no-attribution \
-    -o project/assets
-
-# Pin a specific provider
-python3 ${SKILL_DIR}/scripts/image_search.py "executive meeting" \
-    --filename team.jpg --provider pexels \
-    --orientation landscape -o project/assets
-
-# Batch mode via manifest
-python3 ${SKILL_DIR}/scripts/image_search.py --manifest project/assets/image_sources.json
-```
-
-### Parameters
-
-| Flag | Description |
-|------|-------------|
-| `query` (positional) | Search query (simplified from description) |
-| `--filename` | Output filename |
-| `-o` / `--output` | Output directory (default: `project/assets`) |
-| `--slide` | Target slide number (for manifest tracking) |
-| `--purpose` | Image purpose description |
-| `--orientation` | `any` / `landscape` / `portrait` / `square` |
-| `--provider` | Pin to specific provider |
-| `--strict-no-attribution` | Only download no-attribution images |
-| `--manifest` | Batch mode: process all pending rows in manifest |
-
----
-
-## 5. Manifest Format (`image_sources.json`)
+Call `image.search` with the exact query, an explicit license policy, and an aspect ratio only when
+the layout requires it. Review a short list by relevance, dimensions, crop, creator, source page,
+attribution, and license. Open the chosen source page before importing it.
 
 ```json
 {
-  "filename": "cover_bg.jpg",
-  "slide": 1,
-  "purpose": "Cover background — wind energy documentary",
-  "search_query": "offshore wind farm",
-  "orientation": "landscape",
-  "provider": "pexels",
-  "title": "Wind Turbines in Ocean",
-  "author": "Tom Fisk",
-  "source_page_url": "https://www.pexels.com/photo/...",
-  "download_url": "https://images.pexels.com/...",
-  "license_name": "Pexels License",
-  "license_tier": "no-attribution",
-  "attribution_required": false,
-  "width": 4000,
-  "height": 2250,
-  "status": "Sourced"
+  "command": "image.search",
+  "args": {
+    "query": "offshore wind farm",
+    "licensePolicy": "adaptable",
+    "aspectRatio": "wide"
+  }
 }
 ```
+
+Import the selected candidate by its exact ID. Tylina refetches current metadata and applies the
+requested license policy, so the import does not depend on hidden search-session state:
+
+```json
+{
+  "command": "image.import",
+  "args": {
+    "id": "candidate-id",
+    "licensePolicy": "adaptable",
+    "destination": "assets/cover-bg.jpg"
+  }
+}
+```
+
+Use `public-domain` when attribution licenses are unacceptable. Use `adaptable` only when CC BY or
+CC BY-SA is acceptable in addition to CC0 and PDM. The destination must be new and its extension
+must match the imported bytes.
+
+---
+
+## 5. Review Record
+
+Keep the selected candidate's purpose, query, creator, work page, license URL and version,
+attribution, dimensions, and final workspace path beside its row in `content_design_spec.md`.
+Do not invent a private manifest as the only copy of this information. Search metadata is not proof
+of legal reuse; preserve uncertainty when the work page is unavailable or contradictory.
 
 ---
 
@@ -139,14 +117,14 @@ For `attribution-required` images, render inline credit in Typst:
 ```typst
 // Bottom-right, small, semi-transparent
 #place(bottom + right, dx: -12pt, dy: -8pt,
-  text(size: 7pt, fill: luma(150))[Photo: Tom Fisk / Wikimedia / CC BY 4.0]
+  text(size: 7pt, fill: luma(150))[Photo: Jane Doe / Wikimedia Commons / CC BY 4.0]
 )
 ```
 
 **Rules:**
 - Font size: 7-8pt, grey or semi-transparent
 - Position: bottom-right of the image container (not the page)
-- Format: `Photo: {author} / {provider} / {license_short}`
+- Format: `Photo: {author} / {source} / {license_short}`
 - For full-bleed/hero: use scrim overlay + white semi-transparent text
 
 ---
@@ -171,10 +149,9 @@ For `attribution-required` images, render inline credit in Typst:
 ## 8. Failure Handling
 
 Failures MUST NOT halt the pipeline:
-1. Try primary provider → retry with broadened query (3 words → 2 words)
-2. Fall through to next provider in chain
-3. If all providers fail: mark `Needs-Manual` and continue
-4. Never block the Executor from proceeding with available images
+1. Review the error and try one deliberately reformulated query when useful.
+2. If no acceptable reviewed candidate exists, mark the item `Needs-Manual` and continue.
+3. Never substitute an unreviewed URL or block the Executor from proceeding with available images.
 
 ---
 

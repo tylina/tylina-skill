@@ -1,9 +1,10 @@
 # Scenario Templates
 
 These examples are ready-to-copy `.typ` starting points for non-deck scenario workflows. The
-academic, education, long-form, and theorem/proof leaves are Tylina-owned offline workspaces with
-one explicit `main.typ`. CV and poster leaves normally contain `demo.typ`; social-cover leaves add
-`template.typ` so reusable visual systems stay separate from audience-facing demo content.
+academic, education, long-form, table, and theorem/proof leaves are Tylina-owned offline
+workspaces with one explicit `main.typ`. CV and poster leaves normally contain `demo.typ`;
+social-cover leaves add `template.typ` so reusable visual systems stay separate from
+audience-facing demo content.
 
 | Scenario | Catalog | What it contains |
 |---|---|---|
@@ -11,6 +12,7 @@ one explicit `main.typ`. CV and poster leaves normally contain `demo.typ`; socia
 | CV | [cv/README.md](cv/README.md) | Seven pinned Typst-native résumé/CV routes, from byte-identical chicv and heading-resume starters to technical, CJK, visual, and academic package examples |
 | Education | [education/README.md](education/README.md) | Homework and exam workspaces that generate learner and answer editions from one canonical source |
 | Long-form | [longform/README.md](longform/README.md) | Multi-file report and course-note workspaces with reusable layout modules and stable authored units |
+| Tables | [tables/README.md](tables/README.md) | A package-free data-table workspace with semantic headers, reusable styling, source notes, and numeric alignment |
 | Social cover | [social-cover/README.md](social-cover/README.md) | Eight fixed-canvas systems spanning magazine, Swiss, RISO, editorial-grid, architecture, newspaper, photo-journal, and marginalia treatments |
 | Poster | [poster/README.md](poster/README.md) | Eight runnable entries across five Universe packages, including three `peace-of-posters` compositions and two `placard` variants |
 | Theorem/proof | [theorem-proof/README.md](theorem-proof/README.md) | A package-free proof note with semantic statements, shared numbering, references, and review checks |

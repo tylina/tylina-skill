@@ -1,8 +1,9 @@
 # Office Forms and Template Selection
 
 Select the artifact and jurisdictional boundary before selecting a visual template. Always call
-`template.list` or `package.list` and inspect the exact current result; names below are search seeds,
-not stable API promises.
+`template.list` or `package.list`. Inspect exact template candidates with `template.inspect`; for a
+package, read the routed recipe or verify the returned exact spec against official versioned
+documentation. Names below are search seeds, not stable API promises.
 
 ## Artifact Routing
 

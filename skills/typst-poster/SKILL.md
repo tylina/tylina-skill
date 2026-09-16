@@ -41,10 +41,6 @@ Compose this Skill with Typst Authoring. A poster is one physical document page,
    size and once at thumbnail size. Re-render only after the source changes; do not repeat an
    unchanged template query, validation, page, and PPI combination.
 
-For an optional upstream helper, resolve the upstream reference's scripts directory to
-`<skillsRoot>/typst-slides/scripts`, read `typst-slides/scripts/TYLINA.md`, and keep all work
-inside the current workspace. Prefer Tylina MCP validation, rendering, and main-file selection.
-
 ## Non-negotiables
 
 - Produce exactly one deliberate physical poster page unless the user changes the deliverable.

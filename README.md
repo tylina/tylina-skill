@@ -123,8 +123,8 @@ editing, templates and export.
 
 The `skills/` directory is the runtime resource root. It contains the installable `tylina` entry,
 domain Skills, their catalog and the `_shared` reference and template resources. The offline
-scenario catalog includes paper, theorem/proof, report, notes, homework and exam workspaces alongside
-the CV, poster and social-cover collection. Matching gallery images live in
+scenario catalog includes paper, theorem/proof, report, notes, homework, exam and semantic table
+workspaces alongside the CV, poster and social-cover collection. Matching gallery images live in
 `resources/template-previews` and are packaged at the editor's stable preview URLs.
 
 This repository is independently installable content. Run `node --test tests/skill-package.mjs` to check

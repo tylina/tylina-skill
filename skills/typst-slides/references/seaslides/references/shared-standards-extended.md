@@ -225,12 +225,23 @@ Format specifiers: `{1}` (Arabic), `{1:A}` (uppercase letter), `{1:a}` (lowercas
 
 > **Critical**: Typst's built-in math syntax is NOT LaTeX. Do not use `\frac{}{}`, `\int`, `\sum`, etc. in Typst's native `$ ... $` mode.
 
-### LaTeX Math via MiTeX Package (default)
+### Typst Native Math (default)
 
-Default new formulas to MiTeX. Preserve existing verified native math. Use new native `$...$` only
-when already fluent in every exact Typst spelling and expecting the first authored expression to
-validate; short or simple is not sufficient. Never imitate an equation with ordinary text, a
-quoted string, `#raw(...)`, code styling, or Unicode lookalikes outside actual math content.
+Write new formulas in native Typst math and validate them with the real compiler. Preserve the
+working document's established math style. Never imitate an equation with ordinary text, a quoted
+string, `#raw(...)`, code styling, or Unicode lookalikes outside actual math content.
+
+```typst
+// Inline math
+The function $f(x) = sum_(i=1)^n w_i dot x_i + b$ is linear.
+
+// Display math
+$ integral_0^1 x^2 dif x = 1/3 $
+```
+
+### LaTeX Interoperability via MiTeX
+
+Use MiTeX only to preserve supplied LaTeX or an existing MiTeX-authored document:
 
 ```typst
 #import "@preview/mitex:0.2.7": *
@@ -255,13 +266,9 @@ Write inline equations like #mi(`x^2 + y^2 = z^2`).
 | ``#mitex(`...`)`` / ``#mimath(`...`)`` | Block LaTeX equation |
 | `#mitext(`...`)` | LaTeX text mode |
 
-### Typst Native Math (advanced)
+### Native Syntax Reference
 
-> **When to use**: Use Typst native math when the existing document establishes that convention,
-> or when the author knows the native syntax well enough to verify its notation and rendered
-> result. Use MiTeX for LaTeX source, complex formulas, or any uncertainty.
-
-Typst has its own math syntax inside `$ ... $`:
+Typst has its own math syntax inside `$...$`:
 
 ```typst
 // Inline math
@@ -298,17 +305,16 @@ Common Typst math vs LaTeX comparison:
 
 | Scenario | Recommendation |
 |----------|---------------|
-| New formula or uncertain native spelling | **MiTeX package** |
+| New formula | **Typst native math**, then compile and inspect |
 | Existing document consistently uses verified Typst-native math | Preserve native math |
-| Already fluent in exact Typst spelling; first draft expected to validate | Typst native math, then inspect |
+| Existing document consistently uses MiTeX | Preserve MiTeX |
 | Converting LaTeX source with formulas | MiTeX package (no rewriting needed) |
-| PDF source processed by MinerU (contains `$...$` LaTeX) | MiTeX package — MinerU outputs LaTeX math notation |
-| Math-heavy academic deck (50+ equations) | MiTeX (reliable; avoids Typst math syntax errors) |
+| Reviewed imported source whose formulas are explicitly LaTeX | Preserve them with MiTeX |
+| Math-heavy deck authored in Typst | Native math; validate representative notation early |
 
-> **MinerU → Typst workflow**: When `pdf_to_md.py` uses the MinerU backend, extracted math
-> appears as LaTeX (e.g., `$\frac{1}{2}$` or `$$\int_0^\infty ...$$`). In the generated
-> Typst code, wrap these with ``#mi(`...`)`` (inline) or ``#mitex(`...`)`` (block).
-> Do NOT attempt to manually convert MinerU's LaTeX output to Typst native math — use mitex directly.
+> **Imported LaTeX workflow**: When a reviewed source conversion returns LaTeX, preserve it with
+> ``#mi(`...`)`` inline or ``#mitex(`...`)`` as a block. Do not mechanically reinterpret imported
+> notation as native Typst math unless the user asked for a conversion and the result is verified.
 
 Compilation verifies syntax only. Check notation, indices, dimensions, masks, constants, and
 equation meaning against the source material, then inspect the rendered result at readable size.
@@ -365,7 +371,8 @@ This applies to all `place()`-based decorative elements in slide `setting` funct
 
 ## Source Images (from imported PDFs)
 
-When users import source materials (via `pdf_to_md.py`), images are extracted to `sources/`. Use `composer` for side-by-side layouts:
+When `document.import` extracts images from source materials into `sources/`, use `composer` for
+side-by-side layouts:
 
 ```typst
 // Image + text side-by-side (image on right)

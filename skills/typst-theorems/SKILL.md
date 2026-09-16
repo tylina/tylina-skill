@@ -40,10 +40,10 @@ Compose this Skill with Typst Authoring.
   present an unverified derivation as a proof.
 - In `review-proof` mode, identify gaps and counterexamples separately from typesetting changes.
 - Preserve established notation. Distinguish inline and display math using actual Typst mode.
-- Follow the Typst Authoring math integrity gate. Preserve valid native math already established
-  by the workspace. Default new formulas to MiTeX. Use native `$...$` only when already fluent in
-  its exact Typst spelling and expecting the first authored expression to validate; a short or
-  simple formula is not sufficient. Never imitate math with raw, code, plain text, or Unicode.
+- Follow the Typst Authoring math integrity gate. Write new formulas in native Typst `$...$` math,
+  preserve the workspace's established math style, and validate the result with the real compiler.
+  Use MiTeX only for supplied LaTeX or an existing MiTeX-authored document. Never imitate math with
+  raw, code, plain text, or Unicode lookalikes.
 
 ## Progressive Resources
 

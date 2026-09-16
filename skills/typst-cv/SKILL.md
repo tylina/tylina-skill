@@ -54,10 +54,6 @@ Compose this Skill with Typst Authoring. A CV is a print document, not a slide d
    check extracted PDF text order. Report unresolved facts, fonts, packages, page count, and the
    checks actually completed.
 
-If a SeaSlides helper is useful, the upstream reference's scripts directory means
-`<skillsRoot>/typst-slides/scripts`. Read `typst-slides/scripts/TYLINA.md` first and use the
-current workspace only. Tylina MCP validation, rendering, and main-file selection remain primary.
-
 ## Non-negotiables
 
 - Keep `.typ` files as the editable source of truth; do not default to a YAML-first CV system.

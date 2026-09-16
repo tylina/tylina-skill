@@ -16,8 +16,8 @@ depth to the user's intent.
 ## 1. Prepare the Source and Workspace
 
 1. Call `workspace.info` and keep that root and live main as the only workspace state.
-   Convert a non-Markdown source only when its focused SeaSlides helper materially helps, then
-   read the result before authoring.
+   Convert supported PDF or Office source with `document.import`, then read its receipt, warnings,
+   and result before authoring.
 2. For a topic-only request, write a concise source brief from reliable information already in
    scope. Switch to Full Mode when research, citation verification, or current/high-stakes facts
    are required.
@@ -46,10 +46,8 @@ Do not use Quick Mode as permission to author from an unread raw document.
    `typst-slides/references/seaslides/references/shared-standards.md`. Read `template.typ` only
    when the public docs and demo leave an API/layout question or a compile error points to the
    implementation.
-7. If a required new theme cannot be materialized and direct filesystem access exists, copy the
-   exact theme directory from the resource roots returned by `workspace.info`. Preserve
-   its directory tree and binary assets; never transcribe template source or overwrite a
-   different file.
+7. If a required new theme cannot be materialized, report that boundary. Do not guess private
+   resource paths, transcribe template source, or overwrite a different file.
 
 ## 3. Author Directly
 
@@ -65,12 +63,10 @@ current main. Do not create a substitute mini design-spec file.
 - Prefer Typst content blocks for rendered copy: `#card[Title][Body]`, not
   `#card("Title")[Body]`. Keep strings for paths, URLs, enum/config keys, font names, and values
   that genuinely require string operations.
-- Before writing a formula, apply the always-loaded math integrity gate. Quick compilation is never
-  a reason to use `#raw(...)`, ordinary/code text, or Unicode lookalikes as a shortcut. Default new
-  formulas to raw ``#mi(`...`)`` or ``#mitex(`...`)``. Use native `$...$` only when already fluent
-  in every exact Typst spelling and expecting the first authored expression to validate; short or
-  simple is not sufficient. Read the MiTeX README/demo before using it, and compare every formula
-  with its source and rendered result.
+- Before writing a formula, apply the always-loaded math integrity gate. Use native Typst math by
+  default. Use MiTeX only for supplied LaTeX or an existing MiTeX-authored document. Never use
+  `#raw(...)`, ordinary/code text, or Unicode lookalikes as a shortcut. Compare every formula with
+  its source and rendered result.
 - Reuse a Canvas theme's demonstrated composer or layout skeleton. Do not invent new page
   geometry; use `place()` only when adapting the same pattern shown by the demo and verify it with
   a compile probe.
@@ -96,10 +92,6 @@ Honor an explicit request to skip visual review. For an ordinary fast draft with
 preference, inspect the overview and only suspicious pages. Inspect every slide once when the user
 requests visual assurance or a delivery-grade review. Fix defects found in the selected review
 scope, recompile after source changes, and avoid discretionary polish rounds.
-
-Use the packaged quality checker only for a supplemental audit. First read
-`typst-slides/scripts/TYLINA.md`, call `runtime.prepare`, and pass `--entry` for the
-live workspace-relative main. Never use a script result instead of Tylina validation or render.
 
 Require a successful live validation and the requested Tylina exports. If visual review was
 skipped, state that the deck was compiled and mechanically checked but not visually reviewed; do

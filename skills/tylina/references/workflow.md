@@ -18,8 +18,9 @@ check unavailable catalog sources; do not claim an offline shortlist contains ev
 
 For reusable capabilities rather than a whole scaffold, call `package.list`. It reads the current
 official Universe index, including non-template packages, and returns pinned metadata plus the
-relevant Tylina Skill and optional verified recipe. Inspect the exact version before editing;
-package metadata and a repository screenshot do not establish an API.
+relevant Tylina Skill and optional verified recipe. Read the returned recipe when present;
+otherwise verify the returned exact spec against official versioned documentation before editing.
+`package.list` metadata and a repository screenshot do not establish an API.
 
 ## Inspect document values
 
@@ -32,11 +33,10 @@ results are rejected by the host.
 ## Import source material
 
 Use `document.import` for a PDF, DOCX, PPTX, or XLSX already in the workspace. Read
-`typst-authoring/references/source-ingestion.md` before calling it. The hashless first call is
-read-only and returns the exact source hash; the hash-bound second call may create or replace the
-chosen `.md` destination. Keep the original binary, treat warnings as unresolved evidence, and
-never opt into partial scan text silently. This shared path works in Web, DSH, Electron, and the
-standalone SDK without Python.
+`typst-authoring/references/source-ingestion.md` before calling it. One call captures the current
+binary and may create the chosen new `.md` destination. Keep the original binary and treat warnings
+as unresolved evidence. Never opt into partial scan text silently. This shared path works in Web,
+DSH, Electron, and the standalone SDK without Python.
 
 ## Work in a large project
 
@@ -65,12 +65,6 @@ Typst source and resources, and do not promise round-trip editing from PowerPoin
 
 Validation and rendering must correspond to the current source. If the user edits concurrently,
 refresh the source/context and repeat only the checks made obsolete by those changes.
-
-## Use packaged scripts
-
-Optional scripts live under `skillsRoot` from `workspace.info`. Read the selected script's usage
-and use the harness terminal and environment. Do not install a runtime merely to edit a document.
-Browser-only hosts have no native terminal; use their document capabilities instead.
 
 ## Operate the editor
 

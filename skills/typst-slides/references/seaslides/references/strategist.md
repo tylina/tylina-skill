@@ -126,7 +126,7 @@ Confirm (or infer): 1) **Target audience** (who, expertise, pain points), 2) **U
 Choose main.typ writing complexity (see `shared-standards.md` §1c for full Plain/Rich/Canvas comparison):
 - **Plain**: Typography- and content-driven with minimal components. Use when restraint supports the task or the user requests it.
 - **Rich**: Component-driven composition with grids, cards, charts, or other reusable structures. Use as the dependable default when the content benefits from them.
-- **Canvas**: Bespoke free-form composition using Typst primitives and semantic palette values. Use when the task materially benefits and execution passes the capability checks in `${SKILL_DIR}/references/seaslides/workflows/select-theme.md`.
+- **Canvas**: Bespoke free-form composition using Typst primitives and semantic palette values. Use when the task materially benefits and execution passes the capability checks in `typst-slides/references/seaslides/workflows/select-theme.md`.
 
 | Style | Default | Rationale |
 |-------|---------|-----------|
@@ -212,7 +212,10 @@ When the deck contains CJK (Chinese/Japanese/Korean) text, apply character-count
 
 > [!CAUTION]
 > **Image guidance for non-academic content**:
-> If the presentation is **non-academic** and has no source images, prefer "Web Search" or "AI Generated" when relevant imagery would improve explanation, evidence, or atmosphere. Use `image_search.py` for real photography (people, places, events, landmarks) or `image_gen.py` for custom illustrations. Do not add filler imagery solely to satisfy a cadence.
+> If the presentation is **non-academic** and has no source images, prefer reviewed web imagery or
+> generated images when they materially improve explanation, evidence, or atmosphere. Use
+> `image.search` and `image.import` for real photography; use an available host image-generation
+> capability for custom illustrations. Do not add filler imagery solely to satisfy a cadence.
 >
 > "No Images" is only acceptable when:
 > - The content is academic/scientific (conference talks, papers)
@@ -260,7 +263,7 @@ When useful, describe composition with the optional P/M/A/C vocabulary: Primary 
 
 🚧 **GATE — Image Layout Patterns**: When image approach is AI/User/Placeholder (anything other than "No Images"):
 
-1. **Read** `${SKILL_DIR}/references/seaslides/references/image-layout-patterns.md` before writing §V Image Resource List
+1. **Read** `typst-slides/references/seaslides/references/image-layout-patterns.md` before writing §V Image Resource List
 2. **Produce** — every image row MUST describe its narrative purpose, framing/crop intent, and intended treatment. Catalog patterns may be optional shorthand; they are not required IDs or a substitute for the semantic decision.
 3. **Image-as-canvas option** — consider an image-as-canvas composition with native overlays when the image has enough visual and semantic weight to carry a page.
 4. **Skip-detection signal** — if every page resolves to the same bare split without a narrative reason, re-read the catalog and reconsider. Deliberate repetition for comparison, sequence, or continuity is valid.
@@ -273,7 +276,7 @@ When useful, describe composition with the optional P/M/A/C vocabulary: Primary 
 
 | Package | Trigger | Import |
 |---------|---------|--------|
-| **mitex** | Source has ANY math/formulas/equations | `@preview/mitex:0.2.7` |
+| **mitex** | Source contains supplied LaTeX, or the existing deck already uses MiTeX | `@preview/mitex:0.2.7` |
 | **lilaq** | Source needs a standard chart or an existing SeaSlides chart template | `@preview/lilaq:0.6.0` |
 | **gribouille** | Analysis needs mapped aesthetics, multiple layers, or statistical transformations | `@preview/gribouille:0.6.0` |
 | **codly** | Source has code snippets AND zebra-stripe style desired (template already styles code blocks by default) | `@preview/codly:1.3.0` |
@@ -281,14 +284,16 @@ When useful, describe composition with the optional P/M/A/C vocabulary: Primary 
 | **cheq** | Source has task lists/checklists/roadmaps | `@preview/cheq:0.4.0` |
 | **merman** | Source has Mermaid flowcharts/process diagrams/Gantt charts/sequence diagrams | `@preview/merman:0.1.0` |
 
-> Scan the source content for these signals BEFORE deciding packages. Multiple packages can and should be combined (e.g., mitex + lilaq for a data science talk). Choose Lilaq for the existing chart-template path; choose Gribouille only when its Grammar-of-Graphics model materially simplifies the analysis.
+> Scan the source content for these signals before deciding packages. Multiple justified packages
+> can be combined. Choose Lilaq for the existing chart-template path; choose Gribouille only when
+> its Grammar-of-Graphics model materially simplifies the analysis.
 
 **Discovering more options** — query these index files:
-- `${TYLINA_SKILLS_ROOT}/_shared/charts/index.json` — chart and infographic component catalog
-- `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/README.md` — theme dispatch (per-tier indexes in each sub-directory)
-- `${TYLINA_SKILLS_ROOT}/_shared/slides/themes/user/` — user-created themes (disk scan)
-- `${TYLINA_SKILLS_ROOT}/_shared/packages/index.json` — curated packages with runnable demos
-- `${TYLINA_SKILLS_ROOT}/_shared/icons/index.json` — icon packages; default to emoji
+- `_shared/charts/index.json` — chart and infographic component catalog
+- `_shared/slides/themes/README.md` — theme dispatch (per-tier indexes in each sub-directory)
+- `_shared/slides/themes/user/` — user-created themes (disk scan)
+- `_shared/packages/index.json` — curated packages with runnable demos
+- `_shared/icons/index.json` — icon packages; default to emoji
 
 **Selection**: Choose packages based on content needs (charts, callouts, diagrams), not style labels. Any style can use any package where appropriate.
 
@@ -380,7 +385,7 @@ For each content slide, include: title, 3-5 bullet points, chart/component hints
 
 ### Use the canonical template
 
-The content design spec MUST follow **`${TYLINA_SKILLS_ROOT}/_shared/slides/content_design_spec_reference.md`**:
+The content design spec MUST follow **`_shared/slides/content_design_spec_reference.md`**:
 
 | Section | Contents |
 |---------|----------|
@@ -415,7 +420,7 @@ Rhythm follows narrative, not quota: `breathing` pages mark natural pauses. Ever
 ## 4. Quality Checklist
 
 - [ ] All nine confirmations completed
-- [ ] Design spec follows `${TYLINA_SKILLS_ROOT}/_shared/slides/content_design_spec_reference.md` structure
+- [ ] Design spec follows `_shared/slides/content_design_spec_reference.md` structure
 - [ ] Color scheme has at least 5 roles with HEX values
 - [ ] Font sizes match `shared-standards.md` §3 hierarchy
 - [ ] Package versions match `shared-standards.md` §5

@@ -48,24 +48,22 @@ is the document used by render and export tools.
 
 ## Packaged Resource Resolution
 
-Read packaged text with the host file reader or Skill loader using `skillsRoot` from
-`workspace.info`; in a browser use its resource reader. Paths below are relative to that root.
-In inherited SeaSlides references, `SKILL_DIR` means `<skillsRoot>/typst-slides` and
-`TYLINA_SKILLS_ROOT` means `skillsRoot`; neither placeholder authorizes a different workspace.
+Read packaged text with `skill.read`; use `skill.list` if the relevant Skill is not known. Paths
+below are the resource paths accepted by that command. Do not derive or request an absolute
+packaged-resource directory.
 
 ## Current Workspace Boundary
 
-Treat the root returned by `workspace.info` as the only presentation project. Never run
-SeaSlides `project_manager.py init`, never create a sibling or nested `projects/...` workspace,
-and never use a bundled Skill or `local/` checkout as the working directory. Write or copy only
+Treat the root returned by `workspace.info` as the only presentation project. Never create a
+sibling or nested `projects/...` workspace, and never use a bundled Skill or `local/` checkout as
+the working directory. Write or copy only
 the files required by the selected workflow into the current workspace. Compile, select main,
 render, and export through the shared `tylina` commands so every result uses the current workspace
 and canonical source.
 
 Use `document.import` for workspace PDF, DOCX, PPTX, and XLSX sources after reading
 `typst-authoring/references/source-ingestion.md`. This is the portable Web, DSH, Electron, and SDK
-path. The packaged SeaSlides Python scripts are retained upstream references, not a Tylina source
-ingestion or delivery runtime; do not invoke them for this workflow.
+path. Do not invoke an upstream Python converter or delivery script for this workflow.
 
 ## Modes
 
@@ -87,10 +85,9 @@ Honor a named, scaffolded, or existing theme without offering alternatives. Othe
 three tier indexes to shortlist at most five candidates by `best_for`, style, and tags, then
 choose one. Prefer Rich unless the user requests Plain or Canvas composition materially helps.
 Materialize its complete directory, including `template.typ` and required assets; never import
-bundled Skill resources at Typst runtime. If Tylina materialization is unavailable but the Agent
-has filesystem access, use the `skillsRoot` or `bundledSlideThemesRoot` returned by
-`workspace.info` to copy the exact directory without transcribing files. Never overwrite
-an existing different workspace file; choose a conflict-free directory instead.
+bundled Skill resources at Typst runtime. If materialization is unavailable, report that boundary
+instead of guessing a private resource path or transcribing files. Never overwrite an existing
+different workspace file; choose a conflict-free directory instead.
 Do not create a separate design specification, research a new theme, or generate images unless
 the user switches to complex mode. Do not shrink an entire slide merely to conceal overflow.
 
@@ -123,12 +120,9 @@ change the result. In unattended mode, make a documented choice and continue.
    `_shared/docs/touying/index.json` and read one focused official page.
 6. Preserve `#pause`, `#meanwhile`, repeat/later semantics, natural overflow groups, and
    per-slide speaker notes. Do not infer logical slides from physical page count alone.
-7. For every formula, follow the Typst core's math integrity gate. Default new formulas to raw
-   ``#mi(`...`)`` or ``#mitex(`...`)``. Use native `$...$` only when already fluent in its exact
-   Typst spelling and expecting the first authored expression to validate; short or simple is not
-   sufficient. Quick mode is not an exception to real math content: never imitate an equation with
-   text, strings, `#raw(...)`, code, or Unicode lookalikes. Read
-   `_shared/packages/mitex/README.md` before first using MiTeX.
+7. For every formula, follow the Typst core's math integrity gate. Use native Typst math by
+   default. MiTeX is only for supplied LaTeX or an existing MiTeX-authored document. Never imitate
+   an equation with text, strings, `#raw(...)`, code, or Unicode lookalikes.
 8. Validate and visually inspect every page for a new deck or global theme change;
    inspect only affected pages for a local edit.
 
@@ -148,10 +142,9 @@ Read only the files required for the current phase. The SeaSlides reference snap
 | Visual review | `typst-slides/references/seaslides/workflows/visual-review.md` and `typst-slides/references/seaslides/references/visual-review.md` |
 | Confirmed defect ownership | `typst-slides/references/seaslides/references/artifact-ownership.md` |
 
-Upstream references may mention SeaSlides Python scripts. The Tylina-packaged snapshot is optional
-and follows `typst-slides/scripts/TYLINA.md`; never substitute an upstream project directory for the
-current workspace. Tylina MCP compilation, source mapping, render, main selection, and export
-remain authoritative even when a helper script also produces diagnostics or artifacts.
+The retained SeaSlides references provide design and authoring guidance. Any upstream Python,
+project-manager, compiler, or export command in that snapshot is non-applicable in Tylina; use the
+portable import, validation, render, template, main-selection, and export commands described here.
 
 ## Complex-Mode Workflow
 

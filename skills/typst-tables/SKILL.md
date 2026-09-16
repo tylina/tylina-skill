@@ -33,6 +33,10 @@ Compose this Skill with Typst Authoring.
 8. Validate and visually inspect width, wrapping, alignment, spans, repeated headers,
    captions, and page breaks.
 
+For a new package-free table document, inspect `_shared/scenarios/tables/index.json` and
+materialize the complete selected leaf through the template tool. Continue an existing document
+in place instead of inserting a parallel scaffold.
+
 Read `_shared/docs/typst/tables.md` before a structural edit. Use
 `_shared/packages/index.json` to locate and then read one package recipe only when native
 `table` cannot express the requested input or the workspace already uses that package.

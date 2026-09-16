@@ -227,16 +227,12 @@ Also generate `project/assets/image_prompts.md` with the same content in markdow
 
 ## 6. Generation Workflow
 
-### Step 1: Check Backend Availability
+### Step 1: Check Host Capability
 
-```bash
-python3 ${SKILL_DIR}/scripts/image_gen.py --check-available
-```
-
-This reports which backends have valid API keys. If no backends are available:
-- Skip AI generation entirely
-- Use `[Placeholder: description]` blocks in the Typst code
-- Note in the design spec that images are pending
+Use an image-generation capability only when the current Agent host actually exposes one and the
+user's request authorizes generation. This Skill does not discover credentials or install a
+runtime. If generation is unavailable, use a reviewed existing asset, redesign the page without
+the image, or mark the item `Needs-Manual`.
 
 ### Step 2: Compose Prompts
 
@@ -247,22 +243,13 @@ For each image in §V of the content design spec:
 3. Look up the required aspect ratio (§2 table above)
 4. Assemble the prose paragraph following the §3 template
 5. Append hard constraints
-6. Write to `image_prompts.json` manifest
+6. Keep the prompt and intended destination beside the image row in `content_design_spec.md`
 
 ### Step 3: Generate
 
-**Batch mode** (preferred for 3+ images):
-```bash
-python3 ${SKILL_DIR}/scripts/image_gen.py --manifest project/assets/image_prompts.json --concurrency 3
-```
-
-**Single image mode**:
-```bash
-python3 ${SKILL_DIR}/scripts/image_gen.py "prompt text here" \
-  --aspect_ratio 16:9 \
-  --image_size 1K \
-  -o project/assets/cover_bg.png
-```
+Pass the composed prompt and requested aspect ratio to the host's image-generation tool. Save its
+returned image to the planned new path under `assets/` through the host's ordinary file workflow.
+Do not assume a provider, API key, environment variable, batch manifest, or local script exists.
 
 ### Step 4: Verify
 
@@ -276,10 +263,9 @@ After generation, verify each image:
 
 ### Step 5: Handle Failures
 
-If a backend fails:
-1. Retry with same prompt on the same backend (automatic with exponential backoff)
-2. If persistent failure, try an alternative backend: `--backend gemini` → `--backend qwen` → `--backend zhipu`
-3. If all backends fail, mark the item as `failed` in the manifest and proceed with a placeholder
+If generation fails, inspect the error and retry once only when a concrete prompt or capability
+change can address it. Otherwise mark the item `Needs-Manual` and proceed with a layout that does
+not pretend the image exists.
 
 ---
 
@@ -300,15 +286,8 @@ When generating multiple images for the same page or same visual group:
 
 ## 8. Analyzing User-Provided Images
 
-When the image strategy is "user-provided", analyze existing assets:
-
-```bash
-python3 ${SKILL_DIR}/scripts/analyze_images.py <project_path>/assets
-```
-
-**Output**: Per-image metadata (dimensions, dominant colors, detected content category).
-
-**Use this to determine**:
+When the image strategy is `user-provided`, inspect the relevant assets with the host's image viewer
+and use known dimensions where available. Use the inspection to determine:
 - Whether cropping/resizing is needed for target layout patterns
 - How the existing color palette aligns with the deck scheme
 - Which layout patterns best suit the image proportions

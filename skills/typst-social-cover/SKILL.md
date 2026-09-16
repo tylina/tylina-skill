@@ -50,10 +50,6 @@ not a slide deck.
    `ppi = target_pixel_width * 72 / page_width_points`. For a 1080 pt-wide canvas, use 72 PPI for
    a 1080 px review and 24 PPI for a 360 px feed check. Confirm `imageSizePixels` in both receipts.
 
-For an optional upstream helper, resolve the upstream reference's scripts directory to
-`<skillsRoot>/typst-slides/scripts`, read `typst-slides/scripts/TYLINA.md`, and keep all work
-inside the current workspace. Prefer Tylina MCP validation, rendering, and main-file selection.
-
 ## Non-negotiables
 
 - Use exact requested dimensions and independently compose each production ratio.

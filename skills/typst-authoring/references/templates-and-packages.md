@@ -16,10 +16,8 @@ Read this only when selecting, applying, or introducing a template or package.
    destination and entrypoint.
 5. If conflicts require an isolated `themes/` or `templates/` path, author or select main from
    that real path.
-6. For bundled resources only, if materialization is unavailable but direct filesystem access
-   exists, copy the exact directory from a trusted root returned by `workspace.info`.
-   Registry templates without a trusted host path remain unavailable; never overwrite a different
-   file or transcribe template source manually.
+6. If materialization is unavailable, report the template as unavailable. Do not guess private
+   resource paths, overwrite a different file, or transcribe template source manually.
 7. Do not claim a template was applied until its required files exist in the workspace and the
    selected main passes `document.validate`.
 
@@ -41,6 +39,5 @@ Read this only when selecting, applying, or introducing a template or package.
 - Copy only required recipe assets into the workspace. Do not depend at runtime on `local/`, the
   package cache, or the bundled Skills directory.
 
-All packaged text paths are relative to Tylina's Skills root and readable with
-`skill.read`. Resolve scripts and binary assets through `skillsRoot` from
-`workspace.info` or `runtime.prepare`.
+All packaged text paths are resource identifiers readable with `skill.read`. Templates and binary
+assets enter the workspace only through the owning materializer or import command.
