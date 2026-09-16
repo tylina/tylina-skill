@@ -19,8 +19,10 @@ and citations.
 
 1. Preserve the exact object-language form, segmentation, capitalization, punctuation, diacritics,
    tone, stress, length, grammaticality judgment, gloss, translation, citation, and speaker metadata.
-2. Never invent a gloss, morpheme boundary, transcription, pronunciation, translation, syntactic
-   structure, reconstruction, language identity, or acceptability judgment.
+2. Do not present an invented gloss, morpheme boundary, transcription, pronunciation, translation,
+   syntactic structure, reconstruction, language identity, or acceptability judgment as supplied
+   data. For an explicit analysis request, label proposed analyses and uncertainty and keep them
+   distinct from source transcription and speaker judgments.
 3. Keep examples, subexamples, gloss lines, labels, references, and abbreviation lists semantic.
    Do not align interlinear data with hand-inserted spaces or draw syntax with decorative text.
 4. Distinguish orthography, transliteration, phonemic transcription, phonetic transcription, and
@@ -30,19 +32,30 @@ and citations.
 6. Compile and inspect the actual scripts and fonts. Check combining marks, line breaking,
    right-to-left boundaries, ruby or romanization alignment, example continuation, and references.
 
-## Workflow
+## Typst and Package Information
 
-1. Read `references/linguistic-notation.md` for the representation being edited.
-2. Inventory languages, scripts, transcription standard, example schema, gloss abbreviations,
-   judgments, source references, fonts, directionality, and the existing package model.
-3. Preserve a working package. For new work, use `package.list` with `discipline: "linguistics"`
-   or a focused query. Read a routed recipe when present; otherwise verify the returned exact spec
-   against official versioned documentation before using its API.
-4. Compile a representative example containing the hardest script, gloss, label, and line break
-   before scaling. Keep linguistic source data editable and separately attributable.
-5. Verify every transformation against supplied evidence, then inspect boundary examples and all
-   changed script classes at the intended output size.
-6. In `review` mode, separate uncertain linguistic analysis from observable typesetting defects.
+- `references/linguistic-notation.md` distinguishes example, gloss, IPA, tree, romanization, and
+  multilingual-script representations and routes relevant package information.
+- Preserve a working package. For a missing capability, use `package.list` with
+  `discipline: "linguistics"` or a focused query, then read the returned recipe or exact versioned
+  documentation.
+- Keep linguistic data editable and attributable. Inspect changed scripts, combining marks,
+  directionality, gloss alignment, labels, and line breaks at the intended output size.
+- In review work, distinguish uncertain linguistic analysis from observable typesetting defects.
+
+## Adaptive Workflow
+
+1. Read only the relevant part of `references/linguistic-notation.md` for the representation being
+   edited.
+2. Inventory the languages, scripts, transcription standard, example schema, gloss abbreviations,
+   judgments, source references, fonts, directionality, and existing package model that matter.
+3. Preserve a working package. For a missing capability, search by discipline or focused capability
+   and read the returned exact recipe or versioned documentation.
+4. Validate a representative example containing the hardest script, gloss, label, and line break
+   early when those features are unfamiliar, then apply the pattern to the requested scope.
+5. Keep language data editable and attributable, verify transformations against their stated rule,
+   and inspect every changed script class and boundary example at the intended size.
+6. In review work, report uncertain linguistic analysis separately from observable layout defects.
 
 ## Progressive Resources
 

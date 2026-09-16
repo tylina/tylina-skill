@@ -16,11 +16,12 @@ Compose this Skill with Typst Authoring.
 
 ## Contract
 
-1. Establish learner level, subject, objectives, language, locale, duration, allowed aids,
-   delivery medium, paper size, duplex or booklet needs, and whether the artifact is formative or
-   high-stakes.
-2. Never invent factual questions, official standards, student data, answers, scoring policy, or
-   institutional wording. Flag missing answer evidence and ambiguous questions.
+1. Learner level, subject, objectives, language, duration, allowed aids, delivery medium, and
+   assessment stakes determine which design choices matter. Print details such as paper size,
+   duplex, or booklet layout apply only to the requested delivery.
+2. Questions and exercises may be authored from supplied objectives and trustworthy subject
+   material. Do not invent factual premises, official standards, student data, institutional
+   wording, or unsupported answer keys; flag ambiguity and missing answer evidence.
 3. Keep question identity, labels, points, rubrics, hints, solutions, and variants semantic and
    source-backed. Produce student and answer versions from shared canonical content.
 4. Do not reveal solutions in the student output through hidden text, metadata, filenames, or
@@ -30,23 +31,34 @@ Compose this Skill with Typst Authoring.
 6. Match language and typography to learners. Check CJK line breaking, right-to-left flow,
    localized numbering, units, and accessibility when applicable.
 
-## Workflow
+## Template and Variant Information
 
-1. Read `references/exams-and-worksheets.md` before selecting a package or template.
-2. Inspect existing source and template ownership. For a new scaffold, use `template.list`; for
-   reusable components, use `package.list` with `discipline: "education"` or a focused query.
-3. The package-free homework and exam workspaces are indexed at
-   `_shared/scenarios/education/index.json`. Inspect and materialize an exact scaffold through
-   `template.create`; never copy only the learner-facing entrypoint.
-4. Inspect exact template candidates with `template.inspect`. For a package, read its routed recipe
-   or verify the returned exact spec against official versioned documentation. Choose by audience
-   and required behavior, not by popularity, screenshots, or a familiar name.
-5. Author the smallest coherent question model. Keep prompts and answers traceable to supplied
-   material and make scoring criteria observable.
-6. Validate both student and solution variants. Inspect representative and boundary pages at the
-   intended physical size; manually verify totals against the source model.
-7. In `review` mode, report correctness, fairness, ambiguity, scoring, accessibility, and layout
-   separately.
+- `references/exams-and-worksheets.md` distinguishes assessment types, audiences, locale needs,
+  and relevant template or package behavior.
+- Package-free homework and exam workspaces are indexed at
+  `_shared/scenarios/education/index.json`. Use the template tools to materialize the complete
+  selected scaffold; use a focused `package.list` query for reusable components.
+- Learner and solution outputs should derive from shared canonical questions, scoring data, and
+  answer visibility controls. Validate each requested variant and verify totals, visibility,
+  writable space, page breaks, and print scale against that shared source.
+- Review findings should distinguish correctness, fairness, ambiguity, scoring, accessibility,
+  and layout rather than treating them as one issue.
+
+## Adaptive Workflow
+
+1. Identify the learner, subject, objectives, assessment stakes, language, duration, allowed aids,
+   delivery medium, and only the print constraints that actually apply.
+2. Read `references/exams-and-worksheets.md`, inspect existing template ownership, and preserve a
+   working assessment model.
+3. For a new scaffold, inspect and materialize one complete reviewed education workspace. For a
+   reusable component, use a focused package search and exact versioned evidence. Choose by learner,
+   locale, and required behavior rather than popularity, screenshots, or a familiar name.
+4. Author a semantic question model whose prompts, points, rubric, hints, solutions, and variants
+   remain traceable to objectives and trustworthy subject material.
+5. Validate every requested learner and solution variant; verify totals, answer visibility,
+   writable space, page breaks, margins, scan areas, and print scale.
+6. In review work, report correctness, coverage, fairness, ambiguity, scoring, accessibility, and
+   layout as separate findings.
 
 ## Progressive Resources
 

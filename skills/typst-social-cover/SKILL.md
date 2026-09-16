@@ -11,48 +11,49 @@ not a slide deck.
 ## Entry Mode
 
 - `create`: create or improve a cover, social card, carousel, WeChat header, or sibling-ratio
-  campaign asset. Run the shared workspace intent gate before writing.
+  campaign asset. The shared workspace intent gate owns mutation scope.
 
-## Workflow
+## Domain Information
 
-1. Confirm the platform, exact dimensions, page or card count, required copy, assets, identity,
-   call to action, privacy boundaries, and output formats. Never invent evidence or product state.
-2. If the user named a reviewed entry, query that entry directly once with
-   `template.list({query: "<entry id>", limit: 5})`. Otherwise read
-   `_shared/scenarios/social-cover/index.json`, choose one declared canvas and visual stance, then
-   make the same single bounded query. Inspect the exact returned
-   `tylina:scenario/social-cover/...` spec; do not list the whole category before or afterward.
-3. For a carousel, multiple ratios, imported assets, a brand system, or another genuinely complex
-   campaign, also read
-   `typst-slides/references/seaslides/references/scenarios/social-cover.md`; resolve its
-   `templates/scenarios/social-cover` paths as `_shared/scenarios/social-cover`. A straightforward
-   single cover does not need that extended reference.
-4. Materialize the complete leaf directory with `template.create`, then select its
-   relative entrypoint with `document.setMain`. Reuse its `template.typ`, entrypoint, and
-   local assets; do not resize a 16:9 slide theme into a card.
-5. Compress the source into one accurate hook and one audience move per page. Recompose each
-   additional ratio in a sibling entry rather than mechanically scaling or cropping the first.
-6. Validate each production canvas separately. Render at exact dimensions and inspect full size,
-   around 360 px feed width, and in sequence. Check clipping, safe zones, glyphs, contrast, assets,
-   factual integrity, and lower-edge resolution. Creating a cover means editable Typst source,
-   not an implicit exported artifact; call an export tool only when the user explicitly requests
-   an export.
-   Template README compile commands document upstream development only; do not run them. Use
-   Tylina validation and rendering so the current main and visible preview are verified together.
-   For one final page revision, request one render summary and render that page once at review
-   size and once at feed size. Re-render only after the source changes; do not repeat an unchanged
-   template query, validation, page, and PPI combination. Each `render.page` result already
-   includes the inspectable PNG; inspect that response directly instead of calling it again to
-   view the same page. Run the review-size and feed-size calls sequentially: inspect the first
-   returned image before requesting the second. Do not batch or parallelize image renders.
+- Platform dimensions, safe zones, card count, copy, identity, call to action, and privacy boundary
+  determine the artifact. Do not infer evidence or product state from a visual reference.
+- Keep meaningful copy editable and source-backed; do not hide it only inside SVG paths or raster
+  images. Preserve asset provenance and distinguish evidence from decoration.
+- Each production ratio needs its own composition; mechanically scaling or cropping a 16:9 slide
+  or another ratio commonly breaks hierarchy and safe zones.
+- A useful default is one clear hook and one intended audience move per card. In a carousel, each
+  page should have a distinct role while the sequence retains a coherent hierarchy.
+- Continue an existing scaffold when present. Reviewed candidates are indexed at
+  `_shared/scenarios/social-cover/index.json`; use the template tools for the chosen exact entry.
+- The extended SeaSlides reference is useful for carousels, multiple ratios, imported assets,
+  brand systems, or other genuinely complex campaigns.
 
-   Derive PPI from the render summary instead of guessing:
-   `ppi = target_pixel_width * 72 / page_width_points`. For a 1080 pt-wide canvas, use 72 PPI for
-   a 1080 px review and 24 PPI for a 360 px feed check. Confirm `imageSizePixels` in both receipts.
+## Adaptive Workflow
 
-## Non-negotiables
+1. Establish platform, exact dimensions, page or card count, copy, assets, identity, call to action,
+   privacy boundary, and requested formats.
+2. Continue an existing scaffold. Otherwise select and inspect one reviewed entry from
+   `_shared/scenarios/social-cover/index.json`, materialize its complete workspace, and select the
+   returned entrypoint through `document.setMain`.
+3. Read the extended reference for carousels, sibling ratios, imported assets, brand systems, or
+   another genuinely complex campaign.
+4. Keep copy and assets editable and source-backed. Compose each production ratio independently
+   rather than resizing or cropping a different canvas.
+5. Give each card a clear role, and verify that the hook, hierarchy, and audience move survive at
+   approximate feed size.
+6. Validate every production canvas, inspect exact and feed-size renders, and export only the
+   requested formats.
 
-- Use exact requested dimensions and independently compose each production ratio.
-- Keep copy editable and source-backed; do not hide meaningful text inside SVG paths or images.
-- Preserve asset provenance, privacy, and the distinction between evidence and decoration.
-- Inspect every page at full and feed size; compilation alone is insufficient.
+## Verification Information
+
+Validate each production canvas and inspect it at its exact dimensions and an approximate feed
+size. Check clipping, safe zones, glyphs, contrast, assets, factual integrity, sequence, and the
+lower edge. When a target pixel width matters, derive PPI from the render summary:
+`ppi = target_pixel_width * 72 / page_width_points`. For a 1080 pt-wide canvas, 72 PPI produces a
+1080 px review and 24 PPI produces a 360 px feed check; confirm the returned pixel dimensions.
+
+## Progressive Resources
+
+- Reviewed templates: `_shared/scenarios/social-cover/index.json`.
+- Complex campaign composition:
+  `typst-slides/references/seaslides/references/scenarios/social-cover.md`.

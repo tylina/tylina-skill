@@ -19,20 +19,32 @@ Compose this Skill with Typst Authoring.
   and proof blocks while reusing the workspace's theorem system. Preserve surrounding content;
   whole-document replacement still requires explicit intent.
 
-## Workflow
+## Typst and Package Information
 
-1. Identify the precise statement, assumptions, notation, dependencies, and intended proof.
-2. Reuse the workspace's theorem definitions or imported package. Never replace a working
-   theorem system merely because another recipe is bundled.
-3. If no theorem system exists, prefer native semantic structure for one-off content. The offline
-   scaffold is indexed at `_shared/scenarios/theorem-proof/index.json`; inspect and materialize it
-   through `template.create` instead of copying one file.
-4. Use a package only when reusable numbering, styles, localization, or cross-references justify it.
-   For Theorion, read the pinned recipe at
-   `_shared/packages/theorion/README.md` and `_shared/packages/theorion/demo.typ` before use.
-5. Keep labels on the semantic statement they identify and preserve existing references.
-6. Validate the document and visually inspect statements, equations, proof endings,
-   numbering, page breaks, and references.
+- Reuse the workspace's theorem definitions or imported package. A bundled recipe is not a reason
+  to replace a working theorem system.
+- Native semantic structure is sufficient for one-off content. Reusable numbering, localization,
+  styles, or cross-references can justify a package.
+- The offline scaffold is indexed at `_shared/scenarios/theorem-proof/index.json`; materialize its
+  complete selected entry with the template tools. The pinned Theorion API is documented at
+  `_shared/packages/theorion/README.md` and its `demo.typ`.
+- Labels belong to the semantic statement they identify. Inspect affected statements, equations,
+  proof endings, numbering, page breaks, and references after validation.
+
+## Adaptive Workflow
+
+1. Identify the statement, assumptions, quantifiers, notation, dependencies, and intended proof or
+   review target.
+2. Reuse the workspace's theorem definitions or imported package and preserve existing labels and
+   references.
+3. Use native semantic structure for one-off content. For a reusable system, inspect the complete
+   offline scaffold or the exact pinned package recipe before authoring.
+4. Keep statement, proof, examples, numbering, and references distinct, and attach labels to the
+   semantic statements they identify.
+5. When drafting or reviewing a proof, keep gaps, assumptions, counterexamples, and typesetting
+   changes separate instead of repairing the claim silently.
+6. Validate and inspect affected statements, equations, proof endings, numbering, page breaks, and
+   references.
 
 ## Mathematical Safety
 

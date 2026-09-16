@@ -26,13 +26,20 @@ Read this only when selecting, applying, or introducing a template or package.
 - Existing imports and versions win. Never silently upgrade them or edit the package cache.
 - Call `package.list` before Web search or a package CLI. It searches the current official
   Universe index, including packages that are not templates, and returns an exact `spec`,
-  compatibility/provenance metadata, relevant `skillPaths`, and an optional `recipePath`.
-- Search narrowly by capability, category, discipline, or known package name. Metadata supports
+  `universeUrl`, published repository/homepage links, compatibility/provenance metadata, relevant
+  `skillPaths`, and an optional `recipePath`. Domain recipes do not need to duplicate those links.
+- Search narrowly by capability, category, discipline, or known package name. For a request in a
+  language not represented by official metadata, use concise English technical terms as a second
+  query; for example, `二维码` can be searched as `QR code` or `barcode`. Metadata supports
   shortlisting only: it does not prove the API, visual quality, licensing fit, or compatibility
   with an existing document.
 - Read only the selected returned Skill paths and recipe. When those do not establish the needed
   API, call `package.inspect` with the returned exact `spec`. Request only the README, manifest,
   entrypoint, bounded file list, or one explicit source path needed for the task.
+- A bundled recipe is an Agent-oriented, version-bound guide, not merely a shorter upstream README.
+  It may document verified signatures, mode boundaries, composition patterns, failure cases, and
+  validation checks that the upstream guide omits. Every such claim must match the selected version
+  and be supported by its package source, versioned documentation, or a real compiled fixture.
 - `package.inspect` is read-only. Its paths are package-relative evidence, not workspace files;
   never edit the package cache, open the source as a Document/Lens target, or substitute
   repository HEAD for the selected version.

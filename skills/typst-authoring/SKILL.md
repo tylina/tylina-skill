@@ -6,6 +6,7 @@ description: Author, refactor, diagnose, and verify Typst documents through Tyli
 # Typst Authoring
 
 Typst source and workspace resources are canonical; rendered pages are views.
+Adapt domain workflows to current evidence; preserve explicit contracts and verification gates.
 
 ## Commands
 
@@ -39,7 +40,8 @@ For a PDF or Office source in the workspace, use `document.import` and read
    preview state while duplicating work.
 8. For layout changes, inspect affected pages with `render.page`; use `render.summary` or
    an overview only when page count or location is unknown. Check overflow, clipping,
-   collisions, contrast, missing content, and pagination.
+   collisions, contrast, missing content, and pagination. Reuse returned images; do not render the
+   same unchanged revision, page, and PPI twice.
 9. Export inside the workspace only after validation; overwrite only when explicit. Review-only
    requests do not modify files unless requested. Report incomplete verification.
 

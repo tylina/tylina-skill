@@ -22,14 +22,17 @@ degree thesis or dissertation, not an ordinary venue paper, report, or book.
 
 ## Contract
 
-1. Establish the institution, degree, department, language, submission date, print or electronic
-   target, and authoritative current regulations before choosing or changing a template.
+1. Template selection and compliance claims depend on the institution, degree, department,
+   language, submission date, print or electronic target, and authoritative current regulations.
+   Keep missing criteria explicit; do not guess them or claim compliance from a generic scaffold.
 2. Distinguish official requirements from template defaults and author preferences. A community
    template is a candidate implementation, never proof of institutional acceptance.
 3. Preserve an existing thesis scaffold, chapter graph, bibliography keys, labels, assets, package
    versions, and review/final switches. Do not recreate its appearance manually.
-4. Never invent identity fields, declarations, approvals, signatures, committee members,
-   acknowledgements, research evidence, citations, identifiers, or submission metadata.
+4. Do not present invented identity fields, declarations, approvals, signatures, committee
+   members, acknowledgements, research evidence, citations, identifiers, or submission metadata
+   as real. An explicitly requested blank scaffold may retain clearly labeled fields for later
+   completion.
 5. Keep front matter, main matter, references, and appendices semantic. Preserve required roman and
    arabic numbering transitions, lists, running matter, blank-page policy, and binding geometry.
 6. Produce blind-review, draft, print, and final variants from shared canonical content when the
@@ -37,27 +40,36 @@ degree thesis or dissertation, not an ordinary venue paper, report, or book.
 7. Validate the complete document and inspect every page class, not only a representative body
    page. Do not claim archival, accessibility, or institutional compliance without matching proof.
 
-## Workflow
+## Template and Evidence Routes
 
-1. Read the current main, include graph through real source/compiler evidence, bibliography,
-   assets, and existing template guide.
-2. Read [references/template-selection.md](references/template-selection.md) for the paper/thesis
-   boundary, requirement gate, and current template discovery route.
-3. For a new thesis with no selected scaffold, first check for a current institution-provided or
-   maintained Typst template. Call `template.list` with `thesis` plus the institution, degree, and
-   language, inspect exact candidates, then materialize a suitable version with `template.create`.
-   Do not copy only an entrypoint or rebuild a template that already satisfies the verified needs.
-4. Only when no suitable existing template is available, or the user explicitly requests a
-   reconstruction, read [references/source-reconstruction.md](references/source-reconstruction.md).
-   Import supported PDF or DOCX evidence through `document.import`, keep the original artifact,
-   and verify extracted evidence against its pages before authoring Typst.
-5. Map every required section and variant to the selected template. Record unresolved regulations
-   as review items instead of guessing layout or legal text.
-6. Author one representative front-matter page, chapter, figure/table, citation, and appendix path;
-   validate before scaling the structure.
-7. Validate the complete main, inspect title/front-matter transitions, chapter openings, lists,
-   references, appendices, odd/even margins, blank pages, and the final page, then export only the
-   requested deliverable.
+- [Template selection](references/template-selection.md) distinguishes a thesis from a paper,
+  identifies current requirement evidence, and links relevant current-template discovery.
+- Existing workspace or institution-provided scaffolds come first. For a new scaffold,
+  `template.list` can search `thesis` with the institution, degree, and language; inspect and
+  materialize the selected exact candidate rather than rebuilding it from appearance.
+- [Source reconstruction](references/source-reconstruction.md) applies only when no suitable
+  existing template is available or the user explicitly requests reconstruction. PDF or DOCX
+  extraction remains evidence and must be checked against the original artifact.
+- Unresolved regulations remain review findings. Validate the complete main and inspect the page
+  classes and long-range transitions relevant to the selected template and submission variant.
+
+## Adaptive Workflow
+
+1. Inspect the current main, real include graph, bibliography, assets, existing template guide, and
+   the institutional evidence already available.
+2. Read `references/template-selection.md` to distinguish thesis requirements from paper defaults
+   and to identify which missing criteria materially affect template choice or compliance.
+3. Preserve an existing institution-provided or maintained scaffold. Otherwise search for one exact
+   current candidate by institution, degree, and language, inspect it, and materialize it completely.
+4. Read `references/source-reconstruction.md` only when no suitable template exists or the user
+   explicitly requests reconstruction from supplied PDF, DOCX, or source evidence.
+5. Map verified requirements and requested variants to the selected template, keeping unresolved
+   regulations and blank identity fields explicit rather than guessing.
+6. Validate representative front matter, body structure, scholarly apparatus, and appendix paths
+   early when the template is unfamiliar, then validate the complete main.
+7. Inspect title/front-matter transitions, numbering changes, chapter openings, lists, references,
+   appendices, odd/even margins, blank-page policy, and the final page as applicable, then export
+   only the requested submission variant.
 
 ## Progressive Resources
 

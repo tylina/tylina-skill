@@ -11,8 +11,9 @@ Compose this Skill with the bundled Typst Authoring Skill.
 
 - `write`: create or revise the paper around its intended contribution and audience. Run the
   Typst Authoring workspace intent gate before whole-document creation or replacement. A blank
-  draft still requires a contribution, audience, and supplied evidence; preserve a populated
-  paper unless replacement is explicit.
+  draft needs an intended contribution and audience. Factual claims and results require supplied
+  evidence; without it, create only a clearly marked structure or outline, or request the missing
+  material. Preserve a populated paper unless replacement is explicit.
 - `review`: inspect claim clarity, evidence, structure, terminology, citation support,
   limitations, and presentation. Separate factual gaps from stylistic suggestions and do not
   edit unless requested. If neither the target nor attachments contain academic source, ask for it.
@@ -30,16 +31,28 @@ Compose this Skill with the bundled Typst Authoring Skill.
 6. In `review` mode, separate correctness or support gaps from prose and presentation advice.
    Do not edit unless requested.
 
-## Workflow
+## Adaptive Workflow
 
-1. Read the relevant source, bibliography, figures, tables, and neighboring claims.
-2. State what is supported, unsupported, ambiguous, or missing before broad revision.
-3. For a new package-free paper, inspect `_shared/scenarios/academic/index.json`, then materialize
-   the exact selected scaffold with `template.create`. Do not copy only `main.typ`, and do not
-   replace an existing venue scaffold.
-4. Make only requested changes and preserve terminology and mathematical notation.
-5. Validate the document and visually inspect every affected figure, table, equation, and
-   page transition.
+1. Inspect the relevant source, bibliography, figures, tables, equations, and neighboring claims.
+2. Separate supported claims, evidence gaps, ambiguity, and presentation problems before broad
+   revision.
+3. Continue the existing venue scaffold. For a new package-free paper, select and materialize one
+   complete reviewed workspace from `_shared/scenarios/academic/index.json`.
+4. Make the requested change while preserving terminology, notation, labels, citation keys, and
+   the distinction between evidence and interpretation.
+5. Validate the document and visually inspect every affected figure, table, equation, citation,
+   and page transition.
+
+## Tylina-Specific Information
+
+- Continue an existing venue scaffold and its package versions. For a new package-free paper,
+  reviewed workspaces are indexed at `_shared/scenarios/academic/index.json`; materialize the
+  selected complete scaffold with `template.create` rather than copying only `main.typ`.
+- Bibliography files, citation keys, figures, tables, and neighboring claims provide the evidence
+  boundary for an edit. Unsupported or ambiguous claims remain visible instead of being polished
+  into certainty.
+- Validate source changes and inspect affected figures, tables, equations, citations, and page
+  transitions. Compilation does not establish factual support.
 
 Typst bibliography accepts BibLaTeX and Hayagriva data and cites entries with `@key`. Verify
 uncertain behavior against the official Typst bibliography reference.

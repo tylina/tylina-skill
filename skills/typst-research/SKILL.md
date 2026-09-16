@@ -16,7 +16,9 @@ Compose this Skill with Typst Academic and Typst Authoring.
 
 ## Contract
 
-1. Establish the question, scope, date range, source types, and inclusion or exclusion criteria.
+1. Keep the research question and scope explicit. Date ranges, source types, and inclusion or
+   exclusion criteria are required when the user requests a bounded or systematic search, not for
+   every small lookup.
 2. Search primary scholarly indexes and original papers when current Web research is available.
    Treat search snippets, generated summaries, and citation graphs as discovery clues only.
 3. Never invent a paper, author, venue, year, DOI, arXiv identifier, quotation, page, citation key,
@@ -33,22 +35,38 @@ Compose this Skill with Typst Academic and Typst Authoring.
    evidence. If an external illustration is requested, follow
    `tylina/references/image-sourcing.md` and keep its attribution separate from citations.
 
-## Workflow
+## Evidence and Tool Information
 
-1. Read `references/literature-workflow.md` for evidence acquisition, PDF handling, and the
-   bibliography gate.
-2. Inspect the current source, every bibliography file used by the compiled document, and the
-   claims or section being researched.
-3. For workspace PDF or Office evidence, use the portable import gate in
-   `typst-authoring/references/source-ingestion.md`. Preserve the binary and review extraction
-   warnings before treating its Markdown as evidence.
-4. Build a compact evidence table before prose: source identity, inspected location, relevant
-   claim, support strength, limitations, and intended citation key.
-5. Import or author only verified bibliographic records. Preserve user-edited fields and explain
-   conflicts instead of silently normalizing them.
-6. Draft synthesis around agreements, differences, methods, and gaps rather than a paper-by-paper
-   list. Keep claim scope no broader than the evidence.
-7. Validate, inspect the bibliography output, and report unavailable sources or unresolved keys.
+- Read `references/literature-workflow.md` when acquiring external evidence, resolving DOI/arXiv
+  identities, reviewing PDFs, or changing bibliography data.
+- Workspace PDF or Office evidence uses the portable import gate in
+  `typst-authoring/references/source-ingestion.md`. The binary remains authoritative and extraction
+  warnings remain visible.
+- For a multi-source synthesis, a compact evidence table can connect source identity, inspected
+  location, claim, support, limitations, and intended citation key. It is an aid, not a mandatory
+  artifact for a simple lookup.
+- Organize synthesis around agreements, differences, methods, evidence quality, and gaps. A
+  paper-by-paper sequence fits an annotated bibliography, but usually obscures those relationships
+  in a related-work section.
+- Preserve user-edited bibliography fields and expose conflicts rather than silently normalizing
+  them. After citation changes, validate and inspect missing keys and bibliography output.
+
+## Adaptive Workflow
+
+1. Inspect the current source, every bibliography used by the compiled document, and the claims or
+   section being researched. Define formal inclusion criteria only when the task needs them.
+2. Read `references/literature-workflow.md` when acquiring evidence, resolving DOI/arXiv identity,
+   handling PDFs, or changing bibliography data.
+3. Search primary indexes and original papers. Import workspace PDF or Office evidence through the
+   source-ingestion gate and preserve extraction warnings.
+4. For multi-source synthesis, connect each claim to inspected evidence, support strength,
+   limitations, and a stable citation key; a simple lookup need not create a separate evidence table.
+5. Add or update only verified bibliographic records, deduplicate by canonical identity, and keep
+   user-edited fields or visible conflicts.
+6. Synthesize agreements, differences, methods, evidence quality, and gaps at the scope supported
+   by the sources.
+7. Validate the document, inspect bibliography output, run the missing-citation audit, and report
+   unavailable sources or unresolved keys.
 
 ## Progressive Resources
 

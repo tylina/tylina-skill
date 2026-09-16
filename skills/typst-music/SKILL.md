@@ -30,18 +30,30 @@ Compose this Skill with Typst Authoring.
 6. Validate and visually inspect every affected system or page for clipping, collisions, lyric
    alignment, orphan systems, scale, and readable staff size.
 
-## Workflow
+## Representation and Package Information
 
-1. Read `references/music-engraving.md` to choose a representation.
-2. Inventory the supplied source format, movements or tunes, parts, page size, intended print or
-   screen use, and any required transposition or excerpts.
-3. Preserve an existing music package and source-resource layout. For new work, shortlist through
-   `package.list` and read only returned Skill or recipe paths.
-4. Make one minimal example compile before scaling to a full score or songbook.
-5. For multi-page notation, determine the real page count through the selected package API and
-   render every page. Do not silently rasterize editable surrounding text.
-6. Compare output with the supplied score or symbolic source measure by measure where fidelity is
-   required, then validate the containing Typst document.
+- `references/music-engraving.md` distinguishes staff notation, Jianpu, chord sheets, tablature,
+  and their supported symbolic source formats.
+- Preserve an existing music package and resource layout. For a missing capability, use a focused
+  `package.list` query and read only the selected recipe or exact versioned documentation.
+- Keep symbolic score resources canonical and surrounding text editable. For multi-page notation,
+  use the selected package's real page model rather than guessing from the Typst wrapper.
+- Where fidelity matters, compare rendered notation with the supplied score or symbolic source;
+  inspect collisions, lyric alignment, system breaks, scale, and staff readability.
+
+## Adaptive Workflow
+
+1. Read `references/music-engraving.md` for the requested notation system and source format.
+2. Inventory the symbolic source, movements or tunes, parts, page size, intended medium, and any
+   requested transposition, extraction, or arrangement boundary.
+3. Preserve an existing music package and source-resource layout. Otherwise use a focused package
+   search and read only the selected exact recipe or versioned documentation.
+4. Validate a representative difficult measure or system before scaling when the notation grammar
+   or package API is unfamiliar.
+5. For multi-page notation, use the selected package's actual page-count API and render every page;
+   do not infer the count from the Typst wrapper.
+6. Compare the rendered notation with the supplied symbolic source at the fidelity requested, then
+   validate and inspect the containing Typst document.
 
 ## Progressive Resources
 

@@ -13,20 +13,28 @@ Compose this Skill with Typst Authoring.
   A blank target still requires supplied data, units, and the intended comparison. Run the
   Typst Authoring workspace intent gate before creating a whole document.
 
-## Workflow
+## Domain and Resource Information
 
-1. State the question the chart must answer and inspect the complete supplied dataset.
-2. Prefer a table when exact lookup matters more than pattern comparison. Otherwise choose a
-   chart family by data semantics, not decoration.
-3. Search `_shared/charts/index.json` for the smallest matching
-   compile-verified recipe. Read only that recipe's source and its package documentation.
-4. Reuse the workspace's existing chart package and version when present. For a new package,
-   select from `_shared/packages/index.json` and copy only the needed
-   pattern into the workspace.
-5. Preserve every value, unit, category, series, ordering, uncertainty, and source. Do not
-   smooth, aggregate, truncate, or rescale data silently.
-6. Validate and inspect the chart at its actual output size. Check axes, labels, legends,
-   contrast, overlap, clipping, zero baselines where meaningful, and misleading encodings.
+- Prefer a table when exact lookup matters more than pattern comparison. Otherwise choose a chart
+  family by the comparison, trend, relationship, or distribution represented by the data.
+- `_shared/charts/index.json` routes to small compile-verified recipes. Existing workspace package
+  versions win; use `_shared/packages/index.json` only when a new dependency is warranted.
+- Preserve values, units, categories, series, order, uncertainty, and source. Smoothing,
+  aggregation, truncation, rescaling, and derived values must remain explicit.
+- Inspect affected charts at their actual output size for axes, labels, legends, contrast,
+  overlap, clipping, meaningful baselines, and misleading encodings.
+
+## Adaptive Workflow
+
+1. Identify the question the chart must answer and inspect the complete supplied dataset.
+2. Decide whether exact lookup calls for a table or whether a chart better exposes the intended
+   comparison, trend, relationship, or distribution.
+3. Reuse the workspace's current chart package and version. Otherwise select one focused verified
+   recipe from `_shared/charts/index.json` or the package tools.
+4. Keep every transformation explicit while authoring the smallest representation that answers
+   the question.
+5. Validate and inspect the chart at its real output size, including labels, legends, baselines,
+   clipping, contrast, and any potentially misleading encoding.
 
 ## Selection Guide
 

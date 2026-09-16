@@ -11,11 +11,20 @@
 === QR Code
 
 #align(center)[
-  #tiaoma.qrcode("https://typst.app/universe/package/tiaoma", width: 4cm)
+  #tiaoma.qrcode(
+    "https://typst.app/universe/package/tiaoma",
+    width: 4cm,
+    alt: "QR code linking to the Tiaoma package page",
+  )
 ]
 
 === Barcode (Code 128)
 
 #align(center)[
-  #tiaoma.barcode("TOUYING-2025", "Code128", width: 8cm, height: 1.5cm)
+  #tiaoma.code128(
+    "TOUYING-2025",
+    width: 8cm,
+    height: 1.5cm,
+    alt: "Code 128 barcode containing TOUYING-2025",
+  )
 ]

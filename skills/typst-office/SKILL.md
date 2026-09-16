@@ -17,12 +17,16 @@ accounting, tax, records-management, or signature advice.
 
 ## Contract
 
-1. Establish artifact type, parties, jurisdiction and locale, language, currency, tax treatment,
-   date and numbering convention, approval state, delivery channel, and retention needs.
-2. Never invent a legal entity, address, registration or tax identifier, bank detail, line item,
-   rate, total, due date, attendee, vote, decision, signature, approval, or policy obligation.
-3. Keep fields and repeated records semantic. Derive totals only from supplied values and an
-   explicit calculation rule; expose unresolved inconsistencies instead of forcing agreement.
+1. Use only the fields relevant to the artifact. Locale, currency, tax treatment, approval,
+   signatures, delivery, and retention matter for some invoices, forms, or governance records,
+   but are not prerequisites for a simple letter, agenda, or checklist.
+2. Do not present an unsupplied legal entity, address, registration or tax identifier, bank detail,
+   line item, rate, total, due date, attendee, vote, decision, signature, approval, or policy
+   obligation as real. A requested blank form or example may use unmistakable placeholders or
+   labeled synthetic data.
+3. Keep fields and repeated records semantic. Derive totals only from source values, or from
+   clearly labeled synthetic values in a requested example, using an explicit calculation rule;
+   expose unresolved inconsistencies instead of forcing agreement.
 4. Treat templates as layout aids. A package name, official-looking seal, signature line, or
    successful compilation does not establish legal validity, tax compliance, or authorization.
 5. Minimize personal and financial data. Do not leak sensitive fields through examples, filenames,
@@ -30,22 +34,34 @@ accounting, tax, records-management, or signature advice.
 6. Compile and inspect the final medium. Check addresses, tables, continuation pages, totals,
    signatures, writable fields, page marks, duplex behavior, and grayscale readability.
 
-## Workflow
+## Artifact and Tool Information
 
-1. Read `references/office-forms.md` for the requested artifact and locale boundary.
-2. Inventory source records, required fields, calculations, branding, signatures, attachments,
-   page size, print or screen target, and existing template ownership.
-3. Import a workspace PDF, DOCX, PPTX, or XLSX only through the portable gate in
-   `typst-authoring/references/source-ingestion.md`. Verify fields and tables against the original;
-   extracted Markdown is not an authorized record.
-4. Preserve an existing verified template. For a new scaffold, call `template.list`; for a reusable
-   component, call `package.list` with the artifact or discipline. Read the routed recipe, or verify
-   the returned exact spec against official versioned documentation before using its API.
-5. Build one representative record or page and verify its fields and calculations against the
-   supplied source before scaling to repeated items.
-6. Produce only requested variants, redact deliberately, validate, and inspect first, continuation,
-   final, and exception pages. Report fields that still require human authorization.
-7. In `review` mode, separate observable document defects from jurisdiction-specific questions.
+- `references/office-forms.md` identifies fields and package choices that are specific to letters,
+  invoices, minutes, agendas, forms, checklists, and governance documents.
+- Workspace PDF, DOCX, PPTX, or XLSX evidence uses
+  `typst-authoring/references/source-ingestion.md`. Extracted Markdown is not an authorized record;
+  verify material fields and tables against the original.
+- Preserve an existing verified template. Use `template.list` for a new scaffold and a focused
+  `package.list` query for a reusable component, then inspect the selected exact version.
+- Validate calculations and inspect the page classes the artifact actually has, including
+  continuation or exception pages when present. Separate visible document defects from legal,
+  tax, accounting, or jurisdiction-specific questions.
+
+## Adaptive Workflow
+
+1. Identify the artifact, source records, material fields, calculations, locale, branding,
+   approvals, signatures, attachments, delivery medium, and only the regulatory fields that apply.
+2. Read the relevant part of `references/office-forms.md` and preserve existing template ownership.
+3. Import PDF or Office evidence only through the source-ingestion gate; compare material fields and
+   tables with the original artifact rather than treating extracted Markdown as authoritative.
+4. Continue a verified template. For new work, inspect one exact scaffold or package version before
+   using it, and use labeled placeholders or synthetic records only when the request calls for them.
+5. Verify representative repeated records and every calculation against its source or explicit
+   example rule before applying the pattern broadly.
+6. Produce only requested variants, redact deliberately, validate, and inspect first,
+   continuation, final, and exception pages that exist.
+7. Keep fields needing human authorization visible and separate layout defects from legal, tax,
+   accounting, signature, or jurisdiction-specific questions.
 
 ## Progressive Resources
 

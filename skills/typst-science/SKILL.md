@@ -19,8 +19,10 @@ scholarly or makes literature-backed claims.
 
 1. Preserve supplied values, uncertainty, significant figures, units, constants, equations,
    chemical species, reaction conditions, circuit operations, labels, and sample identity.
-2. Never infer a missing measurement, balance or complete a reaction, repair an equation by
-   plausibility, invent experimental evidence, or turn a package rendering into scientific proof.
+2. Do not silently infer a missing measurement, balance or complete a reaction, repair an equation
+   by plausibility, invent experimental evidence, or turn a package rendering into scientific
+   proof. When the user explicitly requests a calculation, derivation, or balancing task, state its
+   basis and assumptions and distinguish the new analysis from supplied evidence.
 3. Keep quantities and domain notation semantic. Do not imitate subscripts, superscripts, unit
    spacing, arrows, structures, or circuit wires with decorative text or Unicode lookalikes.
 4. Distinguish an observed result, a calculated value, a cited constant, and an assumption. Preserve
@@ -30,19 +32,31 @@ scholarly or makes literature-backed claims.
 6. Compile and inspect the actual artifact. Check equations, tables, plots, legends, units, figure
    labels, cross-references, line breaks, and grayscale or color-accessible interpretation.
 
-## Workflow
+## Typst and Package Information
 
-1. Read `references/scientific-notation.md` for the relevant discipline and representation.
-2. Inventory the supplied data, formulas, symbolic source, units, references, figures, locale,
-   output size, and existing package imports before editing.
-3. Preserve existing verified notation packages. For a new capability, call `package.list` with a
-   focused discipline or query. Read the routed recipe when present; otherwise verify the returned
-   exact spec against official versioned documentation before using its API.
-4. Compile one representative quantity, formula, reaction, circuit, or figure before scaling the
-   pattern. Keep raw data and domain source editable when a renderer is involved.
-5. Compare the rendered result against the supplied evidence, then validate the complete document
-   and inspect every changed notation class at its final physical size.
-6. In `review` mode, report scientific-content uncertainty separately from typesetting defects.
+- `references/scientific-notation.md` routes quantities, chemistry, circuits, and other domain
+  representations to their relevant Typst or package choices.
+- Existing verified imports win. For a missing capability, use a focused `package.list` query and
+  read the returned recipe or exact versioned documentation before using its API.
+- Keep raw data and symbolic source editable when a renderer is involved. Compare changed notation
+  with the supplied evidence and inspect it at final physical size.
+- In review work, distinguish uncertainty in the scientific content from observable typesetting
+  defects; a package rendering cannot resolve the former.
+
+## Adaptive Workflow
+
+1. Read the relevant part of `references/scientific-notation.md` for the discipline and
+   representation in use.
+2. Inventory supplied data, formulas, units, symbolic source, references, figures, locale, output
+   size, and current package imports.
+3. Preserve verified imports. For a new capability, use a focused package search and read the
+   returned recipe or exact versioned documentation before using its API.
+4. When analysis is requested, keep assumptions, transformations, rounding, and provenance visible
+   and separate calculated values from observed or cited values.
+5. Validate a representative difficult notation or figure early when the API is unfamiliar, keep
+   raw data and symbolic source editable, and then apply the verified pattern.
+6. Compare the result with supplied evidence, validate the complete document, and inspect every
+   changed notation class at final physical size.
 
 ## Progressive Resources
 
