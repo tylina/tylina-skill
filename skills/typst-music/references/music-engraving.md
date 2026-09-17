@@ -19,6 +19,14 @@
   user's notation source and explain the unsupported layout. A font alone does not define musical
   duration, beams, octave dots, slurs, lyrics, or line breaking.
 
+## External LilyPond Sources
+
+Keep supplied `.ly` and `.ily` files as canonical music sources. They are not Scoryst inputs and
+should not be silently transcribed into ABC, MusicXML, or another notation grammar. When a real
+LilyPond executable is available in the authorized host environment, render PDF, SVG, or PNG and
+use that output as a Typst resource while retaining the source. A browser-only Tylina session does
+not imply that LilyPond compilation is available.
+
 ## Scoryst Boundary
 
 Scoryst 0.2.0 is a Typst WASM plugin wrapping Verovio. Its public functions include `score`,
