@@ -306,24 +306,6 @@
       "entry_function": "hologram-theme"
     },
     {
-      "name": "indie-bookstore",
-      "display_name": "Indie Bookstore",
-      "category": "custom",
-      "tier": "canvas",
-      "path": "custom-canvas/indie-bookstore",
-      "style": "Risograph zine aesthetic -- Federal Blue + Fluorescent Pink duotone on kraft cream paper",
-      "best_for": "Indie bookstores, zine culture, risograph art, creative communities, publishing, cultural guides",
-      "visual_character": "A risograph zine aesthetic presentation theme with warm cream paper backgrounds, Federal Blue and Fluorescent Pink duotone colors, hard-edge cards (zero border-radius), misregistered shadow effects, a",
-      "tags": [
-        "creative",
-        "cultural",
-        "warm",
-        "japanese"
-      ],
-      "import": "#import \"template.typ\": *",
-      "entry_function": "zine-theme"
-    },
-    {
       "name": "kinetic",
       "display_name": "Kinetic",
       "category": "custom",
@@ -485,25 +467,6 @@
       "entry_function": "porcelain-theme"
     },
     {
-      "name": "pritzker",
-      "display_name": "Pritzker",
-      "category": "custom",
-      "tier": "canvas",
-      "path": "custom-canvas/pritzker",
-      "style": "Architectural editorial luxury -- warm cream with gold accents, serif editorial numbers",
-      "best_for": "Architecture, luxury brands, award ceremonies, cultural institutions, real estate, museums",
-      "visual_character": "An architectural editorial luxury presentation theme inspired by the Pritzker Architecture Prize. Features warm cream backgrounds with gold accents, large italic serif editorial numbers (Linux Liberti",
-      "tags": [
-        "cultural",
-        "editorial",
-        "luxury",
-        "warm",
-        "architecture"
-      ],
-      "import": "#import \"template.typ\": *",
-      "entry_function": "pritzker-theme"
-    },
-    {
       "name": "retro-terminal",
       "display_name": "Retro Terminal",
       "category": "custom",
@@ -574,27 +537,6 @@
       ],
       "import": "#import \"template.typ\": *",
       "entry_function": "solarpunk-theme"
-    },
-    {
-      "name": "sugar-rush",
-      "display_name": "Sugar Rush",
-      "category": "custom",
-      "tier": "canvas",
-      "path": "custom-canvas/sugar-rush",
-      "style": "Memphis Design / 80s retro revival -- candy-colored, bold playful geometry",
-      "best_for": "Music festivals, pop culture events, youth marketing, entertainment, creative agencies",
-      "visual_character": "A candy-colored 80s retro revival presentation theme with bold playful geometry, Memphis design patterns, heavy black strokes (3pt), and a multi-color accent system (pink, blue, yellow, mint, coral). ",
-      "tags": [
-        "creative",
-        "cultural",
-        "geometric",
-        "retro",
-        "japanese",
-        "music",
-        "ocean"
-      ],
-      "import": "#import \"template.typ\": *",
-      "entry_function": "sugar-rush-theme"
     },
     {
       "name": "topographic",

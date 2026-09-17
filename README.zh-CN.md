@@ -123,7 +123,18 @@ Native 运行时支持 macOS、Windows、Linux 的 x64 和 arm64 架构。
 还包含论文、定理／证明、报告、笔记、作业、试卷和语义表格工作区。对应的模板预览图位于
 `resources/template-previews`，构建时仍使用编辑器现有的预览 URL。
 
-本仓库是可独立安装的内容。运行 `node --test tests/skill-package.mjs` 检查元数据、链接和打包边界；
-在 Typst 0.15 环境运行 `node tests/compile-scenarios.mjs`，可编译全部 Tylina 自有模板及输出变体。
+本仓库是可独立安装的内容。运行 `npm test` 检查元数据、链接和发布归档边界；
+在 Typst 0.15 环境运行 `npm run test:scenarios`，可编译全部 Tylina 自有模板及输出变体。
 Tylina 维护的 Skill 指导内容使用 [MIT 许可](LICENSE)；镜像的第三方文档与模板示例保留上游许可和声明。
 SDK、编辑器、字体和打包模板分别遵循各自许可。
+
+Tylina 也会把本仓库作为一个原子更新的核心 Skill 集合。集合版本和最低兼容 Tylina 版本记录在
+`skills/catalog.json`；各个 `SKILL.md` 仍是标准 Skill 包，不增加 Tylina 私有 manifest。
+每个 release tag 发布一个完整、按字节校验的 ZIP。兼容的 Tylina 宿主可在后台下载，下一次宿主会话
+再整体启用，同时保留随应用打包的集合用于回退。最新 release 的索引会为每个兼容性下限保留最新集合，
+因此工具契约升级后，旧版 Tylina 仍能找到自己可用的最后一个新版本。只更新内容时不提高最低 Tylina
+版本；只有新增宿主命令或改变工具契约时才提高。
+
+集合版本沿用 Tylina 的 semver 系列，首个版本为 `0.15.0`；开发快照可使用
+`0.15.1-alpha.1` 这样的版本。集合仍可独立发布，宿主兼容性由 `minimumTylinaVersion`
+判定，不要求集合版本与应用版本完全相同。

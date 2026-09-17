@@ -34,6 +34,13 @@ test('Skill discovery stays compact and installable without the core repository'
 
   const skillsRoot = resolve(root, 'skills')
   const catalog = JSON.parse(await readFile(resolve(skillsRoot, 'catalog.json'), 'utf8'))
+  assert.match(
+    catalog.collection.version,
+    /^\d+\.\d+\.\d+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/u
+  )
+  assert.match(catalog.collection.minimumTylinaVersion, /^\d+\.\d+\.\d+$/u)
+  const packageMetadata = JSON.parse(await readFile(resolve(root, 'package.json'), 'utf8'))
+  assert.equal(packageMetadata.version, catalog.collection.version)
   const catalogIds = catalog.skills.map((entry) => entry.id)
   const packageIds = (await readdir(skillsRoot, { withFileTypes: true }))
     .filter((entry) => entry.isDirectory() && entry.name !== 'tylina' && !entry.name.startsWith('_'))
@@ -141,6 +148,29 @@ test('Skill discovery stays compact and installable without the core repository'
     .sort()
   assert.deepEqual([...recipeNames].sort(), recipeDirectories, 'Every package recipe directory must be indexed')
   const catalogSkillDocs = catalogIds.map((id) => resolve(skillsRoot, id, 'SKILL.md'))
+
+  const themesRoot = resolve(skillsRoot, '_shared/slides/themes')
+  for (const tier of ['builtin', 'custom-canvas', 'custom-plain', 'custom-rich', 'universe']) {
+    const tierRoot = resolve(themesRoot, tier)
+    const index = JSON.parse(await readFile(resolve(tierRoot, 'index.json'), 'utf8'))
+    const themeNames = new Set()
+    for (const theme of index.themes) {
+      assert.match(theme.name, /^[a-z0-9][a-z0-9-]*$/u)
+      assert.ok(!themeNames.has(theme.name), `Duplicate ${tier} theme: ${theme.name}`)
+      themeNames.add(theme.name)
+      if (theme.path !== undefined) {
+        assert.equal(theme.path, `${tier}/${theme.name}`, `Invalid theme path: ${tier}/${theme.name}`)
+      }
+      assert.ok((await stat(resolve(tierRoot, theme.name, 'demo.typ'))).isFile(),
+        `Missing theme demo: ${tier}/${theme.name}`)
+    }
+    const themeDirectories = (await readdir(tierRoot, { withFileTypes: true }))
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .sort()
+    assert.deepEqual([...themeNames].sort(), themeDirectories,
+      `Every ${tier} theme directory must be indexed`)
+  }
 
   const scenarioRoot = resolve(skillsRoot, '_shared/scenarios')
   const scenarioCatalog = JSON.parse(await readFile(resolve(scenarioRoot, 'index.json'), 'utf8'))

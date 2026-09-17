@@ -1,0 +1,14 @@
+{
+  "name": "tylina-skill-collection",
+  "version": "0.15.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/skill-package.mjs tests/release-package.mjs",
+    "test:scenarios": "node tests/compile-scenarios.mjs",
+    "build:release": "node scripts/build-release.mjs"
+  },
+  "dependencies": {
+    "fflate": "0.8.3"
+  }
+}

@@ -1,0 +1,48 @@
+name: Release core Skill collection
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Download previous compatibility index
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          previous_tag="$(gh release list --limit 1 --json tagName --jq '.[0].tagName // ""')"
+          if test -n "$previous_tag" && gh release view "$previous_tag" --json assets --jq '.assets[].name' | grep -Fxq tylina-skill-release.json; then
+            mkdir -p previous-release
+            gh release download "$previous_tag" --pattern tylina-skill-release.json --dir previous-release
+          fi
+      - name: Build atomic collection and compatibility index
+        run: |
+          if test -f previous-release/tylina-skill-release.json; then
+            npm run build:release -- --previous-index previous-release/tylina-skill-release.json
+          else
+            npm run build:release
+          fi
+      - name: Verify tag and collection version
+        run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "$GITHUB_REF_NAME"
+          dist/tylina-skill-*.zip
+          dist/tylina-skill-release.json
+          --generate-notes
+          --verify-tag
