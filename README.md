@@ -144,4 +144,5 @@ Tylina version; a new host command or changed tool contract does.
 
 Collection releases use the Tylina semver series for a recognizable product generation, starting at
 `0.15.0`; development snapshots may use versions such as `0.15.1-alpha.1`. The release cadence remains
-independent: `minimumTylinaVersion`, not an exact version match, determines host compatibility.
+independent: `minimumTylinaVersion`, not an exact version match, determines host compatibility. Alpha
+versions identify packaged development snapshots; only a stable version can produce an official update release.

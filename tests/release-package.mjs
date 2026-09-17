@@ -11,8 +11,13 @@ import { unzipSync } from 'fflate'
 
 const run = promisify(execFile)
 const root = new URL('../', import.meta.url)
+const packageVersion = JSON.parse(
+  await readFile(new URL('../package.json', import.meta.url), 'utf8')
+).version
 
-test('release builder emits one complete atomic Skill collection', async () => {
+test('release builder emits one complete atomic Skill collection', {
+  skip: packageVersion.includes('-')
+}, async () => {
   const output = await mkdtemp(join(tmpdir(), 'tylina-skill-release-'))
   try {
     const previousIndex = join(output, 'previous.json')

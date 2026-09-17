@@ -14,6 +14,9 @@ if (!collection || typeof collection.version !== 'string' ||
   typeof collection.minimumTylinaVersion !== 'string') {
   throw new Error('skills/catalog.json must declare the collection version and minimum Tylina version')
 }
+if (!stableVersion(collection.version)) {
+  throw new Error('Official core Skill collection releases require a stable version')
+}
 
 const packageMetadata = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'))
 if (packageMetadata.version !== collection.version) {
