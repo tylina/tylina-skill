@@ -1,7 +1,7 @@
 {
   "version": 10,
   "collection": {
-    "version": "0.15.2",
+    "version": "0.15.3-alpha.1",
     "minimumTylinaVersion": "0.15.0"
   },
   "skills": [
