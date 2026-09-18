@@ -4,6 +4,10 @@
 
 **Category**: Utility / barcode
 
+**Typst Universe**: <https://typst.app/universe/package/tiaoma>
+
+**Repository**: <https://github.com/Enter-tainer/zint-wasi>
+
 **License**: MIT
 
 ## Verified Boundary
@@ -45,7 +49,8 @@ The package source verifies these API boundaries:
 )
 ```
 
-Use the generic entrypoint only when a named shortcut does not cover the verified symbology:
+Use the generic entrypoint when you need a verified symbology's options or controls that its named
+shortcut does not expose, or when no named shortcut covers the symbology:
 
 ```typst
 #tiaoma.barcode(
@@ -77,7 +82,9 @@ from another Zint binding.
 - Preserve a high-contrast foreground/background and sufficient quiet space. Decorative recoloring,
   embedded logos, or aggressive cropping can make a visually attractive symbol unreadable.
 - For a URL QR code, keep a human-readable destination nearby when space and audience permit.
-- Validate the Typst document, inspect the rendered symbol at final physical size, and scan a final
-  raster or printed proof with an independent reader. Compilation proves generation, not scanning.
+- Validate the Typst document and inspect the rendered symbol at final physical size. When an
+  independent decoder or scanner is available and authorized, verify the final raster or printed
+  proof against the exact payload. Otherwise report machine readability as unverified;
+  compilation proves generation, not scanning.
 - Use `package.list` for current alternatives when customization unsupported by Zint is required;
   keep the selected version and its source provenance explicit.

@@ -312,13 +312,13 @@
 // ═══ 2. Reusable Components ═══
 
 /// Feature card with colored top border and number badge
-#let feature-card(number, title, description, accent: auto) = {
+#let feature-card(number, title, description, accent: auto, inset-y: 1em) = {
   let color = if accent == auto { accent-color(number - 1) } else { accent }
   block(
     width: 100%,
     fill: palette.card,
     stroke: (top: 3pt + color, rest: 1pt + palette.border),
-    inset: 1em,
+    inset: (x: 1em, y: inset-y),
     radius: (bottom: 10pt),
   )[
     // Number badge
@@ -379,12 +379,12 @@
 }
 
 /// Callout box — accent-colored callout for key insights, warnings, etc.
-#let callout-box(title, body, accent: palette.orange) = {
+#let callout-box(title, body, accent: palette.orange, inset-y: 14pt) = {
   block(
     width: 100%,
     fill: accent.lighten(92%),
     stroke: (left: 4pt + accent),
-    inset: 14pt,
+    inset: (x: 14pt, y: inset-y),
     radius: (right: 8pt),
   )[
     #stack(spacing: .8em,
@@ -400,8 +400,18 @@
 
 /// Convenience aliases
 #let insight-box = callout-box
-#let warning-box(title, body) = callout-box(title, body, accent: palette.red)
-#let success-box(title, body) = callout-box(title, body, accent: palette.green)
+#let warning-box(title, body, inset-y: 14pt) = callout-box(
+  title,
+  body,
+  accent: palette.red,
+  inset-y: inset-y,
+)
+#let success-box(title, body, inset-y: 14pt) = callout-box(
+  title,
+  body,
+  accent: palette.green,
+  inset-y: inset-y,
+)
 
 /// Code block — styled code display area with dark header
 #let code-block(title, body) = {

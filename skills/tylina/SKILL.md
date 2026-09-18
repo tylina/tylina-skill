@@ -32,18 +32,20 @@ One MCP tool, `tylina`, accepts `{command, args}`. Common calls:
 
 Use `help` for unfamiliar operations only. Do not look up schemas already in context.
 A standalone disk connection has no live selection or unsaved editor state. Setup, CLI and SDK:
-[connection.md](references/connection.md). Templates, export and views: [workflow.md](references/workflow.md).
+`tylina/references/connection.md`. Templates, export and views: `tylina/references/workflow.md`.
 Portable PDF and Office ingestion:
 `typst-authoring/references/source-ingestion.md`.
 External raster image discovery, license review, import, and attribution:
-[image-sourcing.md](references/image-sourcing.md).
+`tylina/references/image-sourcing.md`.
 
-Use `skill.list`, then `skill.read`, for the relevant bundled or enabled installed Skill.
-Core `typst-authoring` is normally already in session instructions; do not reload it.
-Current package discovery uses `package.list`; use `package.inspect` only for a selected exact spec.
-Pinned recipes and official API paths are indexed in
-`_shared/packages/index.json` and
-`_shared/docs/index.json`. Load only the needed reference. These paths are not runtime imports.
+When the host or user selected a Skill, read that exact Skill path directly. Use `skill.list` only
+when the relevant domain is not known. Core `typst-authoring` is normally already in session
+instructions; do not reload it. Preserve an existing package import, then read an exact local
+recipe named by the selected Skill before broader discovery. Use `package.list` only when those
+routes are missing or insufficient, and `package.inspect` only for one selected exact spec.
+For a curated package, `package.list` returns directly readable `recipePath` and `demoPath` values.
+Official API paths are indexed in `_shared/docs/index.json`. Load only the needed reference.
+These paths are not runtime imports.
 
 Stay at the selected target. Adding a diagram or paragraph does not authorize a new document or
 main-file switch. A draft selection is not canonical source; inspect its context before editing.

@@ -6,4 +6,4 @@ or claims merely to make the proof close.
 
 For reusable localization or theorem styles, use `package.list`, then read the routed recipe or
 verify the returned exact spec against official versioned documentation. The bundled Theorion
-recipe is available separately and is not imported by this offline fixture.
+recipe is available separately and is not imported by this self-contained example.

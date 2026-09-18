@@ -34,9 +34,10 @@ and citations.
 
 ## Typst and Package Information
 
-- `references/linguistic-notation.md` distinguishes example, gloss, IPA, tree, romanization, and
-  multilingual-script representations and routes relevant package information.
-- Preserve a working package. For a missing capability, use `package.list` with
+- `typst-linguistics/references/linguistic-notation.md` distinguishes example, gloss, IPA, tree,
+  romanization, and multilingual-script representations and routes relevant package information.
+- Preserve a working package. For numbered examples and interlinear glosses, read the local Eggs
+  recipe first. For another missing capability, use `package.list` with
   `discipline: "linguistics"` or a focused query, then read the returned recipe or exact versioned
   documentation.
 - Keep linguistic data editable and attributable. Inspect changed scripts, combining marks,
@@ -45,8 +46,8 @@ and citations.
 
 ## Adaptive Workflow
 
-1. Read only the relevant part of `references/linguistic-notation.md` for the representation being
-   edited.
+1. Read only the relevant part of `typst-linguistics/references/linguistic-notation.md` for the
+   representation being edited.
 2. Inventory the languages, scripts, transcription standard, example schema, gloss abbreviations,
    judgments, source references, fonts, directionality, and existing package model that matter.
 3. Preserve a working package. For a missing capability, search by discipline or focused capability
@@ -61,5 +62,7 @@ and citations.
 
 - Representation and package routing: `typst-linguistics/references/linguistic-notation.md`.
 - Verified interlinear-example API: `_shared/packages/eggs/README.md`.
-- Syntax trees or diagrams: `typst-diagrams/SKILL.md` when that Skill is available.
+- Verified bracket-authored syntax-tree API: `_shared/packages/synkit/README.md` and its
+  `_shared/packages/synkit/demo.typ`.
+- Other tree or diagram models: `typst-diagrams/SKILL.md` when that Skill is available.
 - Citations and research evidence: `typst-research/SKILL.md` when applicable.

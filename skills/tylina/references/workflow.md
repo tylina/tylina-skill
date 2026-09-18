@@ -26,11 +26,13 @@ Inspection is read-only package evidence, not a workspace edit target.
 
 ## Inspect document values
 
-Use `document.eval` for bounded read-only Typst expressions that need the current compiled world,
-imports, library, or document introspector. It can inspect values such as counters or query results
-without inserting diagnostic code into canonical source. The expression is code mode, not markup;
-use returned diagnostics and never treat evaluation as permission to mutate files. Large inputs and
-results are rejected by the host.
+Use `document.eval` only for a specific computed value or introspection that the provider-backed
+document commands and the selected Skill/package resources cannot provide. It can inspect values
+such as counters or query results without inserting diagnostic code into canonical source. Do not
+use it for package API or option discovery, page count or geometry, visual checks, source
+inspection, or runtime/version probes; read the authoritative recipe, demo, or README instead.
+The expression is code mode, not markup; use returned diagnostics and never treat evaluation as
+permission to mutate files. Large inputs and results are rejected by the host.
 
 ## Import source material
 

@@ -1,8 +1,11 @@
 {
   "meta": {
     "total": 52,
-    "description": "Typst chart and infographic component templates for Touying slides",
+    "description": "Complete Touying chart and infographic slide examples, not embeddable components",
     "theme": "touying 0.7.4 simple (16:9)",
+    "artifact": "complete-touying-slide",
+    "embeddable": false,
+    "basePath": "_shared/charts/",
     "filePattern": "{key}.typ",
     "packagePriority": ["lilaq", "gribouille", "primaviz", "merman", "fletcher", "cetz", "showybox"],
     "updated": "2026-08-02"
@@ -262,7 +265,7 @@
     "stacked_bar_chart": {
       "label": "Stacked Bar Chart",
       "file": "stacked_bar_chart.typ",
-      "summary": "Composition and total cols (2-4 composition parts per bar)",
+      "summary": "Composition and total columns (2-4 parts per bar)",
       "keywords": ["stacked bar chart", "composition", "contribution", "total"],
       "package": "lilaq"
     },
@@ -383,7 +386,7 @@
       "file": "snake_flow.typ",
       "summary": "S-shaped winding multi-step process (6-10 steps, journey/lifecycle)",
       "keywords": ["snake", "S-flow", "journey", "lifecycle", "winding process"],
-      "package": "native"
+      "package": "fletcher"
     },
     "roadmap_vertical": {
       "label": "Vertical Roadmap",

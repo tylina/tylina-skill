@@ -33,10 +33,14 @@ claims or follows a venue.
 
 ## Structure and Template Information
 
-- `references/finished-forms.md` distinguishes note collections, reports, manuals, books, and
-  their relevant template searches. A thesis uses `typst-thesis` instead.
+- `typst-longform/references/finished-forms.md` distinguishes note collections, reports, manuals,
+  books, and their relevant template searches. A thesis uses `typst-thesis` instead.
 - Use real source/compiler evidence for the main and include graph; filenames, regexes, or document
   size do not establish chapter ownership.
+- `#include "chapter.typ"` inserts authored content in the caller's context, while
+  `#import "module.typ": ...` loads names without inserting the module body. Use `include` for
+  chapters and appendices, `import` for reusable definitions, resolve paths relative to the
+  importing file, and avoid cycles. Verify the real include graph after changes.
 - Continue an existing scaffold in place. New offline report and note workspaces are indexed at
   `_shared/scenarios/longform/index.json`; use the template tools for a selected complete scaffold.
 - Stable authoring units, navigation, references, and global page furniture belong to the document
@@ -46,8 +50,8 @@ claims or follows a venue.
 
 ## Adaptive Workflow
 
-1. Use `references/finished-forms.md` to distinguish notes, reports, manuals, books, and their
-   relevant template searches.
+1. Use `typst-longform/references/finished-forms.md` to distinguish notes, reports, manuals, books,
+   and their relevant template searches.
 2. Inspect the current main, real include graph, bibliography, assets, template ownership, and a
    representative authoring unit without inferring structure from filenames or regexes.
 3. Continue an existing scaffold. If a new one is requested, inspect and materialize one complete
@@ -66,4 +70,6 @@ claims or follows a venue.
 - Offline report and note workspaces: `_shared/scenarios/longform/index.json`.
 - Template and package workflow: `typst-authoring/references/templates-and-packages.md`.
 - Literature and citations: `typst-research/SKILL.md` when that Skill is available.
+- Maintained glossary, acronym expansion, and back-references:
+  `_shared/packages/glossarium/README.md` when native definitions are insufficient.
 - Institution-governed thesis or dissertation: `typst-thesis/SKILL.md` when available.

@@ -1,7 +1,7 @@
 #import "table-style.typ": data-table
 
 #set page(paper: "a4", margin: (x: 23mm, y: 22mm), numbering: "1")
-#set text(font: ("Inter", "Libertinus Sans"), size: 10.5pt)
+#set text(size: 10.5pt)
 #set par(leading: 0.65em)
 
 = Data table

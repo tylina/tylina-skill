@@ -22,7 +22,15 @@ Compose this Skill with the bundled Typst Authoring Skill.
 
 1. Identify the intended contribution, audience, venue constraints, and supplied evidence.
 2. Keep claims aligned with evidence. Distinguish results, interpretation, limitations, and
-   future work.
+   future work. A requested section does not license plausible filler: when procedure, baseline,
+   follow-up, setting, authorship, affiliation, or statistical testing is not supplied, omit it or
+   state the relevant evidence gap instead of manufacturing a conventional paper detail.
+   An explicit exclusion is stronger than the general advice to expose evidence gaps: when the
+   user says not to add or mention a category, omit that category entirely. Do not restate it as a
+   limitation, missing measurement, absent baseline, or future-work suggestion.
+   A reported aggregate, difference, or change does not establish how individual observations were
+   collected. Do not infer an instrument, measurement schedule, participant-level record, analysis
+   method, allocation procedure or timing, or comparison protocol from the result alone.
 3. Reuse existing bibliography files and citation keys. Never invent a citation, experiment,
    measurement, quotation, or result.
 4. Preserve stable labels for headings, equations, figures, tables, theorems, and appendices.
@@ -31,16 +39,29 @@ Compose this Skill with the bundled Typst Authoring Skill.
 6. In `review` mode, separate correctness or support gaps from prose and presentation advice.
    Do not edit unless requested.
 
+For an explicit IEEE-style paper request with no existing venue scaffold, use the pinned Charged
+IEEE recipe and demo as the first concrete route. It gives an IEEE-like two-column layout and
+numeric bibliography style; it does not prove that a particular IEEE venue accepts the output.
+
+Before a whole-paper creation or template migration, make a compact acceptance checklist from the
+request: required sections, supplied facts, claims that must remain qualified, forbidden invented
+material, and the intended main file. Check the final current main against every item before the
+final response. A successful compile or attractive page does not compensate for a missing requested
+section or an altered evidence boundary.
+
 ## Adaptive Workflow
 
 1. Inspect the relevant source, bibliography, figures, tables, equations, and neighboring claims.
 2. Separate supported claims, evidence gaps, ambiguity, and presentation problems before broad
    revision.
-3. Continue the existing venue scaffold. For a new package-free paper, select and materialize one
-   complete reviewed workspace from `_shared/scenarios/academic/index.json`.
+3. Continue the existing venue scaffold. If a new venue template is needed, consult
+   `typst-authoring/references/templates-and-packages.md` and use `template.list` to find an exact
+   versioned candidate before inspecting or materializing it. If no package is needed, select and
+   materialize one complete reviewed workspace from `_shared/scenarios/academic/index.json`.
 4. Make the requested change while preserving terminology, notation, labels, citation keys, and
    the distinction between evidence and interpretation.
-5. Validate the document and visually inspect every affected figure, table, equation, citation,
+5. Recheck the request-derived acceptance checklist against the final current main.
+6. Validate the document and visually inspect every affected figure, table, equation, citation,
    and page transition.
 
 ## Tylina-Specific Information
@@ -63,3 +84,5 @@ uncertain behavior against the official Typst bibliography reference.
   `_shared/scenarios/academic/research-paper/README.md`.
 - Literature discovery and citation integrity: `typst-research/SKILL.md`.
 - Template and package workflow: `typst-authoring/references/templates-and-packages.md`.
+- IEEE-style paper route: `_shared/packages/charged-ieee/README.md` and its
+  `_shared/packages/charged-ieee/demo.typ`.

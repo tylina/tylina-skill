@@ -8,7 +8,7 @@
 
 - [Template-content separation](#1-template-content-separation-tcs)
 - [Touying slide type mapping](#2-touying-074-slide-type-mapping)
-- [Design parameter confirmation](#3-design-parameter-confirmation-mandatory-pre-step)
+- [Design parameters](#3-design-parameters)
 - [Phased batch generation](#4-phased-batch-generation)
 - [Third-party packages](#5-third-party-package-reference)
 - [Image handling](#6-image-handling)
@@ -26,13 +26,13 @@
 
 ## 2. Touying 0.7.4 Slide Type Mapping
 
-### Heading-Driven Slide Structure
+### Common Slide Structures
 
 | Heading | Effect | Touying Mechanism |
 |---------|--------|-------------------|
 | `= Section Title` | Creates a **new-section-slide** | Triggers `new-section-slide-fn` |
-| `== Slide Title` | Creates a **content slide** | Triggers `slide-fn` (default `slide-level: 2`) |
-| `---` | Splits into a **new slide** under same heading | Touying slide-break marker |
+| `== Slide Title` | Creates a **content slide** in heading-driven themes | Triggers the theme's configured `slide-fn` (often `slide-level: 2`) |
+| `---` | Splits into a **new slide** under the same heading when the theme enables it | Touying slide-break marker |
 
 ### Slide Type Functions
 
@@ -73,38 +73,51 @@
 #ending-slide[Thank You]
 ```
 
-> **Anti-pattern**: Do NOT use old-style `#slide[== Title ...]` or `#cover-slide(...)`. Touying 0.7.4 uses `#show: theme.with(...)` + heading-driven slides.
+> Heading-driven markup is the simplest default, but `#slide[...]`, `#slide(title: ...)[...]`,
+> `#title-slide()`, and theme-specific slide functions are all valid Touying APIs. Use the
+> selected theme's documented/demo pattern; do not rewrite an existing deck into headings merely
+> to satisfy this table. `#cover-slide(...)` is an old pattern unless the selected theme documents
+> it explicitly.
 
 > **Academic override**: Academic-style decks do NOT use `ending-slide` for a "Thank You" page. Instead, keep the final conclusions slide on screen during Q&A. Use `focus-slide` for the final slide if a closing statement is needed. See `academic.md` for details.
 
 ---
 
-## 3. Design Parameter Confirmation (Mandatory Pre-Step)
+## 3. Design Parameters (Record Only Decisions That Matter)
 
-Before generating the first Typst file, confirm these parameters:
+Before generating the first Typst file, record the parameters that materially affect the requested
+output. Infer ordinary defaults from the selected theme and supplied brief; do not stop to ask for
+an option that does not change the result.
 
 | Parameter | Description | Example |
 |-----------|-------------|---------|
 | **Page Format** | 16:9 or 4:3 | `aspect-ratio: "16-9"` |
-| **Color Scheme** | Primary, secondary, accent | `primary: rgb("#003366")` |
-| **Typography** | Font families and base size | `font: ("Arial", "Noto Sans CJK SC"), size: 20pt` |
+| **Color Scheme** | Primary, secondary, accent when the theme exposes choices | Theme palette tokens |
+| **Typography** | Font families and base size when the output depends on them | Theme defaults or an explicit fallback |
 | **Packages Needed** | Charts, boxes, diagrams | `showybox`, `cetz`, `lilaq` |
 | **Custom Components** | Cards, callouts, highlights | Per-theme (see `template.typ`) |
 
 ### 3.1 Design Consistency (Architecture Advantage)
 
-> seaslides-typst-slides-skill outputs a **single `main.typ`** file. Colors, fonts, and components are defined once in `template.typ` and apply globally — they cannot drift mid-deck regardless of context length. No per-page re-reading of design specs is needed.
+> Keep one clear validated entrypoint (usually `main.typ`), but use `#include` or focused modules
+> when stable chapters, generated data, or reusable content benefit from separate files. Colors,
+> fonts, and components should follow the selected theme's ownership; they need not all live in one
+> file.
 
-**Before generating `main.typ`**, read:
-1. `content_design_spec.md` — slide outline, page rhythm tags, image assignments, packages
-2. `theme.md` — available slide types, components, color scheme
-3. `template.typ` — skim for component function signatures
+**Before generating `main.typ`**, read the sources that apply to the selected mode:
+1. `content_design_spec.md` when complex mode produced one — slide outline, rhythm, and assets
+2. `theme.md` — available slide types, components, and palette
+3. `template.typ` only when the public theme guide and demo leave a signature unresolved
 
-**Values enforced by the template** (never hardcode in main.typ):
-- Colors MUST use `palette.xxx` tokens defined in `template.typ`
-- Font families are set in template — never override in main.typ
-- Page rhythm tag from `content_design_spec.md` §IV `Page Rhythm` column
-- Images MUST reference files listed in `content_design_spec.md` §V
+**Values normally owned by the template** (follow the selected theme's public contract):
+- Use `palette.xxx` or another documented theme token when the theme exposes one; a theme may
+  intentionally accept local semantic colors.
+- Keep the base font in the theme or entrypoint and use local overrides only when language,
+  accessibility, or a documented component requires them.
+- Apply a `Page Rhythm` tag from `content_design_spec.md` only when complex mode produced that
+  specification.
+- In complex mode, keep images tied to the spec's source list; in quick mode, use the supplied or
+  materialized workspace assets directly.
 
 ### 3.2 Per-page rhythm discipline
 
@@ -154,7 +167,9 @@ Key patterns:
 
 ### Phase 3: Speaker Notes
 
-Add `#speaker-note[...]` after each slide's content. It automatically attaches to the preceding slide.
+Preserve existing notes. Add `#speaker-note[...]` only when requested, supplied, or useful for the
+actual delivery setting. It automatically attaches to the preceding logical slide; animation can
+produce multiple physical pages for that one slide.
 
 **Writing rules** (TTS-ready):
 - 2–5 natural sentences carrying the page's core message
@@ -198,10 +213,13 @@ Actively consider these before writing slides — they significantly improve qua
 | Resource | Path | Contents |
 |----------|------|----------|
 | **Charts** | `_shared/charts/index.json` | Chart and infographic component catalog |
-| **Packages** | `_shared/packages/index.json` | Curated package catalog and runnable demos |
+| **Packages** | `package.list` | Exact package spec plus routed recipe and demo paths when available |
 | **Icons** | `_shared/icons/index.json` | Icon packages; use Unicode emoji by default |
 
-> **GATE**: Before implementing ANY chart or diagram: (1) Read `charts/index.json` for the matching type, (2) Read the chart template file for correct API, (3) Verify version matches `shared-standards.md` §5. NEVER write chart code from memory.
+> **Evidence rule**: Before implementing a chart or diagram, use the existing workspace pattern or
+> one focused package recipe and demo. For a Touying chart, `_shared/charts/index.json` can route
+> to a complete slide example; for other artifacts, use `package.list` and its exact returned
+> `recipePath`/`demoPath`. Inspect package source only when those focused resources are insufficient.
 
 ---
 
@@ -244,11 +262,12 @@ Before finalizing each phase:
 
 **Structural**:
 - [ ] Template-content separation maintained (no raw visual styling in main.typ)
-- [ ] All package versions match `shared-standards.md` §5
-- [ ] All slides created via == Heading (NOT #slide(title: ...))
-- [ ] Slide titles use `==`, sections use `=`, title slide uses `#title-slide()`
+- [ ] Selected package versions match the exact workspace/theme contract
+- [ ] Each slide uses the selected theme's documented heading or explicit slide API
+- [ ] Section and title mechanisms match the selected theme; do not infer them from page count
 - [ ] `cols` used for columns (not custom layout wrappers)
-- [ ] `config-common(breakable: false)` is set
+- [ ] `config-common(breakable: false)` is used when a strict one-logical-slide/one-page
+      contract is required and the selected theme supports it
 - [ ] All component function names exist in template.typ (pre-flight verification)
 
 **Typography**:
@@ -257,8 +276,8 @@ Before finalizing each phase:
 - [ ] CJK titles sized appropriately (typically 85-90% of equivalent Latin sizes)
 - [ ] Colors meet contrast standards (see `shared-standards.md` §4)
 - [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
-- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
-- [ ] New math uses native Typst; MiTeX is considered only for supplied LaTeX or existing MiTeX
+- [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing
+      MiTeX style
 - [ ] Content packages considered: charts→lilaq/gribouille, diagrams→merman, algorithms→lovelace, checklists→cheq
 
 **Images**:
@@ -270,7 +289,7 @@ Before finalizing each phase:
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
 
 **Content**:
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] Terminology consistent throughout (same concept = same term, no mid-deck switching)
 - [ ] Section page count is balanced (no top-heavy or tail-heavy structure)
 - [ ] Title-to-content spacing adequate (no "squished" slides)

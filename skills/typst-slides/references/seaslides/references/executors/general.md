@@ -24,7 +24,8 @@ Creative and versatile Typst slide executor, specializing in product introductio
 - `base.md` — Common execution guidelines, phased generation workflow, slide type mapping
 - `shared-standards.md` — Typst/Touying technical constraints, layout APIs, package versions, font/color standards
 - `template-designer.md` — Theme design patterns, component implementations
-- `_shared/packages/index.json` — Additional packages (codly, cheq, tablem, pinit, etc.)
+- `package.list` — Find an additional package by one focused capability, then read only the
+  returned exact `recipePath` and `demoPath` when present.
 - `_shared/icons/index.json` — Icon packages; use emoji by default
 
 > **Rule**: All technical standards (APIs, versions, syntax) are defined in those documents. This file covers **General style-specific** guidance only.
@@ -127,13 +128,19 @@ Use shapes inside component functions in template.typ, not directly in main.typ:
 
 ## 8. Drawing and Diagrams
 
-> **GATE**: Before writing ANY chart or diagram code, read the matching template from `_shared/charts/`. See `charts/README.md` for the full chart index, need-based package dispatch (including lilaq, gribouille, primaviz, and merman), API examples, and layout best practices.
+> **Evidence rule**: Before writing chart or diagram code, reuse the current workspace pattern or
+> read one focused, version-matched recipe and demo. Use `_shared/charts/index.json` only when the
+> target is a Touying chart example; for other artifacts, `package.list` returns the exact package
+> route. Do not infer an API from a package name or a screenshot.
 
 **Key rules**: cetz uses numeric coordinates only (NOT percentages). fletcher uses `node((col, row), [...])` + `edge(...)`. All chart code goes in template.typ or inline per charts/README.md patterns.
 
 ---
 
 ## 9. Speaker Notes Style
+
+Apply this section only when speaker notes are part of the request, supplied source, or delivery
+plan.
 
 ### Narrative Tone
 
@@ -162,7 +169,7 @@ Product launches, training materials, proposals, and marketing campaigns. Struct
 > **Common checks**: See `base.md` §8 for the full shared checklist.
 
 **General-specific checks**:
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
 - [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
@@ -176,5 +183,5 @@ Product launches, training materials, proposals, and marketing campaigns. Struct
 - [ ] `cetz` uses numeric coordinates (not percentages)
 - [ ] `---` used only for intentional slide breaks
 - [ ] Color scheme is consistent (60-30-10 rule)
-- [ ] Speaker notes are engaging and conversational
+- [ ] Speaker notes, when in scope, are engaging and conversational
 - [ ] Call to action is clear and compelling

@@ -23,15 +23,17 @@ Compose this Skill with Typst Authoring.
 - CeTZ suits custom drawing and geometric illustration.
 - Native Typst is sufficient for simple boxes, arrows, or layout that does not justify a package.
 
-Reuse the workspace's existing diagram package and version. `_shared/packages/index.json` routes
-to pinned recipes when a new package is needed. Preserve supplied entities, relationships,
+Reuse the workspace's existing diagram package and version. `package.list` returns direct pinned
+recipe and demo paths when a new package is needed. Preserve supplied entities, relationships,
 direction, grouping, and labels, and keep semantic diagram source editable rather than flattening
 it into an image. Inspect affected diagrams for missing nodes, edge crossings or clipping, label
 overlap, direction, scale, contrast, and export-safe rendering.
 
 For Mermaid, prefer ordinary Mermaid source that Tylina's visual editor can reopen. Preserve
 unsupported directives and syntax verbatim instead of normalizing them through a smaller UI
-model.
+model. Merman keeps that source editable in Typst even though its renderer emits SVG; the SVG is a
+rendering boundary, not a reason to replace the source with a bitmap. Fletcher, CeTZ, and native
+Typst remain source-native representations.
 
 ## Adaptive Workflow
 
@@ -44,3 +46,16 @@ model.
 4. Keep the diagram source editable and preserve unsupported Mermaid syntax verbatim.
 5. Validate and inspect every affected diagram for missing elements, crossed or clipped edges,
    label overlap, direction, scale, contrast, and export-safe rendering.
+
+## Progressive Resources
+
+- Editable general graphs, flowcharts, state machines, trees, and commutative diagrams:
+  `_shared/packages/fletcher/README.md` and `_shared/packages/fletcher/demo.typ`.
+- Sequence diagrams with participants, messages, and lifelines:
+  `_shared/packages/chronos/README.md` and `_shared/packages/chronos/demo.typ`.
+- Existing Mermaid source and supported Mermaid families:
+  `_shared/packages/merman/README.md` and `_shared/packages/merman/demo.typ`.
+- Custom geometry and source-controlled illustrations:
+  `_shared/packages/cetz/README.md` and `_shared/packages/cetz/demo.typ`.
+- Package selection beyond these reviewed routes: use `package.list`, then read its exact returned
+  recipe and demo paths. Inspect package source only when those focused resources are insufficient.

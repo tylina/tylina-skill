@@ -1,4 +1,4 @@
 interface:
   display_name: "Typst Thesis"
-  short_description: "Create institution-compliant theses in Typst"
+  short_description: "Create and review requirement-aware Typst theses"
   default_prompt: "Use $typst-thesis to create or review this thesis against its current institutional requirements."

@@ -12,7 +12,25 @@
       ],
       "style": "editorial-magazine-eink",
       "based_on": "themes/custom-canvas/guizang-magazine",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif sc",
+          "source": "social-cover/guizang-magazine/template.typ"
+        },
+        {
+          "message": "unknown font family: songti sc",
+          "source": "social-cover/guizang-magazine/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/guizang-magazine/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/guizang-magazine/template.typ"
+        }
+      ]
     },
     {
       "id": "guizang-swiss",
@@ -24,7 +42,21 @@
       ],
       "style": "swiss-international-ikb",
       "based_on": "themes/custom-canvas/guizang-swiss",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: ibm plex sans",
+          "source": "social-cover/guizang-swiss/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/guizang-swiss/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/guizang-swiss/template.typ"
+        }
+      ]
     },
     {
       "id": "indie-bookstore",
@@ -37,7 +69,21 @@
       ],
       "style": "risograph-zine",
       "based_on": "themes/custom-canvas/indie-bookstore",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/indie-bookstore/template.typ"
+        },
+        {
+          "message": "unknown font family: pingfang sc",
+          "source": "social-cover/indie-bookstore/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/indie-bookstore/template.typ"
+        }
+      ]
     },
     {
       "id": "editorial-grid",
@@ -49,7 +95,29 @@
       ],
       "style": "editorial-grid-publication",
       "based_on": "themes/custom-rich/editorial-grid",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif sc",
+          "source": "social-cover/editorial-grid/template.typ"
+        },
+        {
+          "message": "unknown font family: songti sc",
+          "source": "social-cover/editorial-grid/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/editorial-grid/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/editorial-grid/template.typ"
+        },
+        {
+          "message": "unknown font family: pingfang sc",
+          "source": "social-cover/editorial-grid/template.typ"
+        }
+      ]
     },
     {
       "id": "pritzker",
@@ -61,7 +129,29 @@
       ],
       "style": "architectural-editorial",
       "based_on": "themes/custom-canvas/pritzker",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif sc",
+          "source": "social-cover/pritzker/template.typ"
+        },
+        {
+          "message": "unknown font family: songti sc",
+          "source": "social-cover/pritzker/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/pritzker/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/pritzker/template.typ"
+        },
+        {
+          "message": "unknown font family: pingfang sc",
+          "source": "social-cover/pritzker/template.typ"
+        }
+      ]
     },
     {
       "id": "newspaper",
@@ -73,7 +163,29 @@
       ],
       "style": "brutalist-newspaper",
       "based_on": "themes/custom-canvas/newspaper",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif sc",
+          "source": "social-cover/newspaper/template.typ"
+        },
+        {
+          "message": "unknown font family: songti sc",
+          "source": "social-cover/newspaper/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/newspaper/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/newspaper/template.typ"
+        },
+        {
+          "message": "unknown font family: pingfang sc",
+          "source": "social-cover/newspaper/template.typ"
+        }
+      ]
     },
     {
       "id": "guizang-field-journal",
@@ -86,6 +198,24 @@
       "style": "light-photo-editorial-field-journal",
       "based_on": "local/guizang-social-card-skill M01/M02 image-led editorial rules",
       "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif sc",
+          "source": "social-cover/guizang-field-journal/template.typ"
+        },
+        {
+          "message": "unknown font family: songti sc",
+          "source": "social-cover/guizang-field-journal/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/guizang-field-journal/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/guizang-field-journal/template.typ"
+        }
+      ],
       "assets": ["guizang-field-journal/assets/alpine-ridge.jpg"]
     },
     {
@@ -98,7 +228,25 @@
       ],
       "style": "light-editorial-marginalia",
       "based_on": "local/guizang-social-card-skill M11 marginalia",
-      "uses_inline_svg": true
+      "uses_inline_svg": true,
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif sc",
+          "source": "social-cover/guizang-marginalia/template.typ"
+        },
+        {
+          "message": "unknown font family: songti sc",
+          "source": "social-cover/guizang-marginalia/template.typ"
+        },
+        {
+          "message": "unknown font family: ibm plex mono",
+          "source": "social-cover/guizang-marginalia/template.typ"
+        },
+        {
+          "message": "unknown font family: noto sans sc",
+          "source": "social-cover/guizang-marginalia/template.typ"
+        }
+      ]
     }
   ]
 }

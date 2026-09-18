@@ -17,7 +17,7 @@ replacing all sample facts.
 | `basic-resume` | Conventional single-column professional résumé | Published `basic-resume` 0.2.9 starter snapshot | 1 page | Pulls `scienceicons` 0.1.0 even when ORCID is unused |
 | `heading-resume` | Editorial two-column résumé with strong hierarchy | Unmodified `heading-resume` 0.1.0 starter | 1 page | Uses Typst-bundled New Computer Modern / Libertinus Serif; no assets |
 | `simple-technical-resume` | Dense software or ML résumé with conventional reading order | `simple-technical-resume` 0.1.1 API with realistic fictional content | 1 page | Uses New Computer Modern; no icons or assets |
-| `resume-ng` | Dense Simplified Chinese technical résumé | `resume-ng` 1.0.0 API with source-neutral Chinese content | 1 page | Package sets Noto Serif CJK SC; extracted dates may precede titles |
+| `resume-ng` | Dense Simplified Chinese technical résumé | `resume-ng` 1.0.0 API with source-neutral Chinese content | 1 page | Package sets Noto Serif CJK SC; right-aligned dates can detach or reorder during PDF text extraction |
 | `modern-cv` | More visual professional résumé or CV | `modern-cv` 0.10.0 API with asset-free content | 1 page | Demo uses IBM Plex Sans and text-only package contacts; built-in icon contacts require Font Awesome 7 |
 | `pro-academic-cv` | Cumulative academic CV with publications, teaching, and service | `pro-academic-cv` 0.1.0 API with a coherent fictional record | 2 pages | Uses Palatino; package emits one Typst 0.15 raw-text compatibility warning |
 
@@ -57,7 +57,8 @@ when the user requests a delivery format.
 5. Compile early with the longest real name, title, date, link, bullet, publication, and CJK line.
 6. Inspect every page at full size and at a thumbnail reading distance; check margins, hierarchy,
    wrapping, page breaks, and unexplained holes.
-7. Extract PDF text and confirm the intended reading order, especially for two-column layouts.
+7. When PDF text extraction is available, confirm the intended reading order, especially for
+   two-column layouts. Otherwise record that extraction order remains unverified.
 8. Test visible links and report package warnings rather than concealing them.
 
 Do not add invisible keywords, prompt injection, or an external metadata layer. If a package's API,
@@ -71,8 +72,9 @@ thumbnail scale during the current maintenance pass.
 
 The included `basic-resume` starter intentionally uses US Letter; the other reviewed demos render
 on A4. PDF text and link annotations were inspected in every output. The two-column
-`heading-resume` extracts its main column before its aside, while `resume-ng` may extract each
-right-aligned date before the corresponding title; neither should receive a universal ATS claim.
+`heading-resume` extracts its main column before its aside. In the current `resume-ng` demo, the
+last education date is extracted after later sections instead of beside its visual entry; neither
+layout should receive a universal ATS claim.
 
 - `heading-resume` and `simple-technical-resume` compiled without warnings.
 - `pro-academic-cv` produced a balanced two-page A4 document; its only warning originates in the

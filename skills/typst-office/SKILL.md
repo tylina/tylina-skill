@@ -36,13 +36,17 @@ accounting, tax, records-management, or signature advice.
 
 ## Artifact and Tool Information
 
-- `references/office-forms.md` identifies fields and package choices that are specific to letters,
-  invoices, minutes, agendas, forms, checklists, and governance documents.
+- `typst-office/references/office-forms.md` identifies fields and package choices that are specific
+  to letters, invoices, minutes, agendas, forms, checklists, and governance documents.
 - Workspace PDF, DOCX, PPTX, or XLSX evidence uses
   `typst-authoring/references/source-ingestion.md`. Extracted Markdown is not an authorized record;
   verify material fields and tables against the original.
 - Preserve an existing verified template. Use `template.list` for a new scaffold and a focused
   `package.list` query for a reusable component, then inspect the selected exact version.
+- Export is a view of validated Typst source. Follow `tylina/references/workflow.md` for
+  `document.export` destinations and format semantics; PDF, PNG, and SVG preserve rendered output,
+  while `pptx-visual` is fidelity-oriented and `pptx-editable` is experimental. Do not imply that
+  an exported Office file is canonical or round-trippable.
 - Validate calculations and inspect the page classes the artifact actually has, including
   continuation or exception pages when present. Separate visible document defects from legal,
   tax, accounting, or jurisdiction-specific questions.
@@ -51,7 +55,8 @@ accounting, tax, records-management, or signature advice.
 
 1. Identify the artifact, source records, material fields, calculations, locale, branding,
    approvals, signatures, attachments, delivery medium, and only the regulatory fields that apply.
-2. Read the relevant part of `references/office-forms.md` and preserve existing template ownership.
+2. Read the relevant part of `typst-office/references/office-forms.md` and preserve existing
+   template ownership.
 3. Import PDF or Office evidence only through the source-ingestion gate; compare material fields and
    tables with the original artifact rather than treating extracted Markdown as authoritative.
 4. Continue a verified template. For new work, inspect one exact scaffold or package version before
@@ -68,4 +73,5 @@ accounting, tax, records-management, or signature advice.
 - Artifact and package routing: `typst-office/references/office-forms.md`.
 - General templates and packages: `typst-authoring/references/templates-and-packages.md`.
 - Tables and repeated records: `typst-tables/SKILL.md` when available.
-- QR codes or barcodes: `_shared/packages/tiaoma/README.md` only when explicitly required.
+- QR codes or barcodes: `_shared/packages/tiaoma/README.md` and its artifact-neutral
+  `_shared/packages/tiaoma/demo.typ` only when explicitly required.

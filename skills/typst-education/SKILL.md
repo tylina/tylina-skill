@@ -33,11 +33,15 @@ Compose this Skill with Typst Authoring.
 
 ## Template and Variant Information
 
-- `references/exams-and-worksheets.md` distinguishes assessment types, audiences, locale needs,
-  and relevant template or package behavior.
+- `typst-education/references/exams-and-worksheets.md` distinguishes assessment types, audiences,
+  locale needs, and relevant template or package behavior.
 - Package-free homework and exam workspaces are indexed at
   `_shared/scenarios/education/index.json`. Use the template tools to materialize the complete
   selected scaffold; use a focused `package.list` query for reusable components.
+- For Chinese exam conventions, the pinned `_shared/packages/ezexam/README.md` and
+  `_shared/packages/examora/README.md` recipes document different page, answer-visibility, and
+  randomization models. Read only the recipe for the selected package; neither one supplies
+  curriculum facts or proves institutional acceptance.
 - Learner and solution outputs should derive from shared canonical questions, scoring data, and
   answer visibility controls. Validate each requested variant and verify totals, visibility,
   writable space, page breaks, and print scale against that shared source.
@@ -48,8 +52,8 @@ Compose this Skill with Typst Authoring.
 
 1. Identify the learner, subject, objectives, assessment stakes, language, duration, allowed aids,
    delivery medium, and only the print constraints that actually apply.
-2. Read `references/exams-and-worksheets.md`, inspect existing template ownership, and preserve a
-   working assessment model.
+2. Read `typst-education/references/exams-and-worksheets.md`, inspect existing template ownership,
+   and preserve a working assessment model.
 3. For a new scaffold, inspect and materialize one complete reviewed education workspace. For a
    reusable component, use a focused package search and exact versioned evidence. Choose by learner,
    locale, and required behavior rather than popularity, screenshots, or a familiar name.
@@ -64,5 +68,7 @@ Compose this Skill with Typst Authoring.
 
 - Audience and template selection: `typst-education/references/exams-and-worksheets.md`.
 - Offline homework and exam workspaces: `_shared/scenarios/education/index.json`.
+- Reviewed Chinese exam package recipes: `_shared/packages/ezexam/README.md` and
+  `_shared/packages/examora/README.md`.
 - Existing ordinary assignments: `typst-authoring/references/assignment.md`.
 - Package or template application: `typst-authoring/references/templates-and-packages.md`.

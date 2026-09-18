@@ -1,7 +1,7 @@
 {
   "version": 10,
   "collection": {
-    "version": "0.15.0",
+    "version": "0.15.2",
     "minimumTylinaVersion": "0.15.0"
   },
   "skills": [
@@ -37,12 +37,22 @@
     },
     {
       "id": "typst-academic",
-      "dependencies": ["typst-authoring"],
-      "source": []
+      "dependencies": [
+        "typst-authoring"
+      ],
+      "source": [
+        {
+          "url": "https://packages.typst.org/preview/charged-ieee-0.1.4.tar.gz",
+          "revision": "0.1.4"
+        }
+      ]
     },
     {
       "id": "typst-thesis",
-      "dependencies": ["typst-longform", "typst-academic"],
+      "dependencies": [
+        "typst-longform",
+        "typst-academic"
+      ],
       "source": [
         {
           "url": "https://packages.typst.org/preview/cardinal-su-thesis-0.1.0.tar.gz",
@@ -68,17 +78,25 @@
     },
     {
       "id": "typst-research",
-      "dependencies": ["typst-academic"],
+      "dependencies": [
+        "typst-academic"
+      ],
       "source": [
         {
           "url": "https://github.com/typst/typst/blob/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content/reference/model/bibliography.typ",
           "revision": "2924ba908b7e535ef6166a8b1731d400b694e9d9"
+        },
+        {
+          "url": "https://packages.typst.org/preview/sanity-0.2.0.tar.gz",
+          "revision": "0.2.0"
         }
       ]
     },
     {
       "id": "typst-science",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://packages.typst.org/preview/unify-0.8.1.tar.gz",
@@ -91,22 +109,42 @@
         {
           "url": "https://packages.typst.org/preview/quill-0.8.0.tar.gz",
           "revision": "0.8.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/typed-smiles-0.11.0.tar.gz",
+          "revision": "0.11.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/zap-0.6.0.tar.gz",
+          "revision": "0.6.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/physica-0.9.8.tar.gz",
+          "revision": "0.9.8"
         }
       ]
     },
     {
       "id": "typst-linguistics",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://packages.typst.org/preview/eggs-0.9.0.tar.gz",
           "revision": "0.9.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/synkit-0.1.0.tar.gz",
+          "revision": "0.1.0"
         }
       ]
     },
     {
       "id": "typst-office",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://packages.typst.org/preview/letterloom-3.0.2.tar.gz",
@@ -124,7 +162,9 @@
     },
     {
       "id": "typst-education",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/siefkenj/typst-examy",
@@ -166,30 +206,45 @@
     },
     {
       "id": "typst-music",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/bernsteining/scoryst",
-          "revision": "6b2fa734b708bc99c320e63e103ae72bca85cd5f"
+          "revision": "6b2fa734e3f7360696e8684fc076d18d66a99c73"
         },
         {
-          "url": "https://packages.typst.org/preview/typed-scores-0.5.0.tar.gz",
-          "revision": "0.5.0"
+          "url": "https://packages.typst.org/preview/typed-scores-0.5.1.tar.gz",
+          "revision": "0.5.1"
         },
         {
           "url": "https://packages.typst.org/preview/scorify-0.3.0.tar.gz",
           "revision": "0.3.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/fretwork-0.4.0.tar.gz",
+          "revision": "0.4.0"
         }
       ]
     },
     {
       "id": "typst-longform",
-      "dependencies": ["typst-authoring"],
-      "source": []
+      "dependencies": [
+        "typst-authoring"
+      ],
+      "source": [
+        {
+          "url": "https://packages.typst.org/preview/glossarium-0.5.10.tar.gz",
+          "revision": "0.5.10"
+        }
+      ]
     },
     {
       "id": "typst-slides",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides",
@@ -203,7 +258,9 @@
     },
     {
       "id": "typst-cv",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides/blob/1709e9055f023fda06050c25134b1bb17d04e248/skills/seaslides-typst-slides-skill/references/scenarios/cv.md",
@@ -213,7 +270,9 @@
     },
     {
       "id": "typst-poster",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides/blob/1709e9055f023fda06050c25134b1bb17d04e248/skills/seaslides-typst-slides-skill/references/scenarios/poster.md",
@@ -223,7 +282,9 @@
     },
     {
       "id": "typst-social-cover",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides/blob/1709e9055f023fda06050c25134b1bb17d04e248/skills/seaslides-typst-slides-skill/references/scenarios/social-cover.md",
@@ -233,12 +294,16 @@
     },
     {
       "id": "typst-theorems",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": []
     },
     {
       "id": "typst-tables",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/typst/typst/blob/2924ba908b7e535ef6166a8b1731d400b694e9d9/docs/content/guides/tables.typ",
@@ -252,7 +317,9 @@
     },
     {
       "id": "typst-charts",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides",
@@ -262,17 +329,33 @@
     },
     {
       "id": "typst-diagrams",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides",
           "revision": "30a0d206758f1741faa82d8036913a094882ef61"
+        },
+        {
+          "url": "https://packages.typst.org/preview/fletcher-0.5.8.tar.gz",
+          "revision": "0.5.8"
+        },
+        {
+          "url": "https://packages.typst.org/preview/chronos-0.3.0.tar.gz",
+          "revision": "0.3.0"
+        },
+        {
+          "url": "https://packages.typst.org/preview/cetz-0.5.2.tar.gz",
+          "revision": "0.5.2"
         }
       ]
     },
     {
       "id": "typst-pseudocode",
-      "dependencies": ["typst-authoring"],
+      "dependencies": [
+        "typst-authoring"
+      ],
       "source": [
         {
           "url": "https://github.com/touying-typ/seaslides",

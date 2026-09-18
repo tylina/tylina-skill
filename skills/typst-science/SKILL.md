@@ -34,9 +34,10 @@ scholarly or makes literature-backed claims.
 
 ## Typst and Package Information
 
-- `references/scientific-notation.md` routes quantities, chemistry, circuits, and other domain
-  representations to their relevant Typst or package choices.
-- Existing verified imports win. For a missing capability, use a focused `package.list` query and
+- `typst-science/references/scientific-notation.md` routes quantities, chemistry, circuits, and
+  other domain representations to their relevant Typst or package choices.
+- Existing verified imports win. If the progressive resources name the exact needed capability,
+  read that local recipe and demo directly. Otherwise use one focused `package.list` query and
   read the returned recipe or exact versioned documentation before using its API.
 - Keep raw data and symbolic source editable when a renderer is involved. Compare changed notation
   with the supplied evidence and inspect it at final physical size.
@@ -45,12 +46,13 @@ scholarly or makes literature-backed claims.
 
 ## Adaptive Workflow
 
-1. Read the relevant part of `references/scientific-notation.md` for the discipline and
-   representation in use.
+1. Read the relevant part of `typst-science/references/scientific-notation.md` for the discipline
+   and representation in use.
 2. Inventory supplied data, formulas, units, symbolic source, references, figures, locale, output
    size, and current package imports.
-3. Preserve verified imports. For a new capability, use a focused package search and read the
-   returned recipe or exact versioned documentation before using its API.
+3. Preserve verified imports. For a new capability, read a matching local recipe first; use one
+   focused package search only when the curated routes are missing or insufficient, then inspect
+   the selected exact version before using its API.
 4. When analysis is requested, keep assumptions, transformations, rounding, and provenance visible
    and separate calculated values from observed or cited values.
 5. Validate a representative difficult notation or figure early when the API is unfamiliar, keep
@@ -61,7 +63,13 @@ scholarly or makes literature-backed claims.
 ## Progressive Resources
 
 - Package choice and notation boundaries: `typst-science/references/scientific-notation.md`.
-- Quantities and uncertainty: `_shared/packages/unify/README.md`.
+- Quantities and uncertainty: `_shared/packages/unify/README.md` and its compile-verified
+  `_shared/packages/unify/demo.typ` when exact range or uncertainty presentation matters.
+- Scientific and engineering mathematics: `_shared/packages/physica/README.md` for vectors,
+  derivatives, matrices, Dirac notation, tensors, and related semantic helpers.
 - Chemical formulas and reactions: `_shared/packages/typsium/README.md`.
+- Molecular structures from supplied SMILES: `_shared/packages/typed-smiles/README.md`.
 - Quantum circuits: `_shared/packages/quill/README.md`.
+- Conventional electronic circuits: `_shared/packages/zap/README.md` and
+  `_shared/packages/zap/demo.typ`.
 - Plots and diagrams: `typst-charts/SKILL.md` or `typst-diagrams/SKILL.md` when available.

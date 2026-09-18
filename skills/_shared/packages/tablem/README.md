@@ -23,7 +23,7 @@ Write markdown-like tables in Typst — copy-paste markdown tables directly. Inc
 #three-line-table[
   | *Method* | *Accuracy* |
   | :------: | :--------: |
-  | Ours     | **95.2%**  |
+  | Ours     | *95.2%*    |
 ]
 ```
 
@@ -33,3 +33,6 @@ Write markdown-like tables in Typst — copy-paste markdown tables directly. Inc
 - Column alignment (`:---:`, `:---`, `---:`)
 - Built-in `three-line-table` preset
 - Custom render function support
+
+Cells contain Typst markup, so Typst's strong-emphasis form is `*text*`; Markdown-style
+`**text**` is not a second bolding syntax inside a tablem cell.

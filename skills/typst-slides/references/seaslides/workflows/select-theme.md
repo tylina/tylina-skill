@@ -66,14 +66,16 @@ If any check is uncertain, select Rich. A stable Rich deck is preferable to a br
    - `_shared/slides/themes/custom-rich/index.json`
    - `_shared/slides/themes/custom-canvas/index.json` when Canvas passed the capability check
    - `_shared/slides/themes/custom-plain/index.json` when Plain was requested
-3. Check `_shared/slides/themes/user/` for user-created themes.
+3. Include a user theme only when the current workspace or host catalog exposes it; do not scan a
+   private `_shared/slides/themes/user/` directory.
 4. Rank candidates using catalog `tags`, `best_for`, style, audience, projection/print needs, and content structure.
 5. Do not select builtin themes unless the user names one.
 6. Do not always map a topic to the same theme; prefer the theme whose visual grammar supports the current narrative.
 
-In Full Mode, present up to five candidates with one-line rationales and wait. In unattended mode,
-choose the highest-ranked candidate; do not pick randomly. Quick Mode uses its automatic branch
-above.
+In Full Mode, choose the strongest compatible candidate and continue by default. Present alternatives
+only when the user asks for them or the candidates imply materially different artifact contracts;
+then ask one focused question. In unattended mode, record the chosen candidate and rationale.
+Quick Mode uses its automatic branch above.
 
 ## Create a New Theme
 
@@ -134,7 +136,7 @@ In Quick Mode, skip this section and continue with
 |---|---|
 | `_shared/slides/themes/README.md` | Tier dispatch |
 | `_shared/slides/themes/<tier>/index.json` | Theme metadata |
-| `_shared/slides/themes/user/` | User theme library |
+| Host-managed user-theme entry | Reusable user theme, only when exposed by the current host |
 | `<theme>/theme.md` | Theme API |
 | `<theme>/demo.typ` | Working example |
 | `<theme>/template.typ` | Theme implementation |

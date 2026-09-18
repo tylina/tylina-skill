@@ -20,6 +20,7 @@
   #lq.diagram(
     width: 560pt,
     height: 240pt,
+    ylim: (0, 100),
     xaxis: (
       ticks: range(12).map(i => (i+1, months.at(i))),
       subticks: none,
@@ -28,8 +29,22 @@
       ticks: ((0, "0"), (20, "20"), (40, "40"), (60, "60"), (80, "80"), (100, "100")),
       subticks: none,
     ),
-    lq.plot(x, revenue, stroke: 2pt + color-blue, label: none),
-    lq.plot(x, profit, stroke: 2pt + color-green, label: none),
+    lq.plot(
+      x,
+      revenue,
+      stroke: 2pt + color-blue,
+      mark: "o",
+      smooth: false,
+      label: none,
+    ),
+    lq.plot(
+      x,
+      profit,
+      stroke: 2pt + color-green,
+      mark: "o",
+      smooth: false,
+      label: none,
+    ),
   )
 
   #align(right)[

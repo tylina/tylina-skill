@@ -120,6 +120,9 @@ Define `insight-box(title, body)` and `finding-box(title, body, accent)` in temp
 
 ## Speaker Notes Style
 
+Apply this section only when speaker notes are part of the request, supplied source, or delivery
+plan.
+
 ### Analyst Tone
 
 - Objective and factual
@@ -164,7 +167,7 @@ When presenting data: (1) State the number clearly, (2) Provide context (vs targ
 > **Common checks**: See `base.md` §8 for the full shared checklist.
 
 **Consultant-specific checks**:
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
 - [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
@@ -175,5 +178,5 @@ When presenting data: (1) State the number clearly, (2) Provide context (vs targ
 - [ ] KPI cards are template-defined components, not inline code
 - [ ] MECE principles applied to frameworks
 - [ ] Data annotations provide context
-- [ ] Speaker notes use analyst tone
+- [ ] Speaker notes, when in scope, use analyst tone
 - [ ] Insights are data-driven, recommendations actionable

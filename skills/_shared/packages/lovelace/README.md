@@ -50,12 +50,17 @@ The package exports `pseudocode`, `pseudocode-list`, `no-number`, `with-line-lab
   ],
 ) <binary-search>
 
-See @binary-search and line @midpoint.
+See @binary-search; the midpoint calculation is @midpoint.
 ```
 
 Wrap the block in `figure(kind: "algorithm")` when it needs a caption, number, label, or document
 reference. `numbered-title` can then display the containing algorithm identity. Use `title` instead
 when no figure counter should be involved.
+
+The angle brackets belong to the label declaration: `line-label(<midpoint>)`. Refer to that line as
+`@midpoint`, not `@<midpoint>`; the latter leaves a stray `@` in rendered prose. The reference already
+includes the configured `line-number-supplement` (by default “Line”), so prose should not add another
+literal “line” immediately before it.
 
 ## Authoring and Verification
 
@@ -66,7 +71,8 @@ when no figure counter should be involved.
 - Use bullet items for deliberately unnumbered explanatory or continuation lines; do not fake the
   effect with an empty number.
 - Keep line labels stable when prose cites them. Inspect the rendered reference text after changing
-  `line-numbering` or `line-number-supplement`.
+  `line-numbering` or `line-number-supplement`; a successful compile alone does not prove that the
+  reference text is useful.
 - Tune `indentation`, `line-gap`, and wrapping locally before shrinking the whole document. Inspect
   long conditions, comments, deep nesting, line-number alignment, and page or slide fit.
 - Reuse an existing pseudocode style and package version. A document that intentionally shows

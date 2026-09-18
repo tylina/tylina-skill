@@ -110,7 +110,7 @@ page again before importing one.
 | [brilliant-cv](https://typst.app/universe/package/brilliant-cv/) | 4.1.0 | Modular multilingual section boundaries | Audited but not bundled: do not adopt its metadata-first route or hidden-keyword feature |
 
 Ready-to-copy, pinned examples live in
-[`../../templates/scenarios/cv/`](../../templates/scenarios/cv/README.md). Each example contains one
+[`_shared/scenarios/cv/`](../../../../../_shared/scenarios/cv/README.md). Each example contains one
 `demo.typ` plus a README that records the upstream package, reviewed version, license, dependency
 notes, source fidelity, and local changes. The catalogue intentionally omits copied `typst.toml`
 files and separate upstream license files; the source and license links belong in the README.
@@ -376,11 +376,10 @@ must remain distinguishable at 100% zoom and in print.
 Start near 10–11.5 pt body text with approximately 1.15–1.35 line height. Font metrics and script
 matter more than the nominal value. Inspect bold faces, punctuation, numerals, and dense lines.
 
-Use fonts available in the build environment. Check before committing:
-
-```bash
-typst fonts | rg 'IBM Plex Sans|Noto Sans SC|Noto Serif SC'
-```
+Use fonts available in the build environment. When the host exposes a font inventory, inspect it
+before committing to a family. Otherwise compile representative longest lines, retain
+missing-family diagnostics, inspect the rendered fallback, and report the intended face as
+unverified rather than assuming it exists.
 
 For mixed Latin and Chinese, define explicit fallbacks, for example:
 
@@ -512,11 +511,9 @@ and section in one `.typ` entry while delegating page styling and entry alignmen
   model serving
 ```
 
-Compile this exact entry before committing to the template:
-
-```bash
-typst compile demo.typ output/resume.pdf
-```
+Validate this exact entry with the host's real Typst compiler before committing to the template.
+In Tylina, select it through `document.setMain` when needed and use `document.validate`; do not
+substitute a shell compile that bypasses the live current-main contract.
 
 During maintenance of this scenario, the example compiled with Typst 0.15.0. basic-resume 0.2.9
 also imports scienceicons 0.1.0 for optional ORCID support, so that transitive dependency is fetched
@@ -674,13 +671,11 @@ Check:
 
 ### Inspect the PDF as a document
 
-Use Poppler tools when available:
-
-```bash
-pdfinfo <project>/output/slides.pdf
-pdffonts <project>/output/slides.pdf
-pdftotext <project>/output/slides.pdf <project>/output/cv-extracted.txt
-```
+When the host exposes PDF metadata, font, link, or text-extraction inspection, use those
+capabilities on the final exported PDF. A Native maintainer may use Poppler for the same evidence,
+but browser sessions and other hosts must not assume those executables exist. If extraction or font
+inspection is unavailable, report that check as unverified rather than inferring it from the page
+image.
 
 Verify:
 

@@ -8,6 +8,12 @@
       "package": "@preview/peace-of-posters:0.6.0",
       "paper": "a1",
       "orientation": "portrait",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: arial",
+          "source": "@preview/peace-of-posters:0.6.0/layouts.typ"
+        }
+      ],
       "license": "MIT"
     },
     {
@@ -16,6 +22,12 @@
       "package": "@preview/peace-of-posters:0.6.0",
       "paper": "a0",
       "orientation": "landscape",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: arial",
+          "source": "poster/peace-of-posters/demo-three-column.typ"
+        }
+      ],
       "license": "MIT"
     },
     {
@@ -24,6 +36,12 @@
       "package": "@preview/peace-of-posters:0.6.0",
       "paper": "a1",
       "orientation": "landscape",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: arial",
+          "source": "poster/peace-of-posters/demo-visual-first.typ"
+        }
+      ],
       "license": "MIT"
     },
     {
@@ -48,6 +66,25 @@
       "package": "@preview/pollux:0.1.0",
       "paper": "a0",
       "orientation": "portrait",
+      "declared_fonts": ["Raleway", "Lato", "Noto Sans CJK JP"],
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: ibm plex sans",
+          "source": "poster/pollux/demo.typ"
+        },
+        {
+          "message": "unknown font family: raleway",
+          "source": "@preview/pollux:0.1.0/style/boxes.typ"
+        },
+        {
+          "message": "unknown font family: lato",
+          "source": "@preview/pollux:0.1.0/style/boxes.typ"
+        },
+        {
+          "message": "unknown font family: noto sans cjk jp",
+          "source": "@preview/pollux:0.1.0/style/boxes.typ"
+        }
+      ],
       "license": "MIT"
     },
     {
@@ -56,6 +93,36 @@
       "package": "@preview/pasquino:0.1.0",
       "paper": "75x100cm",
       "orientation": "portrait",
+      "declared_font_stacks": [
+        ["Libre Baskerville", "Linux Libertine"],
+        ["TeX Gyre Heros", "Liberation Sans"]
+      ],
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: tex gyre heros",
+          "source": "@preview/pasquino:0.1.0/lib.typ"
+        },
+        {
+          "message": "unknown font family: arial",
+          "source": "@preview/pasquino:0.1.0/lib.typ"
+        },
+        {
+          "message": "unknown font family: liberation sans",
+          "source": "@preview/pasquino:0.1.0/lib.typ"
+        },
+        {
+          "message": "unknown font family: libre baskerville",
+          "source": "@preview/pasquino:0.1.0/lib.typ"
+        },
+        {
+          "message": "unknown font family: linux libertine",
+          "source": "@preview/pasquino:0.1.0/lib.typ"
+        },
+        {
+          "message": "unknown font family: times new roman",
+          "source": "@preview/pasquino:0.1.0/lib.typ"
+        }
+      ],
       "license": "MIT-0"
     },
     {
@@ -64,6 +131,12 @@
       "package": "@preview/postercise:0.2.0",
       "paper": "24x18in",
       "orientation": "landscape",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: arial",
+          "source": "poster/postercise/demo.typ"
+        }
+      ],
       "license": "MIT"
     }
   ]

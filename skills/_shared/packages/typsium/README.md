@@ -2,7 +2,9 @@
 
 **Package**: `@preview/typsium:0.3.2`  
 **Category**: Chemistry  
+**Typst Universe**: <https://typst.app/universe/package/typsium>
 **Repository**: <https://github.com/Typsium/typsium>  
+**Versioned manual**: <https://raw.githubusercontent.com/Typsium/typsium/0.3.2/docs/manual.pdf>
 **License**: MIT
 
 ## Verified Boundary

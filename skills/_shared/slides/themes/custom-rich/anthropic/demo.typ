@@ -68,21 +68,21 @@
 #cols(columns: (1fr, 1fr), lazy-layout: true)[
   #feature-card(1, [Foundation Model], [\
     Custom transformer with mixture-of-experts routing, optimized attention, and KV-cache management.
-  ])
+  ], inset-y: .6em)
 ][
   #feature-card(3, [Retrieval & Grounding], [\
     Real-time knowledge retrieval with citation generation and source attribution.
-  ])
+  ], inset-y: .6em)
 ]
 #v(-.5em)
 #cols(columns: (1fr, 1fr), lazy-layout: true)[
   #feature-card(2, [Constitutional AI], [\
     Principle-based critique and revision — models evaluate and improve outputs against safety criteria.
-  ])
+  ], inset-y: .6em)
 ][
   #feature-card(4, [Tool Use & Agents], [\
     Native function calling, multi-step planning, code execution, and agent capabilities.
-  ])
+  ], inset-y: .6em)
 ]
 
 == Infrastructure & Serving

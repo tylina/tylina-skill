@@ -8,6 +8,12 @@
       "template": "chicv 0.1.0 published starter",
       "best_for": ["minimal-resume", "direct-typst", "single-page"],
       "required_fonts": ["Linux Biolinum"],
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: linux biolinum",
+          "source": "cv/chicv/demo.typ"
+        }
+      ],
       "paper_size": "a4",
       "expected_pages": 1,
       "license": "MIT",
@@ -20,6 +26,7 @@
       "best_for": ["professional-resume", "single-column", "ats-oriented"],
       "required_fonts": ["New Computer Modern"],
       "known_transitive_packages": ["@preview/scienceicons:0.1.0"],
+      "known_warnings": ["no whitespace before raw text"],
       "paper_size": "us-letter",
       "expected_pages": 1,
       "license": "Unlicense",
@@ -53,7 +60,13 @@
       "package": "@preview/resume-ng:1.0.0",
       "best_for": ["chinese-resume", "technical-resume"],
       "required_fonts": ["Noto Serif CJK SC"],
-      "known_extraction_behavior": "Right-aligned dates may precede entry titles in extracted PDF text",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif cjk sc",
+          "source": "@preview/resume-ng:1.0.0/lib/lib.typ"
+        }
+      ],
+      "known_extraction_behavior": "Right-aligned dates can detach from or reorder around their entries in extracted PDF text",
       "paper_size": "a4",
       "expected_pages": 1,
       "license": "MIT",
@@ -66,6 +79,12 @@
       "best_for": ["visual-resume", "professional-cv"],
       "required_fonts": ["IBM Plex Sans"],
       "known_transitive_packages": ["@preview/fontawesome:0.6.0"],
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: ibm plex sans",
+          "source": "@preview/modern-cv:0.10.0/lib.typ"
+        }
+      ],
       "optional_fonts_for_builtin_icon_contacts": [
         "Font Awesome 7 Free",
         "Font Awesome 7 Brands"
@@ -81,11 +100,17 @@
       "package": "@preview/pro-academic-cv:0.1.0",
       "best_for": ["academic-cv", "multi-page", "publications-and-teaching"],
       "required_fonts": ["Palatino"],
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: palatino",
+          "source": "@preview/pro-academic-cv:0.1.0/lib.typ"
+        }
+      ],
       "paper_size": "a4",
       "expected_pages": 2,
       "license": "MIT",
       "source_fidelity": "package-api-content-adaptation",
-      "known_warnings": ["Typst 0.15 raw-text compatibility warning in package-owned inline SVG"]
+      "known_warnings": ["no whitespace before raw text"]
     }
   ]
 }

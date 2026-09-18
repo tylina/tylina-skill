@@ -2,7 +2,9 @@
 
 **Package**: `@preview/eggs:0.9.0`  
 **Category**: Linguistics  
+**Typst Universe**: <https://typst.app/universe/package/eggs>
 **Repository**: <https://github.com/retroflexivity/typst-eggs>  
+**Versioned documentation**: <https://github.com/retroflexivity/typst-eggs/blob/0.9.0/documentation.pdf>
 **License**: MIT
 
 ## Verified Boundary

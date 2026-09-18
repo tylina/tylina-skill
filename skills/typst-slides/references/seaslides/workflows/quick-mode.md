@@ -9,9 +9,8 @@ accepts reasonable defaults. Treat Quick Mode as a workflow choice, not a comple
 Plain, Rich, and Canvas themes are all eligible.
 
 Skip the separate `content_design_spec.md`, Strategist reference, executor references, new-theme
-design, and new image acquisition. Keep source conversion, shared standards, speaker notes,
-compilation, mechanical quality checks, validation, and requested exports. Match visual-review
-depth to the user's intent.
+design, and new image acquisition. Keep source conversion, preservation of existing notes,
+compilation, mechanical quality checks, validation, affected-page inspection, and requested exports.
 
 ## 1. Prepare the Source and Workspace
 
@@ -42,20 +41,27 @@ Do not use Quick Mode as permission to author from an unread raw document.
    `available: true`.
 6. For a newly materialized theme, use the returned destination and entrypoint; the materializer
    may place a conflicting theme under `themes/<name>/` instead of overwriting workspace files.
-   For an existing scaffold, use its current paths instead. Read `theme.md`, `demo.typ`, and
-   `typst-slides/references/seaslides/references/shared-standards.md`. Read `template.typ` only
-   when the public docs and demo leave an API/layout question or a compile error points to the
-   implementation.
+   For an existing scaffold, use its current paths instead. Read the materialized `theme.md` and
+   `demo.typ`; `template.inspect` may already have supplied the same `theme.md`, so do not fetch it
+   twice. The top-level Slides Skill and this workflow contain the ordinary Quick Mode technical
+   rules. Read the 53 KiB `shared-standards.md` only for a specific unresolved technical question,
+   never as routine setup. Read `template.typ` only when the public docs and demo omit the exact
+   component or a compile diagnostic points to its implementation; do not read it merely to
+   reconfirm a documented signature.
 7. If a required new theme cannot be materialized, report that boundary. Do not guess private
    resource paths, transcribe template source, or overwrite a different file.
 
 ## 3. Author Directly
 
-Choose a concise narrative, page-count target, and slide order, then write the authored entrypoint
-directly. With a bundled theme scaffold, use `main.typ` when it is absent or blank; otherwise use
-a conflict-free new `.typ` file unless the user explicitly requested replacement. Call
-`document.setMain`, which compiles the candidate before switching, then validate the newly
-current main. Do not create a substitute mini design-spec file.
+Choose a concise narrative, total physical-page target, and slide order, then write the authored
+entrypoint directly. An unqualified page count includes cover, section, and ending pages. When the
+named sections outnumber the pages left after those structural pages, combine compatible sections
+deliberately before drafting instead of authoring extra pages and shrinking them afterward. With a
+bundled theme scaffold, use `main.typ` when it is absent or blank; otherwise use a conflict-free new
+`.typ` file unless the user explicitly requested replacement. Call
+`document.setMain`, which compiles the candidate before switching, only when the authored file is
+not already current; then validate the current main. Do not create a substitute mini design-spec
+file.
 
 - Favor a plain authoring vocabulary: headings, short paragraphs, lists, `#cols[...] [...]`, and
   a small set of documented theme components. “Plain authoring” does not require a Plain theme.
@@ -73,9 +79,10 @@ current main. Do not create a substitute mini design-spec file.
 - Use relevant user/source images and assets required by the theme. Do not search for or generate
   new images, add optional packages, build new components, or add decorative SVG merely to make
   the draft look busier.
-- Add concise, meaningful `#speaker-note[...]` content to every slide.
+- Preserve existing `#speaker-note[...]` blocks. Add concise notes only when the user requests
+  them, supplied material includes them, or the deck's delivery needs a separate narration layer.
 
-## 4. Compile, Validate, and Review as Requested
+## 4. Compile, Validate, and Review
 
 Use Tylina's live toolchain first:
 
@@ -88,14 +95,14 @@ render.page
 
 Apply the Quick Mode policy in
 `typst-slides/references/seaslides/workflows/visual-review.md`.
-Honor an explicit request to skip visual review. For an ordinary fast draft with no review
-preference, inspect the overview and only suspicious pages. Inspect every slide once when the user
-requests visual assurance or a delivery-grade review. Fix defects found in the selected review
-scope, recompile after source changes, and avoid discretionary polish rounds.
-
-Require a successful live validation and the requested Tylina exports. If visual review was
-skipped, state that the deck was compiled and mechanically checked but not visually reviewed; do
-not report a visual pass.
+Use `render.summary` for the actual page count. If an exact target differs because the source has
+the wrong number of authored slides, fix that structure before sending stale page images to the
+model. Use an overview when pagination or overflow still needs diagnosis, then inspect every newly
+created or affected slide once with `render.page`; an overview can locate likely defects but cannot
+replace those page images. Keep the default `render.page` PPI consistent across the first and final
+visual pass for a new deck; only change it for a user request or a specific diagnostic. Fix defects
+found in that bounded pass, repeat the stale evidence after source changes, and avoid discretionary
+polish rounds. Require a successful live validation and the requested exports.
 
 ## 5. Switch to Full Mode When Needed
 

@@ -1,8 +1,9 @@
 # Linguistic Notation Selection
 
-Call `package.list`, then read its routed recipe or verify the returned exact spec against official
-versioned documentation. The names below are search seeds; only the curated Eggs recipe fixes an
-API version.
+For numbered examples and interlinear glosses, read the curated Eggs recipe directly. For
+bracket-authored phrase-structure trees, read the curated Synkit recipe. For another missing
+representation, call `package.list`, then read its routed recipe or verify the returned exact spec
+against official versioned documentation. Other names below are search seeds only.
 
 ## Representation Routing
 
@@ -10,7 +11,7 @@ API version.
 |---|---|---|
 | Numbered examples and interlinear glosses | `eggs`, `leipzig-glossing`, `glossarium` | nested examples, gloss-line syntax, judgments, labels, references, abbreviation tracking, long-line behavior |
 | IPA and phonological notation | `phonokit`, `ascii-ipa`, `tyipa`, `linphon` | transcription standard, ASCII conversion boundary, combining marks, font coverage, feature or rule syntax |
-| Syntax and dependency trees | `synkit`, `syntree`, `lingotree`, `fletcher` | tree model, edge labels, movement or coindexing, wrapping, source editability |
+| Syntax and dependency trees | `synkit`; also search `syntree`, `lingotree`, `fletcher` | tree model, edge labels, movement or coindexing, wrapping, source editability |
 | Mandarin romanization or annotation | `auto-mando` | input script, pinyin and tone convention, segmentation, heteronym handling, ruby alignment |
 | Cantonese romanization or annotation | `auto-canto` | Jyutping convention, segmentation, pronunciation evidence, ruby alignment |
 | Sign-language transcription | `hamnosys-includer` | exact HamNoSys source, required fonts or assets, attribution, accessible alternative |
@@ -30,6 +31,9 @@ API version.
 The curated `eggs` 0.9.0 recipe supports semantic examples, subexamples, interlinear gloss lines,
 judgments, labels, references, trailing citations, and tracked Leipzig-style abbreviations. Read
 the recipe before using its compact list syntax.
+
+The curated `synkit` 0.1.0 recipe verifies bracket-authored phrase-structure trees. The bracket
+structure remains a linguistic analysis; do not invent or silently normalize it.
 
 ## Transcription and Scripts
 

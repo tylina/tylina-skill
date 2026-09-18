@@ -1,7 +1,8 @@
 # Guizang Field Journal
 
 A light 1242×1660 (3:4) photo-editorial cover informed by the field-journal and image-led
-composition rules in `local/guizang-social-card-skill`.
+composition patterns in the
+[Guizang social-card skill](https://github.com/op7418/guizang-social-card-skill).
 
 - `template.typ` keeps the title off the photograph, uses a large framed image well, and closes with three evidence-aware notes.
 - `demo.typ` supplies a complete conceptual weather observation without inventing a real location, altitude, or measured conditions.

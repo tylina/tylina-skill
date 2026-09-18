@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+      - '!v*-*'
 
 permissions:
   contents: write
@@ -17,8 +18,14 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - uses: typst-community/setup-typst@v4
+        with:
+          typst-version: '0.15.0'
       - run: npm ci
-      - run: npm test
+      - name: Verify tag and collection version
+        run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
+      - name: Verify metadata and compile every curated example
+        run: npm run verify:release
       - name: Download previous compatibility index
         env:
           GH_TOKEN: ${{ github.token }}
@@ -35,8 +42,6 @@ jobs:
           else
             npm run build:release
           fi
-      - name: Verify tag and collection version
-        run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}

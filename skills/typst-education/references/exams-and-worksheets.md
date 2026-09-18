@@ -6,10 +6,12 @@ identity, scoring, and disclosure requirements.
 
 ## Candidate Routing
 
-Always call `package.list` or `template.list`. Inspect exact template candidates with
-`template.inspect`; for a package, read its routed recipe or verify the returned exact spec against
-official versioned documentation. The names below are search seeds backed by their published
-project descriptions, not stable API promises.
+When no exact local route is already known, call `package.list` or `template.list`. Inspect exact
+template candidates with `template.inspect`; for a package, read its routed recipe or verify the
+returned exact spec against official versioned documentation. The names below are search seeds
+backed by their published project descriptions, not stable API promises. The pinned
+`_shared/packages/ezexam/README.md` and `_shared/packages/examora/README.md` recipes are already
+exact local routes, so do not rediscover those packages before reading the selected recipe.
 
 | Audience or need | Useful search seeds | What to verify |
 |---|---|---|

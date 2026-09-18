@@ -1,11 +1,15 @@
 {
   "name": "tylina-skill-collection",
-  "version": "0.15.0",
+  "version": "0.15.2",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/skill-package.mjs tests/release-package.mjs",
+    "test": "node --test tests/skill-package.mjs tests/release-package.mjs tests/typst-process.test.mjs",
+    "test:typst-version": "node tests/typst-version.mjs",
+    "test:packages": "node tests/compile-package-examples.mjs",
     "test:scenarios": "node tests/compile-scenarios.mjs",
+    "test:visual-resources": "node tests/compile-visual-resources.mjs",
+    "verify:release": "npm test && npm run test:typst-version && npm run test:packages && npm run test:scenarios && npm run test:visual-resources",
     "build:release": "node scripts/build-release.mjs"
   },
   "dependencies": {

@@ -78,8 +78,8 @@
 | gentle-clues | 1.3.1 | `@preview/gentle-clues:1.3.1` | Admonition boxes |
 | numbly | 0.1.0 | `@preview/numbly:0.1.0` | Custom heading numbering |
 
-> Only include packages actually needed. touying is always required. Reference
-> `_shared/packages/index.json` for more options.
+> Only include packages actually needed. touying is always required. For another capability, use
+> one focused `package.list` query, then read the returned exact `recipePath` and `demoPath`.
 >
 > **Content-driven package selection**: New formulas use native Typst math; MiTeX only preserves
 > supplied LaTeX or an existing MiTeX-authored document. Standard plots and existing chart

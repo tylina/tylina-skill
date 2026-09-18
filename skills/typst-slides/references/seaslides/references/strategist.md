@@ -5,7 +5,7 @@
 - [Core mission](#core-mission)
 - [Pipeline context](#pipeline-context)
 - [Pre-confirmation interview](#0-pre-confirmation-interview-optional)
-- [Nine confirmations](#1-nine-confirmations-blocking)
+- [Decision record](#1-decision-record-adaptive)
 - [Content analysis and outline](#2-content-analysis--outline)
 - [Design spec output](#3-design-spec-output)
 - [Quality checklist](#4-quality-checklist)
@@ -21,17 +21,20 @@ Receive source documents, perform content analysis and design planning, and outp
 
 | Previous Step | Current Step | Next Step |
 |---------------|--------------|-----------|
-| Project creation + template option confirmed | **Strategist**: Nine Confirmations + Design Spec | Image Generator or Executor |
+| Project creation + template option confirmed | **Strategist**: adaptive decision record + design spec | Image Generator or Executor |
 
 > **Technical foundation**: All Typst/Touying syntax, package versions, font sizes, color rules, and compilation commands live in `shared-standards.md`. This document does NOT duplicate that content.
 
-> **GATE**: Before starting, you MUST `read_file` the chosen theme's `theme.md` to understand available components, slide types, and color scheme.
+> **GATE**: Before starting, read the chosen theme's `theme.md` with the host's ordinary file or
+> packaged-resource reader (`skill.read` before materialization, workspace file read afterward).
+> Understand its components, slide types, and color scheme before planning against the theme.
 
 ---
 
 ## 0. Pre-Confirmation Interview (Optional)
 
-When the source material does not make the Nine Confirmations obvious, use this structured interview to gather requirements before inferring answers.
+When the source material does not make a material decision obvious, use only the relevant questions
+from this interview before inferring answers; do not ask all seven by default.
 
 | # | Question | Why It Matters |
 |---|---|---|
@@ -43,13 +46,17 @@ When the source material does not make the Nine Confirmations obvious, use this 
 | 6 | What feeling should the audience have afterward? (inspired, convinced, informed, alarmed) | Guides tone and visual treatment |
 | 7 | Are there hard constraints? (brand colors, required sections, page limit, language) | Prevents rework |
 
-**Auto-inference protocol**: For each question, first attempt to answer from the source material. Only ask the user if the answer is genuinely ambiguous or could go multiple ways. This supplements (does not replace) the Nine Confirmations below.
+**Auto-inference protocol**: For each relevant question, first attempt to answer from the source
+material. Only ask the user if the answer is genuinely ambiguous or could go multiple ways.
 
 ---
 
-## 1. Nine Confirmations (BLOCKING)
+## 1. Decision Record (Adaptive)
 
-Complete every confirmation before writing the design spec. Infer from source material when possible; ask only when genuinely ambiguous.
+Record the decisions that materially affect the deck before writing the design spec. Infer from
+source material, the selected theme, and the delivery context whenever possible. Ask one focused
+question only when a missing answer would change the artifact; do not turn this record into a
+questionnaire or approval gate. Omit fields that do not apply and state important assumptions.
 
 ### a. Page Format
 
@@ -58,7 +65,7 @@ Complete every confirmation before writing the design spec. Infer from source ma
 
 ### b. Page Count
 
-| Context | Typical Range |
+| Context | Starting range (adjust to content) |
 |---------|---------------|
 | Short pitch / lightning talk | 8-15 slides |
 | Standard presentation | 15-30 slides |
@@ -67,7 +74,8 @@ Complete every confirmation before writing the design spec. Infer from source ma
 | Lecture (90 min) | 50-70 slides |
 | Full course module | 80-120 slides |
 
-Always include: cover (1), section dividers (1 per major section), content slides, ending (1-2).
+Cover, section dividers, and an ending are useful options, not mandatory slide types. Include them
+when the narrative or delivery needs them.
 
 #### Slide Budget by Duration and Style
 
@@ -81,7 +89,9 @@ Always include: cover (1), section dividers (1 per major section), content slide
 | 45 min | 30-40 | 28-35 | 18-25 | 30-40 | 24-32 |
 | 60 min | 40-50 | 35-45 | 20-30 | 40-50 | 30-40 |
 
-**Rule of thumb**: General/Academic ~1 slide/min. Consulting ~0.8/min. MBB ~0.5/min (longer dwell per slide). Canvas varies by content density.
+**Rule of thumb**: General/Academic often use about one slide/minute; consulting and MBB decks may
+use fewer. These are planning heuristics, not quotas; content density and audience control the
+actual count.
 
 ### c. Key Information
 
@@ -208,19 +218,13 @@ When the deck contains CJK (Chinese/Japanese/Korean) text, apply character-count
 | **AI Generated** | Creative concepts, custom visuals | Mark as `[Pending: description]` in outline |
 | **Web Search** | Real photography, landmarks, documentary | Zero-config (Openverse/Wikimedia); mark as `[Pending: description]` |
 | **User Provided** | Brand assets, photos | Request file paths from user |
-| **No Images** | Data-heavy, formal reports, **academic only** | Rely on typography and layout |
+| **No Images** | Data-heavy, formal reports, or any deck where text/data already carries the message | Rely on typography and layout |
 
 > [!CAUTION]
-> **Image guidance for non-academic content**:
-> If the presentation is **non-academic** and has no source images, prefer reviewed web imagery or
-> generated images when they materially improve explanation, evidence, or atmosphere. Use
-> `image.search` and `image.import` for real photography; use an available host image-generation
-> capability for custom illustrations. Do not add filler imagery solely to satisfy a cadence.
->
-> "No Images" is only acceptable when:
-> - The content is academic/scientific (conference talks, papers)
-> - The user explicitly requests text-only / no images
-> - The content is data-heavy with charts/tables already filling the visual space
+> **Image guidance**: Consider reviewed imagery or generated visuals only when they materially
+> improve explanation, evidence, or atmosphere, or when the user asks for them. `image.search`,
+> `image.import`, and image generation are optional capabilities, not a cadence requirement.
+> A text-, chart-, or diagram-led deck is valid in any domain; do not add filler imagery.
 
 #### Style Anchor (required when AI Generated)
 
@@ -264,7 +268,9 @@ When useful, describe composition with the optional P/M/A/C vocabulary: Primary 
 🚧 **GATE — Image Layout Patterns**: When image approach is AI/User/Placeholder (anything other than "No Images"):
 
 1. **Read** `typst-slides/references/seaslides/references/image-layout-patterns.md` before writing §V Image Resource List
-2. **Produce** — every image row MUST describe its narrative purpose, framing/crop intent, and intended treatment. Catalog patterns may be optional shorthand; they are not required IDs or a substitute for the semantic decision.
+2. **Produce** — each image row should describe its narrative purpose, framing/crop intent, and
+   intended treatment. Catalog patterns may be useful shorthand, but are not required IDs or a
+   substitute for the semantic decision.
 3. **Image-as-canvas option** — consider an image-as-canvas composition with native overlays when the image has enough visual and semantic weight to carry a page.
 4. **Skip-detection signal** — if every page resolves to the same bare split without a narrative reason, re-read the catalog and reconsider. Deliberate repetition for comparison, sequence, or continuity is valid.
 
@@ -272,7 +278,9 @@ When useful, describe composition with the optional P/M/A/C vocabulary: Primary 
 
 > Core package versions: see `shared-standards.md` §5.
 
-**Key packages to actively consider** — these are underused; default to including them when content matches:
+**Candidate package routes** — these are useful when the content matches; they are not a default
+dependency list. Reuse a package already present in the workspace, and add one only when the native
+or selected-theme structure is insufficient.
 
 | Package | Trigger | Import |
 |---------|---------|--------|
@@ -284,15 +292,16 @@ When useful, describe composition with the optional P/M/A/C vocabulary: Primary 
 | **cheq** | Source has task lists/checklists/roadmaps | `@preview/cheq:0.4.0` |
 | **merman** | Source has Mermaid flowcharts/process diagrams/Gantt charts/sequence diagrams | `@preview/merman:0.1.0` |
 
-> Scan the source content for these signals before deciding packages. Multiple justified packages
-> can be combined. Choose Lilaq for the existing chart-template path; choose Gribouille only when
-> its Grammar-of-Graphics model materially simplifies the analysis.
+> Scan the source content for these signals when a package could help. Multiple justified packages
+> can be combined, but omitting a package is the normal choice when native Typst or the selected
+> theme already solves the problem. Choose Lilaq for the existing chart-template path; choose
+> Gribouille only when its Grammar-of-Graphics model materially simplifies the analysis.
 
-**Discovering more options** — query these index files:
+**Discovering more options** — use the matching host resource:
 - `_shared/charts/index.json` — chart and infographic component catalog
 - `_shared/slides/themes/README.md` — theme dispatch (per-tier indexes in each sub-directory)
-- `_shared/slides/themes/user/` — user-created themes (disk scan)
-- `_shared/packages/index.json` — curated packages with runnable demos
+- Host theme catalog — user-created themes only when the current host exposes them
+- `package.list` — focused package discovery; read its returned exact recipe/demo paths
 - `_shared/icons/index.json` — icon packages; default to emoji
 
 **Selection**: Choose packages based on content needs (charts, callouts, diagrams), not style labels. Any style can use any package where appropriate.
@@ -385,7 +394,9 @@ For each content slide, include: title, 3-5 bullet points, chart/component hints
 
 ### Use the canonical template
 
-The content design spec MUST follow **`_shared/slides/content_design_spec_reference.md`**:
+Use **`_shared/slides/content_design_spec_reference.md`** as the handoff shape when a design spec is
+useful. Keep its headings and field meanings for interoperability, but omit or mark fields that do
+not apply instead of inventing content.
 
 | Section | Contents |
 |---------|----------|
@@ -397,7 +408,9 @@ The content design spec MUST follow **`_shared/slides/content_design_spec_refere
 | **VI. Chart & Diagram List** | Slide #, chart type, package, data source, notes |
 | **VII. Speaker Notes** | Tone guidelines per style |
 
-> Do NOT invent a different structure. Fill every section. Leave sections empty with a note rather than omitting them.
+> Do not invent a competing schema when handing off to the bundled executor. Include the sections
+> relevant to this deck; leave an inapplicable section empty with a short note rather than fabricating
+> assets, packages, or speaker notes.
 
 ### Additional implementation sections (append after VIII)
 
@@ -405,7 +418,9 @@ When relevant, append: Typst Color Variable Mapping, Page Type to Slide Function
 
 ### Page Rhythm in Content Outline
 
-The `Page Rhythm` column in `content_design_spec.md` §IV is mandatory. Without it, the Executor defaults all pages to `dense` (the "every page is a card grid" failure mode).
+The `Page Rhythm` column in `content_design_spec.md` §IV is useful for a multi-page deck because it
+prevents every page from drifting toward the same dense layout. Use it when planning a deck with
+meaningful rhythm; a small direct draft may use a simpler outline.
 
 | Tag | Meaning |
 |-----|---------|
@@ -413,23 +428,24 @@ The `Page Rhythm` column in `content_design_spec.md` §IV is mandatory. Without 
 | `dense` | Information-heavy — card grids, multi-column, charts, tables permitted |
 | `breathing` | Low-density impact — no multi-card grids; single emphasis, whitespace, full-bleed imagery |
 
-Rhythm follows narrative, not quota: `breathing` pages mark natural pauses. Every page should have a rhythm tag in the outline table.
+Rhythm follows narrative, not quota: `breathing` pages mark natural pauses. If the outline uses the
+column, give each planned page a tag rather than forcing a tag onto an intentionally minimal draft.
 
 ---
 
 ## 4. Quality Checklist
 
-- [ ] All nine confirmations completed
+- [ ] Material decisions and assumptions are recorded; irrelevant fields are omitted
 - [ ] Design spec follows `_shared/slides/content_design_spec_reference.md` structure
-- [ ] Color scheme has at least 5 roles with HEX values
+- [ ] Color roles needed by the selected theme and visual grammar are documented
 - [ ] Font sizes match `shared-standards.md` §3 hierarchy
-- [ ] Package versions match `shared-standards.md` §5
+- [ ] Any added package has exact recipe/version evidence; absence of a package is acceptable
 - [ ] Content outline has every slide with title + key content
 - [ ] Image strategy clear; AI-generated images have descriptions
 - [ ] Visual direction records cross-page continuity and intentional resets
 - [ ] Screenshots preserve the original UI by default and record slot ratio, fit, crop permission, focal/safe areas, and truthful caption/source when needed
 - [ ] Any map is justified by geographic narrative need rather than inserted by default
-- [ ] Chart slides reference specific templates from `charts/index.json`
+- [ ] Chart slides, when present, reference a focused checked-in example or package recipe
 
 ### Speaker Notes Planning
 

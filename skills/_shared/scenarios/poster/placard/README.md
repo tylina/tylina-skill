@@ -24,4 +24,5 @@ poster.
 
 The examples compiled as one page with Typst 0.15.0 during maintenance. Before delivery, replace
 all fictional facts and contacts, review the pinned package and MIT terms, and inspect full-size and
-thumbnail renders. Also verify font fallbacks, links, QR codes, figures, and print output.
+thumbnail renders. Also verify font fallbacks, links, figures, and print output. For a QR code, use
+an available independent scanner on the final proof or report scanability as unverified.

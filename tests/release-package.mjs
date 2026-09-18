@@ -14,6 +14,9 @@ const root = new URL('../', import.meta.url)
 const packageVersion = JSON.parse(
   await readFile(new URL('../package.json', import.meta.url), 'utf8')
 ).version
+const collection = JSON.parse(
+  await readFile(new URL('../skills/catalog.json', import.meta.url), 'utf8')
+).collection
 
 test('release builder emits one complete atomic Skill collection', {
   skip: packageVersion.includes('-')
@@ -26,7 +29,7 @@ test('release builder emits one complete atomic Skill collection', {
       channel: 'stable',
       releases: [
         fakeRelease('0.4.9', '0.14.0'),
-        fakeRelease('0.4.8', '0.15.0')
+        fakeRelease('0.4.8', collection.minimumTylinaVersion)
       ]
     }))
     await run(process.execPath, [
@@ -36,12 +39,13 @@ test('release builder emits one complete atomic Skill collection', {
       previousIndex
     ], { cwd: root })
     const manifest = JSON.parse(await readFile(join(output, 'tylina-skill-release.json'), 'utf8'))
-    const current = manifest.releases.find(({ version }) => version === '0.15.0')
+    const current = manifest.releases.find(({ version }) => version === packageVersion)
+    assert.ok(current)
     const archiveName = `tylina-skill-${current.version}.zip`
     const archive = await readFile(join(output, archiveName))
     assert.equal(manifest.schemaVersion, 1)
     assert.equal(manifest.channel, 'stable')
-    assert.deepEqual(manifest.releases.map(({ version }) => version), ['0.15.0', '0.4.9'])
+    assert.deepEqual(manifest.releases.map(({ version }) => version), [packageVersion, '0.4.9'])
     assert.equal(current.archive.bytes, archive.byteLength)
     assert.equal(current.archive.sha256, createHash('sha256').update(archive).digest('hex'))
     assert.equal(

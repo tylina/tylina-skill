@@ -1,13 +1,10 @@
 {
-  "version": 4,
+  "version": 5,
   "reviewed_against": {
     "url": "https://packages.typst.org/preview/index.json",
-    "date": "2026-09-15"
+    "date": "2026-09-17"
   },
-  "default_paths": [
-    "typst-authoring/SKILL.md",
-    "typst-authoring/references/templates-and-packages.md"
-  ],
+  "default_paths": [],
   "category_routes": {
     "visualization": ["typst-charts/SKILL.md", "typst-diagrams/SKILL.md"],
     "layout": ["typst-authoring/SKILL.md"],
@@ -74,9 +71,21 @@
       "skill_paths": ["typst-authoring/SKILL.md"],
       "recipe_path": "_shared/packages/numbly/README.md"
     },
+    "glossarium": {
+      "skill_paths": ["typst-longform/SKILL.md", "typst-thesis/SKILL.md", "typst-academic/SKILL.md"],
+      "recipe_path": "_shared/packages/glossarium/README.md"
+    },
     "theorion": {
       "skill_paths": ["typst-theorems/SKILL.md"],
       "recipe_path": "_shared/packages/theorion/README.md"
+    },
+    "sanity": {
+      "skill_paths": ["typst-research/SKILL.md", "typst-academic/SKILL.md", "typst-thesis/SKILL.md"],
+      "recipe_path": "_shared/packages/sanity/README.md"
+    },
+    "charged-ieee": {
+      "skill_paths": ["typst-academic/SKILL.md", "typst-research/SKILL.md"],
+      "recipe_path": "_shared/packages/charged-ieee/README.md"
     },
     "lovelace": {
       "skill_paths": ["typst-pseudocode/SKILL.md"],
@@ -110,9 +119,21 @@
       "skill_paths": ["typst-charts/SKILL.md"],
       "recipe_path": "_shared/packages/gribouille/README.md"
     },
+    "cetz": {
+      "skill_paths": ["typst-diagrams/SKILL.md"],
+      "recipe_path": "_shared/packages/cetz/README.md"
+    },
     "merman": {
       "skill_paths": ["typst-diagrams/SKILL.md"],
       "recipe_path": "_shared/packages/merman/README.md"
+    },
+    "fletcher": {
+      "skill_paths": ["typst-diagrams/SKILL.md", "typst-theorems/SKILL.md"],
+      "recipe_path": "_shared/packages/fletcher/README.md"
+    },
+    "chronos": {
+      "skill_paths": ["typst-diagrams/SKILL.md", "typst-slides/SKILL.md"],
+      "recipe_path": "_shared/packages/chronos/README.md"
     },
     "tablem": {
       "skill_paths": ["typst-tables/SKILL.md"],
@@ -164,7 +185,8 @@
       "skill_paths": ["typst-linguistics/SKILL.md"]
     },
     "synkit": {
-      "skill_paths": ["typst-linguistics/SKILL.md", "typst-diagrams/SKILL.md"]
+      "skill_paths": ["typst-linguistics/SKILL.md", "typst-diagrams/SKILL.md"],
+      "recipe_path": "_shared/packages/synkit/README.md"
     },
     "syntree": {
       "skill_paths": ["typst-linguistics/SKILL.md", "typst-diagrams/SKILL.md"]
@@ -212,7 +234,8 @@
       "skill_paths": ["typst-office/SKILL.md"]
     },
     "physica": {
-      "skill_paths": ["typst-science/SKILL.md"]
+      "skill_paths": ["typst-science/SKILL.md"],
+      "recipe_path": "_shared/packages/physica/README.md"
     },
     "zero": {
       "skill_paths": ["typst-science/SKILL.md"]
@@ -221,13 +244,15 @@
       "skill_paths": ["typst-science/SKILL.md"]
     },
     "zap": {
-      "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"]
+      "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"],
+      "recipe_path": "_shared/packages/zap/README.md"
     },
     "circuiteria": {
       "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"]
     },
     "typed-smiles": {
-      "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"]
+      "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"],
+      "recipe_path": "_shared/packages/typed-smiles/README.md"
     },
     "molchemist": {
       "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"]
@@ -254,73 +279,75 @@
       "skill_paths": ["typst-science/SKILL.md", "typst-diagrams/SKILL.md"]
     },
     "examine-ib": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "g-exam": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "quizforge": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "texam": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "fuzzy-cnoi-statement": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "shuxuejuan": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "arabic-exam-kit": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "ttt-exam": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "tuhi-exam-vuw": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "sang-math": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-science/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md", "typst-science/SKILL.md"]
     },
     "enunciado-facil-fcfm": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "examit": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "codepoint": {
       "skill_paths": ["typst-education/SKILL.md", "typst-pseudocode/SKILL.md"]
     },
     "sheetstorm": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-authoring/references/assignment.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "minicise": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-authoring/references/assignment.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "ditto": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-authoring/references/assignment.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "ezexam": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"],
+      "recipe_path": "_shared/packages/ezexam/README.md"
     },
     "examora": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"],
+      "recipe_path": "_shared/packages/examora/README.md"
     },
     "examy": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "exm": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "exercise-bank": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "tutor": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-education/references/exams-and-worksheets.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "formal-homework": {
-      "skill_paths": ["typst-education/SKILL.md", "typst-authoring/references/assignment.md"]
+      "skill_paths": ["typst-education/SKILL.md"]
     },
     "grape-suite": {
       "skill_paths": ["typst-education/SKILL.md", "typst-academic/SKILL.md", "typst-slides/SKILL.md"]
@@ -329,7 +356,8 @@
       "skill_paths": ["typst-music/SKILL.md"]
     },
     "fretwork": {
-      "skill_paths": ["typst-music/SKILL.md"]
+      "skill_paths": ["typst-music/SKILL.md"],
+      "recipe_path": "_shared/packages/fretwork/README.md"
     },
     "chordish": {
       "skill_paths": ["typst-music/SKILL.md"]
@@ -404,13 +432,13 @@
       "skill_paths": ["typst-thesis/SKILL.md"]
     },
     "bananote": {
-      "skill_paths": ["typst-longform/SKILL.md", "typst-longform/references/finished-forms.md"]
+      "skill_paths": ["typst-longform/SKILL.md"]
     },
     "breezy-report": {
-      "skill_paths": ["typst-longform/SKILL.md", "typst-longform/references/finished-forms.md"]
+      "skill_paths": ["typst-longform/SKILL.md"]
     },
     "min-book": {
-      "skill_paths": ["typst-longform/SKILL.md", "typst-longform/references/finished-forms.md"]
+      "skill_paths": ["typst-longform/SKILL.md"]
     }
   }
 }

@@ -42,14 +42,14 @@ degree thesis or dissertation, not an ordinary venue paper, report, or book.
 
 ## Template and Evidence Routes
 
-- [Template selection](references/template-selection.md) distinguishes a thesis from a paper,
-  identifies current requirement evidence, and links relevant current-template discovery.
+- `typst-thesis/references/template-selection.md` distinguishes a thesis from a paper, identifies
+  current requirement evidence, and links relevant current-template discovery.
 - Existing workspace or institution-provided scaffolds come first. For a new scaffold,
   `template.list` can search `thesis` with the institution, degree, and language; inspect and
   materialize the selected exact candidate rather than rebuilding it from appearance.
-- [Source reconstruction](references/source-reconstruction.md) applies only when no suitable
-  existing template is available or the user explicitly requests reconstruction. PDF or DOCX
-  extraction remains evidence and must be checked against the original artifact.
+- `typst-thesis/references/source-reconstruction.md` applies only when no suitable existing template
+  is available or the user explicitly requests reconstruction. PDF or DOCX extraction remains
+  evidence and must be checked against the original artifact.
 - Unresolved regulations remain review findings. Validate the complete main and inspect the page
   classes and long-range transitions relevant to the selected template and submission variant.
 
@@ -57,12 +57,13 @@ degree thesis or dissertation, not an ordinary venue paper, report, or book.
 
 1. Inspect the current main, real include graph, bibliography, assets, existing template guide, and
    the institutional evidence already available.
-2. Read `references/template-selection.md` to distinguish thesis requirements from paper defaults
-   and to identify which missing criteria materially affect template choice or compliance.
+2. Read `typst-thesis/references/template-selection.md` to distinguish thesis requirements from
+   paper defaults and identify which missing criteria materially affect template choice or
+   compliance.
 3. Preserve an existing institution-provided or maintained scaffold. Otherwise search for one exact
    current candidate by institution, degree, and language, inspect it, and materialize it completely.
-4. Read `references/source-reconstruction.md` only when no suitable template exists or the user
-   explicitly requests reconstruction from supplied PDF, DOCX, or source evidence.
+4. Read `typst-thesis/references/source-reconstruction.md` only when no suitable template exists or
+   the user explicitly requests reconstruction from supplied PDF, DOCX, or source evidence.
 5. Map verified requirements and requested variants to the selected template, keeping unresolved
    regulations and blank identity fields explicit rather than guessing.
 6. Validate representative front matter, body structure, scholarly apparatus, and appendix paths
@@ -78,6 +79,11 @@ degree thesis or dissertation, not an ordinary venue paper, report, or book.
 - Scholarly claims and citation integrity: `typst-academic/SKILL.md` and
   `typst-research/SKILL.md` when available.
 - Chapter structure and long-document boundaries: `typst-longform/SKILL.md`.
+- Maintained glossary, acronym expansion, and back-references when required by the institution:
+  `_shared/packages/glossarium/README.md`.
+- Structural preflight for labels, references, captions, and uncited entries after compiler
+  validation: `_shared/packages/sanity/README.md`. It cannot establish scholarly or institutional
+  compliance.
 - Supplied PDF or Office evidence:
   `typst-authoring/references/source-ingestion.md` and
-  [references/source-reconstruction.md](references/source-reconstruction.md).
+  `typst-thesis/references/source-reconstruction.md`.

@@ -38,5 +38,5 @@ materialize the complete selected leaf through the template tool. Continue an ex
 in place instead of inserting a parallel scaffold.
 
 Read `_shared/docs/typst/tables.md` before a structural edit. Use
-`_shared/packages/index.json` to locate and then read one package recipe only when native
-`table` cannot express the requested input or the workspace already uses that package.
+`package.list` to locate and then read one returned recipe only when native `table` cannot
+express the requested input or the workspace already uses that package.

@@ -26,6 +26,9 @@ not a slide deck.
 - Continue an existing scaffold when present. Reviewed candidates are indexed at
   `_shared/scenarios/social-cover/index.json`; use `template.list`, `template.inspect`, and
   `template.create` for the chosen exact entry.
+- When a cover or card includes a QR code or barcode, use the Tiaoma recipe with an explicitly
+  supplied payload; preserve the code as source-backed content and review its quiet zone and
+  machine readability independently of feed-size composition.
 - The extended SeaSlides reference is useful for carousels, multiple ratios, imported assets,
   brand systems, or other genuinely complex campaigns.
 
@@ -58,3 +61,5 @@ lower edge. When a target pixel width matters, derive PPI from the render summar
 - Reviewed templates: `_shared/scenarios/social-cover/index.json`.
 - Complex campaign composition:
   `typst-slides/references/seaslides/references/scenarios/social-cover.md`.
+- QR codes and barcodes (only when explicitly required): `_shared/packages/tiaoma/README.md` and
+  `_shared/packages/tiaoma/demo.typ`.

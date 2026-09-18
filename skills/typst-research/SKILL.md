@@ -34,11 +34,13 @@ Compose this Skill with Typst Academic and Typst Authoring.
 9. Treat Openverse and other stock-image catalogs as illustration sources only, never scholarly
    evidence. If an external illustration is requested, follow
    `tylina/references/image-sourcing.md` and keep its attribution separate from citations.
+10. A source-only citation audit does not require page rendering. Inspect rendered bibliography
+    output only when appearance, ordering, pagination, or a source/render discrepancy is in scope.
 
 ## Evidence and Tool Information
 
-- Read `references/literature-workflow.md` when acquiring external evidence, resolving DOI/arXiv
-  identities, reviewing PDFs, or changing bibliography data.
+- Read `typst-research/references/literature-workflow.md` when acquiring external evidence,
+  resolving DOI/arXiv identities, reviewing PDFs, or changing bibliography data.
 - Workspace PDF or Office evidence uses the portable import gate in
   `typst-authoring/references/source-ingestion.md`. The binary remains authoritative and extraction
   warnings remain visible.
@@ -55,8 +57,8 @@ Compose this Skill with Typst Academic and Typst Authoring.
 
 1. Inspect the current source, every bibliography used by the compiled document, and the claims or
    section being researched. Define formal inclusion criteria only when the task needs them.
-2. Read `references/literature-workflow.md` when acquiring evidence, resolving DOI/arXiv identity,
-   handling PDFs, or changing bibliography data.
+2. Read `typst-research/references/literature-workflow.md` when acquiring evidence, resolving
+   DOI/arXiv identity, handling PDFs, or changing bibliography data.
 3. Search primary indexes and original papers. Import workspace PDF or Office evidence through the
    source-ingestion gate and preserve extraction warnings.
 4. For multi-source synthesis, connect each claim to inspected evidence, support strength,
@@ -65,8 +67,10 @@ Compose this Skill with Typst Academic and Typst Authoring.
    user-edited fields or visible conflicts.
 6. Synthesize agreements, differences, methods, evidence quality, and gaps at the scope supported
    by the sources.
-7. Validate the document, inspect bibliography output, run the missing-citation audit, and report
-   unavailable sources or unresolved keys.
+7. After a source change, validate the document and run the missing-citation audit. Inspect rendered
+   bibliography output only when appearance, ordering, pagination, or a source/render discrepancy
+   is in scope. For a source-only audit with no mutation, report unavailable sources and unresolved
+   keys without adding validation or rendering work.
 
 ## Progressive Resources
 
@@ -76,5 +80,9 @@ Compose this Skill with Typst Academic and Typst Authoring.
   `typst-authoring/references/source-ingestion.md`.
 - Typst bibliography syntax: route through `_shared/docs/index.json` to the official bibliography
   reference.
-- Venue template or package: use `template.list`, `package.list`, then read only the selected
-  returned Skill and recipe paths.
+- Structural manuscript preflight after compiler validation:
+  `_shared/packages/sanity/README.md` for labelled elements, reference order, captions, and
+  uncited bibliography entries. It does not establish claim support.
+- Venue template or package: when a curated exact route exists (for example the Charged IEEE
+  recipe), read it directly. Otherwise use one focused `template.list` or `package.list` query,
+  then read only the selected returned Skill and recipe paths.

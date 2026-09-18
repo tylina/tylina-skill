@@ -5,7 +5,8 @@
 #show: show-cn-fakebold
 #show: simple-theme.with(aspect-ratio: "16-9")
 
-#set text(size: 18pt, font: ("Noto Sans", "Noto Sans SC"))
+// Do not name an unbundled CJK family here; delivery documents should select a verified host font.
+#set text(size: 18pt)
 
 == Cuti Demo — Fake Bold for CJK Fonts
 

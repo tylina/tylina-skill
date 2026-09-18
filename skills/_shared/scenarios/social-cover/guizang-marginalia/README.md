@@ -1,7 +1,7 @@
 # Guizang Marginalia
 
-A light 1242×1660 (3:4) essay card informed by the M11 marginalia structure in
-`local/guizang-social-card-skill`.
+A light 1242×1660 (3:4) essay card informed by the M11 marginalia pattern in the
+[Guizang social-card skill](https://github.com/op7418/guizang-social-card-skill).
 
 - `template.typ` owns the warm paper, serif/italic title rhythm, long-form essay column, functional schedule margin, and closing strip.
 - `demo.typ` supplies a complete reflective essay about intentional gaps in a workday.

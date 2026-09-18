@@ -8,20 +8,20 @@ description: Create, extend, or review Typst presentations in quick or complex m
 Compose this Skill with Typst Authoring. The catalog selects `quick` or `complex` mode.
 Tylina's `complex` entrypoint is the SeaSlides Full Mode workflow; it is not a third pipeline.
 
-## Mode Decision Gate
+## Mode Selection
 
-If the user only asks to create slides and neither the selected entrypoint nor the request
-chooses a mode, stop before modifying files and ask one concise question: should this be a
-quick creation or a complex creation?
+Treat quick and complex as authoring profiles, not user-facing approval gates. Honor an explicit
+mode or entrypoint. Otherwise infer **quick** for a small edit, a topic-only draft, or a deck with
+an existing/bundled theme; infer **complex** when the request materially needs a new theme,
+source analysis, research, many assets, bespoke Canvas composition, or animation planning. Ask one
+concise question only when the choice would change the artifact or work scope in a way the request
+does not resolve. Record the inferred choice and continue; do not spend a turn asking about an
+irrelevant implementation label.
 
-- Explain **quick** as immediate generation from one already selected or bundled Tylina
-  theme, using its `theme.md` and `demo.typ`, followed by compile and visual verification.
-- Explain **complex** as the complete SeaSlides process with source analysis, narrative
-  planning, visual direction, asset work, and page-by-page review.
-
-Do not ask again when the user explicitly selected a quick or complex entrypoint, named the
-mode, or gave requirements that unambiguously require one mode. Never silently interpret a
-generic "create slides" request as complex merely because complex mode can do more.
+- **Quick** uses one selected theme's `theme.md` and `demo.typ`, then compiles and visually checks
+  the result.
+- **Complex** adds source analysis, narrative planning, visual direction, asset work, and the
+  focused SeaSlides references that the request actually needs.
 
 ## Workspace Intent Gate
 
@@ -36,7 +36,8 @@ Apply the Typst Authoring workspace and mutation gate, then add these presentati
    alone. Materialize a chosen theme when needed. For the bundled slide-theme convention, then
    read `theme.md` and `demo.typ`, keep the demo as the working API example, and preserve all
    required theme files. Author `main.typ` or a conflict-free equivalent, switch through
-   `document.setMain`, and validate the newly current main.
+   `document.setMain` only when that authored file is not already current, and validate the
+   resulting current main.
 3. **Populated main document**: determine from the request whether to edit the current deck,
    replace it, create a new main, or build a multi-file deck. Preserve content by default.
    Replacing source requires explicit intent. A request for a distinct new deck defaults to a
@@ -78,8 +79,9 @@ selected slug through `template.list`, inspect the exact matching spec, call
 `template.create`, then use the returned workspace-relative destination and
 entrypoint. Do not author until materialization returns `available: true`. Write a concise
 narrative, validate, and visually inspect every page. Follow
-`typst-slides/references/seaslides/workflows/quick-mode.md`; do not load the SeaSlides strategist
-or executor references in this mode.
+  `typst-slides/references/seaslides/workflows/quick-mode.md`; do not load the SeaSlides strategist
+  or executor references in this mode. Read that reference once before template discovery or
+  workspace mutation; it is guidance, not a separate tool or approval step.
 
 Honor a named, scaffolded, or existing theme without offering alternatives. Otherwise use the
 three tier indexes to shortlist at most five candidates by `best_for`, style, and tags, then
@@ -100,8 +102,9 @@ redesign, bespoke theme work, research-heavy narrative, or complex assets and an
 
 `Sources -> brief -> theme -> design decisions -> slide plan -> author -> compile -> review`
 
-Complete the gates serially. In interactive mode, ask only for decisions that materially
-change the result. In unattended mode, make a documented choice and continue.
+Use the phases as a dependency-aware checklist. Skip phases and references that do not apply to
+the request; ask only about decisions that materially change the result. In unattended mode,
+record a reasonable choice and continue.
 
 ## Hard Contract
 
@@ -118,8 +121,8 @@ change the result. In unattended mode, make a documented choice and continue.
    checked-in working imports; a third-party theme owns its documented version boundary.
    For an uncertain Touying API, route through
    `_shared/docs/touying/index.json` and read one focused official page.
-6. Preserve `#pause`, `#meanwhile`, repeat/later semantics, natural overflow groups, and
-   per-slide speaker notes. Do not infer logical slides from physical page count alone.
+6. Preserve `#pause`, `#meanwhile`, repeat/later semantics, natural overflow groups, and any
+   existing speaker notes. Do not infer logical slides from physical page count alone.
 7. For every formula, follow the Typst core's math integrity gate. Use native Typst math by
    default. MiTeX is only for supplied LaTeX or an existing MiTeX-authored document. Never imitate
    an equation with text, strings, `#raw(...)`, code, or Unicode lookalikes.
@@ -168,12 +171,12 @@ materialized `theme.md`, `demo.typ`, and, for Canvas or theme modifications, `te
 ### 3. Make Design Decisions
 
 Decide page format, page-count range, audience, style objective, complexity tier, color and
-type direction, image approach, and third-party packages. Use `_shared/packages/index.json`
-only for relevant pinned recipes.
+type direction, image approach, and third-party packages. Use `package.list` only when a relevant
+package is needed, then read its returned pinned recipe and demo paths.
 
 Create a concise slide-by-slide plan with purpose, source evidence, layout intent, animation,
-and speaker-note intent. Do not force arbitrary layout variety when repetition helps compare
-or sequence material.
+and, when the delivery needs narration, speaker-note intent. Do not force arbitrary layout
+variety when repetition helps compare or sequence material.
 
 When a requested or evidence-supported external raster image is necessary, follow
 `tylina/references/image-sourcing.md`. Keep its source and attribution with the slide plan.
@@ -186,7 +189,9 @@ at projection size. Use semantic tables, diagrams, math, figures, labels, and re
 For formulas, follow the always-loaded core math policy; compilation does not replace checking
 notation and mathematical meaning against the source.
 Keep source/debug text, TODOs, unresolved calls, and Markdown residue out of rendered pages.
-Add meaningful speaker notes to every logical slide when supported.
+Preserve existing speaker notes. Add or revise notes when the user requests them, supplied source
+includes them, or the delivery setting needs a separate narration layer; otherwise do not create
+notes merely to satisfy a checklist.
 
 ### 5. Verify
 

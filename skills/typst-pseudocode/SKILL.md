@@ -18,7 +18,8 @@ Compose this Skill with Typst Authoring.
 - Inputs, outputs, state, branches, loops, invariants, termination, and complexity claims belong
   to the algorithm, not the layout. Preserve ambiguity rather than silently strengthening it.
 - Reuse the workspace's established style. When a reusable algorithm environment is useful,
-  `_shared/packages/lovelace/README.md` and its `demo.typ` document the pinned recipe.
+  `_shared/packages/lovelace/README.md` and `_shared/packages/lovelace/demo.typ` document the
+  pinned recipe.
 - Keep identifiers and notation consistent with surrounding prose and equations. Line numbers and
   labels are useful only when the document explains or cross-references them.
 - Inspect affected pseudocode for indentation, wrapping, long conditions, comments, numbering,

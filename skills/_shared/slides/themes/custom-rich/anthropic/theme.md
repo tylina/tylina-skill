@@ -21,6 +21,7 @@ A tech-forward, professional theme inspired by Anthropic's brand design. Feature
 
 #show: anthropic-theme.with(
   aspect-ratio: "16-9",
+  config-common(breakable: false),
   footer: self => self.info.institution,
   config-info(
     title: [Claude: Next-Generation AI Assistant],
@@ -33,6 +34,10 @@ A tech-forward, professional theme inspired by Anthropic's brand design. Feature
 
 #title-slide()
 ```
+
+`config-common(breakable: false)` is part of the ordinary 16:9 deck setup when one source slide
+must remain one physical page. It prevents automatic continuation pages; it does not make
+overflow safe. Validate the physical page count and inspect every authored page.
 
 ## Theme Parameters
 
@@ -60,13 +65,36 @@ Warm white closing slide with centered white card (rounded corners), large orang
 
 ## Reusable Components
 
-### `#feature-card(number, title, description, accent: auto)`
+### Normal-flow density
+
+The content frame sits between the title chrome and footer. Plan combinations by rendered height,
+not source-line count:
+
+- one short lead, one formula block, and one two-column row of `feature-card` components is a
+  dependable upper bound. Do not add another boxed callout to that pattern;
+- `stat-row` plus a three-row `data-table` nearly fills the frame. Add an `insight-box` only when
+  its body is one short line;
+- a two-by-two grid of any card component should use compact vertical insets and two or three
+  short rendered body lines per card. It leaves room for at most one short, unboxed concluding
+  line; a boxed conclusion should replace one card or move to another slide;
+- avoid stacking a table, two card rows, and a callout on the same page;
+- use the component-owned compact parameters—`feature-card(..., inset-y: .6em)`,
+  `metric-card(..., inset-y: .35em)`, or `callout-box(..., inset-y: 8pt)`—instead of shrinking all
+  page text or using negative spacing to conceal overflow.
+
+These are starting bounds, not layout guarantees. Chinese text, long formulas, font fallback,
+and user content change wrapping. With `breakable: false`, clipped component borders or a footer
+collision are real defects even when compilation succeeds.
+
+### `#feature-card(number, title, description, accent: auto, inset-y: 1em)`
 Card with colored top border and circular number badge. Auto-cycles through accent colors (orange→blue→green→red).
+Use `inset-y: .6em` for a verified compact two-row grid; keep each body to a few short rendered
+lines and still inspect the page.
 
 ```typst
 #feature-card(1, [Foundation Model], [
   Custom transformer architecture with mixture-of-experts routing.
-])
+], inset-y: .6em)
 ```
 
 ### `#metric-card(label, value, trend: none, accent: palette.orange, inset-y: .8em)`
@@ -78,11 +106,14 @@ verified compact variant.
 #metric-card([Model Parameters], [175B+], trend: [#sym.arrow.t Next-gen])
 ```
 
-### `#insight-box(title, body)` / `#callout-box(title, body, accent: palette.orange)`
+### `#insight-box(title, body, inset-y: 14pt)` /
+`#callout-box(title, body, accent: palette.orange, inset-y: 14pt)`
 Orange-accented insight callout with left border for key takeaways. Aliases: `warning-box` (red), `success-box` (green).
+All variants accept `inset-y`; use `8pt` for a compact callout after verifying that its text remains
+readable.
 
 ```typst
-#insight-box([Key Insight])[
+#insight-box([Key Insight], inset-y: 8pt)[
   Claude achieves state-of-the-art results across reasoning benchmarks.
 ]
 ```
@@ -166,7 +197,9 @@ This theme supports Canvas-level composition in addition to Rich. When using Can
 - **Dark/light rhythm**: Use `config-page(fill: palette.primary-dark)` for dark pages. Set `header: none, footer: none` and manually render chrome with `palette.text-on-dark` colors.
 - **Hero pages**: Full-bleed images with `place()` + scrim overlay using `gradient.linear(palette.primary-dark.transparentize(100%), palette.primary-dark.transparentize(20%))`.
 - **Inline styling**: Canvas mode permits `block(fill: palette.card)`, `text(fill: palette.accent)` directly in main.typ.
-- **Component density**: 40-100+ lines per slide. Use `grid()` for multi-column layouts, `place()` for overlays.
+- **Component density**: reserve the title and footer bands, then fit content by measured geometry.
+  Use `grid()` for multi-column layouts and `place()` only for intentional overlays; source-line
+  count is not a usable density measure.
 - **Recommended patterns**: Asymmetric splits (60/40), stat dashboards, dark statement pages, full-bleed image heroes.
 
 ## Files

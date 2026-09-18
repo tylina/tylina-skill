@@ -123,6 +123,9 @@ One core message per slide, max 3 supporting points. Every word earns its place.
 
 ## Speaker Notes Style
 
+Apply this section only when speaker notes are part of the request, supplied source, or delivery
+plan.
+
 **Executive briefing tone**: Concise, direct, action-oriented, confident but measured. Focus on implications, respect for time. Structure: Opening (purpose) → 3 key messages → supporting data → implications → specific recommendation → Q&A.
 
 ---
@@ -163,7 +166,7 @@ merman for Mermaid process diagrams.
 > **Common checks**: See `base.md` §8 for the full shared checklist.
 
 **Consultant-top-specific checks**:
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
 - [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
@@ -174,7 +177,7 @@ merman for Mermaid process diagrams.
 - [ ] Pyramid principle followed (conclusion first)
 - [ ] Each slide has one core message, max 3 supporting points
 - [ ] Takeaway boxes prominent and clear
-- [ ] Speaker notes executive-appropriate
+- [ ] Speaker notes, when in scope, are executive-appropriate
 - [ ] Recommendations actionable and time-bound
 - [ ] All components (`takeaway-box`, `kpi-card`, `source-footer`) defined in `template.typ`
 - [ ] `---` used only for slide breaks (use `--` for en-dashes)

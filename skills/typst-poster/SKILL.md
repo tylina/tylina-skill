@@ -21,6 +21,9 @@ Compose this Skill with Typst Authoring. A poster is one physical document page,
 - Continue an existing poster scaffold when present. Reviewed candidates are indexed at
   `_shared/scenarios/poster/index.json`; use `template.list`, `template.inspect`, and
   `template.create` for the chosen exact entry.
+- If a poster needs a QR code or barcode, route the explicitly supplied payload through the
+  Tiaoma recipe; verify quiet zone, physical size, contrast, and scanner readability separately
+  from the poster's visual review.
 - The extended SeaSlides poster reference is useful for evidence-heavy research posters, imported
   assets, variants, or genuinely complex compositions, not for every one-page poster.
 - A clear result or question should survive thumbnail viewing; supporting detail must remain
@@ -53,3 +56,5 @@ asset provenance, and an accidental empty lower edge. Export only when requested
 - Reviewed templates: `_shared/scenarios/poster/index.json`.
 - Complex poster composition:
   `typst-slides/references/seaslides/references/scenarios/poster.md`.
+- QR codes and barcodes (only when explicitly required): `_shared/packages/tiaoma/README.md` and
+  `_shared/packages/tiaoma/demo.typ`.

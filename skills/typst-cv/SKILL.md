@@ -45,14 +45,17 @@ Compose this Skill with Typst Authoring. A CV is a print document, not a slide d
    documented API. If the API demands unsupported precision, use a verified source-native row or
    another suitable template rather than inventing a value.
 5. Select a newly created entrypoint through `document.setMain`, validate it, and inspect every
-   page, link, wrap, and page break. Export only when requested; for PDF, also inspect extracted
-   text order. Report unresolved facts, fonts, packages, page count, and checks actually completed.
+   page, link, wrap, and page break. Export only when requested. When the host exposes PDF text
+   extraction, inspect reading order; otherwise report it as unverified. Report unresolved facts,
+   fonts, packages, page count, and checks actually completed.
 
 ## Verification Information
 
 Validate and inspect every affected page, links, line wrapping, page flow, and missing fonts.
-Creating a CV means editable Typst source, not an implicit PDF. When PDF export is requested,
-also check extracted text order because a visually plausible multi-column layout can read poorly.
+Creating a CV means editable Typst source, not an implicit PDF. When PDF export is requested and
+the host exposes text extraction, check reading order because a visually plausible multi-column
+layout can read poorly. If extraction is unavailable, state that accessibility/ATS reading order
+was not verified instead of inferring it from appearance.
 
 ## Progressive Resources
 

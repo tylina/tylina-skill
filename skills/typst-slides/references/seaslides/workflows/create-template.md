@@ -15,7 +15,7 @@ Generate a complete Touying theme. Works in the project directory, with optional
 - [Create Theme Working Directory](#step-2-create-theme-working-directory)
 - [Invoke Template Designer](#step-3-invoke-templatedesigner-role)
 - [Compile and Validate](#step-4-compile--validate)
-- [Save to User Theme Library](#step-5-save-to-user-theme-library-optional)
+- [Publish Theme for Reuse](#step-5-publish-theme-for-reuse-optional)
 - [Output Confirmation](#step-6-output-confirmation)
 - [Color Scheme Quick Reference](#color-scheme-quick-reference)
 
@@ -141,7 +141,7 @@ select `main.typ`, repeat validation and visual inspection, and restore the inte
 
 ---
 
-## Step 5: Save to User Theme Library (Optional)
+## Step 5: Publish Theme for Reuse (Optional)
 
 After validation, the four theme files are ready in the project directory.
 
@@ -149,29 +149,17 @@ After validation, the four theme files are ready in the project directory.
 
 Theme stays in the current project directory. Usable for this project only. No further action needed.
 
-### Option B: Save to user theme library for reuse
+### Option B: Publish for reuse when the host supports it
 
-> **YOLO mode**: Default to Option A. Only save to `user/` if the user explicitly asks.
+Keep the theme in the current workspace by default. Tylina's packaged Skill resources are
+read-only, and an Agent must not copy files into `_shared/slides/themes/user` or guess a private
+installation path. If the user explicitly asks to reuse the theme, use a host-provided theme or
+Skill installation/export flow when one exists. Otherwise deliver the complete workspace theme
+and report that reusable-library installation was not performed.
 
-For non-YOLO mode:
-
-> This is a **BLOCKING** step. Present the following to the user and wait for confirmation:
->
-> "Theme `<template_name>` is ready. Would you like to save it to the user theme library (`_shared/slides/themes/user/<template_name>/`) for reuse in future projects?"
-
-If the user confirms, copy the four required files:
-
-```bash
-mkdir -p "_shared/slides/themes/user/<template_name>"
-cp <project_path>/theme_design_spec.md "_shared/slides/themes/user/<template_name>/"
-cp <project_path>/template.typ "_shared/slides/themes/user/<template_name>/"
-cp <project_path>/demo.typ "_shared/slides/themes/user/<template_name>/"
-cp <project_path>/theme.md "_shared/slides/themes/user/<template_name>/"
-```
-
-If the theme uses asset files (e.g., images referenced by `template.typ`), copy those too.
-
-> **Important**: User themes are **NOT** registered in any `index.json`. They are discovered by scanning the `user/` directory on disk. This avoids git merge conflicts when the skill is updated.
+The upstream SeaSlides repository may use local shell commands to maintain its own theme library;
+those commands are maintainer operations, not portable Agent instructions for Web, DSH, Electron,
+or SDK hosts.
 
 ---
 
@@ -182,7 +170,7 @@ If the theme uses asset files (e.g., images referenced by `template.typ`), copy 
 
 **Theme Name**: <template_name> (<display_name>)
 **Location**: `<project_path>/`
-**Saved to library**: [Yes → `_shared/slides/themes/user/<template_name>/` | No]
+**Published for reuse**: [Yes via `<host-provided flow>` | No]
 
 ### Files
 

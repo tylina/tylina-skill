@@ -1,30 +1,32 @@
-#import "@preview/touying:0.7.4": *
-#import themes.simple: *
 #import "@preview/tiaoma:0.3.0"
 
-#show: simple-theme.with(aspect-ratio: "16-9")
+#set page(paper: "a4", margin: 22mm)
+#set text(size: 11pt)
 
-#set text(size: 18pt)
+= Tiaoma barcodes and QR codes
 
-== Tiaoma Demo — Barcodes & QR Codes
-
-=== QR Code
+== QR code
 
 #align(center)[
   #tiaoma.qrcode(
     "https://typst.app/universe/package/tiaoma",
-    width: 4cm,
+    width: 28mm,
     alt: "QR code linking to the Tiaoma package page",
   )
 ]
 
-=== Barcode (Code 128)
+The encoded destination is printed beside the symbol so a reader can inspect it without scanning:
+`https://typst.app/universe/package/tiaoma`.
+
+== Code 128
 
 #align(center)[
   #tiaoma.code128(
-    "TOUYING-2025",
-    width: 8cm,
-    height: 1.5cm,
-    alt: "Code 128 barcode containing TOUYING-2025",
+    "ASSET-000123",
+    width: 55mm,
+    height: 14mm,
+    alt: "Code 128 asset identifier ASSET-000123",
   )
 ]
+
+Payload: `ASSET-000123`.

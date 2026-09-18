@@ -1,5 +1,4 @@
 interface:
   display_name: "Typst Music"
-  short_description: "Engrave supplied music notation without guessing"
-  default_prompt: "Use $typst-music to engrave this supplied notation faithfully and verify every affected system or page."
-
+  short_description: "Create or faithfully engrave music in Typst"
+  default_prompt: "Use $typst-music to create or engrave the requested music. For ordinary staff notation, read the bundled Scoryst recipe and demo before package search; preserve supplied musical facts and verify every affected system or page."

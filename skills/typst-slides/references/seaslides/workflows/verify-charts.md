@@ -28,7 +28,8 @@ Typst charts are code-driven, so coordinates are mathematically correct IF the c
 
 ### Step 1: Identify Charts
 
-Grep `main.typ` for chart package usage:
+Read the canonical source and its imported modules with the host's ordinary file tools. Identify
+documented chart imports and calls without inferring Typst structure from text-search matches alone:
 - `lilaq` — bar, line, scatter, histogram
 - `gribouille` — layered Grammar-of-Graphics plots, mapped aesthetics, statistical transforms
 - `primaviz` — pie, donut, radar, funnel
@@ -42,7 +43,8 @@ Slide 8: pie chart (primaviz) — "Market Share"
 Slide 12: layered scatter + fit (gribouille) — "Growth Drivers"
 ```
 
-If no chart package imports are found, output `verify-charts: no data-driven charts detected, nothing to verify` and stop.
+If source inspection and the compiled output show no data-driven chart, output
+`verify-charts: no data-driven charts detected, nothing to verify` and stop.
 
 ### Step 2: Extract Data
 
@@ -75,7 +77,7 @@ After compilation, inspect the chart in the output PNG:
 
 If issues found:
 1. Fix the data/code in `main.typ`
-2. Recompile with `typst compile main.typ`
+2. Run `document.validate` for the live current main
 3. Re-verify the specific chart
 4. Repeat until all checks pass
 

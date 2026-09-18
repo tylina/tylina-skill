@@ -53,14 +53,16 @@ Infer review depth from the user's request without adding a separate decision ga
 
 | User intent | Review depth |
 |---|---|
-| Explicitly requests no visual review, compile-only output, or maximum speed | **None** — skip this workflow, retain compilation/mechanical checks/validation, and disclose that no visual review was performed |
-| Requests an ordinary fast draft without a review preference | **Targeted** — inspect the overview and only pages flagged by the overview or mechanical checker |
-| Requests visual assurance, per-page checking, polish, or delivery-grade review | **Full** — inspect the overview and every slide PNG once |
+| Explicitly requests no visual review or compile-only output | **None** — skip rendered inspection, retain compilation/mechanical checks/validation, and disclose that no visual review was performed |
+| Creates a new deck or changes the theme/layout globally | **Full, bounded** — inspect every physical page once; revisit only pages made stale by a correction |
+| Makes a local edit to an existing deck | **Targeted** — inspect every affected page and any additional page flagged by validation or overview |
+| Requests additional visual assurance, polish, or delivery-grade review | **Full** — inspect the overview and every physical page once |
 
-Honor an explicit review instruction over these inference examples. Within the selected scope, fix
-Hard violations and obvious clusters of Soft violations, then stop instead of adding discretionary
-polish rounds. Always report both scope and result; never describe `none` or `targeted` as a full
-visual pass.
+Honor an explicit instruction to skip visual review, but do not interpret “quick” or “maximum
+speed” alone as permission to omit the one bounded pass required for a newly created deck. Within
+the selected scope, fix Hard violations and obvious clusters of Soft violations, then stop instead
+of adding discretionary polish rounds. Always report both scope and result; never describe `none`
+or `targeted` as a full visual pass.
 
 ## Related
 

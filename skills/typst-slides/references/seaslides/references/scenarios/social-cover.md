@@ -61,15 +61,16 @@ quality gates remain authoritative here.
 
 ### Divide responsibility across the reference systems
 
-Use the local references as complementary layers instead of treating one repository as a template
-to copy wholesale.
+Use the cited references as complementary design evidence instead of treating one repository as a
+template to copy wholesale. Their source trees are not runtime dependencies; the bundled
+SeaSlides resources below contain the patterns needed for authoring.
 
 | Reference | Take from it | Do not import blindly |
 |---|---|---|
-| [`local/guizang-social-card-skill`](../../../../local/guizang-social-card-skill/SKILL.md) | Content-first hook design, editorial and Swiss identity tests, recipe selection, atmosphere with a communicative job, and lower-edge resolution | Platform-specific implementation, licensed source code, or decorative motifs detached from their content job |
-| [`local/ppt-master` canvas formats](../../../../local/ppt-master/skills/ppt-master/references/canvas-formats.md) | Exact social canvases, ratio-specific reading direction, safe-zone thinking, and the rule that same ratio does not mean the same coordinate system | PowerPoint Master/Layout metadata or 16:9 coordinates |
-| [`local/ppt-master` image-layout catalog](../../../../local/ppt-master/skills/ppt-master/references/image-layout-patterns.md) | Full-bleed title fields, side-image fields, negative-space covers, image bands, image-as-canvas overlays, and deliberate crop/contrast decisions | Pattern-ID coverage for its own sake or an unavailable image treated as a placeholder frame |
-| [`local/ppt-master` visual review](../../../../local/ppt-master/skills/ppt-master/references/visual-review.md) | Full-size inspection, collision and contrast checks, focal-point/centroid review, and a separate thumbnail pass | Its SVG/PPTX-specific export mechanics |
+| [Guizang social-card skill](https://github.com/op7418/guizang-social-card-skill) | Content-first hook design, editorial and Swiss identity tests, recipe selection, atmosphere with a communicative job, and lower-edge resolution | Platform-specific implementation, licensed source code, or decorative motifs detached from their content job |
+| [PPT Master canvas formats](https://github.com/hugohe3/ppt-master/blob/c6ae4896da10497464ad7e87f5833bfc14321621/skills/ppt-master/references/canvas-formats.md) | Exact social canvases, ratio-specific reading direction, safe-zone thinking, and the rule that same ratio does not mean the same coordinate system | PowerPoint Master/Layout metadata or 16:9 coordinates |
+| [PPT Master image-layout catalog](https://github.com/hugohe3/ppt-master/blob/c6ae4896da10497464ad7e87f5833bfc14321621/skills/ppt-master/references/image-layout-patterns.md) | Full-bleed title fields, side-image fields, negative-space covers, image bands, image-as-canvas overlays, and deliberate crop/contrast decisions | Pattern-ID coverage for its own sake or an unavailable image treated as a placeholder frame |
+| [PPT Master visual review](https://github.com/hugohe3/ppt-master/blob/c6ae4896da10497464ad7e87f5833bfc14321621/skills/ppt-master/references/visual-review.md) | Full-size inspection, collision and contrast checks, focal-point/centroid review, and a separate thumbnail pass | Its SVG/PPTX-specific export mechanics |
 | SeaSlides themes and scenario demos | Palette, type roles, reusable components, Typst APIs, compile commands, and verified fixed-canvas implementations | Touying runtime or slide coordinates in a non-deck artifact |
 
 The practical sequence is: derive the content job with Guizang-style reasoning, choose the
@@ -693,14 +694,14 @@ Use the local demo catalog when it fits:
 
 | Demo | Canvas | Pattern |
 |---|---:|---|
-| [`guizang-magazine`](../../templates/scenarios/social-cover/guizang-magazine/README.md) | 1242 × 1660, one page | Editorial field-note cover with an inline-SVG atmosphere and lower observation ledger |
-| [`guizang-swiss`](../../templates/scenarios/social-cover/guizang-swiss/README.md) | 1080 × 1080, four pages | Accent cover, trap rows, timed pipeline, and decision-ledger close |
-| [`indie-bookstore`](../../templates/scenarios/social-cover/indie-bookstore/README.md) | 900 × 383 + 1080 × 1080 | Separately composed RISO WeChat header and share square |
-| [`editorial-grid`](../../templates/scenarios/social-cover/editorial-grid/README.md) | 1080 × 1350, one page | Publication cover with a dark semantic rail and four-step reading sequence |
-| [`pritzker`](../../templates/scenarios/social-cover/pritzker/README.md) | 1242 × 1660, one page | Architecture cover with an axonometric SVG field and a resolved lower conclusion zone |
-| [`newspaper`](../../templates/scenarios/social-cover/newspaper/README.md) | 900 × 383, one page | Brutalist press header with a three-question editorial sidebar |
-| [`guizang-field-journal`](../../templates/scenarios/social-cover/guizang-field-journal/README.md) | 1242 × 1660, one page | Light photo-editorial journal with a large image well, asset provenance, and resolved closing note |
-| [`guizang-marginalia`](../../templates/scenarios/social-cover/guizang-marginalia/README.md) | 1242 × 1660, one page | Warm-paper long-form essay with a functional marginal schedule and closing strip |
+| [`guizang-magazine`](../../../../../_shared/scenarios/social-cover/guizang-magazine/README.md) | 1242 × 1660, one page | Editorial field-note cover with an inline-SVG atmosphere and lower observation ledger |
+| [`guizang-swiss`](../../../../../_shared/scenarios/social-cover/guizang-swiss/README.md) | 1080 × 1080, four pages | Accent cover, trap rows, timed pipeline, and decision-ledger close |
+| [`indie-bookstore`](../../../../../_shared/scenarios/social-cover/indie-bookstore/README.md) | 900 × 383 + 1080 × 1080 | Separately composed RISO WeChat header and share square |
+| [`editorial-grid`](../../../../../_shared/scenarios/social-cover/editorial-grid/README.md) | 1080 × 1350, one page | Publication cover with a dark semantic rail and four-step reading sequence |
+| [`pritzker`](../../../../../_shared/scenarios/social-cover/pritzker/README.md) | 1242 × 1660, one page | Architecture cover with an axonometric SVG field and a resolved lower conclusion zone |
+| [`newspaper`](../../../../../_shared/scenarios/social-cover/newspaper/README.md) | 900 × 383, one page | Brutalist press header with a three-question editorial sidebar |
+| [`guizang-field-journal`](../../../../../_shared/scenarios/social-cover/guizang-field-journal/README.md) | 1242 × 1660, one page | Light photo-editorial journal with a large image well, asset provenance, and resolved closing note |
+| [`guizang-marginalia`](../../../../../_shared/scenarios/social-cover/guizang-marginalia/README.md) | 1242 × 1660, one page | Warm-paper long-form essay with a functional marginal schedule and closing strip |
 
 Each example is `template.typ + demo.typ + README.md`. Copy the complete leaf directory.
 `template.typ` owns the visual system and fixed-canvas page functions; `demo.typ` owns sample copy
@@ -858,11 +859,9 @@ part of the composition. Do not use it to hide an otherwise unexplained missing 
 
 ### Manage fonts deterministically
 
-Check the build environment before relying on a face:
-
-```bash
-typst fonts | rg 'IBM Plex Sans|Noto Sans SC|Noto Serif SC'
-```
+Check the build environment before relying on a face. Use a host font inventory when available;
+otherwise compile representative longest lines, keep missing-family diagnostics, inspect the
+rendered fallback, and report the intended family as unverified.
 
 Specify fallbacks explicitly for mixed scripts. Compile the longest CJK line, bold face, numeral,
 punctuation, and English product name. Missing-font warnings require a visual check; a produced PDF

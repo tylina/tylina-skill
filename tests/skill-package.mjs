@@ -41,6 +41,13 @@ test('Skill discovery stays compact and installable without the core repository'
   assert.match(catalog.collection.minimumTylinaVersion, /^\d+\.\d+\.\d+$/u)
   const packageMetadata = JSON.parse(await readFile(resolve(root, 'package.json'), 'utf8'))
   assert.equal(packageMetadata.version, catalog.collection.version)
+  assert.ok(
+    compareVersions(
+      catalog.collection.minimumTylinaVersion,
+      catalog.collection.version.split('-')[0]
+    ) <= 0,
+    'The current collection cannot require a newer Tylina release than itself'
+  )
   const catalogIds = catalog.skills.map((entry) => entry.id)
   const packageIds = (await readdir(skillsRoot, { withFileTypes: true }))
     .filter((entry) => entry.isDirectory() && entry.name !== 'tylina' && !entry.name.startsWith('_'))
@@ -58,6 +65,11 @@ test('Skill discovery stays compact and installable without the core repository'
     assert.ok(domainFrontmatter, `Missing Skill frontmatter: ${entry.id}`)
     assert.match(domainFrontmatter, new RegExp(`^name: ${entry.id}$`, 'mu'))
     assert.match(domainFrontmatter, /^description: .+/mu)
+    assert.doesNotMatch(
+      domainSkill,
+      /(?:`|\]\()references\//u,
+      `Top-level Skill resource must use a canonical skill.read path: ${entry.id}`
+    )
     const agentMetadata = await readFile(agentPath, 'utf8')
     assert.match(agentMetadata, /^interface:\n/mu)
     assert.match(agentMetadata, /^  display_name: "[^"]+"$/mu)
@@ -81,6 +93,9 @@ test('Skill discovery stays compact and installable without the core repository'
   ))
   assert.equal(packageSkillMap.reviewed_against.url, 'https://packages.typst.org/preview/index.json')
   assert.match(packageSkillMap.reviewed_against.date, /^\d{4}-\d{2}-\d{2}$/u)
+  for (const path of packageSkillMap.default_paths) {
+    assert.match(path, /^[a-z0-9-]+\/SKILL\.md$/u, `Default package route is not a Skill: ${path}`)
+  }
   for (const [kind, routes] of [
     ['category', packageSkillMap.category_routes],
     ['discipline', packageSkillMap.discipline_routes]
@@ -89,6 +104,9 @@ test('Skill discovery stays compact and installable without the core repository'
       assert.match(name, /^[a-z][a-z-]*$/u, `Invalid ${kind} route: ${name}`)
       assert.ok(paths.length > 0, `Empty ${kind} route: ${name}`)
       assert.equal(new Set(paths).size, paths.length, `Duplicate ${kind} route path: ${name}`)
+      for (const path of paths) {
+        assert.match(path, /^[a-z0-9-]+\/SKILL\.md$/u, `${kind} route is not a Skill: ${name}/${path}`)
+      }
     }
   }
   for (const [name, route] of Object.entries(packageSkillMap.package_routes)) {
@@ -99,6 +117,9 @@ test('Skill discovery stays compact and installable without the core repository'
       route.skill_paths.length,
       `Duplicate package route path: ${name}`
     )
+    for (const path of route.skill_paths) {
+      assert.match(path, /^[a-z0-9-]+\/SKILL\.md$/u, `Package route is not a Skill: ${name}/${path}`)
+    }
   }
   const routedPaths = [
     ...packageSkillMap.default_paths,
@@ -116,6 +137,24 @@ test('Skill discovery stays compact and installable without the core repository'
     assert.ok((await stat(resolvedPath)).isFile(), `Missing package Skill route: ${path}`)
   }
 
+  const exactResourcePattern =
+    /`((?:_shared|tylina|typst-[a-z0-9-]+)\/[^`<>*]+\.(?:md|json|typ|bib|toml|txt|ya?ml))`/gu
+  const skillMarkdown = (await files(skillsRoot)).filter((path) => path.endsWith('.md'))
+  for (const markdownPath of skillMarkdown) {
+    const markdown = await readFile(markdownPath, 'utf8')
+    for (const [, resourcePath] of markdown.matchAll(exactResourcePattern)) {
+      const resolvedPath = resolve(skillsRoot, resourcePath)
+      assert.ok(
+        withinDirectory(skillsRoot, resolvedPath),
+        `Skill resource reference escapes root: ${resourcePath}`
+      )
+      assert.ok(
+        (await stat(resolvedPath)).isFile(),
+        `Missing Skill resource reference: ${resourcePath}`
+      )
+    }
+  }
+
   const packageIndex = JSON.parse(await readFile(
     resolve(skillsRoot, '_shared/packages/index.json'),
     'utf8'
@@ -126,6 +165,63 @@ test('Skill discovery stays compact and installable without the core repository'
     recipeNames.add(recipe.name)
     assert.match(recipe.name, /^[a-z0-9][a-z0-9-]*$/u)
     assert.match(recipe.version, /^\d+\.\d+\.\d+(?:[-+].+)?$/u)
+    assert.equal(
+      recipe.universe_url,
+      `https://typst.app/universe/package/${recipe.name}`,
+      `Invalid Typst Universe URL: ${recipe.name}`
+    )
+    assert.ok(URL.canParse(recipe.repository_url), `Invalid package repository URL: ${recipe.name}`)
+    if (recipe.search_terms !== undefined) {
+      assert.ok(Array.isArray(recipe.search_terms), `Package search terms must be an array: ${recipe.name}`)
+      assert.ok(recipe.search_terms.length > 0, `Package search terms must not be empty: ${recipe.name}`)
+      for (const term of recipe.search_terms) {
+        assert.equal(typeof term, 'string', `Package search term must be text: ${recipe.name}`)
+        assert.equal(term, term.trim(), `Package search term has outer whitespace: ${recipe.name}`)
+        assert.ok(term.length > 0, `Package search term must not be blank: ${recipe.name}`)
+      }
+      assert.equal(
+        new Set(recipe.search_terms.map((term) => term.toLocaleLowerCase())).size,
+        recipe.search_terms.length,
+        `Duplicate package search term: ${recipe.name}`
+      )
+    }
+    if (recipe.known_warnings !== undefined) {
+      assert.ok(Array.isArray(recipe.known_warnings),
+        `Known package warnings must be an array: ${recipe.name}`)
+      assert.ok(recipe.known_warnings.length > 0,
+        `Known package warnings must not be empty: ${recipe.name}`)
+      assert.equal(new Set(recipe.known_warnings).size, recipe.known_warnings.length,
+        `Duplicate known package warning: ${recipe.name}`)
+      for (const warning of recipe.known_warnings) {
+        assert.equal(typeof warning, 'string', `Known package warning must be text: ${recipe.name}`)
+        assert.equal(warning, warning.trim(),
+          `Known package warning has outer whitespace: ${recipe.name}`)
+        assert.ok(warning.length > 0, `Known package warning must not be blank: ${recipe.name}`)
+        assert.ok(!warning.startsWith('unknown font family:'),
+          `Package font warning must identify its source: ${recipe.name}`)
+      }
+    }
+    if (recipe.known_font_warnings !== undefined) {
+      assert.ok(Array.isArray(recipe.known_font_warnings),
+        `Known package font warnings must be an array: ${recipe.name}`)
+      assert.ok(recipe.known_font_warnings.length > 0,
+        `Known package font warnings must not be empty: ${recipe.name}`)
+      const warningKeys = new Set()
+      for (const warning of recipe.known_font_warnings) {
+        assert.deepEqual(Object.keys(warning).sort(), ['message', 'source'],
+          `Known package font warning needs only message and source: ${recipe.name}`)
+        assert.match(warning.message, /^unknown font family: [a-z0-9 ]+$/u,
+          `Invalid package font warning message: ${recipe.name}`)
+        assert.equal(warning.source, warning.source.trim(),
+          `Package font warning source has outer whitespace: ${recipe.name}`)
+        assert.ok(warning.source.startsWith(`@preview/${recipe.name}:${recipe.version}/`),
+          `Package font warning source does not match its pinned owner: ${recipe.name}`)
+        const key = `${warning.message}\0${warning.source}`
+        assert.ok(!warningKeys.has(key),
+          `Duplicate package font warning: ${recipe.name}/${warning.message}`)
+        warningKeys.add(key)
+      }
+    }
     const spec = `@preview/${recipe.name}:${recipe.version}`
     assert.ok(recipe.import.includes(spec), `Recipe import does not pin ${spec}`)
     const demoPath = resolve(skillsRoot, '_shared/packages', recipe.demo_path)
@@ -148,6 +244,17 @@ test('Skill discovery stays compact and installable without the core repository'
     .sort()
   assert.deepEqual([...recipeNames].sort(), recipeDirectories, 'Every package recipe directory must be indexed')
   const catalogSkillDocs = catalogIds.map((id) => resolve(skillsRoot, id, 'SKILL.md'))
+
+  const chartRoot = resolve(skillsRoot, '_shared/charts')
+  const chartIndex = JSON.parse(await readFile(resolve(chartRoot, 'index.json'), 'utf8'))
+  assert.equal(chartIndex.meta.artifact, 'complete-touying-slide')
+  assert.equal(chartIndex.meta.embeddable, false)
+  assert.equal(chartIndex.charts.snake_flow.package, 'fletcher')
+  for (const [id, chart] of Object.entries(chartIndex.charts)) {
+    const source = await readFile(resolve(chartRoot, chart.file), 'utf8')
+    assert.match(source, /#import "@preview\/touying:/u, `Chart example is not a complete slide: ${id}`)
+    assert.match(source, /#show: simple-theme/u, `Chart example has no simple-theme page: ${id}`)
+  }
 
   const themesRoot = resolve(skillsRoot, '_shared/slides/themes')
   for (const tier of ['builtin', 'custom-canvas', 'custom-plain', 'custom-rich', 'universe']) {
@@ -202,6 +309,57 @@ test('Skill discovery stays compact and installable without the core repository'
       assert.ok((await stat(entryPath)).isFile(), `Missing scenario entry: ${definition.id}/${entry.id}`)
       assert.ok((await stat(resolve(dirname(entryPath), 'README.md'))).isFile(),
         `Missing scenario leaf README: ${definition.id}/${entry.id}`)
+      if (entry.known_warnings !== undefined) {
+        assert.ok(Array.isArray(entry.known_warnings),
+          `Known scenario warnings must be an array: ${definition.id}/${entry.id}`)
+        assert.ok(entry.known_warnings.length > 0,
+          `Known scenario warnings must not be empty: ${definition.id}/${entry.id}`)
+        assert.equal(new Set(entry.known_warnings).size, entry.known_warnings.length,
+          `Duplicate known scenario warning: ${definition.id}/${entry.id}`)
+        for (const warning of entry.known_warnings) {
+          assert.equal(typeof warning, 'string',
+            `Known scenario warning must be text: ${definition.id}/${entry.id}`)
+          assert.equal(warning, warning.trim(),
+            `Known scenario warning has outer whitespace: ${definition.id}/${entry.id}`)
+          assert.ok(warning.length > 0,
+            `Known scenario warning must not be blank: ${definition.id}/${entry.id}`)
+          assert.ok(!warning.startsWith('unknown font family:'),
+            `Font warning must identify its source: ${definition.id}/${entry.id}`)
+        }
+      }
+      if (entry.known_font_warnings !== undefined) {
+        assert.ok(Array.isArray(entry.known_font_warnings),
+          `Known font warnings must be an array: ${definition.id}/${entry.id}`)
+        assert.ok(entry.known_font_warnings.length > 0,
+          `Known font warnings must not be empty: ${definition.id}/${entry.id}`)
+        const warningKeys = new Set()
+        for (const warning of entry.known_font_warnings) {
+          assert.deepEqual(Object.keys(warning).sort(), ['message', 'source'],
+            `Known font warning needs only message and source: ${definition.id}/${entry.id}`)
+          assert.match(warning.message, /^unknown font family: [a-z0-9 ]+$/u,
+            `Invalid font warning message: ${definition.id}/${entry.id}`)
+          assert.equal(warning.source, warning.source.trim(),
+            `Font warning source has outer whitespace: ${definition.id}/${entry.id}`)
+          const key = `${warning.message}\0${warning.source}`
+          assert.ok(!warningKeys.has(key),
+            `Duplicate font warning: ${definition.id}/${entry.id}/${warning.message}`)
+          warningKeys.add(key)
+          if (warning.source.startsWith('@preview/')) {
+            assert.equal(typeof entry.package, 'string',
+              `Package warning has no package owner: ${definition.id}/${entry.id}`)
+            assert.ok(warning.source.startsWith(`${entry.package}/`),
+              `Package warning source does not match its owner: ${definition.id}/${entry.id}`)
+          } else {
+            assert.ok(warning.source.startsWith(`${definition.id}/`),
+              `Local font warning source has the wrong scenario: ${definition.id}/${entry.id}`)
+            const warningSourcePath = resolve(scenarioRoot, warning.source)
+            assert.ok(withinDirectory(scenarioRoot, warningSourcePath),
+              `Local font warning source escapes root: ${definition.id}/${entry.id}`)
+            assert.ok((await stat(warningSourcePath)).isFile(),
+              `Missing font warning source: ${definition.id}/${entry.id}/${warning.source}`)
+          }
+        }
+      }
     }
   }
 
@@ -209,6 +367,13 @@ test('Skill discovery stays compact and installable without the core repository'
     const contents = await readFile(path, 'utf8')
     assert.ok(!['.rs', '.wasm', '.map', '.tsx'].includes(extname(path)), `Unexpected runtime source: ${path}`)
     assert.ok(!/npm_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{40,}/u.test(contents), `Credential in ${path}`)
+    if (path.endsWith('.md') && withinDirectory(resolve(root, 'skills'), path)) {
+      assert.doesNotMatch(
+        contents,
+        /\]\((?:\.\.\/)+local\//u,
+        `Packaged Skill documentation links to an unavailable local checkout: ${path}`
+      )
+    }
     if (!path.endsWith('.md') || (!path.startsWith(directory) && !catalogSkillDocs.includes(path))) continue
     for (const [, target] of contents.matchAll(/\]\(([^)]+)\)/gu)) {
       if (target.startsWith('#') || URL.canParse(target)) continue
@@ -223,3 +388,12 @@ test('Skill discovery stays compact and installable without the core repository'
     'skills/_shared/docs/typst/LICENSE'
   ]) assert.ok((await stat(resolve(root, path))).isFile(), `Missing retained license: ${path}`)
 })
+
+function compareVersions(left, right) {
+  const leftParts = left.split('.').map(Number)
+  const rightParts = right.split('.').map(Number)
+  for (let index = 0; index < 3; index += 1) {
+    if (leftParts[index] !== rightParts[index]) return leftParts[index] - rightParts[index]
+  }
+  return 0
+}

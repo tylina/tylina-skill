@@ -294,7 +294,8 @@ The loss function $cal(L)(theta)$ is minimized via gradient descent.
 ) <algo:bsearch>
 ```
 
-> **Package lookup**: See `_shared/packages/index.json` for all available packages.
+> **Package lookup**: Use one focused `package.list` query, then read its returned exact
+> `recipePath` and `demoPath` when present.
 
 ---
 
@@ -433,6 +434,9 @@ This was already noted by pirates long ago. @netwok
 
 ## 9. Speaker Notes Style
 
+Apply this section only when speaker notes are part of the request, supplied source, or delivery
+plan.
+
 **Academic tone**: Clear, precise, measured pace. Explain methodology decisions. Acknowledge limitations proactively. Structure each note: state action title → explain exhibit/data → connect to broader argument → transition to next slide. Use "As we can see in Figure N..." and "The key takeaway here is...".
 
 ---
@@ -442,7 +446,7 @@ This was already noted by pirates long ago. @netwok
 > **Common checks**: See `base.md` §8 for the full shared checklist.
 
 **Academic-specific checks**:
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
 - [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input

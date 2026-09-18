@@ -2,6 +2,7 @@
 
 **Package**: `@preview/gribouille:0.6.0`
 **Category**: Chart
+**Typst Universe**: <https://typst.app/universe/package/gribouille>
 **Repository**: <https://github.com/mcanouil/gribouille>
 
 ## Description

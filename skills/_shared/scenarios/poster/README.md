@@ -54,8 +54,24 @@ and lower-edge closure survive at a glance.
    boundary, or clearly framed quiet zone. Individual columns and cards do not all need equal height.
 6. Keep factual text, table values, axis labels, and annotations as Typst content. Inline SVG is useful
    for non-semantic visual signatures, textures, or background geometry, not for hiding evidence.
-7. Recompile and inspect at full size and thumbnail size; then test fonts, citations, links, QR codes,
-   image resolution, and print output as applicable.
+7. Recompile and inspect at full size and thumbnail size; then test fonts, citations, links, image
+   resolution, and print output as applicable. If the poster contains a QR code, use an available
+   independent scanner on the final raster or proof; otherwise report scanability as unverified.
 
 Never add filler claims, inflate padding, or stretch an empty metadata box merely to consume space.
 Deliberate negative space is valid when another stable visual field or frame makes that intent clear.
+
+## Reviewed font boundaries
+
+All eight demos compile as one physical page with Typst 0.15.0. That result does not prove the
+intended package fonts are present. In the reviewed environment:
+
+- Pasquino could not find either default display family (`Libre Baskerville` or `Linux Libertine`)
+  or either sans family (`TeX Gyre Heros` or `Liberation Sans`) and therefore rendered with host
+  fallback metrics.
+- Pollux could not find its declared `Raleway`, `Lato`, or `Noto Sans CJK JP` families and also
+  rendered with fallback metrics.
+
+Before adapting either demo, inspect its final fonts in the actual Web or Native delivery host.
+Missing-family warnings can change line breaks, column closure, and the apparent empty lower edge;
+do not compensate for fallback metrics by rewriting evidence or globally shrinking typography.

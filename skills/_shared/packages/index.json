@@ -1,5 +1,5 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "description": "Curated Typst package recipes for documents and presentations. Each directory contains a focused README.md and a compile-verified demo.typ.",
   "packages": [
     {
@@ -9,11 +9,28 @@
       "category": "heading",
       "description": "Heading numbering format helper — specify different numbering formats for different heading levels with a simple syntax.",
       "best_for": "Custom heading numbering (e.g., 'Appendix A.', 'A.1.', 'Step 1.')",
+      "search_terms": ["章节编号", "多级编号"],
       "rough_analogues": ["LaTeX section counters", "titlesec"],
       "import": "#import \"@preview/numbly:0.1.0\": *",
       "demo_path": "numbly/demo.typ",
       "readme_path": "numbly/README.md",
-      "universe_url": "https://typst.app/universe/package/numbly"
+      "universe_url": "https://typst.app/universe/package/numbly",
+      "repository_url": "https://github.com/flaribbit/numbly"
+    },
+    {
+      "name": "glossarium",
+      "display_name": "Glossarium",
+      "version": "0.5.10",
+      "category": "longform",
+      "description": "Glossary and acronym system with first-use expansion, plurals, grouping, filtering, and back-references.",
+      "best_for": "Maintained glossaries and acronym lists in papers, theses, reports, manuals, and books",
+      "search_terms": ["术语表", "缩略词表", "首次展开"],
+      "rough_analogues": ["glossaries", "acronym"],
+      "import": "#import \"@preview/glossarium:0.5.10\": make-glossary, register-glossary, print-glossary, gls",
+      "demo_path": "glossarium/demo.typ",
+      "readme_path": "glossarium/README.md",
+      "universe_url": "https://typst.app/universe/package/glossarium",
+      "repository_url": "https://github.com/typst-community/glossarium"
     },
     {
       "name": "theorion",
@@ -22,11 +39,53 @@
       "category": "math",
       "description": "Out-of-the-box, customizable and multilingual theorem environment package. Supports theorem, definition, lemma, corollary, example, proof, and more.",
       "best_for": "Mathematical presentations with theorem/proof environments",
+      "search_terms": ["定理环境", "证明环境", "引理"],
       "rough_analogues": ["amsthm", "thmtools", "tcolorbox theorem environments"],
       "import": "#import \"@preview/theorion:0.6.0\": *",
       "demo_path": "theorion/demo.typ",
       "readme_path": "theorion/README.md",
-      "universe_url": "https://typst.app/universe/package/theorion"
+      "universe_url": "https://typst.app/universe/package/theorion",
+      "repository_url": "https://github.com/OrangeX4/typst-theorion"
+    },
+    {
+      "name": "sanity",
+      "display_name": "Sanity",
+      "version": "0.2.0",
+      "category": "research",
+      "description": "Manuscript preflight for unreferenced labelled elements, uncited bibliography entries, lost labels, caption issues, and reference order.",
+      "best_for": "Structural citation and cross-reference checks after ordinary Typst validation",
+      "search_terms": ["缺失引用", "未引用文献", "未引用图表", "标签审查", "论文引用检查"],
+      "rough_analogues": ["refcheck", "manuscript linter"],
+      "import": "#import \"@preview/sanity:0.2.0\": sanity",
+      "demo_path": "sanity/demo.typ",
+      "readme_path": "sanity/README.md",
+      "universe_url": "https://typst.app/universe/package/sanity",
+      "repository_url": "https://github.com/techgustavo/sanity"
+    },
+    {
+      "name": "charged-ieee",
+      "display_name": "Charged IEEE",
+      "version": "0.1.4",
+      "category": "paper",
+      "description": "Maintained two-column IEEE-style paper template with numeric citations, semantic figures, equations, and bibliography support.",
+      "best_for": "IEEE-style engineering or computer-science papers when the venue's current author instructions match the template",
+      "search_terms": ["IEEE 论文", "双栏论文", "工程论文", "计算机论文"],
+      "rough_analogues": ["IEEEtran", "IEEE conference paper"],
+      "import": "#import \"@preview/charged-ieee:0.1.4\": ieee",
+      "demo_path": "charged-ieee/demo.typ",
+      "readme_path": "charged-ieee/README.md",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: tex gyre termes",
+          "source": "@preview/charged-ieee:0.1.4/lib.typ"
+        },
+        {
+          "message": "unknown font family: tex gyre cursor",
+          "source": "@preview/charged-ieee:0.1.4/lib.typ"
+        }
+      ],
+      "universe_url": "https://typst.app/universe/package/charged-ieee",
+      "repository_url": "https://github.com/typst/templates"
     },
     {
       "name": "lovelace",
@@ -35,11 +94,13 @@
       "category": "code",
       "description": "Pseudocode typesetting package — write pseudocode with arbitrary keywords, optional line numbering, and line labels.",
       "best_for": "Algorithm presentations, pseudocode display",
+      "search_terms": ["伪代码", "算法排版"],
       "rough_analogues": ["algorithm2e", "algorithmicx"],
       "import": "#import \"@preview/lovelace:0.3.1\": *",
       "demo_path": "lovelace/demo.typ",
       "readme_path": "lovelace/README.md",
-      "universe_url": "https://typst.app/universe/package/lovelace"
+      "universe_url": "https://typst.app/universe/package/lovelace",
+      "repository_url": "https://github.com/andreasKroepelin/lovelace"
     },
     {
       "name": "mitex",
@@ -48,11 +109,13 @@
       "category": "math",
       "description": "LaTeX math support for Typst — convert LaTeX equations to Typst via WASM. Supports inline (#mi), block (#mitex/#mimath), and text mode (#mitext).",
       "best_for": "Converting LaTeX equations to Typst, reusing existing LaTeX formulas",
+      "search_terms": ["LaTeX 公式", "LaTeX 数学"],
       "rough_analogues": ["amsmath-style LaTeX input"],
       "import": "#import \"@preview/mitex:0.2.7\": *",
       "demo_path": "mitex/demo.typ",
       "readme_path": "mitex/README.md",
-      "universe_url": "https://typst.app/universe/package/mitex"
+      "universe_url": "https://typst.app/universe/package/mitex",
+      "repository_url": "https://github.com/mitex-rs/mitex"
     },
     {
       "name": "pinit",
@@ -61,11 +124,13 @@
       "category": "layout",
       "description": "Relative positioning by pins — pin content to specific positions, highlight text, add annotations. Works with Touying animations.",
       "best_for": "Equation annotations, text highlighting, pointer arrows on slides",
+      "search_terms": ["公式标注", "文本标注", "箭头注释"],
       "rough_analogues": ["tikzmark", "TikZ annotations"],
       "import": "#import \"@preview/pinit:0.2.2\": *",
       "demo_path": "pinit/demo.typ",
       "readme_path": "pinit/README.md",
-      "universe_url": "https://typst.app/universe/package/pinit"
+      "universe_url": "https://typst.app/universe/package/pinit",
+      "repository_url": "https://github.com/OrangeX4/typst-pinit"
     },
     {
       "name": "codly",
@@ -74,11 +139,13 @@
       "category": "code",
       "description": "Beautiful and powerful code blocks with line numbers, icons, annotations, and skip/range display. Highly customizable.",
       "best_for": "Professional code display with line numbers and annotations",
+      "search_terms": ["代码块", "代码行号", "代码标注"],
       "rough_analogues": ["minted", "listings"],
       "import": "#import \"@preview/codly:1.3.0\": *",
       "demo_path": "codly/demo.typ",
       "readme_path": "codly/README.md",
-      "universe_url": "https://typst.app/universe/package/codly"
+      "universe_url": "https://typst.app/universe/package/codly",
+      "repository_url": "https://github.com/Dherse/codly"
     },
     {
       "name": "zebraw",
@@ -87,11 +154,13 @@
       "category": "code",
       "description": "Lightweight code blocks with line numbers, line highlighting, comments, and zebra-striped emphasis.",
       "best_for": "Lightweight code listings with selective line highlighting",
+      "search_terms": ["代码高亮", "行高亮", "代码清单"],
       "rough_analogues": ["minted", "listings"],
       "import": "#import \"@preview/zebraw:0.6.3\": *",
       "demo_path": "zebraw/demo.typ",
       "readme_path": "zebraw/README.md",
-      "universe_url": "https://typst.app/universe/package/zebraw"
+      "universe_url": "https://typst.app/universe/package/zebraw",
+      "repository_url": "https://github.com/hongjr03/typst-zebraw"
     },
     {
       "name": "cheq",
@@ -100,11 +169,90 @@
       "category": "list",
       "description": "Markdown-like checklist syntax — supports [x], [ ], [/], [-] and custom symbols. GitHub Flavored Markdown compatible.",
       "best_for": "Checklists, task lists, to-do items on slides",
+      "search_terms": ["待办清单", "复选框", "任务列表"],
       "rough_analogues": ["enumitem task lists"],
       "import": "#import \"@preview/cheq:0.4.0\": *",
       "demo_path": "cheq/demo.typ",
       "readme_path": "cheq/README.md",
-      "universe_url": "https://typst.app/universe/package/cheq"
+      "universe_url": "https://typst.app/universe/package/cheq",
+      "repository_url": "https://github.com/OrangeX4/typst-cheq"
+    },
+    {
+      "name": "examora",
+      "display_name": "Examora",
+      "version": "0.2.0",
+      "category": "education",
+      "description": "Chinese examination-paper document class with score tables, question sections, answer-space controls, deterministic randomization, and learner or answer editions.",
+      "best_for": "Chinese school or university exams that need explicit candidate fields, binding-aware page geometry, and shared question/answer source",
+      "search_terms": ["中文试卷", "考试卷", "答题空间", "答案版"],
+      "rough_analogues": ["exam", "exam-zh"],
+      "import": "#import \"@preview/examora:0.2.0\": documentclass",
+      "demo_path": "examora/demo.typ",
+      "readme_path": "examora/README.md",
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: noto serif cjk sc",
+          "source": "@preview/examora:0.2.0/layouts/mainmatter.typ"
+        },
+        {
+          "message": "unknown font family: noto serif cjk sc",
+          "source": "@preview/examora:0.2.0/layouts/title.typ"
+        }
+      ],
+      "compile_variants": [
+        {
+          "id": "solutions",
+          "inputs": { "solutions": "true" }
+        }
+      ],
+      "universe_url": "https://typst.app/universe/package/examora",
+      "repository_url": "https://github.com/pdcxs/examora"
+    },
+    {
+      "name": "ezexam",
+      "display_name": "Ezexam",
+      "version": "0.3.1",
+      "category": "education",
+      "description": "Chinese exam and handout layout with sealing lines, A4 or imposed A3 paper modes, semantic questions, answer markers, and solution blocks.",
+      "best_for": "Chinese exams or handouts whose print conventions need sealing lines, localized numbering, and same-source learner and solution editions",
+      "search_terms": ["中文试卷", "讲义", "弥封线", "试题解析"],
+      "rough_analogues": ["exam-zh", "exam"],
+      "import": "#import \"@preview/ezexam:0.3.1\": *",
+      "demo_path": "ezexam/demo.typ",
+      "readme_path": "ezexam/README.md",
+      "known_warnings": [
+        "implicit conversion from array to `terms.item` is deprecated"
+      ],
+      "known_font_warnings": [
+        {
+          "message": "unknown font family: simhei",
+          "source": "@preview/ezexam:0.3.1/lib/outline.typ"
+        },
+        {
+          "message": "unknown font family: noto sans cjk sc",
+          "source": "@preview/ezexam:0.3.1/ezexam.typ"
+        },
+        {
+          "message": "unknown font family: noto sans cjk sc",
+          "source": "@preview/ezexam:0.3.1/lib/outline.typ"
+        },
+        {
+          "message": "unknown font family: noto serif cjk sc",
+          "source": "@preview/ezexam:0.3.1/ezexam.typ"
+        },
+        {
+          "message": "unknown font family: noto serif cjk sc",
+          "source": "@preview/ezexam:0.3.1/lib/outline.typ"
+        }
+      ],
+      "compile_variants": [
+        {
+          "id": "solutions",
+          "inputs": { "solutions": "true" }
+        }
+      ],
+      "universe_url": "https://typst.app/universe/package/ezexam",
+      "repository_url": "https://github.com/gbchu/ezexam"
     },
     {
       "name": "lilaq",
@@ -113,6 +261,7 @@
       "category": "chart",
       "description": "Mature Typst-native plotting library with publication-ready line, bar, scatter, distribution, contour, and vector-field plots. Default for the existing SeaSlides statistical chart templates.",
       "best_for": "Standard slide charts, publication-ready scientific plots, and direct control over axes and marks",
+      "search_terms": ["科研绘图", "统计图表", "折线图", "散点图"],
       "rough_analogues": ["pgfplots"],
       "import": "#import \"@preview/lilaq:0.6.0\" as lq",
       "demo_path": "lilaq/demo.typ",
@@ -127,6 +276,7 @@
       "category": "chart",
       "description": "Declarative Grammar of Graphics library inspired by ggplot2 and plotnine, with mapped aesthetics, layers, statistical transforms, scales, labels, and themes. The API is still actively evolving.",
       "best_for": "Layered analytical plots, data-driven aesthetic mappings, statistical summaries, and grammar-of-graphics workflows",
+      "search_terms": ["图形语法", "分层统计图", "数据映射"],
       "rough_analogues": ["pgfplots", "ggplot2-style grammar"],
       "import": "#import \"@preview/gribouille:0.6.0\": *",
       "demo_path": "gribouille/demo.typ",
@@ -135,12 +285,28 @@
       "repository_url": "https://github.com/mcanouil/gribouille"
     },
     {
+      "name": "cetz",
+      "display_name": "CeTZ",
+      "version": "0.5.2",
+      "category": "diagram",
+      "description": "Typst-native canvas and drawing primitives for custom geometry, annotations, and scientific illustrations.",
+      "best_for": "Editable custom drawings whose geometry needs direct coordinate and path control",
+      "search_terms": ["自定义绘图", "科学示意图", "几何图形", "画布"],
+      "rough_analogues": ["TikZ", "Processing-style drawing"],
+      "import": "#import \"@preview/cetz:0.5.2\"",
+      "demo_path": "cetz/demo.typ",
+      "readme_path": "cetz/README.md",
+      "universe_url": "https://typst.app/universe/package/cetz",
+      "repository_url": "https://github.com/cetz-package/cetz"
+    },
+    {
       "name": "merman",
       "display_name": "Merman",
       "version": "0.1.0",
       "category": "diagram",
       "description": "Compile Mermaid source to export-safe SVG directly in Typst through the headless Rust renderer and bundled WebAssembly plugin.",
       "best_for": "Mermaid flowcharts, sequence diagrams, Gantt charts, state diagrams, and other declarative diagrams",
+      "search_terms": ["流程图", "甘特图", "状态图", "思维导图"],
       "rough_analogues": ["Mermaid", "TikZ/PGF diagrams"],
       "import": "#import \"@preview/merman:0.1.0\": mermaid, show-mermaid-blocks",
       "demo_path": "merman/demo.typ",
@@ -149,17 +315,49 @@
       "repository_url": "https://github.com/Latias94/merman"
     },
     {
+      "name": "fletcher",
+      "display_name": "Fletcher",
+      "version": "0.5.8",
+      "category": "diagram",
+      "description": "Typst-native node-and-edge diagrams with graph layouts, routable arrows, labels, shapes, groups, and mathematical grids.",
+      "best_for": "Editable flowcharts, state machines, graphs, trees, architecture sketches, and commutative diagrams",
+      "search_terms": ["节点图", "交换图", "状态机", "可编辑流程图"],
+      "rough_analogues": ["TikZ graphs", "tikz-cd"],
+      "import": "#import \"@preview/fletcher:0.5.8\" as fletcher: diagram, node, edge",
+      "demo_path": "fletcher/demo.typ",
+      "readme_path": "fletcher/README.md",
+      "universe_url": "https://typst.app/universe/package/fletcher",
+      "repository_url": "https://github.com/Jollywatt/typst-fletcher"
+    },
+    {
+      "name": "chronos",
+      "display_name": "Chronos",
+      "version": "0.3.0",
+      "category": "diagram",
+      "description": "Typst-native sequence diagrams with participants, messages, lifelines, activation, creation, groups, notes, and separators.",
+      "best_for": "Editable interaction and protocol sequence diagrams whose message order and lifelines matter",
+      "search_terms": ["时序图", "序列图", "交互图", "生命线"],
+      "rough_analogues": ["PlantUML sequence diagrams", "Mermaid sequence diagrams"],
+      "import": "#import \"@preview/chronos:0.3.0\"",
+      "demo_path": "chronos/demo.typ",
+      "readme_path": "chronos/README.md",
+      "universe_url": "https://typst.app/universe/package/chronos",
+      "repository_url": "https://git.kb28.ch/HEL/chronos"
+    },
+    {
       "name": "tablem",
       "display_name": "Tablem",
       "version": "0.3.0",
       "category": "table",
       "description": "Markdown-like table syntax — copy-paste markdown tables directly into Typst. Includes three-line-table preset.",
       "best_for": "Quick tables from markdown syntax, academic three-line tables",
+      "search_terms": ["Markdown 表格", "三线表"],
       "rough_analogues": ["booktabs", "tabularx"],
       "import": "#import \"@preview/tablem:0.3.0\": *",
       "demo_path": "tablem/demo.typ",
       "readme_path": "tablem/README.md",
-      "universe_url": "https://typst.app/universe/package/tablem"
+      "universe_url": "https://typst.app/universe/package/tablem",
+      "repository_url": "https://github.com/OrangeX4/typst-tablem"
     },
     {
       "name": "tiaoma",
@@ -167,12 +365,14 @@
       "version": "0.3.0",
       "category": "utility",
       "description": "Barcode and QR code generator — supports nearly all common barcode types via zint WASM. Includes QR Code, EAN, Code 128, Data Matrix, etc.",
-      "best_for": "QR codes, barcodes on slides (links, references)",
+      "best_for": "QR codes and barcodes in documents, labels, forms, posters, handouts, and slides",
+      "search_terms": ["二维码", "二维码生成", "条形码", "条码"],
       "rough_analogues": ["qrcode", "pst-barcode"],
       "import": "#import \"@preview/tiaoma:0.3.0\": *",
       "demo_path": "tiaoma/demo.typ",
       "readme_path": "tiaoma/README.md",
-      "universe_url": "https://typst.app/universe/package/tiaoma"
+      "universe_url": "https://typst.app/universe/package/tiaoma",
+      "repository_url": "https://github.com/Enter-tainer/zint-wasi"
     },
     {
       "name": "cuti",
@@ -180,12 +380,14 @@
       "version": "0.4.0",
       "category": "font",
       "description": "Fake bold / fake italic / fake small capitals simulation — especially useful for CJK fonts (e.g., SimSun) that lack bold weight.",
-      "best_for": "Chinese presentations with bold text on fonts without bold weight",
+      "best_for": "Chinese documents or presentations using an available CJK font without a bold or italic face",
+      "search_terms": ["伪粗体", "伪斜体", "中文字体"],
       "rough_analogues": ["xeCJK AutoFakeBold", "xeCJK AutoFakeSlant"],
       "import": "#import \"@preview/cuti:0.4.0\": *",
       "demo_path": "cuti/demo.typ",
       "readme_path": "cuti/README.md",
-      "universe_url": "https://typst.app/universe/package/cuti"
+      "universe_url": "https://typst.app/universe/package/cuti",
+      "repository_url": "https://github.com/csimide/cuti"
     },
     {
       "name": "shadowed",
@@ -194,11 +396,13 @@
       "category": "layout",
       "description": "CSS-like box shadows for Typst blocks — drop shadows with blur, spread, offset, and corner radius support",
       "best_for": "Card shadows, elevated components, paper-craft style effects",
+      "search_terms": ["卡片阴影", "盒子阴影", "投影"],
       "rough_analogues": ["tcolorbox shadows", "TikZ shadows"],
       "import": "#import \"@preview/shadowed:0.3.0\": shadow",
       "demo_path": "shadowed/demo.typ",
       "readme_path": "shadowed/README.md",
-      "universe_url": "https://typst.app/universe/package/shadowed"
+      "universe_url": "https://typst.app/universe/package/shadowed",
+      "repository_url": "https://github.com/T1mVo/shadowed"
     },
     {
       "name": "scoryst",
@@ -206,7 +410,8 @@
       "version": "0.2.0",
       "category": "music",
       "description": "Music engraving through a Typst WebAssembly plugin backed by Verovio. Renders ABC, MusicXML, MEI, Humdrum, EsAC, PAE, Volpiano, and CMME to SVG.",
-      "best_for": "Embedding supplied symbolic staff notation in documents while keeping the notation source editable",
+      "best_for": "Creating or embedding symbolic staff notation while keeping ABC, MusicXML, MEI, or another supported source editable",
+      "search_terms": ["五线谱", "乐谱", "ABC 乐谱", "MusicXML", "MEI"],
       "rough_analogues": ["Verovio", "MusicXML/MEI embedding"],
       "import": "#import \"@preview/scoryst:0.2.0\": score, pages, convert, music-blocks",
       "demo_path": "scoryst/demo.typ",
@@ -221,8 +426,9 @@
       "category": "science",
       "description": "Formats supplied numbers, uncertainties, quantities, units, and ranges with a string-based scientific-notation grammar.",
       "best_for": "Source-faithful scientific measurements, uncertainty, unit expressions, and numeric or quantity ranges",
+      "search_terms": ["单位", "测量值", "不确定度", "科学计数法"],
       "rough_analogues": ["siunitx"],
-      "import": "#import \"@preview/unify:0.8.1\": num, qty, numrange, qtyrange",
+      "import": "#import \"@preview/unify:0.8.1\": num, qty, numrange, qtyrange, unit",
       "demo_path": "unify/demo.typ",
       "readme_path": "unify/README.md",
       "universe_url": "https://typst.app/universe/package/unify",
@@ -235,6 +441,7 @@
       "category": "chemistry",
       "description": "Typesets supplied chemical formulas, reactions, isotopes, charges, phases, arrows, and reaction annotations.",
       "best_for": "Semantic chemical notation and reaction display without hand-built subscripts or arrows",
+      "search_terms": ["化学式", "化学方程式", "同位素", "反应式"],
       "rough_analogues": ["mhchem"],
       "import": "#import \"@preview/typsium:0.3.2\": ce",
       "demo_path": "typsium/demo.typ",
@@ -243,12 +450,28 @@
       "repository_url": "https://github.com/Typsium/typsium"
     },
     {
+      "name": "typed-smiles",
+      "display_name": "Typed Smiles",
+      "version": "0.11.0",
+      "category": "chemistry",
+      "description": "Renders supplied SMILES as 2D molecular structures with a Rust/WASM parser and CeTZ drawing layer.",
+      "best_for": "Editable-source skeletal molecular structures in chemistry notes, papers, reports, and teaching material",
+      "search_terms": ["分子结构", "化学结构", "骨架式"],
+      "rough_analogues": ["ChemDraw skeletal structures", "SMILES renderers"],
+      "import": "#import \"@preview/typed-smiles:0.11.0\": smiles",
+      "demo_path": "typed-smiles/demo.typ",
+      "readme_path": "typed-smiles/README.md",
+      "universe_url": "https://typst.app/universe/package/typed-smiles",
+      "repository_url": "https://github.com/GeronimoCastano/typed-smiles"
+    },
+    {
       "name": "quill",
       "display_name": "Quill",
       "version": "0.8.0",
       "category": "diagram",
       "description": "Renders quantum circuits through a manual grid or the composable Tequila instruction model.",
       "best_for": "Source-controlled quantum circuit figures with semantic gates and wires",
+      "search_terms": ["量子线路", "量子电路", "量子门"],
       "rough_analogues": ["quantikz", "qcircuit", "QASM-style circuit builders"],
       "import": "#import \"@preview/quill:0.8.0\": *",
       "demo_path": "quill/demo.typ",
@@ -257,12 +480,28 @@
       "repository_url": "https://github.com/Mc-Zen/quill"
     },
     {
+      "name": "zap",
+      "display_name": "Zap",
+      "version": "0.6.0",
+      "category": "science",
+      "description": "Draws source-controlled electronic circuits with standards-inspired components and explicit connectivity.",
+      "best_for": "Editable electronic schematics with resistors, capacitors, semiconductors, logic, instruments, and integrated devices",
+      "search_terms": ["电子电路", "电路图", "电阻", "原理图"],
+      "rough_analogues": ["circuitikz", "IEC/IEEE-style circuit symbols"],
+      "import": "#import \"@preview/zap:0.6.0\"",
+      "demo_path": "zap/demo.typ",
+      "readme_path": "zap/README.md",
+      "universe_url": "https://typst.app/universe/package/zap",
+      "repository_url": "https://codeberg.org/grangelouis/zap"
+    },
+    {
       "name": "eggs",
       "display_name": "Eggs",
       "version": "0.9.0",
       "category": "linguistics",
       "description": "Typesets numbered linguistic examples, interlinear glosses, judgments, references, and abbreviation lists.",
       "best_for": "Semantic linguistic examples and Leipzig-style interlinear glossed text",
+      "search_terms": ["行间注释", "语际标注", "语言学例句", "莱比锡注释"],
       "rough_analogues": ["expex", "gb4e", "linguex"],
       "import": "#import \"@preview/eggs:0.9.0\": *",
       "demo_path": "eggs/demo.typ",
@@ -271,18 +510,64 @@
       "repository_url": "https://github.com/retroflexivity/typst-eggs"
     },
     {
+      "name": "synkit",
+      "display_name": "Synkit",
+      "version": "0.1.0",
+      "category": "linguistics",
+      "description": "Renders supplied bracket notation as linguistic syntax trees with optional movement and annotation features.",
+      "best_for": "Editable phrase-structure trees whose constituent analysis and labels are already supplied",
+      "search_terms": ["句法树", "成分树", "短语结构树", "语言学树图"],
+      "rough_analogues": ["tikz-qtree", "forest syntax trees"],
+      "import": "#import \"@preview/synkit:0.1.0\": tree",
+      "demo_path": "synkit/demo.typ",
+      "readme_path": "synkit/README.md",
+      "universe_url": "https://typst.app/universe/package/synkit",
+      "repository_url": "https://github.com/guilhermegarcia/synkit"
+    },
+    {
       "name": "typed-scores",
       "display_name": "Typed Scores",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "category": "music",
       "description": "Engraves Western staff notation from compact note text using a Rust/WASM parser, CeTZ, and bundled Bravura glyphs.",
       "best_for": "Author-controlled Western scores whose canonical source is compact note-and-duration text",
+      "search_terms": ["五线谱", "文本乐谱", "音符时值", "西洋乐谱"],
       "rough_analogues": ["LilyPond-style text notation", "Bravura music engraving"],
-      "import": "#import \"@preview/typed-scores:0.5.0\": bar, score",
+      "import": "#import \"@preview/typed-scores:0.5.1\": bar, score",
       "demo_path": "typed-scores/demo.typ",
       "readme_path": "typed-scores/README.md",
       "universe_url": "https://typst.app/universe/package/typed-scores",
       "repository_url": "https://github.com/GeronimoCastano/typed-scores"
+    },
+    {
+      "name": "fretwork",
+      "display_name": "Fretwork",
+      "version": "0.4.0",
+      "category": "music",
+      "description": "Typesets source-controlled guitar, bass, ukulele, and custom-tuning tablature with rhythm, techniques, repeats, lyrics, and ASCII-tab import.",
+      "best_for": "Publication-quality tablature whose canonical source records strings, frets, timing, and playing techniques",
+      "search_terms": ["吉他六线谱", "吉他谱", "指板谱", "tablature", "ASCII tab"],
+      "rough_analogues": ["LilyPond tablature", "guitar tab editors"],
+      "import": "#import \"@preview/fretwork:0.4.0\": tab, ascii-tab, song, theme",
+      "demo_path": "fretwork/demo.typ",
+      "readme_path": "fretwork/README.md",
+      "universe_url": "https://typst.app/universe/package/fretwork",
+      "repository_url": "https://github.com/snaggen/fretwork"
+    },
+    {
+      "name": "physica",
+      "display_name": "Physica",
+      "version": "0.9.8",
+      "category": "science",
+      "description": "Provides semantic math helpers for vectors, operators, derivatives, matrices, Dirac notation, tensors, isotopes, and related scientific notation.",
+      "best_for": "Scientific and engineering formulas that need consistent source-controlled notation instead of manually assembled symbols",
+      "search_terms": ["物理公式", "偏导数", "矢量", "张量", "狄拉克符号", "科学数学记号"],
+      "rough_analogues": ["physics", "commath", "braket"],
+      "import": "#import \"@preview/physica:0.9.8\": vectorbold, grad, div, curl, dd, dv, pdv, braket, tensor",
+      "demo_path": "physica/demo.typ",
+      "readme_path": "physica/README.md",
+      "universe_url": "https://typst.app/universe/package/physica",
+      "repository_url": "https://github.com/Leedehai/typst-physics"
     }
   ]
 }

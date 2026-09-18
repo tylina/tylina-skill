@@ -2,7 +2,9 @@
 
 **Package**: `@preview/quill:0.8.0`  
 **Category**: Scientific diagram  
+**Typst Universe**: <https://typst.app/universe/package/quill>
 **Repository**: <https://github.com/Mc-Zen/quill>  
+**Versioned user guide**: <https://github.com/Mc-Zen/quill/releases/download/v0.8.0/quill-guide.pdf>
 **License**: MIT
 
 ## Verified Boundary

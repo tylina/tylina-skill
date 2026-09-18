@@ -1,9 +1,10 @@
 # Office Forms and Template Selection
 
-Select the artifact and jurisdictional boundary before selecting a visual template. Always call
-`template.list` or `package.list`. Inspect exact template candidates with `template.inspect`; for a
-package, read the routed recipe or verify the returned exact spec against official versioned
-documentation. Names below are search seeds, not stable API promises.
+Select the artifact and jurisdictional boundary before selecting a visual template. Continue a
+working implementation when it already fits. When a new template or package is actually needed,
+call the corresponding `template.list` or `package.list`; inspect an exact template candidate with
+`template.inspect`, or read the package's routed recipe/demo before escalating to official
+versioned documentation. Names below are search seeds, not stable API promises.
 
 ## Artifact Routing
 
@@ -14,11 +15,11 @@ documentation. Names below are search seeds, not stable API promises.
 | Meeting agenda or minutes | `quick-minutes` | attendee and absence model, agenda linkage, decisions, actions, owners, deadlines, approval and revision state |
 | Policy or governance document | `govern`, `briefs` | status, owner, approver, effective and review dates, version history, references, distribution and archival needs |
 | Operational checklist or form | `cheq`, `check-six` | check state semantics, writable controls, reset behavior, print marks, identifiers, accessibility |
-| QR code or barcode | `tiaoma` | exact encoded payload, symbology, quiet zone, print size, error correction, privacy and scanner verification |
+| QR code or barcode | `tiaoma` | exact encoded payload, symbology, quiet zone, print size, error correction, privacy, and scanner verification when available |
 
-Current discovery observed `letterloom` 3.0.2, `invoice-pro` 0.4.2,
-`quick-minutes` 1.2.5, and `govern` 0.2.1. Treat these versions as research context only; use the
-version returned by the active host and inspect its documentation before authoring.
+The names above are search seeds, not pinned recommendations. Use the active host's
+`template.list`/`package.list` result and inspect its exact version before authoring; do not copy a
+version from this document.
 
 ## Letters and Correspondence
 
@@ -49,5 +50,7 @@ version returned by the active host and inspect its documentation before authori
   version and approval trail supplied by the organization.
 - Printed forms need sufficient writing space, stable labels, clear required fields, and a logical
   reading order. Interactive-looking boxes do not imply fillable-PDF behavior.
-- Generate barcodes or QR codes only from an explicitly supplied payload. Decode or scan the final
-  rendered symbol and check its physical size before delivery.
+- Generate barcodes or QR codes only from an explicitly supplied payload. Check physical size,
+  contrast, and quiet space in the final render. When an independent decoder or scanner is
+  available and authorized, verify the final raster or printed proof against the exact payload;
+  otherwise report machine readability as unverified rather than claiming a successful scan.

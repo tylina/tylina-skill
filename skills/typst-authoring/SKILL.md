@@ -6,7 +6,6 @@ description: Author, refactor, diagnose, and verify Typst documents through Tyli
 # Typst Authoring
 
 Typst source and workspace resources are canonical; rendered pages are views.
-Adapt domain workflows to current evidence; preserve explicit contracts and verification gates.
 
 ## Commands
 
@@ -38,10 +37,11 @@ For a PDF or Office source in the workspace, use `document.import` and read
    `document.validate`. A last-successful preview does not make a failed edit valid.
    Do not substitute a shell `typst compile`: it bypasses Tylina's current-main, verifier, and
    preview state while duplicating work.
-8. For layout changes, inspect affected pages with `render.page`; use `render.summary` or
-   an overview only when page count or location is unknown. Check overflow, clipping,
-   collisions, contrast, missing content, and pagination. Reuse returned images; do not render the
-   same unchanged revision, page, and PPI twice.
+8. For layout changes, use `render.summary` for page count and sizes, then inspect affected pages
+   with `render.page`. Check overflow, clipping, collisions, contrast, missing content, and
+   pagination. Do not re-render an unchanged revision/page/PPI. A requested page maximum is a
+   ceiling: once met with readable, defect-free inspected pages, stop; do not cut supported
+   content to save pages.
 9. Export inside the workspace only after validation; overwrite only when explicit. Review-only
    requests do not modify files unless requested. Report incomplete verification.
 
@@ -126,15 +126,16 @@ inspect the rendered notation.
 
 ## Package Discovery
 
-Use `package.list` for the current official Typst Universe catalog, including non-template
-packages. Filter by a focused query, category, or discipline, then read only the returned
-`skillPaths` and optional `recipePath`. `_shared/packages/index.json` retains pinned,
-compile-verified examples for selected packages. When the selected recipe or current workspace
+Existing imports win. Read an exact recipe named by the loaded domain Skill before discovery.
+Otherwise use `package.list` for the official Typst Universe catalog, filter by one focused query,
+category, or discipline, and read only the returned
+`skillPaths`, `recipePath`, and `demoPath` values that apply. These direct paths expose pinned,
+compile-verified guidance for selected packages. When the selected recipe or current workspace
 does not establish the needed API, call `package.inspect` with the returned exact `spec` and only
 the needed README, manifest, entrypoint, file list, or explicit source path. Package source is
 read-only: never edit the package cache, treat it as a Document target, or replace the selected
-version with repository HEAD. Existing workspace imports win; never recall a version from memory,
-infer an API from list metadata, or add a package merely because it is listed.
+version with repository HEAD. Never recall a version from memory, infer an API from list metadata,
+or add a package merely because it is listed.
 
 ## Modes
 
@@ -168,7 +169,7 @@ infer an API from list metadata, or add a package merely because it is listed.
   `typst-authoring/references/evidence-escalation.md`.
 - Official Typst or Touying behavior: route through `_shared/docs/index.json` to one narrow page;
   use https://typst.app/docs/ when the packaged snapshot does not cover the current behavior.
-- Package capability/API: route through `_shared/packages/index.json` to one README and demo.
+- Package capability/API: use `package.list`, then read one returned recipe and demo path.
 
 Read the paths above through `skill.read`; use `skill.list` when the relevant domain is not yet
 known. Reuse references already in context. Never import a packaged Skill path from final Typst

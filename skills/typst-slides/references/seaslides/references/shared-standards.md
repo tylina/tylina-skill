@@ -11,7 +11,7 @@ Universal technical constraints for SeaSlides Typst Slides. Ensures consistency 
 - [Typst syntax quick reference](#0-typst-syntax-quick-reference)
 - [Project directory structure](#project-directory-structure)
 - [Template-content separation](#1-template-content-separation-principles)
-- [Typst and Touying hard constraints](#2-typsttouying-hard-constraints)
+- [Typst and Touying constraints](#2-typsttouying-hard-constraints)
 - [Design standards](#3-design-standards)
 - [Layout best practices](#4-layout-best-practices)
 - [Third-party packages](#5-third-party-package-reference)
@@ -102,7 +102,9 @@ project_name/
         └── slide_{01,02,...}.png
 ```
 
-> `#speaker-note[...]` automatically attaches to the preceding slide. Place it anywhere after the slide's content — inside `#slide[...]`, after bullet points under `== Heading`, or before the next `==` heading. Ensure every slide has one.
+> `#speaker-note[...]` automatically attaches to the preceding slide. When notes are requested,
+> supplied, or needed for narration, place each block after that slide's content—inside
+> `#slide[...]`, after bullet points under `== Heading`, or before the next `==` heading.
 
 ---
 
@@ -115,7 +117,9 @@ project_name/
 | `template.typ` | Color palette, component functions, slide functions, theme entry point | Any slide content text |
 | `main.typ` | Slide content, headings, lists, component calls, structural layout | Raw `rgb(...)`, ad-hoc styled blocks, font family changes |
 
-When switching themes, only template.typ changes. main.typ stays the same.
+When switching themes, keep the entrypoint and content stable where the selected theme's public
+contract allows it. A theme may intentionally expose a different entry function or local tokens;
+follow that contract instead of forcing every theme into one file shape.
 
 ### 1b. What's Allowed in main.typ
 
@@ -162,7 +166,7 @@ such as `v(1fr)` or `lazy-v(1fr)`.
 
 ---
 
-## 2. Typst/Touying Hard Constraints
+## 2. Typst/Touying Constraints
 
 ### Version and Import
 
@@ -225,10 +229,15 @@ With standard themes (header ~40pt, footer ~20pt, margins ~30pt each side), effe
 
 ### Slide Structure
 
-- **Slide titles**: Use `==` syntax — do NOT use `#slide(title: [...])` unless overriding the title
-- **Multi-column layouts**: Use `#cols[...][...]` (universal column layout)
-- **Display titles**: Use `utils.display-current-heading()` in template
-- **Theme construction**: Use `touying-slide` and `touying-slides`
+- **Slide titles**: Prefer the selected theme's documented heading-driven or explicit slide API.
+  `==` is common in heading-driven themes, while `#slide(...)` is valid for custom composers,
+  explicit titles, and animation. Do not rewrite an existing deck solely to change the syntax.
+- **Multi-column layouts**: Use the selected theme's documented column primitive; `#cols[...][...]`
+  is a common safe choice when the theme does not provide one.
+- **Display titles**: Use `utils.display-current-heading()` only when the selected theme's
+  template calls for it.
+- **Theme construction**: Follow the selected theme's public entrypoint and demo; custom themes
+  commonly use `touying-slide` and `touying-slides`.
 
 ```typst
 == My Slide Title
@@ -487,19 +496,15 @@ the callee uses it.
 
 ### Preventing Content Overflow
 
-For a project-owned/custom Touying 0.7.4 entry:
+Choose the overflow behavior that matches the artifact contract. In a project-owned/custom Touying
+0.7.4 entry, `config-common(breakable: false)` keeps a logical slide together; it is useful when
+one logical slide must stay on one page, but it can leave content outside the available area. The
+default breakable behavior can create additional physical pages for long content. `clip: true`
+silently hides overflow and is appropriate only when the crop is intentional and documented; never
+use it to hide an unreviewed overflow. `detect-overflow: true` is useful as a development check when
+the selected API supports it.
 
-```typst
-#show: my-theme.with(
-  config-common(breakable: false),  // Truncate instead of creating new slides
-)
-```
-
-- `breakable: false` — Recommended. Truncates with warning.
-- `clip: true` — Silently clips overflow.
-- Limit bullet points to 4-5 per slide. In 4-column grids, keep cards to 2-3 lines.
-
-`config-common(breakable: false)` must be passed inside the theme show rule:
+When configuring a project-owned theme, pass the option through its documented show rule:
 
 ```typst
 #show: my-theme.with(
@@ -507,12 +512,11 @@ For a project-owned/custom Touying 0.7.4 entry:
 )
 ```
 
-Do not leave `#config-common(breakable: false)` as a standalone body expression. Standalone `config-common(...)` does not configure the deck reliably and can render as visible/debug content in broken mixed-mode contexts.
-
-For a third-party Universe theme, add `breakable: false` only through the
-package's supported configuration API. Older package-owned Touying versions may
-not expose `config-common` compatibly. In every case, verify physical page count
-and every rendered page; the setting does not replace visual review.
+Do not leave `#config-common(breakable: false)` as a standalone body expression. Standalone
+`config-common(...)` does not configure the deck reliably and can render as visible/debug content in
+broken mixed-mode contexts. For a third-party Universe theme, use only the package's supported API;
+older package-owned Touying versions may not expose `config-common` compatibly. Always verify the
+physical page count and every rendered page after choosing an overflow policy.
 
 **Rules of thumb** for avoiding overflow:
 - Keep bullets and vertically stacked cards short enough to scan at delivery size; there is no universal item cap.
@@ -603,7 +607,7 @@ instead of sequential elements joined by `v()`.
 > **Rule of thumb**: 2+ elements in one deliberate vertical visual group →
 > `stack(spacing:)`. For ordinary prose/content groups, start around
 > `spacing: .8em` and tune against the rendered typography. Headers and KPI
-> internals follow the `.8em` minimums below. Smaller positive spacing can
+> internals often benefit from this starting point, but there is no universal minimum. Smaller positive spacing can
 > be correct for tiny labels, dimension marks, badges, and tightly coupled
 > decorative primitives. Do not create a stack merely to satisfy a numeric
 > threshold. Horizontal
@@ -612,15 +616,10 @@ instead of sequential elements joined by `v()`.
 > Three-part horizontal footer → `grid(columns: (1fr, auto, 1fr))`, NOT
 > `h(1fr)`.
 
-> **MANDATORY in headers**: Theme headers that combine a title + accent line
-> (or kicker + title + rule) MUST use `stack(spacing: .8em)` or more. Using
-> `v()` between these elements causes paragraph-spacing drift; replacing it
-> with an undersized `.3em` stack does not create a useful visual group.
-
-> **MANDATORY in stat/KPI/metric cards**: A vertical icon → value → label
-> composition MUST use one centered `stack(spacing: .8em, ...)` or more. Do not insert
-> `v(Npt)` between those component internals; paragraph-flow spacing produces
-> inconsistent card rhythm and height drift.
+> **Headers and KPI cards**: When a header or metric is one deliberate visual group, a
+> `stack(spacing: ...)` often gives more predictable rhythm than paragraph spacing. `.8em` is a
+> useful starting point, not a universal minimum; compact labels and a selected theme may need a
+> smaller gap. Render the actual typography and adjust rather than satisfying a numeric rule.
 
 > **Adjacent blocks with no gap**: When two blocks must touch (e.g., title-bar + content-area in a browser-frame card), wrap them in `stack(spacing: 0pt)` and set `clip: true` on the outer container. Otherwise Typst inserts paragraph spacing between them.
 
@@ -665,6 +664,11 @@ For imported PDF source images: use `#slide(composer: (2fr, 1fr))` with `height:
 
 ## 5. Third-party Package Reference
 
+The table below is a versioned hint for the checked-in examples, not a complete or always-current
+Typst Universe catalog. A row without a local recipe and compiling demo is not a verified API
+contract. For a new dependency, use `package.list` for the exact spec and routed recipe/demo, then
+compile a focused probe before introducing it; do not copy a version from this table blindly.
+
 | Package | Version | Purpose | Import |
 |---------|---------|---------|--------|
 | touying | 0.7.4 | Slide framework | `#import "@preview/touying:0.7.4": *` |
@@ -688,9 +692,9 @@ For imported PDF source images: use `#slide(composer: (2fr, 1fr))` with `height:
 > code with zebra stripes → codly; algorithms → lovelace; task lists → cheq;
 > flowcharts/Gantt/sequence diagrams → merman. Multiple can be combined. Gribouille is an
 > alternative plotting model, not an automatic replacement for Lilaq.
-> **More packages**: See `_shared/packages/index.json` for additional curated packages
-> (theorion, tablem, pinit, numbly, tiaoma, cuti). Human-readable docs are at
-> `_shared/packages/README.md`.
+> **More packages**: Query `package.list` by one focused capability or exact name. Read only the
+> returned exact `recipePath` and `demoPath` when present; use `package.inspect` for the selected
+> exact spec only when those resources are insufficient.
 > **Charts**: See `_shared/charts/index.json` for chart component templates
 > (lilaq, primaviz, merman, etc.).
 > **Icons**: See `_shared/icons/index.json` and `_shared/icons/README.md`. Use emoji by default.
@@ -1012,12 +1016,10 @@ Use standard Typst raw block syntax (triple backticks) for code examples. Do NOT
 
 ### Font Availability: Verify Before Use
 
-Always verify font availability on the compilation system before using them in Typst files:
-
-```bash
-# Check available fonts
-typst fonts | grep -i "cjk\|chinese\|song\|hei\|kai"
-```
+Verify font availability on the compilation system before depending on a named family. Use a host
+font inventory when available. Otherwise compile representative longest lines, retain any
+missing-family diagnostics, inspect the actual fallback, and report that the intended family was
+not independently confirmed.
 
 Common macOS Chinese fonts: `Heiti SC`, `PingFang SC`, `Kaiti SC`, `Songti SC`. On Linux, use `Noto Sans CJK SC` / `Noto Serif CJK SC`.
 
@@ -1126,7 +1128,7 @@ rendered equation at readable size.
 | Direct `@preview/touying:0.5.3` in a project-owned/custom theme | Wrong direct-import version; API incompatible with this skill's custom-theme patterns. | Use direct `@preview/touying:0.7.4`. For a Universe package that owns an older transitive version, keep its documented package API instead of mixing versions. |
 | Bare function calls inside `[...]` markup blocks | `v(8pt)`, `text(...)`, `block(...)`, `align(...)` without `#` prefix inside `#slide[...]`, `#block[...]`, or any `[...]` content block | Renders as literal text instead of executing the function — causes entire slides to display raw code | Always use `#v()`, `#text()`, `#block()`, `#align()` inside `[...]` markup. Bare calls are ONLY correct inside `{...}` code blocks. See §7 "Markup Mode vs Code Mode". |
 | Raw template code rendered on slides | Visible `if self.store...`, `utils.display-current-heading`, `config-common(...)`, `stack(...)`, or Markdown scaffolding such as `|---|` in the output | A `[...]` markup block was used where `{...}` code mode was required, or Markdown was not converted | Fix the source mode boundary, run `document.validate`, and inspect the affected pages with `render.overview` or `render.page`. |
-| Third-party `#show` rules AFTER theme show rule | Packages like codly, cheq use `#show` rules that must wrap the theme. Placing them after `#show: theme.with(...)` can cause blank first slides, broken code blocks, or ignored styling. | Place third-party `#show` rules BEFORE the theme show rule: `#show: codly-init` / `#show: checklist.with(...)` then `#show: theme.with(...)`. The theme show rule should always be last. Do NOT use zebraw — it causes compilation failures. |
+| Third-party `#show` rules AFTER theme show rule | Packages like codly, cheq, and Zebraw can use `#show` rules that must wrap the theme. Placing them after `#show: theme.with(...)` can cause blank first slides, broken code blocks, or ignored styling. | Place a package's documented `#show` rule BEFORE the theme show rule, then put `#show: theme.with(...)` last. Zebraw 0.6.3 is a supported, compile-verified option; keep its pinned API and revalidate when combining it with a theme. |
 
 ### 9b. Design/Quality Anti-Patterns
 
@@ -1136,7 +1138,7 @@ rendered equation at readable size.
 | Using builtin theme without explicit user request | Generic output. | Default to custom themes from `custom-rich/` or `custom-canvas/`. |
 | Accidental repeated layout | Can feel mechanical when repetition has no communicative purpose. | Review in narrative context; keep stable layouts for comparison/sequence and vary accidental monotony. |
 | `#text(size: X)[entire slide content...]` as shrink hack | Ruins hierarchy. | Reduce content or split into multiple slides. |
-| Speaker notes missing | Less useful for presenter. | Add `#speaker-note[...]` on EVERY slide. |
+| Requested speaker notes missing or attached to the wrong slide | Narration is incomplete or misleading. | Add or move `#speaker-note[...]` for the affected logical slides. |
 | Full-width solid-color header bar | Looks AI-generated. | Title on background with thin accent underline, or thin top bar (≤ 4pt). |
 | Bold weight for ALL headings | Monotonous typography. | Vary weights: lighter for large text, bolder for small labels. |
 

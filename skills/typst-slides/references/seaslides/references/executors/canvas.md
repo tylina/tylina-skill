@@ -26,7 +26,8 @@ High-craft visual Typst slide executor for editorial magazine, Swiss internation
 - `template-designer.md` — Theme design patterns, component implementations
 - `design-guide.md` — Aesthetic philosophy, anti-patterns, visual excellence principles
 - `image-layout-patterns.md` — 72 image-text layout patterns (Primary + Modifier vocabulary)
-- `_shared/packages/index.json` — Additional packages: mitex (math), lilaq (standard charts), gribouille (layered Grammar-of-Graphics plots), merman (Mermaid flowcharts/Gantt), codly (zebra-stripe code), lovelace (pseudocode), cheq (checklists), pinit (annotations), etc.
+- `package.list` — Find an additional package by one focused capability, then read only the
+  returned exact `recipePath` and `demoPath` when present.
 - `_shared/icons/index.json` — Icon packages; use emoji by default
 
 > **Rule**: All technical standards (APIs, versions, syntax) are defined in those documents. This file covers **Canvas style-specific** guidance only.
@@ -772,7 +773,7 @@ For stronger legibility (3-layer):
 
 ### P0 — Must never violate
 
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] New formulas use native Typst math; MiTeX only preserves supplied LaTeX or an existing MiTeX style
 - [ ] NO fake formula text or Unicode lookalikes — use native Typst math or justified MiTeX input
@@ -816,11 +817,14 @@ For stronger legibility (3-layer):
 - [ ] No element exists purely for decoration — every mark earns its place
 - [ ] Composition varies where it improves hierarchy or pacing, while purposeful comparison/sequence layouts remain stable
 - [ ] Images are compositionally strong, not generic stock photography
-- [ ] Speaker notes are polished, TTS-ready, and match the deck's tone
+- [ ] Speaker notes, when in scope, are polished, TTS-ready, and match the deck's tone
 
 ---
 
 ## 6. Speaker Notes Style
+
+Apply this section only when speaker notes are part of the request, supplied source, or delivery
+plan.
 
 ### Narrative Tone
 

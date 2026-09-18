@@ -18,7 +18,7 @@ Generate the content file (`main.typ`) for a Touying presentation. This workflow
 - [Read Design Specifications](#step-1-read-design-specifications)
 - [Determine Complexity Level](#step-2-determine-complexity-level)
 - [Generate main.typ](#step-3-generate-maintyp)
-- [Add Speaker Notes](#step-4-add-speaker-notes)
+- [Handle Speaker Notes](#step-4-add-speaker-notes-when-needed)
 - [Compile and Review](#step-5-compile--review)
 - [Notes](#notes)
 
@@ -31,7 +31,7 @@ Called when:
 ## Process Overview
 
 ```
-Read Specs → Determine Complexity → Generate main.typ → Add Speaker Notes → Compile & Review
+Read Specs → Determine Complexity → Generate main.typ → Handle Requested Notes → Compile & Review
 ```
 
 ---
@@ -101,9 +101,10 @@ Follow the slide outline from `content_design_spec.md` §VII page-by-page:
 
 ---
 
-## Step 4: Add Speaker Notes
+## Step 4: Add Speaker Notes When Needed
 
-Add `#speaker-note[...]` on each slide following the rules in `base.md` §4 Phase 3:
+Preserve supplied or existing notes. When the user requests notes or the delivery setting needs a
+separate narration layer, add `#speaker-note[...]` following the rules in `base.md` §4 Phase 3:
 
 - 2-5 natural sentences per slide
 - TTS-ready (no bracketed markers, no meta-commentary)
@@ -121,7 +122,7 @@ the corrected source validates.
 
 - [ ] All slides compile without errors
 - [ ] No content overflow (text cut off or spilling)
-- [ ] CRITICAL: Every content slide has a #speaker-note[...] block
+- [ ] Requested, supplied, or existing speaker notes remain attached to the correct logical slide
 - [ ] All slides created via == Heading (NOT #slide(title: ...))
 - [ ] All relevant source images from sources/ are used in slides
 - [ ] If sources/ contains images, verify at least some are referenced in main.typ
@@ -141,5 +142,5 @@ the corrected source validates.
 - This workflow generates `main.typ` only — `template.typ` should already exist
 - For new themes, run `create-template.md` first
 - For existing themes from the library, the theme files are already available
-- Keep speaker notes semantic and complete so downstream narration tools can consume them when the
-  user's host provides that separate capability.
+- When speaker notes are in scope, keep them semantic and complete so downstream narration tools
+  can consume them when the user's host provides that separate capability.

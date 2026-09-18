@@ -11,7 +11,7 @@ themes/
 ├── custom-plain/     → Lightweight color/typography schemes
 ├── builtin/          → Touying built-in (no local files needed)
 ├── universe/         → Community packages (institutional)
-└── user/             → User-created themes (disk scan, not registered)
+└── user/             → Upstream-maintainer area; not an Agent-writable Tylina library
 ```
 
 ## Capability-Aware Routing
@@ -26,7 +26,8 @@ themes/
 
 ## Quick Selection Rules
 
-1. **Check `user/` first** — scan for previously created themes
+1. **Honor the current workspace or a host-managed user theme first** — do not scan or write a
+   private packaged-resource directory
 2. **Never default to builtin** unless user explicitly names one
 3. **Diversify** — don't always pick the same theme for a topic
 4. **Match the feeling** — choose by visual atmosphere, not rigid topic category
@@ -51,7 +52,9 @@ Each sub-directory contains its own `index.json` for programmatic lookup:
 
 ## Theme Discovery and Materialization
 
-Use the tier indexes to choose a theme, resolve the exact entry with `template.list`, inspect it,
-and materialize it with `template.create`. Use the returned destination and entrypoint.
+Use the tier indexes to choose a bundled theme, resolve the exact entry with `template.list`,
+inspect it, and materialize it with `template.create`. Use the returned destination and
+entrypoint. A host-managed user theme is available only when the host catalog exposes it.
 
-Search order: `user/` → `custom-canvas/` → `custom-rich/` → `custom-plain/` → `builtin/` → `universe/`
+Selection order: current scaffold or host-managed selection → relevant bundled tier → builtin or
+Universe theme only when the user names it or its documented capability is needed.

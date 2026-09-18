@@ -128,8 +128,10 @@ workspaces alongside the CV, poster and social-cover collection. Matching galler
 `resources/template-previews` and are packaged at the editor's stable preview URLs.
 
 This repository is independently installable content. Run `npm test` to check metadata, links and the release
-archive boundary. Run `npm run test:scenarios` with Typst 0.15 to
-compile every Tylina-owned template and output variant. Tylina-maintained Skill guidance is [MIT licensed](LICENSE);
+archive boundary. With Typst 0.15, run `npm run test:packages`, `npm run test:scenarios`, and
+`npm run test:visual-resources` to compile every curated package demo, scenario entry and variant,
+and all chart and icon examples.
+Tylina-maintained Skill guidance is [MIT licensed](LICENSE);
 mirrored third-party documentation and template examples retain their upstream licenses and notices.
 The SDK, editor, fonts and packaged templates retain their own licenses.
 
@@ -138,11 +140,15 @@ minimum compatible Tylina version live in `skills/catalog.json`; individual `SKI
 standard Skill packages and do not carry a Tylina-only manifest. A release tag publishes one complete,
 byte-verified ZIP. The latest release index retains the newest collection for every compatibility floor,
 so an older Tylina can still discover its newest compatible collection after the tool contract advances.
-Compatible hosts download in the background and activate the whole collection for the next host session,
-while keeping their packaged collection as the fallback. Content-only releases do not raise the minimum
-Tylina version; a new host command or changed tool contract does.
+Electron, Node SDK and DSH hosts download compatible releases in the background and activate the whole
+collection on the next host start, while keeping their packaged collection as the fallback. The Web editor
+uses only the collection packaged with its deployment and never polls this release index. Content-only
+releases do not raise the minimum Tylina version; a new host command or changed tool contract does.
+A failed candidate leaves the active version unchanged; an invalid active snapshot falls back to packaged content.
+After startup selects a snapshot, a missing on-demand resource fails explicitly instead of mixing in another version.
 
 Collection releases use the Tylina semver series for a recognizable product generation, starting at
-`0.15.0`; development snapshots may use versions such as `0.15.1-alpha.1`. The release cadence remains
-independent: `minimumTylinaVersion`, not an exact version match, determines host compatibility. Alpha
-versions identify packaged development snapshots; only a stable version can produce an official update release.
+`0.15.0`; the collection version equals the corresponding Tylina release, and development snapshots
+use the same next patch with `alpha.N`. The archive can publish independently after the matching
+release is verified, while `minimumTylinaVersion` determines whether an older host may install it.
+Only a stable version can produce an official update release.

@@ -27,7 +27,7 @@ Compose this Skill with Typst Authoring.
   styles, or cross-references can justify a package.
 - The offline scaffold is indexed at `_shared/scenarios/theorem-proof/index.json`; materialize its
   complete selected entry with the template tools. The pinned Theorion API is documented at
-  `_shared/packages/theorion/README.md` and its `demo.typ`.
+  `_shared/packages/theorion/README.md` and `_shared/packages/theorion/demo.typ`.
 - Labels belong to the semantic statement they identify. Inspect affected statements, equations,
   proof endings, numbering, page breaks, and references after validation.
 

@@ -1,6 +1,16 @@
-# Chart Component Templates
+# Touying Chart Slide Examples
 
-Reusable Typst chart components for Touying slides. Built with Typst packages such as lilaq, gribouille, primaviz, merman, fletcher, and cetz.
+These are complete 16:9 slides using Touying 0.7.4's simple theme. They are reference examples,
+not embeddable chart components. A slide deck may adapt one example's data and chart body while
+keeping its own theme; a paper, report, poster, or other document should start from the matching
+package recipe and demo instead. Never paste an example's Touying imports, `#show` rule, title,
+or page setup into an existing artifact.
+
+The examples use packages such as lilaq, gribouille, primaviz, merman, fletcher, and cetz.
+
+Every value, source line, organization, and claim in these files is illustrative. Treat the files
+as syntax and layout evidence only; replace the data with user-supplied or independently verified
+records before delivery.
 
 Use [`index.json`](./index.json) as the source of truth for the current inventory, package mapping, categories, and programmatic lookup. The examples below use the Touying 0.7.4 simple theme in 16:9.
 
@@ -9,7 +19,7 @@ Use [`index.json`](./index.json) as the source of truth for the current inventor
 - [Standard Template Structure](#standard-template-structure)
 - [Quick Selection](#quick-selection)
 - [Full Chart Index](#full-chart-index)
-- [Package Selection Priority](#package-selection-priority)
+- [Package Capability Hints](#package-capability-hints)
 - [Package Usage Notes](#package-usage-notes)
 - [Layout Best Practices](#layout-best-practices)
 - [Font Size and Dimension Standards](#font-size-and-dimension-standards)
@@ -17,9 +27,9 @@ Use [`index.json`](./index.json) as the source of truth for the current inventor
 
 ---
 
-## Standard Template Structure
+## Complete Slide Structure
 
-All chart slides must follow this standard structure (using `area_chart.typ` as reference):
+Each file uses this standalone slide structure (using `area_chart.typ` as reference):
 
 ```typst
 #import "@preview/touying:0.7.4": *
@@ -61,11 +71,13 @@ All chart slides must follow this standard structure (using `area_chart.typ` as 
 
 1. **`#set text(size: 18pt)`** goes **after** `#show: simple-theme.with(...)`
 2. **Data definitions** (colors, data arrays, etc.) go **after** `== Title`
-3. **Wrap charts in `#figure[]`** for centering + semantic markup
+3. **Wrap charts in `#figure[]`** when caption, label, or figure semantics are needed; ordinary
+   flow is also valid for a chart that is not a numbered figure
 4. **Legends and notes** closely related to the chart go **inside** `#figure[]`, right-aligned with `#align(right)[]`
 5. **Standalone introductory paragraphs** go **outside** `#figure[]`
 6. **Remove unnecessary nesting**: don't wrap titles in `#block()` or `#text(size:..., weight: "bold")`, just use `== Title`
-7. **Always use `themes.simple`**, not `themes.default`
+7. These standalone examples use `themes.simple`; preserve the target deck's documented theme
+   rather than importing `themes.simple` into an existing deck
 8. **Helper function definitions** go after `== Title`, before `#figure[]`
 
 ---
@@ -147,7 +159,7 @@ All chart slides must follow this standard structure (using `area_chart.typ` as 
 | `scatter_chart.typ` | lilaq | Correlation / distribution | ROI analysis, price-demand |
 | `funnel_chart.typ` | cetz | Conversion funnel (3-5 stages) | Sales funnel, user conversion |
 | `matrix_2x2.typ` | cetz | Four-quadrant analysis | BCG matrix, priority analysis |
-| `bubble_chart.typ` | lilaq | 3D bubble (X/Y/Size) | Market size vs growth vs share |
+| `bubble_chart.typ` | lilaq | 2D bubble (X/Y/Size) | Market size vs growth vs share |
 | `heatmap_chart.typ` | primaviz | Matrix heatmap | User activity by time, correlation matrix |
 | `pareto_chart.typ` | lilaq | 80/20 Pareto analysis | Quality attribution, sales contribution |
 | `box_plot_chart.typ` | lilaq | Box plot distribution | Salary distribution, quality control |
@@ -195,7 +207,12 @@ All chart slides must follow this standard structure (using `area_chart.typ` as 
 
 ---
 
-## Package Selection Priority
+## Package Capability Hints (Not a Ranking or API Contract)
+
+This table routes visual grammars represented by checked-in examples. It is not a current package
+catalog, compatibility promise, or quality ranking; some rows have no local package recipe. Use
+`package.list` for an exact spec and its routed recipe/demo, then compile a focused probe before
+introducing a dependency. Do not add a package solely because it appears in this table.
 
 | Priority | Package | Version | Best For |
 |----------|---------|---------|----------|

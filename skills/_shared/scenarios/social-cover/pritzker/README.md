@@ -1,7 +1,8 @@
 # Pritzker social cover
 
-A 1242×1660 (3:4) architecture-and-culture cover adapted from the local
-`themes/custom-canvas/pritzker` visual language and the image-led cover hierarchy used by `local/ppt-master`.
+A 1242×1660 (3:4) architecture-and-culture cover adapted from the bundled
+`themes/custom-canvas/pritzker` visual language and the image-led cover hierarchy studied in
+[PPT Master](https://github.com/hugohe3/ppt-master).
 
 - `template.typ` owns the spatial field, bronze/ink palette, type hierarchy, and note components.
 - `demo.typ` supplies a complete public-space observation cover.
