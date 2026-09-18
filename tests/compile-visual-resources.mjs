@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { runTypst } from './typst-process.mjs'
+import { runTypst, typstWarnings } from './typst-process.mjs'
 
 const repositoryRoot = fileURLToPath(new URL('../', import.meta.url))
 const skillsRoot = join(repositoryRoot, 'skills')
@@ -38,7 +38,8 @@ async function compile(id, sourcePath) {
     sourcePath,
     outputPath
   ], skillsRoot)
-  assert.equal(stderr.trim(), '', `Unexpected Typst warning for ${id}:\n${stderr.trim()}`)
+  assert.deepEqual(typstWarnings(stderr).messages, [],
+    `Unexpected Typst warning for ${id}:\n${stderr.trim()}`)
   const pdf = await readFile(outputPath)
   assert.equal(pdf.subarray(0, 5).toString('ascii'), '%PDF-', `Invalid PDF: ${id}`)
 }

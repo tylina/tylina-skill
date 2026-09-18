@@ -11,6 +11,14 @@ export function typstEnvironment(environment = process.env) {
   }
 }
 
+export function typstWarnings(stderr) {
+  const messages = [...stderr.matchAll(/^warning: (.+)$/gmu)].map((match) => match[1])
+  const diagnostics = [...stderr.matchAll(
+    /^warning: (.+)\n\s*┌─ (.+):\d+:\d+$/gmu
+  )].map((match) => ({ message: match[1], source: match[2].replaceAll('\\', '/') }))
+  return { messages, diagnostics }
+}
+
 export function runTypst(args, cwd) {
   return new Promise((resolvePromise, reject) => {
     const child = spawn(typst, args, {

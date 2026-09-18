@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { runTypst } from './typst-process.mjs'
+import { runTypst, typstWarnings } from './typst-process.mjs'
 
 const repositoryRoot = fileURLToPath(new URL('../', import.meta.url))
 const skillsRoot = join(repositoryRoot, 'skills')
@@ -65,10 +65,7 @@ async function compile(recipe, extraArgs, variant) {
   const pdf = await readFile(outputPath)
   assert.equal(pdf.subarray(0, 5).toString('ascii'), '%PDF-',
     `Invalid PDF: ${recipe.name}/${variant}`)
-  const actualWarnings = [...stderr.matchAll(/^warning: (.+)$/gmu)].map((match) => match[1])
-  const warningDiagnostics = [...stderr.matchAll(
-    /^warning: (.+)\n\s*┌─ (.+):\d+:\d+$/gmu
-  )].map((match) => ({ message: match[1], source: match[2].replaceAll('\\', '/') }))
+  const { messages: actualWarnings, diagnostics: warningDiagnostics } = typstWarnings(stderr)
   assert.deepEqual(
     warningDiagnostics.map((warning) => warning.message),
     actualWarnings,
